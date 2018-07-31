@@ -47,7 +47,7 @@ public class UserRestController {
     }
 
     @RequestMapping(value = "/getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserDTO getById(@PathVariable("name") String name) throws UserNotFoundException{
+    public UserDTO getByName(@PathVariable("name") String name) throws UserNotFoundException{
         User user= userServices.getByName(name);
         UserDTO userDTO = new UserDTO();
         userDTO.setName(user.getName());
@@ -70,5 +70,16 @@ public class UserRestController {
         user.setUid(userDTO.getUid());
         user.setUserType(userDTO.getUserType());
         return userServices.save(user);
+    }
+
+    @RequestMapping(value = "/update/{id}_{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public User updateNameById(@PathVariable("id") int id, @PathVariable("name") String name) throws UserNotFoundException{
+        User user = userServices.updateName(id, name);
+        return user;
+    }
+
+    @RequestMapping(value = "/delete/{id}")
+    public void deleteById(@PathVariable("id") int id) throws UserNotFoundException {
+        userServices.removeUserById(id);
     }
 }

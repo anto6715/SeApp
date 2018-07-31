@@ -3,14 +3,12 @@ package it.unisalento.se.saw.restapi;
 import it.unisalento.se.saw.Iservices.IStudentServices;
 import it.unisalento.se.saw.domain.Student;
 import it.unisalento.se.saw.dto.StudentDTO;
+import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.ManyToOne;
 import java.util.List;
@@ -38,12 +36,23 @@ public class StudentRestController {
 
     @RequestMapping(value = "getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public StudentDTO getById(@PathVariable("id") int id) throws StudentNotFoundException {
-        Student student = studentServices.getById(id);
-        StudentDTO studentDTO = new StudentDTO();
-        studentDTO.setMatricola(student.getMatricola());
-        studentDTO.setYear(student.getYear());
-        studentDTO.setYearStart(student.getYearStart());
-        return studentDTO;
+        try{
+            Student student = studentServices.getById(id);
+            StudentDTO studentDTO = new StudentDTO();
+            studentDTO.setYearStart(student.getYearStart());
+            studentDTO.setYear(student.getYear());
+            studentDTO.setMatricola(student.getMatricola());
+            studentDTO.setAge(student.getUser().getAge());
+            studentDTO.setEmail(student.getUser().getEmail());
+            studentDTO.setPassword(student.getUser().getPassword());
+            studentDTO.setName(student.getUser().getName());
+            studentDTO.setSurname(student.getUser().getSurname());
+            studentDTO.setUid(student.getUser().getUid());
+            return studentDTO;
+        } catch (Exception e) {
+            System.out.println("Utente non trovato");
+        }
+        return null;
     }
 
     @RequestMapping(value = "getByCourse/{course}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -53,7 +62,28 @@ public class StudentRestController {
 
     @RequestMapping(value = "getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public StudentDTO getByName(@PathVariable("name") String name) throws StudentNotFoundException, UserNotFoundException {
-        StudentDTO studentDTO = studentServices.getByName(name);
+        Student student = studentServices.getByName(name);
+        StudentDTO studentDTO = new StudentDTO();
+        studentDTO.setYearStart(student.getYearStart());
+        studentDTO.setYear(student.getYear());
+        studentDTO.setMatricola(student.getMatricola());
+        studentDTO.setAge(student.getUser().getAge());
+        studentDTO.setEmail(student.getUser().getEmail());
+        studentDTO.setPassword(student.getUser().getPassword());
+        studentDTO.setName(student.getUser().getName());
+        studentDTO.setSurname(student.getUser().getSurname());
+        studentDTO.setUid(student.getUser().getUid());
         return studentDTO;
+    }
+
+
+    @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Student post(@RequestBody StudentDTO studentDTO) throws CourseNotFoundException {
+        return studentServices.save(studentDTO);
+    }
+
+    @RequestMapping(value = "/delete/{id}")
+    public void deleteById(@PathVariable("id") int id) throws StudentNotFoundException {
+        studentServices.removeById(id);
     }
 }

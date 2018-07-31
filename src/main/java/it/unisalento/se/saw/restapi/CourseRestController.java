@@ -70,4 +70,9 @@ public class CourseRestController {
         course.setName(courseDTO.getName());
         return courseServices.save(course);
     }
+
+    @RequestMapping(value = "/delete/{id}")
+    public void deleteById(@PathVariable("id") int id) throws CourseNotFoundException {
+        courseServices.removeCourseById(id);
+    }
 }

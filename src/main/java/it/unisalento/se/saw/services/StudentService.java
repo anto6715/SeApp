@@ -1,18 +1,19 @@
 package it.unisalento.se.saw.services;
 
+import it.unisalento.se.saw.Iservices.ICourseServices;
 import it.unisalento.se.saw.Iservices.IStudentServices;
 import it.unisalento.se.saw.Iservices.IUserServices;
+import it.unisalento.se.saw.domain.Course;
 import it.unisalento.se.saw.domain.Student;
 import it.unisalento.se.saw.domain.StudentId;
 import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.StudentDTO;
+import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
 import it.unisalento.se.saw.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.OneToOne;
@@ -28,6 +29,9 @@ public class StudentService implements IStudentServices {
     @Autowired
     IUserServices userServices;
 
+    @Autowired
+    ICourseServices courseServices;
+
 
     @Transactional(readOnly = true)
     public List<Student> getAll() {
@@ -39,6 +43,7 @@ public class StudentService implements IStudentServices {
     public Student getById(int id) throws StudentNotFoundException {
         try {
             Student student = studentRepository.findStudentById_IdStudent(id);
+
             return student;
         } catch (Exception e) {
             throw new StudentNotFoundException();
@@ -50,43 +55,55 @@ public class StudentService implements IStudentServices {
     }
 
     @Override
-    public StudentDTO getByName(String name) throws StudentNotFoundException, UserNotFoundException {
+    public Student getByName(String name) throws StudentNotFoundException, UserNotFoundException {
         try {
             User user = userServices.getByName(name);
             Student student = studentRepository.findStudentById_UserIdUser(user.getIdUser());
-            StudentDTO studentDTO = new StudentDTO();
-            studentDTO.setYearStart(student.getYearStart());
-            studentDTO.setYear(student.getYear());
-            studentDTO.setMatricola(student.getMatricola());
-            studentDTO.setAge(user.getAge());
-            studentDTO.setEmail(user.getEmail());
-            studentDTO.setPassword(user.getPassword());
-            studentDTO.setName(user.getName());
-            studentDTO.setSurname(user.getSurname());
-            studentDTO.setUid(user.getUid());
-
-            return studentDTO;
+            return student;
         } catch (Exception e) {
             throw new UserNotFoundException();
         }
     }
 
     @Override
-    public Student getByCourse(String course) throws StudentNotFoundException {
-        return null;
-    }
+    public Student save(StudentDTO studentDTO) throws CourseNotFoundException {
 
-    @Override
-    public Student save(Student student) {
+        User user = new User();
+        user.setName(studentDTO.getName());
+        user.setSurname(studentDTO.getSurname());
+        user.setAge(studentDTO.getAge());
+        user.setEmail(studentDTO.getEmail());
+        user.setPassword(studentDTO.getPassword());
+        user.setUid(studentDTO.getUid());
+        user.setUserType(studentDTO.getUserType());
+        User saveUser = userServices.save(user);
+
+        Course course = courseServices.getById(studentDTO.getIdCourse());
+
+        StudentId studentId = new StudentId();
+        studentId.setCourseIdCourse(studentDTO.getIdCourse());
+        studentId.setUserIdUser(saveUser.getIdUser());
+
+        Student student = new Student();
+        student.setMatricola(studentDTO.getMatricola());
+        student.setYear(studentDTO.getYear());
+        student.setYearStart(studentDTO.getYearStart());
+        student.setUser(saveUser);
+        student.setId(new StudentId(0,studentDTO.getIdCourse(),user.getIdUser()));
+        student.setCourse(course);
+
         return studentRepository.save(student);
     }
 
-    @Override
+    @Transactional(rollbackFor = UserNotFoundException.class)
     public void removeById(int id) throws StudentNotFoundException {
-
+        try {
+            Student student = studentRepository.findStudentById_IdStudent(id);
+            studentRepository.delete(student);
+            userServices.removeUserById(student.getId().getUserIdUser());
+        } catch (Exception e){
+            throw new StudentNotFoundException();
+        }
     }
 
-    @Override
-    public void removeByMatricola(int matricola) throws StudentNotFoundException {
-    }
 }

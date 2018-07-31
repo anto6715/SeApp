@@ -58,4 +58,16 @@ public class UserService implements IUserServices {
         }
     }
 
+    @Transactional
+    public User updateName(int id, String name) throws UserNotFoundException {
+        try {
+            User user = userRepository.getOne(id);
+            user.setName(name);
+            userRepository.save(user);
+            return user;
+        }catch (Exception e) {
+            throw new UserNotFoundException();
+        }
+    }
+
 }
