@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
 
 
 import javax.persistence.Column;
@@ -13,28 +13,18 @@ public class SegnalationId  implements java.io.Serializable {
 
 
      private int idSegnalation;
+     private int roomIdRoom;
      private int professorIdProfessor;
      private int professorUserIdUser;
-     private int roomIdRoom;
-     private int roomExamIdExam;
-     private int roomExamTeachingIdTeaching;
-     private int roomExamTeachingCourseIdCourse;
-     private int roomExamTeachingProfessorIdProfessor;
-     private int roomExamTeachingProfessorUserIdUser;
 
     public SegnalationId() {
     }
 
-    public SegnalationId(int idSegnalation, int professorIdProfessor, int professorUserIdUser, int roomIdRoom, int roomExamIdExam, int roomExamTeachingIdTeaching, int roomExamTeachingCourseIdCourse, int roomExamTeachingProfessorIdProfessor, int roomExamTeachingProfessorUserIdUser) {
+    public SegnalationId(int idSegnalation, int roomIdRoom, int professorIdProfessor, int professorUserIdUser) {
        this.idSegnalation = idSegnalation;
+       this.roomIdRoom = roomIdRoom;
        this.professorIdProfessor = professorIdProfessor;
        this.professorUserIdUser = professorUserIdUser;
-       this.roomIdRoom = roomIdRoom;
-       this.roomExamIdExam = roomExamIdExam;
-       this.roomExamTeachingIdTeaching = roomExamTeachingIdTeaching;
-       this.roomExamTeachingCourseIdCourse = roomExamTeachingCourseIdCourse;
-       this.roomExamTeachingProfessorIdProfessor = roomExamTeachingProfessorIdProfessor;
-       this.roomExamTeachingProfessorUserIdUser = roomExamTeachingProfessorUserIdUser;
     }
    
 
@@ -46,6 +36,16 @@ public class SegnalationId  implements java.io.Serializable {
     
     public void setIdSegnalation(int idSegnalation) {
         this.idSegnalation = idSegnalation;
+    }
+
+
+    @Column(name="Room_idRoom", nullable=false)
+    public int getRoomIdRoom() {
+        return this.roomIdRoom;
+    }
+    
+    public void setRoomIdRoom(int roomIdRoom) {
+        this.roomIdRoom = roomIdRoom;
     }
 
 
@@ -69,66 +69,6 @@ public class SegnalationId  implements java.io.Serializable {
     }
 
 
-    @Column(name="Room_idRoom", nullable=false)
-    public int getRoomIdRoom() {
-        return this.roomIdRoom;
-    }
-    
-    public void setRoomIdRoom(int roomIdRoom) {
-        this.roomIdRoom = roomIdRoom;
-    }
-
-
-    @Column(name="Room_Exam_idExam", nullable=false)
-    public int getRoomExamIdExam() {
-        return this.roomExamIdExam;
-    }
-    
-    public void setRoomExamIdExam(int roomExamIdExam) {
-        this.roomExamIdExam = roomExamIdExam;
-    }
-
-
-    @Column(name="Room_Exam_Teaching_idTeaching", nullable=false)
-    public int getRoomExamTeachingIdTeaching() {
-        return this.roomExamTeachingIdTeaching;
-    }
-    
-    public void setRoomExamTeachingIdTeaching(int roomExamTeachingIdTeaching) {
-        this.roomExamTeachingIdTeaching = roomExamTeachingIdTeaching;
-    }
-
-
-    @Column(name="Room_Exam_Teaching_Course_idCourse", nullable=false)
-    public int getRoomExamTeachingCourseIdCourse() {
-        return this.roomExamTeachingCourseIdCourse;
-    }
-    
-    public void setRoomExamTeachingCourseIdCourse(int roomExamTeachingCourseIdCourse) {
-        this.roomExamTeachingCourseIdCourse = roomExamTeachingCourseIdCourse;
-    }
-
-
-    @Column(name="Room_Exam_Teaching_Professor_idProfessor", nullable=false)
-    public int getRoomExamTeachingProfessorIdProfessor() {
-        return this.roomExamTeachingProfessorIdProfessor;
-    }
-    
-    public void setRoomExamTeachingProfessorIdProfessor(int roomExamTeachingProfessorIdProfessor) {
-        this.roomExamTeachingProfessorIdProfessor = roomExamTeachingProfessorIdProfessor;
-    }
-
-
-    @Column(name="Room_Exam_Teaching_Professor_User_idUser", nullable=false)
-    public int getRoomExamTeachingProfessorUserIdUser() {
-        return this.roomExamTeachingProfessorUserIdUser;
-    }
-    
-    public void setRoomExamTeachingProfessorUserIdUser(int roomExamTeachingProfessorUserIdUser) {
-        this.roomExamTeachingProfessorUserIdUser = roomExamTeachingProfessorUserIdUser;
-    }
-
-
    public boolean equals(Object other) {
          if ( (this == other ) ) return true;
 		 if ( (other == null ) ) return false;
@@ -136,28 +76,18 @@ public class SegnalationId  implements java.io.Serializable {
 		 SegnalationId castOther = ( SegnalationId ) other; 
          
 		 return (this.getIdSegnalation()==castOther.getIdSegnalation())
- && (this.getProfessorIdProfessor()==castOther.getProfessorIdProfessor())
- && (this.getProfessorUserIdUser()==castOther.getProfessorUserIdUser())
  && (this.getRoomIdRoom()==castOther.getRoomIdRoom())
- && (this.getRoomExamIdExam()==castOther.getRoomExamIdExam())
- && (this.getRoomExamTeachingIdTeaching()==castOther.getRoomExamTeachingIdTeaching())
- && (this.getRoomExamTeachingCourseIdCourse()==castOther.getRoomExamTeachingCourseIdCourse())
- && (this.getRoomExamTeachingProfessorIdProfessor()==castOther.getRoomExamTeachingProfessorIdProfessor())
- && (this.getRoomExamTeachingProfessorUserIdUser()==castOther.getRoomExamTeachingProfessorUserIdUser());
+ && (this.getProfessorIdProfessor()==castOther.getProfessorIdProfessor())
+ && (this.getProfessorUserIdUser()==castOther.getProfessorUserIdUser());
    }
    
    public int hashCode() {
          int result = 17;
          
          result = 37 * result + this.getIdSegnalation();
+         result = 37 * result + this.getRoomIdRoom();
          result = 37 * result + this.getProfessorIdProfessor();
          result = 37 * result + this.getProfessorUserIdUser();
-         result = 37 * result + this.getRoomIdRoom();
-         result = 37 * result + this.getRoomExamIdExam();
-         result = 37 * result + this.getRoomExamTeachingIdTeaching();
-         result = 37 * result + this.getRoomExamTeachingCourseIdCourse();
-         result = 37 * result + this.getRoomExamTeachingProfessorIdProfessor();
-         result = 37 * result + this.getRoomExamTeachingProfessorUserIdUser();
          return result;
    }   
 

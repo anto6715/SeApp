@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
 
 
 import javax.persistence.Column;
@@ -14,8 +14,8 @@ public class ReviewId  implements java.io.Serializable {
 
      private int idReview;
      private int studentIdStudent;
-     private int studentUserIdUser;
      private int studentCourseIdCourse;
+     private int studentUserIdUser;
      private int teachingIdTeaching;
      private int teachingCourseIdCourse;
      private int teachingProfessorIdProfessor;
@@ -24,11 +24,11 @@ public class ReviewId  implements java.io.Serializable {
     public ReviewId() {
     }
 
-    public ReviewId(int idReview, int studentIdStudent, int studentUserIdUser, int studentCourseIdCourse, int teachingIdTeaching, int teachingCourseIdCourse, int teachingProfessorIdProfessor, int teachingProfessorUserIdUser) {
+    public ReviewId(int idReview, int studentIdStudent, int studentCourseIdCourse, int studentUserIdUser, int teachingIdTeaching, int teachingCourseIdCourse, int teachingProfessorIdProfessor, int teachingProfessorUserIdUser) {
        this.idReview = idReview;
        this.studentIdStudent = studentIdStudent;
-       this.studentUserIdUser = studentUserIdUser;
        this.studentCourseIdCourse = studentCourseIdCourse;
+       this.studentUserIdUser = studentUserIdUser;
        this.teachingIdTeaching = teachingIdTeaching;
        this.teachingCourseIdCourse = teachingCourseIdCourse;
        this.teachingProfessorIdProfessor = teachingProfessorIdProfessor;
@@ -57,16 +57,6 @@ public class ReviewId  implements java.io.Serializable {
     }
 
 
-    @Column(name="Student_User_idUser", nullable=false)
-    public int getStudentUserIdUser() {
-        return this.studentUserIdUser;
-    }
-    
-    public void setStudentUserIdUser(int studentUserIdUser) {
-        this.studentUserIdUser = studentUserIdUser;
-    }
-
-
     @Column(name="Student_Course_idCourse", nullable=false)
     public int getStudentCourseIdCourse() {
         return this.studentCourseIdCourse;
@@ -74,6 +64,16 @@ public class ReviewId  implements java.io.Serializable {
     
     public void setStudentCourseIdCourse(int studentCourseIdCourse) {
         this.studentCourseIdCourse = studentCourseIdCourse;
+    }
+
+
+    @Column(name="Student_User_idUser", nullable=false)
+    public int getStudentUserIdUser() {
+        return this.studentUserIdUser;
+    }
+    
+    public void setStudentUserIdUser(int studentUserIdUser) {
+        this.studentUserIdUser = studentUserIdUser;
     }
 
 
@@ -125,8 +125,8 @@ public class ReviewId  implements java.io.Serializable {
          
 		 return (this.getIdReview()==castOther.getIdReview())
  && (this.getStudentIdStudent()==castOther.getStudentIdStudent())
- && (this.getStudentUserIdUser()==castOther.getStudentUserIdUser())
  && (this.getStudentCourseIdCourse()==castOther.getStudentCourseIdCourse())
+ && (this.getStudentUserIdUser()==castOther.getStudentUserIdUser())
  && (this.getTeachingIdTeaching()==castOther.getTeachingIdTeaching())
  && (this.getTeachingCourseIdCourse()==castOther.getTeachingCourseIdCourse())
  && (this.getTeachingProfessorIdProfessor()==castOther.getTeachingProfessorIdProfessor())
@@ -138,8 +138,8 @@ public class ReviewId  implements java.io.Serializable {
          
          result = 37 * result + this.getIdReview();
          result = 37 * result + this.getStudentIdStudent();
-         result = 37 * result + this.getStudentUserIdUser();
          result = 37 * result + this.getStudentCourseIdCourse();
+         result = 37 * result + this.getStudentUserIdUser();
          result = 37 * result + this.getTeachingIdTeaching();
          result = 37 * result + this.getTeachingCourseIdCourse();
          result = 37 * result + this.getTeachingProfessorIdProfessor();

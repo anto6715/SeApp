@@ -1,12 +1,17 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.36.34 by Hibernate Tools 5.2.0.Final
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -21,29 +26,26 @@ import javax.persistence.Table;
 @Table(name="Course"
     ,catalog="mydb"
 )
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Course  implements java.io.Serializable {
 
 
-     private int idCourse;
+     private Integer idCourse;
      private String name;
      private String type;
      private Integer lenght;
-     private String credits;
+     private Integer credits;
      private String location;
      private String language;
      private Set<Professor> professors = new HashSet<Professor>(0);
      private Set<Teaching> teachings = new HashSet<Teaching>(0);
+     @JsonBackReference
      private Set<Student> students = new HashSet<Student>(0);
 
     public Course() {
     }
 
-	
-    public Course(int idCourse) {
-        this.idCourse = idCourse;
-    }
-    public Course(int idCourse, String name, String type, Integer lenght, String credits, String location, String language, Set<Professor> professors, Set<Teaching> teachings, Set<Student> students) {
-       this.idCourse = idCourse;
+    public Course(String name, String type, Integer lenght, Integer credits, String location, String language, Set<Professor> professors, Set<Teaching> teachings, Set<Student> students) {
        this.name = name;
        this.type = type;
        this.lenght = lenght;
@@ -54,85 +56,84 @@ public class Course  implements java.io.Serializable {
        this.teachings = teachings;
        this.students = students;
     }
-   
-     @Id 
 
-    
+     @Id @GeneratedValue(strategy=IDENTITY)
+
+
     @Column(name="idCourse", unique=true, nullable=false)
-    public int getIdCourse() {
+    public Integer getIdCourse() {
         return this.idCourse;
     }
-    
-    public void setIdCourse(int idCourse) {
+
+    public void setIdCourse(Integer idCourse) {
         this.idCourse = idCourse;
     }
 
-    
+
     @Column(name="name", length=45)
     public String getName() {
         return this.name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
 
-    
+
     @Column(name="type", length=45)
     public String getType() {
         return this.type;
     }
-    
+
     public void setType(String type) {
         this.type = type;
     }
 
-    
+
     @Column(name="lenght")
     public Integer getLenght() {
         return this.lenght;
     }
-    
+
     public void setLenght(Integer lenght) {
         this.lenght = lenght;
     }
 
-    
-    @Column(name="credits", length=45)
-    public String getCredits() {
+
+    @Column(name="credits")
+    public Integer getCredits() {
         return this.credits;
     }
-    
-    public void setCredits(String credits) {
+
+    public void setCredits(Integer credits) {
         this.credits = credits;
     }
 
-    
+
     @Column(name="location", length=45)
     public String getLocation() {
         return this.location;
     }
-    
+
     public void setLocation(String location) {
         this.location = location;
     }
 
-    
+
     @Column(name="language", length=45)
     public String getLanguage() {
         return this.language;
     }
-    
+
     public void setLanguage(String language) {
         this.language = language;
     }
 
 @ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="Professor_has_Course", catalog="mydb", joinColumns = { 
-        @JoinColumn(name="Course_idCourse", nullable=false, updatable=false) }, inverseJoinColumns = { 
+    @JoinTable(name="Professor_has_Course", catalog="mydb", joinColumns = {
+        @JoinColumn(name="Course_idCourse", nullable=false, updatable=false) }, inverseJoinColumns = {
         @JoinColumn(name="Professor_idProfessor", nullable=false, updatable=false),
-            @JoinColumn(name="Professor_User_idUser", nullable=false, updatable=false)
-    })
+            @JoinColumn(name="Professor_User_idUser", nullable=false, updatable=false)})
     public Set<Professor> getProfessors() {
         return this.professors;
     }

@@ -1,12 +1,17 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.36.34 by Hibernate Tools 5.2.0.Final
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -18,51 +23,50 @@ import javax.persistence.Table;
 @Table(name="User"
     ,catalog="mydb"
 )
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User  implements java.io.Serializable {
 
 
-     private int idUser;
+     private Integer idUser;
      private String name;
      private String surname;
      private String email;
      private String password;
-     private String age;
-     private String uid;
+     private Integer age;
+     private Integer uid;
+     private Integer userType;
      private Set<Professor> professors = new HashSet<Professor>(0);
      private Set<Secretary> secretaries = new HashSet<Secretary>(0);
      private Set<Message> messages = new HashSet<Message>(0);
+     @JsonBackReference
      private Set<Student> students = new HashSet<Student>(0);
 
     public User() {
     }
 
-	
-    public User(int idUser) {
-        this.idUser = idUser;
-    }
-    public User(int idUser, String name, String surname, String email, String password, String age, String uid, Set<Professor> professors, Set<Secretary> secretaries, Set<Message> messages, Set<Student> students) {
-       this.idUser = idUser;
+    public User(String name, String surname, String email, String password, Integer age, Integer uid, Integer userType, Set<Professor> professors, Set<Secretary> secretaries, Set<Message> messages, Set<Student> students) {
        this.name = name;
        this.surname = surname;
        this.email = email;
        this.password = password;
        this.age = age;
        this.uid = uid;
+       this.userType = userType;
        this.professors = professors;
        this.secretaries = secretaries;
        this.messages = messages;
        this.students = students;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="idUser", unique=true, nullable=false)
-    public int getIdUser() {
+    public Integer getIdUser() {
         return this.idUser;
     }
     
-    public void setIdUser(int idUser) {
+    public void setIdUser(Integer idUser) {
         this.idUser = idUser;
     }
 
@@ -107,23 +111,33 @@ public class User  implements java.io.Serializable {
     }
 
     
-    @Column(name="age", length=45)
-    public String getAge() {
+    @Column(name="age")
+    public Integer getAge() {
         return this.age;
     }
     
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
     
-    @Column(name="Uid", length=45)
-    public String getUid() {
+    @Column(name="Uid")
+    public Integer getUid() {
         return this.uid;
     }
     
-    public void setUid(String uid) {
+    public void setUid(Integer uid) {
         this.uid = uid;
+    }
+
+    
+    @Column(name="userType")
+    public Integer getUserType() {
+        return this.userType;
+    }
+    
+    public void setUserType(Integer userType) {
+        this.userType = userType;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="user")

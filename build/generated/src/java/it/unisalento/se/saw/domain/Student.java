@@ -1,6 +1,8 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.36.34 by Hibernate Tools 5.2.0.Final
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,6 +24,7 @@ import javax.persistence.Table;
 @Table(name="Student"
     ,catalog="mydb"
 )
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Student  implements java.io.Serializable {
 
 
@@ -29,8 +32,8 @@ public class Student  implements java.io.Serializable {
      private Course course;
      private User user;
      private String matricola;
-     private String year;
-     private String yearStart;
+     private Integer yearStart;
+     private Integer year;
      private Set<Review> reviews = new HashSet<Review>(0);
 
     public Student() {
@@ -42,13 +45,13 @@ public class Student  implements java.io.Serializable {
         this.course = course;
         this.user = user;
     }
-    public Student(StudentId id, Course course, User user, String matricola, String year, String yearStart, Set<Review> reviews) {
+    public Student(StudentId id, Course course, User user, String matricola, Integer yearStart, Integer year, Set<Review> reviews) {
        this.id = id;
        this.course = course;
        this.user = user;
        this.matricola = matricola;
-       this.year = year;
        this.yearStart = yearStart;
+       this.year = year;
        this.reviews = reviews;
     }
    
@@ -57,8 +60,8 @@ public class Student  implements java.io.Serializable {
     
     @AttributeOverrides( {
         @AttributeOverride(name="idStudent", column=@Column(name="idStudent", nullable=false) ), 
-        @AttributeOverride(name="userIdUser", column=@Column(name="User_idUser", nullable=false) ), 
-        @AttributeOverride(name="courseIdCourse", column=@Column(name="Course_idCourse", nullable=false) ) } )
+        @AttributeOverride(name="courseIdCourse", column=@Column(name="Course_idCourse", nullable=false) ), 
+        @AttributeOverride(name="userIdUser", column=@Column(name="User_idUser", nullable=false) ) } )
     public StudentId getId() {
         return this.id;
     }
@@ -98,23 +101,23 @@ public class Student  implements java.io.Serializable {
     }
 
     
-    @Column(name="year", length=45)
-    public String getYear() {
-        return this.year;
-    }
-    
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    
-    @Column(name="yearStart", length=45)
-    public String getYearStart() {
+    @Column(name="yearStart")
+    public Integer getYearStart() {
         return this.yearStart;
     }
     
-    public void setYearStart(String yearStart) {
+    public void setYearStart(Integer yearStart) {
         this.yearStart = yearStart;
+    }
+
+    
+    @Column(name="year")
+    public Integer getYear() {
+        return this.year;
+    }
+    
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="student")

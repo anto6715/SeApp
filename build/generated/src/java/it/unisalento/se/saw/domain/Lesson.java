@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
 
 
 import java.util.HashSet;
@@ -7,6 +7,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -23,7 +25,7 @@ import javax.persistence.Table;
 public class Lesson  implements java.io.Serializable {
 
 
-     private int idLesson;
+     private Integer idLesson;
      private String day;
      private String time;
      private String duration;
@@ -32,27 +34,22 @@ public class Lesson  implements java.io.Serializable {
     public Lesson() {
     }
 
-	
-    public Lesson(int idLesson) {
-        this.idLesson = idLesson;
-    }
-    public Lesson(int idLesson, String day, String time, String duration, Set<Room> rooms) {
-       this.idLesson = idLesson;
+    public Lesson(String day, String time, String duration, Set<Room> rooms) {
        this.day = day;
        this.time = time;
        this.duration = duration;
        this.rooms = rooms;
     }
    
-     @Id 
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
     @Column(name="idLesson", unique=true, nullable=false)
-    public int getIdLesson() {
+    public Integer getIdLesson() {
         return this.idLesson;
     }
     
-    public void setIdLesson(int idLesson) {
+    public void setIdLesson(Integer idLesson) {
         this.idLesson = idLesson;
     }
 
@@ -87,14 +84,9 @@ public class Lesson  implements java.io.Serializable {
     }
 
 @ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="Lesson_has_Room", catalog="mydb", joinColumns = { 
-        @JoinColumn(name="Lesson_idLesson", nullable=false, updatable=false) }, inverseJoinColumns = {
-            @JoinColumn(name="Room_idRoom", nullable=false, updatable=false),
-            @JoinColumn(name="Room_Exam_idExam", nullable=false, updatable=false),
-            @JoinColumn(name="Room_Exam_Teaching_idTeaching", nullable=false, updatable=false),
-            @JoinColumn(name="Room_Exam_Teaching_Course_idCourse", nullable=false, updatable=false),
-            @JoinColumn(name="Room_Exam_Teaching_Professor_idProfessor", nullable=false, updatable=false),
-            @JoinColumn(name="Room_Exam_Teaching_Professor_User_idUser", nullable=false, updatable=false), })
+    @JoinTable(name="Room_has_Lesson", catalog="mydb", joinColumns = { 
+        @JoinColumn(name="Lesson_idLesson", nullable=false, updatable=false) }, inverseJoinColumns = { 
+        @JoinColumn(name="Room_idRoom", nullable=false, updatable=false) })
     public Set<Room> getRooms() {
         return this.rooms;
     }

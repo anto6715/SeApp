@@ -1,20 +1,18 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
 
 
 import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,74 +26,47 @@ import javax.persistence.Table;
 public class Room  implements java.io.Serializable {
 
 
-     private RoomId id;
-     private Exam exam;
-     private String capacity;
+     private Integer idRoom;
+     private Integer capacity;
      private String location;
      private String name;
+     private Set<Lesson> lessons = new HashSet<Lesson>(0);
      private Set<Segnalation> segnalations = new HashSet<Segnalation>(0);
      private Set<Accessory> accessories = new HashSet<Accessory>(0);
-     private Set<Lesson> lessons = new HashSet<Lesson>(0);
+     private Set<Exam> exams = new HashSet<Exam>(0);
 
     public Room() {
     }
 
-	
-    public Room(RoomId id, Exam exam) {
-        this.id = id;
-        this.exam = exam;
-    }
-    public Room(RoomId id, Exam exam, String capacity, String location, String name, Set<Segnalation> segnalations, Set<Accessory> accessories, Set<Lesson> lessons) {
-       this.id = id;
-       this.exam = exam;
+    public Room(Integer capacity, String location, String name, Set<Lesson> lessons, Set<Segnalation> segnalations, Set<Accessory> accessories, Set<Exam> exams) {
        this.capacity = capacity;
        this.location = location;
        this.name = name;
+       this.lessons = lessons;
        this.segnalations = segnalations;
        this.accessories = accessories;
-       this.lessons = lessons;
+       this.exams = exams;
     }
    
-     @EmbeddedId
+     @Id @GeneratedValue(strategy=IDENTITY)
 
     
-    @AttributeOverrides( {
-        @AttributeOverride(name="idRoom", column=@Column(name="idRoom", nullable=false) ), 
-        @AttributeOverride(name="examIdExam", column=@Column(name="Exam_idExam", nullable=false) ), 
-        @AttributeOverride(name="examTeachingIdTeaching", column=@Column(name="Exam_Teaching_idTeaching", nullable=false) ), 
-        @AttributeOverride(name="examTeachingCourseIdCourse", column=@Column(name="Exam_Teaching_Course_idCourse", nullable=false) ), 
-        @AttributeOverride(name="examTeachingProfessorIdProfessor", column=@Column(name="Exam_Teaching_Professor_idProfessor", nullable=false) ), 
-        @AttributeOverride(name="examTeachingProfessorUserIdUser", column=@Column(name="Exam_Teaching_Professor_User_idUser", nullable=false) ) } )
-    public RoomId getId() {
-        return this.id;
+    @Column(name="idRoom", unique=true, nullable=false)
+    public Integer getIdRoom() {
+        return this.idRoom;
     }
     
-    public void setId(RoomId id) {
-        this.id = id;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumns( { 
-        @JoinColumn(name="Exam_idExam", referencedColumnName="idExam", nullable=false, insertable=false, updatable=false), 
-        @JoinColumn(name="Exam_Teaching_idTeaching", referencedColumnName="Teaching_idTeaching", nullable=false, insertable=false, updatable=false), 
-        @JoinColumn(name="Exam_Teaching_Course_idCourse", referencedColumnName="Teaching_Course_idCourse", nullable=false, insertable=false, updatable=false), 
-        @JoinColumn(name="Exam_Teaching_Professor_idProfessor", referencedColumnName="Teaching_Professor_idProfessor", nullable=false, insertable=false, updatable=false), 
-        @JoinColumn(name="Exam_Teaching_Professor_User_idUser", referencedColumnName="Teaching_Professor_User_idUser", nullable=false, insertable=false, updatable=false) } )
-    public Exam getExam() {
-        return this.exam;
-    }
-    
-    public void setExam(Exam exam) {
-        this.exam = exam;
+    public void setIdRoom(Integer idRoom) {
+        this.idRoom = idRoom;
     }
 
     
-    @Column(name="capacity", length=45)
-    public String getCapacity() {
+    @Column(name="capacity")
+    public Integer getCapacity() {
         return this.capacity;
     }
     
-    public void setCapacity(String capacity) {
+    public void setCapacity(Integer capacity) {
         this.capacity = capacity;
     }
 
@@ -119,6 +90,18 @@ public class Room  implements java.io.Serializable {
         this.name = name;
     }
 
+@ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="Room_has_Lesson", catalog="mydb", joinColumns = { 
+        @JoinColumn(name="Room_idRoom", nullable=false, updatable=false) }, inverseJoinColumns = { 
+        @JoinColumn(name="Lesson_idLesson", nullable=false, updatable=false) })
+    public Set<Lesson> getLessons() {
+        return this.lessons;
+    }
+    
+    public void setLessons(Set<Lesson> lessons) {
+        this.lessons = lessons;
+    }
+
 @OneToMany(fetch=FetchType.LAZY, mappedBy="room")
     public Set<Segnalation> getSegnalations() {
         return this.segnalations;
@@ -137,21 +120,13 @@ public class Room  implements java.io.Serializable {
         this.accessories = accessories;
     }
 
-@ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="Lesson_has_Room", catalog="mydb", joinColumns = { 
-        @JoinColumn(name="Room_idRoom", nullable=false, updatable=false), 
-        @JoinColumn(name="Room_Exam_idExam", nullable=false, updatable=false), 
-        @JoinColumn(name="Room_Exam_Teaching_idTeaching", nullable=false, updatable=false), 
-        @JoinColumn(name="Room_Exam_Teaching_Course_idCourse", nullable=false, updatable=false), 
-        @JoinColumn(name="Room_Exam_Teaching_Professor_idProfessor", nullable=false, updatable=false), 
-        @JoinColumn(name="Room_Exam_Teaching_Professor_User_idUser", nullable=false, updatable=false) }, inverseJoinColumns = { 
-        @JoinColumn(name="Lesson_idLesson", nullable=false, updatable=false) })
-    public Set<Lesson> getLessons() {
-        return this.lessons;
+@OneToMany(fetch=FetchType.LAZY, mappedBy="room")
+    public Set<Exam> getExams() {
+        return this.exams;
     }
     
-    public void setLessons(Set<Lesson> lessons) {
-        this.lessons = lessons;
+    public void setExams(Set<Exam> exams) {
+        this.exams = exams;
     }
 
 

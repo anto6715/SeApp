@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
 
 
 import javax.persistence.Column;

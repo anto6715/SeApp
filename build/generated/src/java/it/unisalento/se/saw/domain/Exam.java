@@ -1,10 +1,8 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
 
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -14,7 +12,6 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -30,25 +27,26 @@ public class Exam  implements java.io.Serializable {
 
 
      private ExamId id;
+     private Room room;
      private Teaching teaching;
      private Date date;
      private String time;
-     private Set<Room> rooms = new HashSet<Room>(0);
 
     public Exam() {
     }
 
 	
-    public Exam(ExamId id, Teaching teaching) {
+    public Exam(ExamId id, Room room, Teaching teaching) {
         this.id = id;
+        this.room = room;
         this.teaching = teaching;
     }
-    public Exam(ExamId id, Teaching teaching, Date date, String time, Set<Room> rooms) {
+    public Exam(ExamId id, Room room, Teaching teaching, Date date, String time) {
        this.id = id;
+       this.room = room;
        this.teaching = teaching;
        this.date = date;
        this.time = time;
-       this.rooms = rooms;
     }
    
      @EmbeddedId
@@ -56,6 +54,7 @@ public class Exam  implements java.io.Serializable {
     
     @AttributeOverrides( {
         @AttributeOverride(name="idExam", column=@Column(name="idExam", nullable=false) ), 
+        @AttributeOverride(name="roomIdRoom", column=@Column(name="Room_idRoom", nullable=false) ), 
         @AttributeOverride(name="teachingIdTeaching", column=@Column(name="Teaching_idTeaching", nullable=false) ), 
         @AttributeOverride(name="teachingCourseIdCourse", column=@Column(name="Teaching_Course_idCourse", nullable=false) ), 
         @AttributeOverride(name="teachingProfessorIdProfessor", column=@Column(name="Teaching_Professor_idProfessor", nullable=false) ), 
@@ -66,6 +65,16 @@ public class Exam  implements java.io.Serializable {
     
     public void setId(ExamId id) {
         this.id = id;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="Room_idRoom", nullable=false, insertable=false, updatable=false)
+    public Room getRoom() {
+        return this.room;
+    }
+    
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -100,15 +109,6 @@ public class Exam  implements java.io.Serializable {
     
     public void setTime(String time) {
         this.time = time;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="exam")
-    public Set<Room> getRooms() {
-        return this.rooms;
-    }
-    
-    public void setRooms(Set<Room> rooms) {
-        this.rooms = rooms;
     }
 
 

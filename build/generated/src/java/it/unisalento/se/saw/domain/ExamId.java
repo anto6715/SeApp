@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
 
 
 import javax.persistence.Column;
@@ -13,6 +13,7 @@ public class ExamId  implements java.io.Serializable {
 
 
      private int idExam;
+     private int roomIdRoom;
      private int teachingIdTeaching;
      private int teachingCourseIdCourse;
      private int teachingProfessorIdProfessor;
@@ -21,8 +22,9 @@ public class ExamId  implements java.io.Serializable {
     public ExamId() {
     }
 
-    public ExamId(int idExam, int teachingIdTeaching, int teachingCourseIdCourse, int teachingProfessorIdProfessor, int teachingProfessorUserIdUser) {
+    public ExamId(int idExam, int roomIdRoom, int teachingIdTeaching, int teachingCourseIdCourse, int teachingProfessorIdProfessor, int teachingProfessorUserIdUser) {
        this.idExam = idExam;
+       this.roomIdRoom = roomIdRoom;
        this.teachingIdTeaching = teachingIdTeaching;
        this.teachingCourseIdCourse = teachingCourseIdCourse;
        this.teachingProfessorIdProfessor = teachingProfessorIdProfessor;
@@ -38,6 +40,16 @@ public class ExamId  implements java.io.Serializable {
     
     public void setIdExam(int idExam) {
         this.idExam = idExam;
+    }
+
+
+    @Column(name="Room_idRoom", nullable=false)
+    public int getRoomIdRoom() {
+        return this.roomIdRoom;
+    }
+    
+    public void setRoomIdRoom(int roomIdRoom) {
+        this.roomIdRoom = roomIdRoom;
     }
 
 
@@ -88,6 +100,7 @@ public class ExamId  implements java.io.Serializable {
 		 ExamId castOther = ( ExamId ) other; 
          
 		 return (this.getIdExam()==castOther.getIdExam())
+ && (this.getRoomIdRoom()==castOther.getRoomIdRoom())
  && (this.getTeachingIdTeaching()==castOther.getTeachingIdTeaching())
  && (this.getTeachingCourseIdCourse()==castOther.getTeachingCourseIdCourse())
  && (this.getTeachingProfessorIdProfessor()==castOther.getTeachingProfessorIdProfessor())
@@ -98,6 +111,7 @@ public class ExamId  implements java.io.Serializable {
          int result = 17;
          
          result = 37 * result + this.getIdExam();
+         result = 37 * result + this.getRoomIdRoom();
          result = 37 * result + this.getTeachingIdTeaching();
          result = 37 * result + this.getTeachingCourseIdCourse();
          result = 37 * result + this.getTeachingProfessorIdProfessor();

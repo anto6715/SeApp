@@ -27,6 +27,16 @@ public class UserService implements IUserServices {
     }
 
     @Transactional
+    public User getByName(String name) throws UserNotFoundException{
+        try {
+            User user = userRepository.getUserByName(name);
+            return user;
+        } catch (Exception e) {
+            throw  new UserNotFoundException();
+        }
+    }
+
+    @Transactional
     public User getById(int id) throws UserNotFoundException {
         try {
             User user = userRepository.getOne(id);

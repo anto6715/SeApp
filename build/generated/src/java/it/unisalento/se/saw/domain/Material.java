@@ -1,10 +1,16 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
 
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -17,7 +23,8 @@ import javax.persistence.Table;
 public class Material  implements java.io.Serializable {
 
 
-     private int idMaterial;
+     private MaterialId id;
+     private Teaching teaching;
      private String link;
      private String name;
 
@@ -25,25 +32,46 @@ public class Material  implements java.io.Serializable {
     }
 
 	
-    public Material(int idMaterial) {
-        this.idMaterial = idMaterial;
+    public Material(MaterialId id, Teaching teaching) {
+        this.id = id;
+        this.teaching = teaching;
     }
-    public Material(int idMaterial, String link, String name) {
-       this.idMaterial = idMaterial;
+    public Material(MaterialId id, Teaching teaching, String link, String name) {
+       this.id = id;
+       this.teaching = teaching;
        this.link = link;
        this.name = name;
     }
    
-     @Id 
+     @EmbeddedId
 
     
-    @Column(name="idMaterial", unique=true, nullable=false)
-    public int getIdMaterial() {
-        return this.idMaterial;
+    @AttributeOverrides( {
+        @AttributeOverride(name="idMaterial", column=@Column(name="idMaterial", nullable=false) ), 
+        @AttributeOverride(name="teachingIdTeaching", column=@Column(name="Teaching_idTeaching", nullable=false) ), 
+        @AttributeOverride(name="teachingCourseIdCourse", column=@Column(name="Teaching_Course_idCourse", nullable=false) ), 
+        @AttributeOverride(name="teachingProfessorIdProfessor", column=@Column(name="Teaching_Professor_idProfessor", nullable=false) ), 
+        @AttributeOverride(name="teachingProfessorUserIdUser", column=@Column(name="Teaching_Professor_User_idUser", nullable=false) ) } )
+    public MaterialId getId() {
+        return this.id;
     }
     
-    public void setIdMaterial(int idMaterial) {
-        this.idMaterial = idMaterial;
+    public void setId(MaterialId id) {
+        this.id = id;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumns( { 
+        @JoinColumn(name="Teaching_idTeaching", referencedColumnName="idTeaching", nullable=false, insertable=false, updatable=false), 
+        @JoinColumn(name="Teaching_Course_idCourse", referencedColumnName="Course_idCourse", nullable=false, insertable=false, updatable=false), 
+        @JoinColumn(name="Teaching_Professor_idProfessor", referencedColumnName="Professor_idProfessor", nullable=false, insertable=false, updatable=false), 
+        @JoinColumn(name="Teaching_Professor_User_idUser", referencedColumnName="Professor_User_idUser", nullable=false, insertable=false, updatable=false) } )
+    public Teaching getTeaching() {
+        return this.teaching;
+    }
+    
+    public void setTeaching(Teaching teaching) {
+        this.teaching = teaching;
     }
 
     

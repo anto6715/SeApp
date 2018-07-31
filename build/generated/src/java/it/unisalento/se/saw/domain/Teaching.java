@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
 
 
 import java.util.HashSet;
@@ -30,11 +30,12 @@ public class Teaching  implements java.io.Serializable {
      private Course course;
      private Professor professor;
      private String name;
-     private String credits;
+     private Integer credits;
      private Integer year;
      private Set<Exam> exams = new HashSet<Exam>(0);
      private Set<Review> reviews = new HashSet<Review>(0);
      private Set<Message> messages = new HashSet<Message>(0);
+     private Set<Material> materials = new HashSet<Material>(0);
 
     public Teaching() {
     }
@@ -45,7 +46,7 @@ public class Teaching  implements java.io.Serializable {
         this.course = course;
         this.professor = professor;
     }
-    public Teaching(TeachingId id, Course course, Professor professor, String name, String credits, Integer year, Set<Exam> exams, Set<Review> reviews, Set<Message> messages) {
+    public Teaching(TeachingId id, Course course, Professor professor, String name, Integer credits, Integer year, Set<Exam> exams, Set<Review> reviews, Set<Message> messages, Set<Material> materials) {
        this.id = id;
        this.course = course;
        this.professor = professor;
@@ -55,6 +56,7 @@ public class Teaching  implements java.io.Serializable {
        this.exams = exams;
        this.reviews = reviews;
        this.messages = messages;
+       this.materials = materials;
     }
    
      @EmbeddedId
@@ -106,12 +108,12 @@ public class Teaching  implements java.io.Serializable {
     }
 
     
-    @Column(name="credits", length=45)
-    public String getCredits() {
+    @Column(name="credits")
+    public Integer getCredits() {
         return this.credits;
     }
     
-    public void setCredits(String credits) {
+    public void setCredits(Integer credits) {
         this.credits = credits;
     }
 
@@ -150,6 +152,15 @@ public class Teaching  implements java.io.Serializable {
     
     public void setMessages(Set<Message> messages) {
         this.messages = messages;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="teaching")
+    public Set<Material> getMaterials() {
+        return this.materials;
+    }
+    
+    public void setMaterials(Set<Material> materials) {
+        this.materials = materials;
     }
 
 

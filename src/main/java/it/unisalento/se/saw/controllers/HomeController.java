@@ -29,23 +29,5 @@ public class HomeController {
         this.userServices = userServices;
     }
 
-    @RequestMapping(value = "/home/users", method = RequestMethod.GET)
-    public String users(ModelMap modelMap){
-        List<User> users = userServices.getAll();
-        modelMap.addAttribute("users", users);
-        return "users";
-    }
 
-    @RequestMapping(value="/home", method=RequestMethod.GET)
-    public String home(ModelMap modelMap) {
-
-        //StudentService studentService = new StudentService();
-        //studentService.getStudentById(7);             Metodo senza spring per usare StudentService
-
-
-        modelMap.addAttribute("param1","ciao");
-        System.out.println("HOMECONTROLLER");
-        return "home";
-
-    }
 }

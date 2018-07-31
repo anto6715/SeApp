@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
 
 
 import javax.persistence.AttributeOverride;
@@ -51,14 +51,9 @@ public class Segnalation  implements java.io.Serializable {
     
     @AttributeOverrides( {
         @AttributeOverride(name="idSegnalation", column=@Column(name="idSegnalation", nullable=false) ), 
-        @AttributeOverride(name="professorIdProfessor", column=@Column(name="Professor_idProfessor", nullable=false) ), 
-        @AttributeOverride(name="professorUserIdUser", column=@Column(name="Professor_User_idUser", nullable=false) ), 
         @AttributeOverride(name="roomIdRoom", column=@Column(name="Room_idRoom", nullable=false) ), 
-        @AttributeOverride(name="roomExamIdExam", column=@Column(name="Room_Exam_idExam", nullable=false) ), 
-        @AttributeOverride(name="roomExamTeachingIdTeaching", column=@Column(name="Room_Exam_Teaching_idTeaching", nullable=false) ), 
-        @AttributeOverride(name="roomExamTeachingCourseIdCourse", column=@Column(name="Room_Exam_Teaching_Course_idCourse", nullable=false) ), 
-        @AttributeOverride(name="roomExamTeachingProfessorIdProfessor", column=@Column(name="Room_Exam_Teaching_Professor_idProfessor", nullable=false) ), 
-        @AttributeOverride(name="roomExamTeachingProfessorUserIdUser", column=@Column(name="Room_Exam_Teaching_Professor_User_idUser", nullable=false) ) } )
+        @AttributeOverride(name="professorIdProfessor", column=@Column(name="Professor_idProfessor", nullable=false) ), 
+        @AttributeOverride(name="professorUserIdUser", column=@Column(name="Professor_User_idUser", nullable=false) ) } )
     public SegnalationId getId() {
         return this.id;
     }
@@ -80,13 +75,7 @@ public class Segnalation  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumns( { 
-        @JoinColumn(name="Room_idRoom", referencedColumnName="idRoom", nullable=false, insertable=false, updatable=false), 
-        @JoinColumn(name="Room_Exam_idExam", referencedColumnName="Exam_idExam", nullable=false, insertable=false, updatable=false), 
-        @JoinColumn(name="Room_Exam_Teaching_idTeaching", referencedColumnName="Exam_Teaching_idTeaching", nullable=false, insertable=false, updatable=false), 
-        @JoinColumn(name="Room_Exam_Teaching_Course_idCourse", referencedColumnName="Exam_Teaching_Course_idCourse", nullable=false, insertable=false, updatable=false), 
-        @JoinColumn(name="Room_Exam_Teaching_Professor_idProfessor", referencedColumnName="Exam_Teaching_Professor_idProfessor", nullable=false, insertable=false, updatable=false), 
-        @JoinColumn(name="Room_Exam_Teaching_Professor_User_idUser", referencedColumnName="Exam_Teaching_Professor_User_idUser", nullable=false, insertable=false, updatable=false) } )
+    @JoinColumn(name="Room_idRoom", nullable=false, insertable=false, updatable=false)
     public Room getRoom() {
         return this.room;
     }

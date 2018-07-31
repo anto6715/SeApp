@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
 
 
 import javax.persistence.AttributeOverride;
@@ -50,8 +50,8 @@ public class Review  implements java.io.Serializable {
     @AttributeOverrides( {
         @AttributeOverride(name="idReview", column=@Column(name="idReview", nullable=false) ), 
         @AttributeOverride(name="studentIdStudent", column=@Column(name="Student_idStudent", nullable=false) ), 
-        @AttributeOverride(name="studentUserIdUser", column=@Column(name="Student_User_idUser", nullable=false) ), 
         @AttributeOverride(name="studentCourseIdCourse", column=@Column(name="Student_Course_idCourse", nullable=false) ), 
+        @AttributeOverride(name="studentUserIdUser", column=@Column(name="Student_User_idUser", nullable=false) ), 
         @AttributeOverride(name="teachingIdTeaching", column=@Column(name="Teaching_idTeaching", nullable=false) ), 
         @AttributeOverride(name="teachingCourseIdCourse", column=@Column(name="Teaching_Course_idCourse", nullable=false) ), 
         @AttributeOverride(name="teachingProfessorIdProfessor", column=@Column(name="Teaching_Professor_idProfessor", nullable=false) ), 
@@ -67,8 +67,8 @@ public class Review  implements java.io.Serializable {
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumns( { 
         @JoinColumn(name="Student_idStudent", referencedColumnName="idStudent", nullable=false, insertable=false, updatable=false), 
-        @JoinColumn(name="Student_User_idUser", referencedColumnName="User_idUser", nullable=false, insertable=false, updatable=false), 
-        @JoinColumn(name="Student_Course_idCourse", referencedColumnName="Course_idCourse", nullable=false, insertable=false, updatable=false) } )
+        @JoinColumn(name="Student_Course_idCourse", referencedColumnName="Course_idCourse", nullable=false, insertable=false, updatable=false), 
+        @JoinColumn(name="Student_User_idUser", referencedColumnName="User_idUser", nullable=false, insertable=false, updatable=false) } )
     public Student getStudent() {
         return this.student;
     }

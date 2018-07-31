@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 29-lug-2018 10.15.06 by Hibernate Tools 5.2.0.Final
+// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
 
 
 import javax.persistence.Column;
@@ -14,23 +14,13 @@ public class AccessoryId  implements java.io.Serializable {
 
      private int idAccessory;
      private int roomIdRoom;
-     private int roomExamIdExam;
-     private int roomExamTeachingIdTeaching;
-     private int roomExamTeachingCourseIdCourse;
-     private int roomExamTeachingProfessorIdProfessor;
-     private int roomExamTeachingProfessorUserIdUser;
 
     public AccessoryId() {
     }
 
-    public AccessoryId(int idAccessory, int roomIdRoom, int roomExamIdExam, int roomExamTeachingIdTeaching, int roomExamTeachingCourseIdCourse, int roomExamTeachingProfessorIdProfessor, int roomExamTeachingProfessorUserIdUser) {
+    public AccessoryId(int idAccessory, int roomIdRoom) {
        this.idAccessory = idAccessory;
        this.roomIdRoom = roomIdRoom;
-       this.roomExamIdExam = roomExamIdExam;
-       this.roomExamTeachingIdTeaching = roomExamTeachingIdTeaching;
-       this.roomExamTeachingCourseIdCourse = roomExamTeachingCourseIdCourse;
-       this.roomExamTeachingProfessorIdProfessor = roomExamTeachingProfessorIdProfessor;
-       this.roomExamTeachingProfessorUserIdUser = roomExamTeachingProfessorUserIdUser;
     }
    
 
@@ -55,56 +45,6 @@ public class AccessoryId  implements java.io.Serializable {
     }
 
 
-    @Column(name="Room_Exam_idExam", nullable=false)
-    public int getRoomExamIdExam() {
-        return this.roomExamIdExam;
-    }
-    
-    public void setRoomExamIdExam(int roomExamIdExam) {
-        this.roomExamIdExam = roomExamIdExam;
-    }
-
-
-    @Column(name="Room_Exam_Teaching_idTeaching", nullable=false)
-    public int getRoomExamTeachingIdTeaching() {
-        return this.roomExamTeachingIdTeaching;
-    }
-    
-    public void setRoomExamTeachingIdTeaching(int roomExamTeachingIdTeaching) {
-        this.roomExamTeachingIdTeaching = roomExamTeachingIdTeaching;
-    }
-
-
-    @Column(name="Room_Exam_Teaching_Course_idCourse", nullable=false)
-    public int getRoomExamTeachingCourseIdCourse() {
-        return this.roomExamTeachingCourseIdCourse;
-    }
-    
-    public void setRoomExamTeachingCourseIdCourse(int roomExamTeachingCourseIdCourse) {
-        this.roomExamTeachingCourseIdCourse = roomExamTeachingCourseIdCourse;
-    }
-
-
-    @Column(name="Room_Exam_Teaching_Professor_idProfessor", nullable=false)
-    public int getRoomExamTeachingProfessorIdProfessor() {
-        return this.roomExamTeachingProfessorIdProfessor;
-    }
-    
-    public void setRoomExamTeachingProfessorIdProfessor(int roomExamTeachingProfessorIdProfessor) {
-        this.roomExamTeachingProfessorIdProfessor = roomExamTeachingProfessorIdProfessor;
-    }
-
-
-    @Column(name="Room_Exam_Teaching_Professor_User_idUser", nullable=false)
-    public int getRoomExamTeachingProfessorUserIdUser() {
-        return this.roomExamTeachingProfessorUserIdUser;
-    }
-    
-    public void setRoomExamTeachingProfessorUserIdUser(int roomExamTeachingProfessorUserIdUser) {
-        this.roomExamTeachingProfessorUserIdUser = roomExamTeachingProfessorUserIdUser;
-    }
-
-
    public boolean equals(Object other) {
          if ( (this == other ) ) return true;
 		 if ( (other == null ) ) return false;
@@ -112,12 +52,7 @@ public class AccessoryId  implements java.io.Serializable {
 		 AccessoryId castOther = ( AccessoryId ) other; 
          
 		 return (this.getIdAccessory()==castOther.getIdAccessory())
- && (this.getRoomIdRoom()==castOther.getRoomIdRoom())
- && (this.getRoomExamIdExam()==castOther.getRoomExamIdExam())
- && (this.getRoomExamTeachingIdTeaching()==castOther.getRoomExamTeachingIdTeaching())
- && (this.getRoomExamTeachingCourseIdCourse()==castOther.getRoomExamTeachingCourseIdCourse())
- && (this.getRoomExamTeachingProfessorIdProfessor()==castOther.getRoomExamTeachingProfessorIdProfessor())
- && (this.getRoomExamTeachingProfessorUserIdUser()==castOther.getRoomExamTeachingProfessorUserIdUser());
+ && (this.getRoomIdRoom()==castOther.getRoomIdRoom());
    }
    
    public int hashCode() {
@@ -125,11 +60,6 @@ public class AccessoryId  implements java.io.Serializable {
          
          result = 37 * result + this.getIdAccessory();
          result = 37 * result + this.getRoomIdRoom();
-         result = 37 * result + this.getRoomExamIdExam();
-         result = 37 * result + this.getRoomExamTeachingIdTeaching();
-         result = 37 * result + this.getRoomExamTeachingCourseIdCourse();
-         result = 37 * result + this.getRoomExamTeachingProfessorIdProfessor();
-         result = 37 * result + this.getRoomExamTeachingProfessorUserIdUser();
          return result;
    }   
 
