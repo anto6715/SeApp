@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 31-lug-2018 0.36.34 by Hibernate Tools 5.2.0.Final
+// Generated 30-lug-2018 12.36.49 by Hibernate Tools 5.2.0.Final
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -37,8 +37,12 @@ public class Course  implements java.io.Serializable {
      private Integer credits;
      private String location;
      private String language;
+     @JsonBackReference
      private Set<Professor> professors = new HashSet<Professor>(0);
+     @JsonBackReference
      private Set<Teaching> teachings = new HashSet<Teaching>(0);
+
+
      @JsonBackReference
      private Set<Student> students = new HashSet<Student>(0);
 
@@ -56,51 +60,51 @@ public class Course  implements java.io.Serializable {
        this.teachings = teachings;
        this.students = students;
     }
-
+   
      @Id @GeneratedValue(strategy=IDENTITY)
 
-
+    
     @Column(name="idCourse", unique=true, nullable=false)
     public Integer getIdCourse() {
         return this.idCourse;
     }
-
+    
     public void setIdCourse(Integer idCourse) {
         this.idCourse = idCourse;
     }
 
-
+    
     @Column(name="name", length=45)
     public String getName() {
         return this.name;
     }
-
+    
     public void setName(String name) {
         this.name = name;
     }
 
-
+    
     @Column(name="type", length=45)
     public String getType() {
         return this.type;
     }
-
+    
     public void setType(String type) {
         this.type = type;
     }
 
-
+    
     @Column(name="lenght")
     public Integer getLenght() {
         return this.lenght;
     }
-
+    
     public void setLenght(Integer lenght) {
         this.lenght = lenght;
     }
 
-
-    @Column(name="credits")
+    
+    @Column(name="credits", length=45)
     public Integer getCredits() {
         return this.credits;
     }
@@ -109,31 +113,30 @@ public class Course  implements java.io.Serializable {
         this.credits = credits;
     }
 
-
+    
     @Column(name="location", length=45)
     public String getLocation() {
         return this.location;
     }
-
+    
     public void setLocation(String location) {
         this.location = location;
     }
 
-
+    
     @Column(name="language", length=45)
     public String getLanguage() {
         return this.language;
     }
-
+    
     public void setLanguage(String language) {
         this.language = language;
     }
 
 @ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="Professor_has_Course", catalog="mydb", joinColumns = {
+    @JoinTable(name="Professor_has_Course", catalog="mydb", joinColumns = { 
         @JoinColumn(name="Course_idCourse", nullable=false, updatable=false) }, inverseJoinColumns = {
-        @JoinColumn(name="Professor_idProfessor", nullable=false, updatable=false),
-            @JoinColumn(name="Professor_User_idUser", nullable=false, updatable=false)})
+        @JoinColumn(name="Professor_idProfessor", nullable=false, updatable=false), @JoinColumn(name="Professor_User_idUser", nullable=false, updatable=false)})
     public Set<Professor> getProfessors() {
         return this.professors;
     }

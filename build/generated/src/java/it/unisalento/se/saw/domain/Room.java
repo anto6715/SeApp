@@ -1,6 +1,8 @@
 package it.unisalento.se.saw.domain;
-// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
+// Generated 1-ago-2018 18.33.06 by Hibernate Tools 5.2.0.Final
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,6 +25,7 @@ import javax.persistence.Table;
 @Table(name="Room"
     ,catalog="mydb"
 )
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Room  implements java.io.Serializable {
 
 
@@ -91,9 +94,13 @@ public class Room  implements java.io.Serializable {
     }
 
 @ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="Room_has_Lesson", catalog="mydb", joinColumns = { 
+    @JoinTable(name="Lesson_has_Room", catalog="mydb", joinColumns = {
         @JoinColumn(name="Room_idRoom", nullable=false, updatable=false) }, inverseJoinColumns = { 
-        @JoinColumn(name="Lesson_idLesson", nullable=false, updatable=false) })
+        @JoinColumn(name="Lesson_idLesson", nullable=false, updatable=false),
+            @JoinColumn(name="Lesson_Teaching_idTeaching", nullable=false, updatable=false),
+            @JoinColumn(name="Lesson_Teaching_Course_idCourse", nullable=false, updatable=false),
+            @JoinColumn(name="Lesson_Teaching_Professor_idProfessor", nullable=false, updatable=false),
+            @JoinColumn(name="Lesson_Teaching_Professor_User_idUser", nullable=false, updatable=false)})
     public Set<Lesson> getLessons() {
         return this.lessons;
     }

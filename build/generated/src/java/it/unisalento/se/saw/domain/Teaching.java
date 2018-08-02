@@ -2,6 +2,8 @@ package it.unisalento.se.saw.domain;
 // Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.AttributeOverride;
@@ -23,6 +25,7 @@ import javax.persistence.Table;
 @Table(name="Teaching"
     ,catalog="mydb"
 )
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Teaching  implements java.io.Serializable {
 
 
@@ -63,7 +66,7 @@ public class Teaching  implements java.io.Serializable {
 
     
     @AttributeOverrides( {
-        @AttributeOverride(name="idTeaching", column=@Column(name="idTeaching", nullable=false) ), 
+        @AttributeOverride(name="idTeaching", column=@Column(name="idTeaching", nullable=false) ),
         @AttributeOverride(name="courseIdCourse", column=@Column(name="Course_idCourse", nullable=false) ), 
         @AttributeOverride(name="professorIdProfessor", column=@Column(name="Professor_idProfessor", nullable=false) ), 
         @AttributeOverride(name="professorUserIdUser", column=@Column(name="Professor_User_idUser", nullable=false) ) } )

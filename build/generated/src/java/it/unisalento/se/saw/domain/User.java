@@ -35,8 +35,11 @@ public class User  implements java.io.Serializable {
      private Integer age;
      private Integer uid;
      private Integer userType;
+     @JsonBackReference
      private Set<Professor> professors = new HashSet<Professor>(0);
+     @JsonBackReference
      private Set<Secretary> secretaries = new HashSet<Secretary>(0);
+     @JsonBackReference
      private Set<Message> messages = new HashSet<Message>(0);
      @JsonBackReference
      private Set<Student> students = new HashSet<Student>(0);

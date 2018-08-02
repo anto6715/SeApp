@@ -13,4 +13,5 @@ public interface IUserServices {
     public User getById(int id) throws UserNotFoundException;
     public void removeUserById(int id) throws UserNotFoundException;
     public User updateName(int id, String name) throws UserNotFoundException;
+    public User getByNameSurname(String name, String surname) throws UserNotFoundException;
 }

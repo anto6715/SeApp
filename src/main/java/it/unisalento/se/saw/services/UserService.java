@@ -69,5 +69,13 @@ public class UserService implements IUserServices {
             throw new UserNotFoundException();
         }
     }
+    @Transactional
+    public User getByNameSurname(String name, String surname) throws UserNotFoundException {
+        try {
+            return userRepository.getUserByNameAndSurname(name, surname);
+        } catch (Exception e) {
+            throw new UserNotFoundException();
+        }
+    }
 
 }

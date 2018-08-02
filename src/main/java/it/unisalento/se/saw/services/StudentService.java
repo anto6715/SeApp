@@ -75,7 +75,7 @@ public class StudentService implements IStudentServices {
         user.setEmail(studentDTO.getEmail());
         user.setPassword(studentDTO.getPassword());
         user.setUid(studentDTO.getUid());
-        user.setUserType(studentDTO.getUserType());
+        user.setUserType(1);
         User saveUser = userServices.save(user);
 
         Course course = courseServices.getById(studentDTO.getIdCourse());

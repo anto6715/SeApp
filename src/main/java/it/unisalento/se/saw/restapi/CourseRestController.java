@@ -68,6 +68,7 @@ public class CourseRestController {
         course.setLenght(courseDTO.getLenght());
         course.setLocation(courseDTO.getLocation());
         course.setName(courseDTO.getName());
+        course.setType(courseDTO.getType());
         return courseServices.save(course);
     }
 
