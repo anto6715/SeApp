@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 31-lug-2018 0.36.34 by Hibernate Tools 5.2.0.Final
+// Generated 3-ago-2018 14.36.53 by Hibernate Tools 5.2.0.Final
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -40,14 +40,12 @@ public class User  implements java.io.Serializable {
      @JsonBackReference
      private Set<Secretary> secretaries = new HashSet<Secretary>(0);
      @JsonBackReference
-     private Set<Message> messages = new HashSet<Message>(0);
-     @JsonBackReference
      private Set<Student> students = new HashSet<Student>(0);
 
     public User() {
     }
 
-    public User(String name, String surname, String email, String password, Integer age, Integer uid, Integer userType, Set<Professor> professors, Set<Secretary> secretaries, Set<Message> messages, Set<Student> students) {
+    public User(String name, String surname, String email, String password, Integer age, Integer uid, Integer userType, Set<Professor> professors, Set<Secretary> secretaries, Set<Student> students) {
        this.name = name;
        this.surname = surname;
        this.email = email;
@@ -57,7 +55,6 @@ public class User  implements java.io.Serializable {
        this.userType = userType;
        this.professors = professors;
        this.secretaries = secretaries;
-       this.messages = messages;
        this.students = students;
     }
    
@@ -159,15 +156,6 @@ public class User  implements java.io.Serializable {
     
     public void setSecretaries(Set<Secretary> secretaries) {
         this.secretaries = secretaries;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="user")
-    public Set<Message> getMessages() {
-        return this.messages;
-    }
-    
-    public void setMessages(Set<Message> messages) {
-        this.messages = messages;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="user")

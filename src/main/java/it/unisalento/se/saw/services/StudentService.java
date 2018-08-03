@@ -65,7 +65,7 @@ public class StudentService implements IStudentServices {
         }
     }
 
-    @Override
+    @Transactional
     public Student save(StudentDTO studentDTO) throws CourseNotFoundException {
 
         User user = new User();

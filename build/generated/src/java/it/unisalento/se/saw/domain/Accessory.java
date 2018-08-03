@@ -1,6 +1,8 @@
 package it.unisalento.se.saw.domain;
-// Generated 31-lug-2018 0.50.47 by Hibernate Tools 5.2.0.Final
+// Generated 3-ago-2018 14.36.53 by Hibernate Tools 5.2.0.Final
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -19,6 +21,7 @@ import javax.persistence.Table;
 @Table(name="Accessory"
     ,catalog="mydb"
 )
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Accessory  implements java.io.Serializable {
 
 

@@ -1,9 +1,9 @@
 package it.unisalento.se.saw.domain;
-// Generated 1-ago-2018 18.33.06 by Hibernate Tools 5.2.0.Final
+// Generated 3-ago-2018 14.36.53 by Hibernate Tools 5.2.0.Final
 
 
-import java.util.HashSet;
-import java.util.Set;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -12,8 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -24,31 +22,34 @@ import javax.persistence.Table;
 @Table(name="Lesson"
     ,catalog="mydb"
 )
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Lesson  implements java.io.Serializable {
 
 
      private LessonId id;
+     private Room room;
      private Teaching teaching;
      private String day;
      private String time;
      private String duration;
-     private Set<Room> rooms = new HashSet<Room>(0);
 
     public Lesson() {
     }
 
 	
-    public Lesson(LessonId id, Teaching teaching) {
+    public Lesson(LessonId id, Room room, Teaching teaching) {
         this.id = id;
+        this.room = room;
         this.teaching = teaching;
     }
-    public Lesson(LessonId id, Teaching teaching, String day, String time, String duration, Set<Room> rooms) {
+    public Lesson(LessonId id, Room room, Teaching teaching, String day, String time, String duration) {
        this.id = id;
+       this.room = room;
        this.teaching = teaching;
        this.day = day;
        this.time = time;
        this.duration = duration;
-       this.rooms = rooms;
     }
    
      @EmbeddedId
@@ -59,13 +60,24 @@ public class Lesson  implements java.io.Serializable {
         @AttributeOverride(name="teachingIdTeaching", column=@Column(name="Teaching_idTeaching", nullable=false) ), 
         @AttributeOverride(name="teachingCourseIdCourse", column=@Column(name="Teaching_Course_idCourse", nullable=false) ), 
         @AttributeOverride(name="teachingProfessorIdProfessor", column=@Column(name="Teaching_Professor_idProfessor", nullable=false) ), 
-        @AttributeOverride(name="teachingProfessorUserIdUser", column=@Column(name="Teaching_Professor_User_idUser", nullable=false) ) } )
+        @AttributeOverride(name="teachingProfessorUserIdUser", column=@Column(name="Teaching_Professor_User_idUser", nullable=false) ), 
+        @AttributeOverride(name="roomIdRoom", column=@Column(name="Room_idRoom", nullable=false) ) } )
     public LessonId getId() {
         return this.id;
     }
     
     public void setId(LessonId id) {
         this.id = id;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="Room_idRoom", nullable=false, insertable=false, updatable=false)
+    public Room getRoom() {
+        return this.room;
+    }
+    
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -110,22 +122,6 @@ public class Lesson  implements java.io.Serializable {
     
     public void setDuration(String duration) {
         this.duration = duration;
-    }
-
-@ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="Room_has_Lesson", catalog="mydb", joinColumns = {
-            @JoinColumn(name="Lesson_idLesson", nullable=false, updatable=false),
-            @JoinColumn(name="Lesson_Teaching_idTeaching", nullable=false, updatable=false),
-            @JoinColumn(name="Lesson_Teaching_Course_idCourse", nullable=false, updatable=false),
-            @JoinColumn(name="Lesson_Teaching_Professor_idProfessor", nullable=false, updatable=false),
-            @JoinColumn(name="Lesson_Teaching_Professor_User_idUser", nullable=false, updatable=false) }, inverseJoinColumns = {
-        @JoinColumn(name="Room_idRoom", nullable=false, updatable=false) })
-    public Set<Room> getRooms() {
-        return this.rooms;
-    }
-    
-    public void setRooms(Set<Room> rooms) {
-        this.rooms = rooms;
     }
 
 

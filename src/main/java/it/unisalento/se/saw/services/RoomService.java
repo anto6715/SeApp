@@ -47,7 +47,8 @@ public class RoomService implements IRoomServices {
         room.setCapacity(roomDTO.getCapacity());
         room.setLocation(roomDTO.getLocation());
         room.setName(roomDTO.getName());
-        System.out.println(roomDTO.getName());
+        room.setLatitude(roomDTO.getLatitude());
+        room.setLongitude(roomDTO.getLongitude());
         return roomRepository.save(room);
     }
 

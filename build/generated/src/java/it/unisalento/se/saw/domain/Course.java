@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 30-lug-2018 12.36.49 by Hibernate Tools 5.2.0.Final
+// Generated 3-ago-2018 14.36.53 by Hibernate Tools 5.2.0.Final
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -39,11 +39,9 @@ public class Course  implements java.io.Serializable {
      private String language;
      @JsonBackReference
      private Set<Professor> professors = new HashSet<Professor>(0);
-     @JsonBackReference
+    @JsonBackReference
      private Set<Teaching> teachings = new HashSet<Teaching>(0);
-
-
-     @JsonBackReference
+    @JsonBackReference
      private Set<Student> students = new HashSet<Student>(0);
 
     public Course() {
@@ -104,11 +102,11 @@ public class Course  implements java.io.Serializable {
     }
 
     
-    @Column(name="credits", length=45)
+    @Column(name="credits")
     public Integer getCredits() {
         return this.credits;
     }
-
+    
     public void setCredits(Integer credits) {
         this.credits = credits;
     }
@@ -135,8 +133,9 @@ public class Course  implements java.io.Serializable {
 
 @ManyToMany(fetch=FetchType.LAZY)
     @JoinTable(name="Professor_has_Course", catalog="mydb", joinColumns = { 
-        @JoinColumn(name="Course_idCourse", nullable=false, updatable=false) }, inverseJoinColumns = {
-        @JoinColumn(name="Professor_idProfessor", nullable=false, updatable=false), @JoinColumn(name="Professor_User_idUser", nullable=false, updatable=false)})
+        @JoinColumn(name="Course_idCourse", nullable=false, updatable=false) }, inverseJoinColumns = { 
+        @JoinColumn(name="Professor_idProfessor", nullable=false, updatable=false),
+            @JoinColumn(name="Professor_User_idUser", nullable=false, updatable=false)})
     public Set<Professor> getProfessors() {
         return this.professors;
     }

@@ -1,7 +1,8 @@
 package it.unisalento.se.saw.domain;
-// Generated 1-ago-2018 18.33.06 by Hibernate Tools 5.2.0.Final
+// Generated 3-ago-2018 14.36.53 by Hibernate Tools 5.2.0.Final
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.HashSet;
@@ -12,9 +13,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -25,6 +23,7 @@ import javax.persistence.Table;
 @Table(name="Room"
     ,catalog="mydb"
 )
+
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Room  implements java.io.Serializable {
 
@@ -33,22 +32,30 @@ public class Room  implements java.io.Serializable {
      private Integer capacity;
      private String location;
      private String name;
-     private Set<Lesson> lessons = new HashSet<Lesson>(0);
+     private String latitude;
+     private String longitude;
+     @JsonBackReference
      private Set<Segnalation> segnalations = new HashSet<Segnalation>(0);
+    @JsonBackReference
      private Set<Accessory> accessories = new HashSet<Accessory>(0);
+    @JsonBackReference
      private Set<Exam> exams = new HashSet<Exam>(0);
+    @JsonBackReference
+     private Set<Lesson> lessons = new HashSet<Lesson>(0);
 
     public Room() {
     }
 
-    public Room(Integer capacity, String location, String name, Set<Lesson> lessons, Set<Segnalation> segnalations, Set<Accessory> accessories, Set<Exam> exams) {
+    public Room(Integer capacity, String location, String name, String latitude, String longitude, Set<Segnalation> segnalations, Set<Accessory> accessories, Set<Exam> exams, Set<Lesson> lessons) {
        this.capacity = capacity;
        this.location = location;
        this.name = name;
-       this.lessons = lessons;
+       this.latitude = latitude;
+       this.longitude = longitude;
        this.segnalations = segnalations;
        this.accessories = accessories;
        this.exams = exams;
+       this.lessons = lessons;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -93,20 +100,24 @@ public class Room  implements java.io.Serializable {
         this.name = name;
     }
 
-@ManyToMany(fetch=FetchType.LAZY)
-    @JoinTable(name="Lesson_has_Room", catalog="mydb", joinColumns = {
-        @JoinColumn(name="Room_idRoom", nullable=false, updatable=false) }, inverseJoinColumns = { 
-        @JoinColumn(name="Lesson_idLesson", nullable=false, updatable=false),
-            @JoinColumn(name="Lesson_Teaching_idTeaching", nullable=false, updatable=false),
-            @JoinColumn(name="Lesson_Teaching_Course_idCourse", nullable=false, updatable=false),
-            @JoinColumn(name="Lesson_Teaching_Professor_idProfessor", nullable=false, updatable=false),
-            @JoinColumn(name="Lesson_Teaching_Professor_User_idUser", nullable=false, updatable=false)})
-    public Set<Lesson> getLessons() {
-        return this.lessons;
+    
+    @Column(name="latitude", length=45)
+    public String getLatitude() {
+        return this.latitude;
     }
     
-    public void setLessons(Set<Lesson> lessons) {
-        this.lessons = lessons;
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    
+    @Column(name="longitude", length=45)
+    public String getLongitude() {
+        return this.longitude;
+    }
+    
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="room")
@@ -134,6 +145,15 @@ public class Room  implements java.io.Serializable {
     
     public void setExams(Set<Exam> exams) {
         this.exams = exams;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="room")
+    public Set<Lesson> getLessons() {
+        return this.lessons;
+    }
+    
+    public void setLessons(Set<Lesson> lessons) {
+        this.lessons = lessons;
     }
 
 
