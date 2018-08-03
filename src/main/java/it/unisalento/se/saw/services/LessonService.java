@@ -36,17 +36,22 @@ public class LessonService implements ILessonServices {
     }
 
     public List<Lesson> getByDay(String day) {
-        return null;
+        return lessonRepository.findLessonsByDay(day);
     }
 
     public Lesson getById(int id) throws LessonNotFoundException {
-        return null;
+        try {
+            return lessonRepository.findLessonById_IdLesson(id);
+        } catch (Exception e) {
+            throw new LessonNotFoundException();
+        }
     }
 
     public List<Lesson> getByRoom(int id) {
         return null;
     }
 
+    @Transactional
     public Lesson save(LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
         Teaching teaching = teachingServices.getById(lessonDTO.getIdTeaching());
         Room room = roomServices.getById(lessonDTO.getIdRoom());
@@ -56,30 +61,29 @@ public class LessonService implements ILessonServices {
         lessonId.setTeachingCourseIdCourse(teaching.getId().getCourseIdCourse());
         lessonId.setTeachingProfessorIdProfessor(teaching.getId().getProfessorIdProfessor());
         lessonId.setTeachingProfessorUserIdUser(teaching.getId().getProfessorUserIdUser());
+        lessonId.setRoomIdRoom(room.getIdRoom());
 
 
         Lesson lesson = new Lesson();
         lesson.setDay(lessonDTO.getDay());
         lesson.setDuration(lessonDTO.getDuration());
         lesson.setTime(lessonDTO.getTime());
+
         lesson.setTeaching(teaching);
         lesson.setId(lessonId);
+        lesson.setRoom(room);
 
-        Lesson lessonTemp = lessonRepository.save(lesson);
-
-
-        Lesson lessonHasCourse = lessonRepository.findLessonByDayAndTime(lessonTemp.getDay(), lessonTemp.getTime());
-        System.out.println("ciao");
-        System.out.println(lessonHasCourse.getId().getIdLesson());
-        System.out.println(lessonHasCourse.getId().getTeachingIdTeaching());
-        System.out.println(lessonHasCourse.getId().getTeachingProfessorIdProfessor());
-        System.out.println(lessonHasCourse.getId().getTeachingProfessorUserIdUser());
-        System.out.println(lessonHasCourse.getId().getTeachingCourseIdCourse());
-        return lessonRepository.save(lessonHasCourse);
+        return lessonRepository.save(lesson);
 
 
     }
     public void remove(int id) throws LessonNotFoundException {
+        try {
+            Lesson lesson = lessonRepository.findLessonById_IdLesson(id);
+            lessonRepository.delete(lesson);
+        } catch (Exception e) {
+            throw new LessonNotFoundException();
+        }
 
     }
 }

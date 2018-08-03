@@ -40,4 +40,19 @@ public class LessonRestController {
             throw new RoomNotFoundException();
         }
     }
+
+    @RequestMapping(value = "/getByDay/{day}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Lesson> getByDay(@PathVariable String day) {
+        return lessonServices.getByDay(day);
+
+    }
+
+    @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Lesson getById(@PathVariable int id) throws LessonNotFoundException {
+        try {
+            return lessonServices.getById(id);
+        } catch (Exception e) {
+            throw new LessonNotFoundException();
+        }
+    }
 }

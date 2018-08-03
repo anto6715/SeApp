@@ -2,6 +2,9 @@ package it.unisalento.se.saw.domain;
 // Generated 3-ago-2018 14.36.53 by Hibernate Tools 5.2.0.Final
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.AttributeOverride;
@@ -23,6 +26,7 @@ import javax.persistence.Table;
 @Table(name="Teaching"
     ,catalog="mydb"
 )
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Teaching  implements java.io.Serializable {
 
 
@@ -32,9 +36,13 @@ public class Teaching  implements java.io.Serializable {
      private String name;
      private Integer credits;
      private Integer year;
+     @JsonBackReference
      private Set<Exam> exams = new HashSet<Exam>(0);
+     @JsonBackReference
      private Set<Review> reviews = new HashSet<Review>(0);
+     @JsonBackReference
      private Set<Lesson> lessons = new HashSet<Lesson>(0);
+     @JsonBackReference
      private Set<Material> materials = new HashSet<Material>(0);
 
     public Teaching() {
