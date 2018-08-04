@@ -1,7 +1,8 @@
 package it.unisalento.se.saw.domain;
-// Generated 3-ago-2018 14.36.53 by Hibernate Tools 5.2.0.Final
+// Generated 4-ago-2018 9.42.48 by Hibernate Tools 5.2.0.Final
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.HashSet;
@@ -24,7 +25,6 @@ import javax.persistence.Table;
 @Table(name="Student"
     ,catalog="mydb"
 )
-
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Student  implements java.io.Serializable {
 
@@ -35,6 +35,7 @@ public class Student  implements java.io.Serializable {
      private String matricola;
      private Integer yearStart;
      private Integer year;
+     @JsonBackReference
      private Set<Review> reviews = new HashSet<Review>(0);
 
     public Student() {

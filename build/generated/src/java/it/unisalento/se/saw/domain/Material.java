@@ -1,7 +1,12 @@
 package it.unisalento.se.saw.domain;
-// Generated 3-ago-2018 14.36.53 by Hibernate Tools 5.2.0.Final
+// Generated 4-ago-2018 9.42.48 by Hibernate Tools 5.2.0.Final
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -11,6 +16,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -20,6 +26,7 @@ import javax.persistence.Table;
 @Table(name="Material"
     ,catalog="mydb"
 )
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Material  implements java.io.Serializable {
 
 
@@ -27,6 +34,8 @@ public class Material  implements java.io.Serializable {
      private Teaching teaching;
      private String link;
      private String name;
+     @JsonBackReference
+     private Set<Review> reviews = new HashSet<Review>(0);
 
     public Material() {
     }
@@ -36,11 +45,12 @@ public class Material  implements java.io.Serializable {
         this.id = id;
         this.teaching = teaching;
     }
-    public Material(MaterialId id, Teaching teaching, String link, String name) {
+    public Material(MaterialId id, Teaching teaching, String link, String name, Set<Review> reviews) {
        this.id = id;
        this.teaching = teaching;
        this.link = link;
        this.name = name;
+       this.reviews = reviews;
     }
    
      @EmbeddedId
@@ -92,6 +102,15 @@ public class Material  implements java.io.Serializable {
     
     public void setName(String name) {
         this.name = name;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="material")
+    public Set<Review> getReviews() {
+        return this.reviews;
+    }
+    
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
     }
 
 

@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 3-ago-2018 14.36.53 by Hibernate Tools 5.2.0.Final
+// Generated 4-ago-2018 9.55.42 by Hibernate Tools 5.2.0.Final
 
 
 import javax.persistence.Column;
@@ -16,23 +16,17 @@ public class ReviewId  implements java.io.Serializable {
      private int studentIdStudent;
      private int studentCourseIdCourse;
      private int studentUserIdUser;
-     private int teachingIdTeaching;
-     private int teachingCourseIdCourse;
-     private int teachingProfessorIdProfessor;
-     private int teachingProfessorUserIdUser;
+     private int reviewTypeIdReviewType;
 
     public ReviewId() {
     }
 
-    public ReviewId(int idReview, int studentIdStudent, int studentCourseIdCourse, int studentUserIdUser, int teachingIdTeaching, int teachingCourseIdCourse, int teachingProfessorIdProfessor, int teachingProfessorUserIdUser) {
+    public ReviewId(int idReview, int studentIdStudent, int studentCourseIdCourse, int studentUserIdUser, int reviewTypeIdReviewType) {
        this.idReview = idReview;
        this.studentIdStudent = studentIdStudent;
        this.studentCourseIdCourse = studentCourseIdCourse;
        this.studentUserIdUser = studentUserIdUser;
-       this.teachingIdTeaching = teachingIdTeaching;
-       this.teachingCourseIdCourse = teachingCourseIdCourse;
-       this.teachingProfessorIdProfessor = teachingProfessorIdProfessor;
-       this.teachingProfessorUserIdUser = teachingProfessorUserIdUser;
+       this.reviewTypeIdReviewType = reviewTypeIdReviewType;
     }
    
 
@@ -77,43 +71,13 @@ public class ReviewId  implements java.io.Serializable {
     }
 
 
-    @Column(name="Teaching_idTeaching", nullable=false)
-    public int getTeachingIdTeaching() {
-        return this.teachingIdTeaching;
+    @Column(name="ReviewType_idReviewType", nullable=false)
+    public int getReviewTypeIdReviewType() {
+        return this.reviewTypeIdReviewType;
     }
     
-    public void setTeachingIdTeaching(int teachingIdTeaching) {
-        this.teachingIdTeaching = teachingIdTeaching;
-    }
-
-
-    @Column(name="Teaching_Course_idCourse", nullable=false)
-    public int getTeachingCourseIdCourse() {
-        return this.teachingCourseIdCourse;
-    }
-    
-    public void setTeachingCourseIdCourse(int teachingCourseIdCourse) {
-        this.teachingCourseIdCourse = teachingCourseIdCourse;
-    }
-
-
-    @Column(name="Teaching_Professor_idProfessor", nullable=false)
-    public int getTeachingProfessorIdProfessor() {
-        return this.teachingProfessorIdProfessor;
-    }
-    
-    public void setTeachingProfessorIdProfessor(int teachingProfessorIdProfessor) {
-        this.teachingProfessorIdProfessor = teachingProfessorIdProfessor;
-    }
-
-
-    @Column(name="Teaching_Professor_User_idUser", nullable=false)
-    public int getTeachingProfessorUserIdUser() {
-        return this.teachingProfessorUserIdUser;
-    }
-    
-    public void setTeachingProfessorUserIdUser(int teachingProfessorUserIdUser) {
-        this.teachingProfessorUserIdUser = teachingProfessorUserIdUser;
+    public void setReviewTypeIdReviewType(int reviewTypeIdReviewType) {
+        this.reviewTypeIdReviewType = reviewTypeIdReviewType;
     }
 
 
@@ -127,10 +91,7 @@ public class ReviewId  implements java.io.Serializable {
  && (this.getStudentIdStudent()==castOther.getStudentIdStudent())
  && (this.getStudentCourseIdCourse()==castOther.getStudentCourseIdCourse())
  && (this.getStudentUserIdUser()==castOther.getStudentUserIdUser())
- && (this.getTeachingIdTeaching()==castOther.getTeachingIdTeaching())
- && (this.getTeachingCourseIdCourse()==castOther.getTeachingCourseIdCourse())
- && (this.getTeachingProfessorIdProfessor()==castOther.getTeachingProfessorIdProfessor())
- && (this.getTeachingProfessorUserIdUser()==castOther.getTeachingProfessorUserIdUser());
+ && (this.getReviewTypeIdReviewType()==castOther.getReviewTypeIdReviewType());
    }
    
    public int hashCode() {
@@ -140,10 +101,7 @@ public class ReviewId  implements java.io.Serializable {
          result = 37 * result + this.getStudentIdStudent();
          result = 37 * result + this.getStudentCourseIdCourse();
          result = 37 * result + this.getStudentUserIdUser();
-         result = 37 * result + this.getTeachingIdTeaching();
-         result = 37 * result + this.getTeachingCourseIdCourse();
-         result = 37 * result + this.getTeachingProfessorIdProfessor();
-         result = 37 * result + this.getTeachingProfessorUserIdUser();
+         result = 37 * result + this.getReviewTypeIdReviewType();
          return result;
    }   
 

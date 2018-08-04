@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 3-ago-2018 14.36.53 by Hibernate Tools 5.2.0.Final
+// Generated 3-ago-2018 17.30.57 by Hibernate Tools 5.2.0.Final
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -39,8 +39,6 @@ public class Teaching  implements java.io.Serializable {
      @JsonBackReference
      private Set<Exam> exams = new HashSet<Exam>(0);
      @JsonBackReference
-     private Set<Review> reviews = new HashSet<Review>(0);
-     @JsonBackReference
      private Set<Lesson> lessons = new HashSet<Lesson>(0);
      @JsonBackReference
      private Set<Material> materials = new HashSet<Material>(0);
@@ -54,7 +52,7 @@ public class Teaching  implements java.io.Serializable {
         this.course = course;
         this.professor = professor;
     }
-    public Teaching(TeachingId id, Course course, Professor professor, String name, Integer credits, Integer year, Set<Exam> exams, Set<Review> reviews, Set<Lesson> lessons, Set<Material> materials) {
+    public Teaching(TeachingId id, Course course, Professor professor, String name, Integer credits, Integer year, Set<Exam> exams, Set<Lesson> lessons, Set<Material> materials) {
        this.id = id;
        this.course = course;
        this.professor = professor;
@@ -62,7 +60,6 @@ public class Teaching  implements java.io.Serializable {
        this.credits = credits;
        this.year = year;
        this.exams = exams;
-       this.reviews = reviews;
        this.lessons = lessons;
        this.materials = materials;
     }
@@ -142,15 +139,6 @@ public class Teaching  implements java.io.Serializable {
     
     public void setExams(Set<Exam> exams) {
         this.exams = exams;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="teaching")
-    public Set<Review> getReviews() {
-        return this.reviews;
-    }
-    
-    public void setReviews(Set<Review> reviews) {
-        this.reviews = reviews;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="teaching")

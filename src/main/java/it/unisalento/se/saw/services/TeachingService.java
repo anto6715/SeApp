@@ -55,6 +55,8 @@ public class TeachingService implements ITeachingServices {
     public List<Teaching> getByIdCourse(int id) {
         return teachingRepository.findTeachingsById_CourseIdCourse(id);
     }
+
+
     @Transactional
     public Teaching save(TeachingDTO teachingDTO) throws CourseNotFoundException, ProfessorNotFoundException {
 
@@ -66,12 +68,14 @@ public class TeachingService implements ITeachingServices {
         teachingId.setProfessorIdProfessor(professor.getId().getIdProfessor());
         teachingId.setProfessorUserIdUser(professor.getId().getUserIdUser());
 
+
         Teaching teaching = new Teaching();
         teaching.setCredits(teachingDTO.getCredits());
         teaching.setName(teachingDTO.getName());
         teaching.setYear(teachingDTO.getYear());
         teaching.setCourse(course);
         teaching.setProfessor(professor);
+
         teaching.setId(teachingId);
 
 

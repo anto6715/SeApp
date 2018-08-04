@@ -1,9 +1,12 @@
 package it.unisalento.se.saw.domain;
-// Generated 3-ago-2018 14.36.53 by Hibernate Tools 5.2.0.Final
+// Generated 4-ago-2018 9.42.48 by Hibernate Tools 5.2.0.Final
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
@@ -13,6 +16,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -22,7 +26,6 @@ import javax.persistence.Table;
 @Table(name="Lesson"
     ,catalog="mydb"
 )
-
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Lesson  implements java.io.Serializable {
 
@@ -33,6 +36,8 @@ public class Lesson  implements java.io.Serializable {
      private String day;
      private String time;
      private String duration;
+     @JsonBackReference
+     private Set<Review> reviews = new HashSet<Review>(0);
 
     public Lesson() {
     }
@@ -43,13 +48,14 @@ public class Lesson  implements java.io.Serializable {
         this.room = room;
         this.teaching = teaching;
     }
-    public Lesson(LessonId id, Room room, Teaching teaching, String day, String time, String duration) {
+    public Lesson(LessonId id, Room room, Teaching teaching, String day, String time, String duration, Set<Review> reviews) {
        this.id = id;
        this.room = room;
        this.teaching = teaching;
        this.day = day;
        this.time = time;
        this.duration = duration;
+       this.reviews = reviews;
     }
    
      @EmbeddedId
@@ -122,6 +128,15 @@ public class Lesson  implements java.io.Serializable {
     
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="lesson")
+    public Set<Review> getReviews() {
+        return this.reviews;
+    }
+    
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
     }
 
 
