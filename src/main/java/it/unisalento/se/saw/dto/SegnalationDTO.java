@@ -3,7 +3,7 @@ package it.unisalento.se.saw.dto;
 public class SegnalationDTO {
 
     private String note;
-    private int state;
+    private int idState;
     private int idRoom;
     private int idProfessor;
 
@@ -15,12 +15,12 @@ public class SegnalationDTO {
         this.note = note;
     }
 
-    public int getState() {
-        return state;
+    public int getIdState() {
+        return idState;
     }
 
-    public void setState(int state) {
-        this.state = state;
+    public void setIdState(int idState) {
+        this.idState = idState;
     }
 
     public int getIdRoom() {

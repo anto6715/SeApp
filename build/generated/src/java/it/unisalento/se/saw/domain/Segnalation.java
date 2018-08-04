@@ -1,6 +1,8 @@
 package it.unisalento.se.saw.domain;
-// Generated 3-ago-2018 17.30.57 by Hibernate Tools 5.2.0.Final
+// Generated 4-ago-2018 10.43.02 by Hibernate Tools 5.2.0.Final
 
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -20,30 +22,32 @@ import javax.persistence.Table;
 @Table(name="Segnalation"
     ,catalog="mydb"
 )
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Segnalation  implements java.io.Serializable {
 
 
      private SegnalationId id;
      private Professor professor;
      private Room room;
+     private SegnalationState segnalationState;
      private String note;
-     private Integer state;
 
     public Segnalation() {
     }
 
 	
-    public Segnalation(SegnalationId id, Professor professor, Room room) {
+    public Segnalation(SegnalationId id, Professor professor, Room room, SegnalationState segnalationState) {
         this.id = id;
         this.professor = professor;
         this.room = room;
+        this.segnalationState = segnalationState;
     }
-    public Segnalation(SegnalationId id, Professor professor, Room room, String note, Integer state) {
+    public Segnalation(SegnalationId id, Professor professor, Room room, SegnalationState segnalationState, String note) {
        this.id = id;
        this.professor = professor;
        this.room = room;
+       this.segnalationState = segnalationState;
        this.note = note;
-       this.state = state;
     }
    
      @EmbeddedId
@@ -53,7 +57,8 @@ public class Segnalation  implements java.io.Serializable {
         @AttributeOverride(name="idSegnalation", column=@Column(name="idSegnalation", nullable=false) ), 
         @AttributeOverride(name="roomIdRoom", column=@Column(name="Room_idRoom", nullable=false) ), 
         @AttributeOverride(name="professorIdProfessor", column=@Column(name="Professor_idProfessor", nullable=false) ), 
-        @AttributeOverride(name="professorUserIdUser", column=@Column(name="Professor_User_idUser", nullable=false) ) } )
+        @AttributeOverride(name="professorUserIdUser", column=@Column(name="Professor_User_idUser", nullable=false) ), 
+        @AttributeOverride(name="segnalationStateIdSegnalationState", column=@Column(name="SegnalationState_idSegnalationState", nullable=false) ) } )
     public SegnalationId getId() {
         return this.id;
     }
@@ -84,6 +89,16 @@ public class Segnalation  implements java.io.Serializable {
         this.room = room;
     }
 
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="SegnalationState_idSegnalationState", nullable=false, insertable=false, updatable=false)
+    public SegnalationState getSegnalationState() {
+        return this.segnalationState;
+    }
+    
+    public void setSegnalationState(SegnalationState segnalationState) {
+        this.segnalationState = segnalationState;
+    }
+
     
     @Column(name="note", length=500)
     public String getNote() {
@@ -92,16 +107,6 @@ public class Segnalation  implements java.io.Serializable {
     
     public void setNote(String note) {
         this.note = note;
-    }
-
-    
-    @Column(name="state")
-    public Integer getState() {
-        return this.state;
-    }
-    
-    public void setState(Integer state) {
-        this.state = state;
     }
 
 

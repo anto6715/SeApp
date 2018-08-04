@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 3-ago-2018 17.30.57 by Hibernate Tools 5.2.0.Final
+// Generated 4-ago-2018 10.43.02 by Hibernate Tools 5.2.0.Final
 
 
 import javax.persistence.Column;
@@ -16,15 +16,17 @@ public class SegnalationId  implements java.io.Serializable {
      private int roomIdRoom;
      private int professorIdProfessor;
      private int professorUserIdUser;
+     private int segnalationStateIdSegnalationState;
 
     public SegnalationId() {
     }
 
-    public SegnalationId(int idSegnalation, int roomIdRoom, int professorIdProfessor, int professorUserIdUser) {
+    public SegnalationId(int idSegnalation, int roomIdRoom, int professorIdProfessor, int professorUserIdUser, int segnalationStateIdSegnalationState) {
        this.idSegnalation = idSegnalation;
        this.roomIdRoom = roomIdRoom;
        this.professorIdProfessor = professorIdProfessor;
        this.professorUserIdUser = professorUserIdUser;
+       this.segnalationStateIdSegnalationState = segnalationStateIdSegnalationState;
     }
    
 
@@ -69,6 +71,16 @@ public class SegnalationId  implements java.io.Serializable {
     }
 
 
+    @Column(name="SegnalationState_idSegnalationState", nullable=false)
+    public int getSegnalationStateIdSegnalationState() {
+        return this.segnalationStateIdSegnalationState;
+    }
+    
+    public void setSegnalationStateIdSegnalationState(int segnalationStateIdSegnalationState) {
+        this.segnalationStateIdSegnalationState = segnalationStateIdSegnalationState;
+    }
+
+
    public boolean equals(Object other) {
          if ( (this == other ) ) return true;
 		 if ( (other == null ) ) return false;
@@ -78,7 +90,8 @@ public class SegnalationId  implements java.io.Serializable {
 		 return (this.getIdSegnalation()==castOther.getIdSegnalation())
  && (this.getRoomIdRoom()==castOther.getRoomIdRoom())
  && (this.getProfessorIdProfessor()==castOther.getProfessorIdProfessor())
- && (this.getProfessorUserIdUser()==castOther.getProfessorUserIdUser());
+ && (this.getProfessorUserIdUser()==castOther.getProfessorUserIdUser())
+ && (this.getSegnalationStateIdSegnalationState()==castOther.getSegnalationStateIdSegnalationState());
    }
    
    public int hashCode() {
@@ -88,6 +101,7 @@ public class SegnalationId  implements java.io.Serializable {
          result = 37 * result + this.getRoomIdRoom();
          result = 37 * result + this.getProfessorIdProfessor();
          result = 37 * result + this.getProfessorUserIdUser();
+         result = 37 * result + this.getSegnalationStateIdSegnalationState();
          return result;
    }   
 

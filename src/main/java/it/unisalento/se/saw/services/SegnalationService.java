@@ -3,10 +3,8 @@ package it.unisalento.se.saw.services;
 import it.unisalento.se.saw.Iservices.IProfessorServices;
 import it.unisalento.se.saw.Iservices.IRoomServices;
 import it.unisalento.se.saw.Iservices.ISegnalationServices;
-import it.unisalento.se.saw.domain.Professor;
-import it.unisalento.se.saw.domain.Room;
-import it.unisalento.se.saw.domain.Segnalation;
-import it.unisalento.se.saw.domain.SegnalationId;
+import it.unisalento.se.saw.Iservices.ISegnalationStateServices;
+import it.unisalento.se.saw.domain.*;
 import it.unisalento.se.saw.dto.SegnalationDTO;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
@@ -29,6 +27,9 @@ public class SegnalationService implements ISegnalationServices {
 
     @Autowired
     IProfessorServices professorServices;
+
+    @Autowired
+    ISegnalationStateServices segnalationStateServices;
 
     @Transactional
     public List<Segnalation> getAll() {
@@ -56,18 +57,22 @@ public class SegnalationService implements ISegnalationServices {
         try {
             Professor professor = professorServices.getById(segnalationDTO.getIdProfessor());
             Room room = roomServices.getById(segnalationDTO.getIdRoom());
+            SegnalationState segnalationState = segnalationStateServices.getById(segnalationDTO.getIdState());
+
+
 
             SegnalationId segnalationId = new SegnalationId();
             segnalationId.setProfessorIdProfessor(professor.getId().getIdProfessor());
             segnalationId.setProfessorUserIdUser(professor.getId().getUserIdUser());
             segnalationId.setRoomIdRoom(room.getIdRoom());
+            segnalationId.setSegnalationStateIdSegnalationState(segnalationState.getIdSegnalationState());
 
             Segnalation segnalation = new Segnalation();
             segnalation.setNote(segnalationDTO.getNote());
-            segnalation.setState(segnalationDTO.getState());
             segnalation.setRoom(room);
             segnalation.setId(segnalationId);
             segnalation.setProfessor(professor);
+            segnalation.setSegnalationState(segnalationState);
 
             return segnalationRepository.save(segnalation);
         } catch (Exception e) {
