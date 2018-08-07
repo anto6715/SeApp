@@ -54,7 +54,7 @@ public class StudentService implements IStudentServices {
         return studentRepository.findStudentsByCourse_IdCourse(course);
     }
 
-    @Override
+    @Transactional
     public Student getByName(String name) throws StudentNotFoundException, UserNotFoundException {
         try {
             User user = userServices.getByName(name);
@@ -65,6 +65,15 @@ public class StudentService implements IStudentServices {
         }
     }
 
+
+    @Transactional
+    public Student getByUid(String uid) throws StudentNotFoundException{
+        try {
+            return studentRepository.findStudentByUserUid(uid);
+        } catch (Exception e){
+            throw new StudentNotFoundException();
+        }
+    }
     @Transactional
     public Student save(StudentDTO studentDTO) throws CourseNotFoundException {
 
@@ -73,7 +82,6 @@ public class StudentService implements IStudentServices {
         user.setSurname(studentDTO.getSurname());
         user.setAge(studentDTO.getAge());
         user.setEmail(studentDTO.getEmail());
-        user.setPassword(studentDTO.getPassword());
         user.setUid(studentDTO.getUid());
         user.setUserType(1);
         User saveUser = userServices.save(user);

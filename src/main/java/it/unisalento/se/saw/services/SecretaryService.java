@@ -27,7 +27,7 @@ public class SecretaryService implements ISecretaryServices {
         return secretaryRepository.findAll();
     }
 
-    @Override
+    @Transactional
     public Secretary getById(int id) throws SecretaryNotFoundException {
         try {
             Secretary secretary = secretaryRepository.findSecretaryById_IdSecretary(id);
@@ -37,7 +37,7 @@ public class SecretaryService implements ISecretaryServices {
         }
     }
 
-    @Override
+    @Transactional
     public Secretary save(SecretaryDTO secretaryDTO) {
 
         User user = new User();
@@ -45,7 +45,6 @@ public class SecretaryService implements ISecretaryServices {
         user.setSurname(secretaryDTO.getSurname());
         user.setAge(secretaryDTO.getAge());
         user.setEmail(secretaryDTO.getEmail());
-        user.setPassword(secretaryDTO.getPassword());
         user.setUid(secretaryDTO.getUid());
         user.setUserType(2);
         User saveUser = userServices.save(user);
@@ -59,7 +58,7 @@ public class SecretaryService implements ISecretaryServices {
         return secretaryRepository.save(secretary);
     }
 
-    @Override
+    @Transactional
     public void removeById(int id) throws SecretaryNotFoundException {
         try{
             Secretary secretary = secretaryRepository.findSecretaryById_IdSecretary(id);

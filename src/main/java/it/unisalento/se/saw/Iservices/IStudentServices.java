@@ -15,7 +15,7 @@ public interface IStudentServices {
     public List<Student> getByCourse(int course);
     public Student getById(int id) throws StudentNotFoundException;
     public Student getByName(String name) throws StudentNotFoundException, UserNotFoundException;
-
+    public Student getByUid(String uid) throws StudentNotFoundException;
     Student save(StudentDTO studentDTO) throws CourseNotFoundException;
 
     public void removeById(int id) throws StudentNotFoundException;

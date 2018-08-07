@@ -33,7 +33,11 @@ public class AccessoryRestController {
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Accessory save(@RequestBody AccessoryDTO accessoryDTO) throws RoomNotFoundException {
-        return accessoryServices.save(accessoryDTO);
+        try {
+            return accessoryServices.save(accessoryDTO);
+        } catch (Exception e) {
+            throw new RoomNotFoundException();
+        }
     }
 
     @RequestMapping(value = "/getByIdRoom/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

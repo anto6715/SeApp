@@ -40,7 +40,6 @@ public class UserRestController {
         userDTO.setName(user.getName());
         userDTO.setSurname(user.getSurname());
         userDTO.setEmail(user.getEmail());
-        userDTO.setPassword(user.getPassword());
         userDTO.setUid(user.getUid());
         userDTO.setUserType((user.getUserType()));
         return userDTO;
@@ -53,7 +52,6 @@ public class UserRestController {
         userDTO.setName(user.getName());
         userDTO.setSurname(user.getSurname());
         userDTO.setEmail(user.getEmail());
-        userDTO.setPassword(user.getPassword());
         userDTO.setUid(user.getUid());
         userDTO.setUserType((user.getUserType()));
         return userDTO;
@@ -66,7 +64,6 @@ public class UserRestController {
         userDTO.setName(user.getName());
         userDTO.setSurname(user.getSurname());
         userDTO.setEmail(user.getEmail());
-        userDTO.setPassword(user.getPassword());
         userDTO.setUid(user.getUid());
         userDTO.setUserType((user.getUserType()));
         return userDTO;
@@ -79,7 +76,6 @@ public class UserRestController {
         user.setSurname(userDTO.getSurname());
         user.setAge(userDTO.getAge());
         user.setEmail(userDTO.getEmail());
-        user.setPassword(userDTO.getPassword());
         user.setUid(userDTO.getUid());
         user.setUserType(userDTO.getUserType());
         return userServices.save(user);

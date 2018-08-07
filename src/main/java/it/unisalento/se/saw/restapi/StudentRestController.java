@@ -44,7 +44,27 @@ public class StudentRestController {
             studentDTO.setMatricola(student.getMatricola());
             studentDTO.setAge(student.getUser().getAge());
             studentDTO.setEmail(student.getUser().getEmail());
-            studentDTO.setPassword(student.getUser().getPassword());
+            studentDTO.setName(student.getUser().getName());
+            studentDTO.setSurname(student.getUser().getSurname());
+            studentDTO.setUid(student.getUser().getUid());
+            return studentDTO;
+        } catch (Exception e) {
+            System.out.println("Utente non trovato");
+        }
+        return null;
+    }
+
+
+    @RequestMapping(value = "getByUid/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public StudentDTO getByUid(@PathVariable("uid") String uid) throws StudentNotFoundException {
+        try{
+            Student student = studentServices.getByUid(uid);
+            StudentDTO studentDTO = new StudentDTO();
+            studentDTO.setYearStart(student.getYearStart());
+            studentDTO.setYear(student.getYear());
+            studentDTO.setMatricola(student.getMatricola());
+            studentDTO.setAge(student.getUser().getAge());
+            studentDTO.setEmail(student.getUser().getEmail());
             studentDTO.setName(student.getUser().getName());
             studentDTO.setSurname(student.getUser().getSurname());
             studentDTO.setUid(student.getUser().getUid());
@@ -69,7 +89,6 @@ public class StudentRestController {
         studentDTO.setMatricola(student.getMatricola());
         studentDTO.setAge(student.getUser().getAge());
         studentDTO.setEmail(student.getUser().getEmail());
-        studentDTO.setPassword(student.getUser().getPassword());
         studentDTO.setName(student.getUser().getName());
         studentDTO.setSurname(student.getUser().getSurname());
         studentDTO.setUid(student.getUser().getUid());

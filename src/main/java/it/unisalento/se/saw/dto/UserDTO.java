@@ -5,9 +5,8 @@ public class UserDTO {
     private String name;
     private String surname;
     private String email;
-    private String password;
     private int age;
-    private int uid;
+    private String uid;
     private int userType;
 
     public int getUserType() {
@@ -30,15 +29,11 @@ public class UserDTO {
         return email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public int getAge() {
         return age;
     }
 
-    public int getUid() {
+    public String getUid() {
         return uid;
     }
 
@@ -54,15 +49,11 @@ public class UserDTO {
         this.email = email;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public void setAge(int age) {
         this.age = age;
     }
 
-    public void setUid(int uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 }

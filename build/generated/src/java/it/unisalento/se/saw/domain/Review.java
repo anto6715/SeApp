@@ -74,12 +74,12 @@ public class Review  implements java.io.Serializable {
 
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumns( { 
-        @JoinColumn(name="Lesson_idLesson", referencedColumnName="idLesson", nullable=false), 
-        @JoinColumn(name="Lesson_Teaching_idTeaching", referencedColumnName="Teaching_idTeaching", nullable=false), 
-        @JoinColumn(name="Lesson_Teaching_Course_idCourse", referencedColumnName="Teaching_Course_idCourse", nullable=false), 
-        @JoinColumn(name="Lesson_Teaching_Professor_idProfessor", referencedColumnName="Teaching_Professor_idProfessor", nullable=false), 
-        @JoinColumn(name="Lesson_Teaching_Professor_User_idUser", referencedColumnName="Teaching_Professor_User_idUser", nullable=false), 
-        @JoinColumn(name="Lesson_Room_idRoom", referencedColumnName="Room_idRoom", nullable=false) } )
+        @JoinColumn(name="Lesson_idLesson", referencedColumnName="idLesson", nullable=true),
+        @JoinColumn(name="Lesson_Teaching_idTeaching", referencedColumnName="Teaching_idTeaching", nullable=true),
+        @JoinColumn(name="Lesson_Teaching_Course_idCourse", referencedColumnName="Teaching_Course_idCourse", nullable=true),
+        @JoinColumn(name="Lesson_Teaching_Professor_idProfessor", referencedColumnName="Teaching_Professor_idProfessor", nullable=true),
+        @JoinColumn(name="Lesson_Teaching_Professor_User_idUser", referencedColumnName="Teaching_Professor_User_idUser", nullable=true),
+        @JoinColumn(name="Lesson_Room_idRoom", referencedColumnName="Room_idRoom", nullable=true) } )
     public Lesson getLesson() {
         return this.lesson;
     }
@@ -90,11 +90,11 @@ public class Review  implements java.io.Serializable {
 
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumns( { 
-        @JoinColumn(name="Material_idMaterial", referencedColumnName="idMaterial", nullable=false), 
-        @JoinColumn(name="Material_Teaching_idTeaching", referencedColumnName="Teaching_idTeaching", nullable=false), 
-        @JoinColumn(name="Material_Teaching_Course_idCourse", referencedColumnName="Teaching_Course_idCourse", nullable=false), 
-        @JoinColumn(name="Material_Teaching_Professor_idProfessor", referencedColumnName="Teaching_Professor_idProfessor", nullable=false), 
-        @JoinColumn(name="Material_Teaching_Professor_User_idUser", referencedColumnName="Teaching_Professor_User_idUser", nullable=false) } )
+        @JoinColumn(name="Material_idMaterial", referencedColumnName="idMaterial", nullable=true),
+        @JoinColumn(name="Material_Teaching_idTeaching", referencedColumnName="Teaching_idTeaching", nullable=true),
+        @JoinColumn(name="Material_Teaching_Course_idCourse", referencedColumnName="Teaching_Course_idCourse", nullable=true),
+        @JoinColumn(name="Material_Teaching_Professor_idProfessor", referencedColumnName="Teaching_Professor_idProfessor", nullable=true),
+        @JoinColumn(name="Material_Teaching_Professor_User_idUser", referencedColumnName="Teaching_Professor_User_idUser", nullable=true) } )
     public Material getMaterial() {
         return this.material;
     }

@@ -39,7 +39,6 @@ public class ProfessorRestController {
            professorDTO.setEmail(professor.getUser().getEmail());
            professorDTO.setName(professor.getUser().getName());
            professorDTO.setSurname(professor.getUser().getSurname());
-           professorDTO.setPassword(professor.getUser().getPassword());
            professorDTO.setUid(professor.getUser().getUid());
            return professorDTO;
        } catch (Exception e) {

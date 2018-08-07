@@ -5,6 +5,7 @@ import it.unisalento.se.saw.dto.SegnalationDTO;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
 import it.unisalento.se.saw.exceptions.SegnalationNotFoundException;
+import it.unisalento.se.saw.exceptions.SegnalationStateNotFoundException;
 
 import java.util.List;
 
@@ -14,6 +15,6 @@ public interface ISegnalationServices {
     public List<Segnalation> getByRoom(int id);
     public List<Segnalation> getByProfessor(int id);
     public Segnalation getById(int id) throws SegnalationNotFoundException;
-    public Segnalation save(SegnalationDTO segnalationDTO) throws ProfessorNotFoundException, RoomNotFoundException;
+    public Segnalation save(SegnalationDTO segnalationDTO) throws ProfessorNotFoundException, RoomNotFoundException, SegnalationStateNotFoundException;
     public void remove(int id) throws SegnalationNotFoundException;
 }

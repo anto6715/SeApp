@@ -33,7 +33,7 @@ public class User  implements java.io.Serializable {
      private String email;
      private String password;
      private Integer age;
-     private Integer uid;
+     private String uid;
      private Integer userType;
      @JsonBackReference
      private Set<Professor> professors = new HashSet<Professor>(0);
@@ -45,7 +45,7 @@ public class User  implements java.io.Serializable {
     public User() {
     }
 
-    public User(String name, String surname, String email, String password, Integer age, Integer uid, Integer userType, Set<Professor> professors, Set<Secretary> secretaries, Set<Student> students) {
+    public User(String name, String surname, String email, String password, Integer age, String uid, Integer userType, Set<Professor> professors, Set<Secretary> secretaries, Set<Student> students) {
        this.name = name;
        this.surname = surname;
        this.email = email;
@@ -122,11 +122,11 @@ public class User  implements java.io.Serializable {
 
     
     @Column(name="Uid")
-    public Integer getUid() {
+    public String getUid() {
         return this.uid;
     }
     
-    public void setUid(Integer uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 

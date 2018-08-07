@@ -31,7 +31,6 @@ public class SecretaryRestController {
         secretaryDTO.setAge(secretary.getUser().getAge());
         secretaryDTO.setEmail(secretary.getUser().getEmail());
         secretaryDTO.setName(secretary.getUser().getName());
-        secretaryDTO.setPassword(secretary.getUser().getPassword());
         secretaryDTO.setSurname(secretary.getUser().getSurname());
         secretaryDTO.setUserType(secretary.getUser().getUserType());
         secretaryDTO.setUid(secretary.getUser().getUid());

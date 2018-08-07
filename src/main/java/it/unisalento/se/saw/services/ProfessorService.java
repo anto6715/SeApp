@@ -39,7 +39,6 @@ public class ProfessorService implements IProfessorServices {
         user.setSurname(professorDTO.getSurname());
         user.setAge(professorDTO.getAge());
         user.setEmail(professorDTO.getEmail());
-        user.setPassword(professorDTO.getPassword());
         user.setUid(professorDTO.getUid());
         user.setUserType(3);
         User saveUser = userServices.save(user);
