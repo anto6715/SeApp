@@ -2,12 +2,21 @@ package it.unisalento.se.saw.dto;
 
 public class CourseDTO {
 
+    private int id;
     private String name;
     private String type;
     private int lenght;
     private int credits;
     private String location;
     private String language;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

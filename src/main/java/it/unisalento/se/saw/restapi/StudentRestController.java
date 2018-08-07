@@ -7,6 +7,8 @@ import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
+import it.unisalento.se.saw.models.DTO;
+import it.unisalento.se.saw.models.DtoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -39,15 +41,9 @@ public class StudentRestController {
     public StudentDTO getById(@PathVariable("id") int id) throws StudentNotFoundException {
         try{
             Student student = studentServices.getById(id);
-            StudentDTO studentDTO = new StudentDTO();
-            studentDTO.setYearStart(student.getYearStart());
-            studentDTO.setYear(student.getYear());
-            studentDTO.setMatricola(student.getMatricola());
-            studentDTO.setAge(student.getUser().getAge());
-            studentDTO.setEmail(student.getUser().getEmail());
-            studentDTO.setName(student.getUser().getName());
-            studentDTO.setSurname(student.getUser().getSurname());
-            studentDTO.setUid(student.getUser().getUid());
+            DtoFactory dtoFactory = new DtoFactory();
+            DTO<Student,StudentDTO> dto = dtoFactory.getDTO("STUDENT");
+            StudentDTO studentDTO = dto.create(student);
             return studentDTO;
         } catch (Exception e) {
             System.out.println("Utente non trovato");
@@ -60,25 +56,12 @@ public class StudentRestController {
     public StudentDTO getByUid(@PathVariable("uid") String uid) throws StudentNotFoundException {
         try{
             Student student = studentServices.getByUid(uid);
-            StudentDTO studentDTO = new StudentDTO();
-            studentDTO.setYearStart(student.getYearStart());
-            studentDTO.setYear(student.getYear());
-            studentDTO.setMatricola(student.getMatricola());
-            studentDTO.setAge(student.getUser().getAge());
-            studentDTO.setEmail(student.getUser().getEmail());
-            studentDTO.setName(student.getUser().getName());
-            studentDTO.setSurname(student.getUser().getSurname());
-            studentDTO.setUid(student.getUser().getUid());
-            studentDTO.setUserType(student.getUser().getUserType());
-            studentDTO.setIdCourse(student.getCourse().getIdCourse());
-            CourseDTO courseDTO = new CourseDTO();
-            courseDTO.setName(student.getCourse().getName());
-            courseDTO.setLanguage(student.getCourse().getLanguage());
-            courseDTO.setLocation(student.getCourse().getLocation());
-            courseDTO.setCredits(student.getCourse().getCredits());
-            courseDTO.setType(student.getCourse().getType());
-            courseDTO.setLenght(student.getCourse().getLenght());
-            studentDTO.setCourseDTO(courseDTO);
+            DtoFactory dtoFactory = new DtoFactory();
+            DTO<Student,StudentDTO> dto = dtoFactory.getDTO("STUDENT");
+            StudentDTO studentDTO = dto.create(student);
+           /* DTO dto = dtoFactory.getDTO("STUDENT");
+            StudentDTO studentDTO = (StudentDTO) dto.create(student);
+            System.out.println("prova");*/
             return studentDTO;
         } catch (Exception e) {
             System.out.println("Utente non trovato");
@@ -94,15 +77,9 @@ public class StudentRestController {
     @RequestMapping(value = "getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public StudentDTO getByName(@PathVariable("name") String name) throws StudentNotFoundException, UserNotFoundException {
         Student student = studentServices.getByName(name);
-        StudentDTO studentDTO = new StudentDTO();
-        studentDTO.setYearStart(student.getYearStart());
-        studentDTO.setYear(student.getYear());
-        studentDTO.setMatricola(student.getMatricola());
-        studentDTO.setAge(student.getUser().getAge());
-        studentDTO.setEmail(student.getUser().getEmail());
-        studentDTO.setName(student.getUser().getName());
-        studentDTO.setSurname(student.getUser().getSurname());
-        studentDTO.setUid(student.getUser().getUid());
+        DtoFactory dtoFactory = new DtoFactory();
+        DTO<Student,StudentDTO> dto = dtoFactory.getDTO("STUDENT");
+        StudentDTO studentDTO = dto.create(student);
         return studentDTO;
     }
 

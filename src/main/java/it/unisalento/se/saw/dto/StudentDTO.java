@@ -2,11 +2,21 @@ package it.unisalento.se.saw.dto;
 
 public class StudentDTO  extends UserDTO{
 
+    private int id;
     private String matricola;
     private int year;
     private int yearStart;
     private int idCourse;
     private CourseDTO courseDTO;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public CourseDTO getCourseDTO() {
         return courseDTO;
