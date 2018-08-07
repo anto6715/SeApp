@@ -2,6 +2,7 @@ package it.unisalento.se.saw.restapi;
 
 import it.unisalento.se.saw.Iservices.IStudentServices;
 import it.unisalento.se.saw.domain.Student;
+import it.unisalento.se.saw.dto.CourseDTO;
 import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
@@ -68,6 +69,16 @@ public class StudentRestController {
             studentDTO.setName(student.getUser().getName());
             studentDTO.setSurname(student.getUser().getSurname());
             studentDTO.setUid(student.getUser().getUid());
+            studentDTO.setUserType(student.getUser().getUserType());
+            studentDTO.setIdCourse(student.getCourse().getIdCourse());
+            CourseDTO courseDTO = new CourseDTO();
+            courseDTO.setName(student.getCourse().getName());
+            courseDTO.setLanguage(student.getCourse().getLanguage());
+            courseDTO.setLocation(student.getCourse().getLocation());
+            courseDTO.setCredits(student.getCourse().getCredits());
+            courseDTO.setType(student.getCourse().getType());
+            courseDTO.setLenght(student.getCourse().getLenght());
+            studentDTO.setCourseDTO(courseDTO);
             return studentDTO;
         } catch (Exception e) {
             System.out.println("Utente non trovato");

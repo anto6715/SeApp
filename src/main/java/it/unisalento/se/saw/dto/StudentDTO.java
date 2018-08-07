@@ -6,6 +6,15 @@ public class StudentDTO  extends UserDTO{
     private int year;
     private int yearStart;
     private int idCourse;
+    private CourseDTO courseDTO;
+
+    public CourseDTO getCourseDTO() {
+        return courseDTO;
+    }
+
+    public void setCourseDTO(CourseDTO courseDTO) {
+        this.courseDTO = courseDTO;
+    }
 
     public String getMatricola() {
         return matricola;
