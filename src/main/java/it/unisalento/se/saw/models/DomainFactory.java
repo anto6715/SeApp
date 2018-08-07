@@ -6,6 +6,9 @@ public class DomainFactory {
         if(domainType == null){
             return null;
         }
+        if(domainType.equalsIgnoreCase("USER")){
+            return new UserDomainModel();
+        }
         return null;
     }
 }

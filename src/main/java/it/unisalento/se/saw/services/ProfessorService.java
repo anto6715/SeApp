@@ -8,8 +8,13 @@ import it.unisalento.se.saw.domain.Professor;
 import it.unisalento.se.saw.domain.ProfessorId;
 import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.ProfessorDTO;
+import it.unisalento.se.saw.dto.UserDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
+import it.unisalento.se.saw.models.DTO;
+import it.unisalento.se.saw.models.Domain;
+import it.unisalento.se.saw.models.DomainFactory;
+import it.unisalento.se.saw.models.DtoFactory;
 import it.unisalento.se.saw.repositories.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,27 +39,22 @@ public class ProfessorService implements IProfessorServices {
 
     @Transactional
     public Professor save(ProfessorDTO professorDTO) throws CourseNotFoundException {
-        User user = new User();
-        user.setName(professorDTO.getName());
-        user.setSurname(professorDTO.getSurname());
-        user.setAge(professorDTO.getAge());
-        user.setEmail(professorDTO.getEmail());
-        user.setUid(professorDTO.getUid());
-        user.setUserType(3);
+
+        DomainFactory domainFactory = new DomainFactory();
+        Domain<ProfessorDTO,User> domain = domainFactory.getDomain("USER");
+        User user = domain.create(professorDTO);
+
         User saveUser = userServices.save(user);
-
         Course course = courseServices.getById(professorDTO.getCourse());
-
 
         ProfessorId professorId = new ProfessorId();
         professorId.setUserIdUser(user.getIdUser());
-
 
         Professor professor = new Professor();
         professor.setUser(user);
         professor.setId(professorId);
 
-        //professor save non restituisce idProfessor
+        //professor save non restituisce idProfessor necessario per salvare in professor_has_couse
         Professor professorTemp = professorRepository.save(professor);
         Professor professorHasCourse = professorRepository.findProfessorById_UserIdUser(professorTemp.getId().getUserIdUser());
         professorHasCourse.getCourses().add(course);

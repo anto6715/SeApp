@@ -5,7 +5,7 @@ import it.unisalento.se.saw.domain.Student;
 import it.unisalento.se.saw.dto.CourseDTO;
 import it.unisalento.se.saw.dto.StudentDTO;
 
-public class StudentModel implements DTO<Student, StudentDTO> {
+public class StudentDTOModel implements DTO<Student, StudentDTO> {
     @Override
     public StudentDTO create(Student student) {
         StudentDTO studentDTO = new StudentDTO();

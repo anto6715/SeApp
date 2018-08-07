@@ -2,6 +2,7 @@ package it.unisalento.se.saw.restapi;
 
 import it.unisalento.se.saw.Iservices.IStudentServices;
 import it.unisalento.se.saw.domain.Student;
+import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.CourseDTO;
 import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
@@ -59,9 +60,6 @@ public class StudentRestController {
             DtoFactory dtoFactory = new DtoFactory();
             DTO<Student,StudentDTO> dto = dtoFactory.getDTO("STUDENT");
             StudentDTO studentDTO = dto.create(student);
-           /* DTO dto = dtoFactory.getDTO("STUDENT");
-            StudentDTO studentDTO = (StudentDTO) dto.create(student);
-            System.out.println("prova");*/
             return studentDTO;
         } catch (Exception e) {
             System.out.println("Utente non trovato");
@@ -75,12 +73,8 @@ public class StudentRestController {
     }
 
     @RequestMapping(value = "getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public StudentDTO getByName(@PathVariable("name") String name) throws StudentNotFoundException, UserNotFoundException {
-        Student student = studentServices.getByName(name);
-        DtoFactory dtoFactory = new DtoFactory();
-        DTO<Student,StudentDTO> dto = dtoFactory.getDTO("STUDENT");
-        StudentDTO studentDTO = dto.create(student);
-        return studentDTO;
+    public List<Student> getByName(@PathVariable("name") String name) throws StudentNotFoundException, UserNotFoundException {
+        return studentServices.getByName(name);
     }
 
 

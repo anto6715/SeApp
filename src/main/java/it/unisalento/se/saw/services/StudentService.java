@@ -11,7 +11,10 @@ import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
+import it.unisalento.se.saw.models.Domain;
+import it.unisalento.se.saw.models.DomainFactory;
 import it.unisalento.se.saw.repositories.StudentRepository;
+import it.unisalento.se.saw.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +34,8 @@ public class StudentService implements IStudentServices {
 
     @Autowired
     ICourseServices courseServices;
+    @Autowired
+    UserRepository userRepository;
 
 
     @Transactional(readOnly = true)
@@ -55,14 +60,8 @@ public class StudentService implements IStudentServices {
     }
 
     @Transactional
-    public Student getByName(String name) throws StudentNotFoundException, UserNotFoundException {
-        try {
-            User user = userServices.getByName(name);
-            Student student = studentRepository.findStudentById_UserIdUser(user.getIdUser());
-            return student;
-        } catch (Exception e) {
-            throw new UserNotFoundException();
-        }
+    public List<Student> getByName(String name) {
+        return studentRepository.findStudentsByUser_NameAndUserUserType(name,1);
     }
 
 
@@ -76,16 +75,11 @@ public class StudentService implements IStudentServices {
     }
     @Transactional
     public Student save(StudentDTO studentDTO) throws CourseNotFoundException {
+        DomainFactory domainFactory = new DomainFactory();
+        Domain<StudentDTO,User> domain = domainFactory.getDomain("USER");
+        User user = domain.create(studentDTO);
 
-        User user = new User();
-        user.setName(studentDTO.getName());
-        user.setSurname(studentDTO.getSurname());
-        user.setAge(studentDTO.getAge());
-        user.setEmail(studentDTO.getEmail());
-        user.setUid(studentDTO.getUid());
-        user.setUserType(1);
         User saveUser = userServices.save(user);
-
         Course course = courseServices.getById(studentDTO.getIdCourse());
 
         StudentId studentId = new StudentId();

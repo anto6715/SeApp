@@ -6,6 +6,8 @@ import it.unisalento.se.saw.domain.Professor;
 import it.unisalento.se.saw.dto.ProfessorDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
+import it.unisalento.se.saw.models.DTO;
+import it.unisalento.se.saw.models.DtoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +29,7 @@ public class ProfessorRestController {
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Professor post(@RequestBody ProfessorDTO professorDTO) throws CourseNotFoundException {
+        System.out.println("qui");
         return professorServices.save(professorDTO);
     }
 
@@ -34,12 +37,9 @@ public class ProfessorRestController {
     public ProfessorDTO getById(@PathVariable("id") int id) throws ProfessorNotFoundException {
        try {
            Professor professor = professorServices.getById(id);
-           ProfessorDTO professorDTO = new ProfessorDTO();
-           professorDTO.setAge(professor.getUser().getAge());
-           professorDTO.setEmail(professor.getUser().getEmail());
-           professorDTO.setName(professor.getUser().getName());
-           professorDTO.setSurname(professor.getUser().getSurname());
-           professorDTO.setUid(professor.getUser().getUid());
+           DtoFactory dtoFactory = new DtoFactory();
+           DTO<Professor,ProfessorDTO> dto = dtoFactory.getDTO("PROFESSOR");
+           ProfessorDTO professorDTO = dto.create(professor);
            return professorDTO;
        } catch (Exception e) {
            throw new ProfessorNotFoundException();

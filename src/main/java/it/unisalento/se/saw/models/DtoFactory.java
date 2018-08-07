@@ -1,8 +1,5 @@
 package it.unisalento.se.saw.models;
 
-import it.unisalento.se.saw.domain.Student;
-import it.unisalento.se.saw.dto.StudentDTO;
-
 public class DtoFactory {
 
     public DTO getDTO(String dtoType){
@@ -10,11 +7,18 @@ public class DtoFactory {
             return null;
         }
         if (dtoType.equalsIgnoreCase("STUDENT")){
-            return new StudentModel();
+            return new StudentDTOModel();
         }
 
         if (dtoType.equalsIgnoreCase("Course")){
             return new CourseModel();
+        }
+
+        if (dtoType.equalsIgnoreCase("USER")){
+            return new UserModel();
+        }
+        if (dtoType.equalsIgnoreCase("PROFESSOR")){
+            return new ProfessorDTOModel();
         }
         return null;
     }

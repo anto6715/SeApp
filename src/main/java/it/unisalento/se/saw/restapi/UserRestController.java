@@ -46,15 +46,8 @@ public class UserRestController {
     }
 
     @RequestMapping(value = "/getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserDTO getByName(@PathVariable("name") String name) throws UserNotFoundException{
-        User user= userServices.getByName(name);
-        UserDTO userDTO = new UserDTO();
-        userDTO.setName(user.getName());
-        userDTO.setSurname(user.getSurname());
-        userDTO.setEmail(user.getEmail());
-        userDTO.setUid(user.getUid());
-        userDTO.setUserType((user.getUserType()));
-        return userDTO;
+    public List<User> getByName(@PathVariable("name") String name){
+               return userServices.getByName(name);
     }
 
     @RequestMapping(value = "/getByNameSurname/{name}_{surname}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

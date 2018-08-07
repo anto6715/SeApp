@@ -8,7 +8,7 @@ import java.util.List;
 public interface IUserServices {
 
     public List<User> getAll();
-    public User getByName(String name) throws UserNotFoundException;
+    public List<User> getByName(String name);
     public User save(User user);
     public User getById(int id) throws UserNotFoundException;
     public void removeUserById(int id) throws UserNotFoundException;
