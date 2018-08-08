@@ -11,10 +11,7 @@ import it.unisalento.se.saw.dto.ProfessorDTO;
 import it.unisalento.se.saw.dto.UserDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
-import it.unisalento.se.saw.models.DTO;
-import it.unisalento.se.saw.models.Domain;
-import it.unisalento.se.saw.models.DomainFactory;
-import it.unisalento.se.saw.models.DtoFactory;
+import it.unisalento.se.saw.models.*;
 import it.unisalento.se.saw.repositories.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,7 +37,7 @@ public class ProfessorService implements IProfessorServices {
     @Transactional
     public Professor save(ProfessorDTO professorDTO) throws CourseNotFoundException {
 
-        DomainFactory domainFactory = new DomainFactory();
+        AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
         Domain<ProfessorDTO,User> domain = domainFactory.getDomain("USER");
         User user = domain.create(professorDTO);
 

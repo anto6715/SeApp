@@ -6,8 +6,10 @@ import it.unisalento.se.saw.domain.Professor;
 import it.unisalento.se.saw.dto.ProfessorDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.DTO;
 import it.unisalento.se.saw.models.DtoFactory;
+import it.unisalento.se.saw.models.FactoryProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +39,7 @@ public class ProfessorRestController {
     public ProfessorDTO getById(@PathVariable("id") int id) throws ProfessorNotFoundException {
        try {
            Professor professor = professorServices.getById(id);
-           DtoFactory dtoFactory = new DtoFactory();
+           AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
            DTO<Professor,ProfessorDTO> dto = dtoFactory.getDTO("PROFESSOR");
            ProfessorDTO professorDTO = dto.create(professor);
            return professorDTO;

@@ -1,7 +1,7 @@
 package it.unisalento.se.saw.models;
 
-public class DtoFactory {
-
+public class DtoFactory extends AbstractFactory {
+    @Override
     public DTO getDTO(String dtoType){
         if(dtoType == null){
             return null;
@@ -20,6 +20,11 @@ public class DtoFactory {
         if (dtoType.equalsIgnoreCase("PROFESSOR")){
             return new ProfessorDTOModel();
         }
+        return null;
+    }
+
+    @Override
+    public Domain getDomain(String domainType) {
         return null;
     }
 }

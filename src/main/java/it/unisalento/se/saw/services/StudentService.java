@@ -11,8 +11,10 @@ import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.Domain;
 import it.unisalento.se.saw.models.DomainFactory;
+import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.StudentRepository;
 import it.unisalento.se.saw.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,7 +77,7 @@ public class StudentService implements IStudentServices {
     }
     @Transactional
     public Student save(StudentDTO studentDTO) throws CourseNotFoundException {
-        DomainFactory domainFactory = new DomainFactory();
+        AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
         Domain<StudentDTO,User> domain = domainFactory.getDomain("USER");
         User user = domain.create(studentDTO);
 
