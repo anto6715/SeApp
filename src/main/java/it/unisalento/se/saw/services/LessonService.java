@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -35,6 +36,10 @@ public class LessonService implements ILessonServices {
         return lessonRepository.findAll();
     }
 
+    @Transactional
+    public List<Lesson> getByDate(Date date, int id) {
+        return lessonRepository.findLessonsByDateAndId_TeachingCourseIdCourse(date, id);
+    }
 
 
     public Lesson getById(int id) throws LessonNotFoundException {

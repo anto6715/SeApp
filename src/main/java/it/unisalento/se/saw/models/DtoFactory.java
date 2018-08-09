@@ -10,6 +10,14 @@ public class DtoFactory extends AbstractFactory {
             return new StudentDTOModel();
         }
 
+        if (dtoType.equalsIgnoreCase("SETLESSON")){
+            return new SetLessonDTOModel();
+        }
+
+        if (dtoType.equalsIgnoreCase("SETSTUDENT")){
+            return new SetStudentDTOModel();
+        }
+
         if (dtoType.equalsIgnoreCase("Course")){
             return new CourseDTOModel();
         }

@@ -1,9 +1,11 @@
 package it.unisalento.se.saw.restapi;
 
 import it.unisalento.se.saw.Iservices.IStudentServices;
+import it.unisalento.se.saw.domain.Lesson;
 import it.unisalento.se.saw.domain.Student;
 import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.CourseDTO;
+import it.unisalento.se.saw.dto.LessonDTO;
 import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.ManyToOne;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/student")
@@ -36,8 +39,12 @@ public class StudentRestController {
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ManyToOne
-    public List<Student> getAll(){
-        return studentServices.getAll();
+    public Set<StudentDTO> getAll(){
+        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+        DTO<List<Student>, Set<StudentDTO>> dto = abstractFactory.getDTO("SETSTUDENT");
+
+        List<Student> students = studentServices.getAll();
+        return dto.create(students);
     }
 
     @RequestMapping(value = "getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

@@ -33,10 +33,10 @@ public class Exam  implements java.io.Serializable {
      private ExamId id;
      private Room room;
      private Teaching teaching;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Europe/Rome")
      @Temporal(TemporalType.DATE)
      private Date data;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "hh:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "hh:mm:ss",timezone = "Europe/Rome")
      @Temporal(TemporalType.TIME)
      private Date time;
 

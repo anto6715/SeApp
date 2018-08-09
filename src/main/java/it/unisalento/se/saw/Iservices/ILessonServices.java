@@ -6,11 +6,13 @@ import it.unisalento.se.saw.exceptions.LessonNotFoundException;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
 import it.unisalento.se.saw.exceptions.TeachingNotFoundException;
 
+import java.util.Date;
 import java.util.List;
 
 public interface ILessonServices {
 
     public List<Lesson> getAll();
+    public List<Lesson> getByDate(Date date, int id);
     public Lesson getById(int id) throws LessonNotFoundException;
     public List<Lesson> getByRoom(int id);
     public Lesson save(LessonDTO lessonDTO) throws TeachingNotFoundException, RoomNotFoundException;

@@ -37,12 +37,12 @@ public class Lesson  implements java.io.Serializable {
      private LessonId id;
      private Room room;
      private Teaching teaching;
-     @Temporal(TemporalType.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Europe/Rome")
      private Date date;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "hh:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "hh:mm:ss", timezone = "Europe/Rome")
      @Temporal(TemporalType.TIME)
      private Date start;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "hh:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "hh:mm:ss", timezone = "Europe/Rome")
      @Temporal(TemporalType.TIME)
      private Date end;
      @JsonBackReference
