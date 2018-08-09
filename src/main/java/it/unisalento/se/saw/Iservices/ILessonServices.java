@@ -11,7 +11,6 @@ import java.util.List;
 public interface ILessonServices {
 
     public List<Lesson> getAll();
-    public List<Lesson> getByDay(String day);
     public Lesson getById(int id) throws LessonNotFoundException;
     public List<Lesson> getByRoom(int id);
     public Lesson save(LessonDTO lessonDTO) throws TeachingNotFoundException, RoomNotFoundException;

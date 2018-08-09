@@ -7,6 +7,9 @@ import it.unisalento.se.saw.domain.SecretaryId;
 import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.SecretaryDTO;
 import it.unisalento.se.saw.exceptions.SecretaryNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.Domain;
+import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.SecretaryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,14 +42,9 @@ public class SecretaryService implements ISecretaryServices {
 
     @Transactional
     public Secretary save(SecretaryDTO secretaryDTO) {
-
-        User user = new User();
-        user.setName(secretaryDTO.getName());
-        user.setSurname(secretaryDTO.getSurname());
-        user.setAge(secretaryDTO.getAge());
-        user.setEmail(secretaryDTO.getEmail());
-        user.setUid(secretaryDTO.getUid());
-        user.setUserType(2);
+        AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
+        Domain<SecretaryDTO,User> domain = domainFactory.getDomain("USER");
+        User user = domain.create(secretaryDTO);
         User saveUser = userServices.save(user);
 
         SecretaryId secretaryId = new SecretaryId();

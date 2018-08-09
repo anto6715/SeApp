@@ -69,18 +69,14 @@ public class ExamService implements IExamServices {
         examId.setTeachingProfessorIdProfessor(teaching.getId().getProfessorIdProfessor());
         examId.setTeachingProfessorUserIdUser(teaching.getId().getProfessorUserIdUser());
 
-        Date date = new Date(examDTO.getYear(),examDTO.getMonth(),examDTO.getDay());
+
 
         Exam exam = new Exam();
         exam.setTeaching(teaching);
         exam.setRoom(room);
         exam.setId(examId);
-        exam.setDay(examDTO.getDay());
-        exam.setHour(examDTO.getHour());
-        exam.setYear(examDTO.getYear());
-        exam.setHour(examDTO.getHour());
-        exam.setMonth(examDTO.getMonth());
-        exam.setMinutes(examDTO.getMinutes());
+        exam.setData(examDTO.getDate());
+        exam.setTime(examDTO.getTime());
         return examRepository.save(exam);
 
     }

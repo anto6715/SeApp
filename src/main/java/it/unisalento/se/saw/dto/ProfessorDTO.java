@@ -9,15 +9,6 @@ public class ProfessorDTO extends UserDTO {
 
     private int course;
     private int id;
-    private Set<Course> courses = new HashSet<Course>(0);
-
-    public Set<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(Set<Course> courses) {
-        this.courses = courses;
-    }
 
     public int getId() {
         return id;

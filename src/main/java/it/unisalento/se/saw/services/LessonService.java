@@ -35,9 +35,7 @@ public class LessonService implements ILessonServices {
         return lessonRepository.findAll();
     }
 
-    public List<Lesson> getByDay(String day) {
-        return lessonRepository.findLessonsByDay(day);
-    }
+
 
     public Lesson getById(int id) throws LessonNotFoundException {
         try {
@@ -66,14 +64,14 @@ public class LessonService implements ILessonServices {
 
 
         Lesson lesson = new Lesson();
-        lesson.setDay(lessonDTO.getDay());
-        lesson.setDuration(lessonDTO.getDuration());
-        lesson.setTime(lessonDTO.getTime());
 
         lesson.setTeaching(teaching);
         lesson.setId(lessonId);
         lesson.setRoom(room);
-
+        lesson.setDate(lessonDTO.getDate());
+        lesson.setStart(lessonDTO.getStart());
+        lesson.setEnd(lessonDTO.getEnd());
+        System.out.println(lessonDTO.getEnd());
         return lessonRepository.save(lesson);
 
 

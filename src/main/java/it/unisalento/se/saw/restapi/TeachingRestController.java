@@ -6,6 +6,9 @@ import it.unisalento.se.saw.dto.TeachingDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
 import it.unisalento.se.saw.exceptions.TeachingNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DTO;
+import it.unisalento.se.saw.models.FactoryProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -38,9 +41,12 @@ public class TeachingRestController {
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Teaching getById(@PathVariable int id) throws TeachingNotFoundException {
+    public TeachingDTO getById(@PathVariable int id) throws TeachingNotFoundException {
         try {
-            return teachingServices.getById(id);
+            Teaching teaching= teachingServices.getById(id);
+            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+            DTO<Teaching, TeachingDTO> dto = abstractFactory.getDTO("Teaching");
+            return dto.create(teaching);
         } catch (Exception e) {
             throw new TeachingNotFoundException();
         }

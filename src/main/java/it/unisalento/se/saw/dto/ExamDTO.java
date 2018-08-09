@@ -1,55 +1,31 @@
 package it.unisalento.se.saw.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class ExamDTO {
-
-    private int year;
-    private int month;
-    private int day;
-    private int minutes;
-    private int hour;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    private Date date;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
+    private Date time;
     private int idRoom;
     private int idTeaching;
 
-    public int getYear() {
-        return year;
+    public Date getDate() {
+        return date;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public int getMonth() {
-        return month;
+    public Date getTime() {
+        return time;
     }
 
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
-    public int getDay() {
-        return day;
-    }
-
-    public void setDay(int day) {
-        this.day = day;
-    }
-
-    public int getMinutes() {
-        return minutes;
-    }
-
-    public void setMinutes(int minutes) {
-        this.minutes = minutes;
-    }
-
-    public int getHour() {
-        return hour;
-    }
-
-    public void setHour(int hour) {
-        this.hour = hour;
+    public void setTime(Date time) {
+        this.time = time;
     }
 
     public int getIdRoom() {

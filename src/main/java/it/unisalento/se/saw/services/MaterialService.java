@@ -43,16 +43,11 @@ public class MaterialService implements IMaterialServices {
             Teaching teaching = teachingServices.getById(materialDTO.getIdTeaching());
 
             MaterialId materialId = new MaterialId();
-            materialId.setTeachingIdTeaching(teaching.getId().getIdTeaching());
-            materialId.setTeachingCourseIdCourse(teaching.getId().getCourseIdCourse());
-            materialId.setTeachingProfessorIdProfessor(teaching.getId().getProfessorIdProfessor());
-            materialId.setTeachingProfessorUserIdUser(teaching.getId().getProfessorUserIdUser());
 
             Material material = new Material();
             material.setLink(materialDTO.getLink());
             material.setName(materialDTO.getName());
             material.setId(materialId);
-            material.setTeaching(teaching);
             return materialRepository.save(material);
         } catch (Exception e) {
             throw new TeachingNotFoundException();

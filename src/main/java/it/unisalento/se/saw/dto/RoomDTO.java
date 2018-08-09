@@ -2,30 +2,39 @@ package it.unisalento.se.saw.dto;
 
 public class RoomDTO {
 
+    private int id;
     private int capacity;
     private String location;
     private String name;
-    private String latitude;
-    private String longitude;
+    private double latitude;
+    private double longitude;
 
-    public String getLatitude() {
-        return latitude;
+    public int getId() {
+        return id;
     }
 
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
-    public String getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getCapacity() {
         return capacity;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public void setCapacity(int capacity) {

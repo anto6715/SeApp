@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface LessonRepository extends JpaRepository<Lesson, LessonId> {
 
-    public List<Lesson> findLessonsByDay(String day);
+
     public Lesson findLessonById_IdLesson(int id);
 }

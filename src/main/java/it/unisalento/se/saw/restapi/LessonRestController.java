@@ -6,6 +6,9 @@ import it.unisalento.se.saw.dto.LessonDTO;
 import it.unisalento.se.saw.exceptions.LessonNotFoundException;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
 import it.unisalento.se.saw.exceptions.TeachingNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DTO;
+import it.unisalento.se.saw.models.FactoryProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -35,22 +38,24 @@ public class LessonRestController {
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Lesson save(@RequestBody LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
         try {
+            lessonDTO.getStart().setHours(lessonDTO.getStart().getHours()-1);
+            lessonDTO.getEnd().setHours(lessonDTO.getEnd().getHours()-1);
             return lessonServices.save(lessonDTO);
         } catch (Exception e) {
             throw new RoomNotFoundException();
         }
     }
 
-    @RequestMapping(value = "/getByDay/{day}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Lesson> getByDay(@PathVariable String day) {
-        return lessonServices.getByDay(day);
 
-    }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Lesson getById(@PathVariable int id) throws LessonNotFoundException {
+    public LessonDTO getById(@PathVariable int id) throws LessonNotFoundException {
         try {
-            return lessonServices.getById(id);
+            Lesson lesson = lessonServices.getById(id);
+            System.out.println(lesson.getId());
+            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+            DTO<Lesson,LessonDTO> dto = abstractFactory.getDTO("LESSON");
+            return dto.create(lesson);
         } catch (Exception e) {
             throw new LessonNotFoundException();
         }

@@ -5,6 +5,9 @@ import it.unisalento.se.saw.domain.Room;
 import it.unisalento.se.saw.dto.RoomDTO;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DTO;
+import it.unisalento.se.saw.models.FactoryProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -29,11 +32,13 @@ public class RoomRestController {
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Room getById(@PathVariable int id) throws RoomNotFoundException {
+    public RoomDTO getById(@PathVariable int id) throws RoomNotFoundException {
         try {
-            System.out.println(id);
-            System.out.println("ciao");
-            return roomServices.getById(id);
+
+            Room room = roomServices.getById(id);
+            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+            DTO<Room,RoomDTO> dto = abstractFactory.getDTO("Room");
+            return dto.create(room);
         } catch (Exception e) {
             throw new RoomNotFoundException();
         }

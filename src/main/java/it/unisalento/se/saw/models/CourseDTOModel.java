@@ -3,7 +3,7 @@ package it.unisalento.se.saw.models;
 import it.unisalento.se.saw.domain.Course;
 import it.unisalento.se.saw.dto.CourseDTO;
 
-public class CourseModel implements DTO<Course, CourseDTO> {
+public class CourseDTOModel implements DTO<Course, CourseDTO> {
     @Override
     public CourseDTO create(Course course) {
         CourseDTO courseDTO = new CourseDTO();

@@ -4,6 +4,9 @@ import it.unisalento.se.saw.Iservices.ISecretaryServices;
 import it.unisalento.se.saw.domain.Secretary;
 import it.unisalento.se.saw.dto.SecretaryDTO;
 import it.unisalento.se.saw.exceptions.SecretaryNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DTO;
+import it.unisalento.se.saw.models.FactoryProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -27,13 +30,9 @@ public class SecretaryRestController {
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public SecretaryDTO getById(@PathVariable("id") int id) throws SecretaryNotFoundException {
         Secretary secretary = secretaryServices.getById(id);
-        SecretaryDTO secretaryDTO = new SecretaryDTO();
-        secretaryDTO.setAge(secretary.getUser().getAge());
-        secretaryDTO.setEmail(secretary.getUser().getEmail());
-        secretaryDTO.setName(secretary.getUser().getName());
-        secretaryDTO.setSurname(secretary.getUser().getSurname());
-        secretaryDTO.setUserType(secretary.getUser().getUserType());
-        secretaryDTO.setUid(secretary.getUser().getUid());
+        AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+        DTO<Secretary, SecretaryDTO> dto = dtoFactory.getDTO("SECRETARY");
+        SecretaryDTO secretaryDTO = dto.create(secretary);
         return secretaryDTO;
     }
 

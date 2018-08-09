@@ -11,7 +11,19 @@ public class DtoFactory extends AbstractFactory {
         }
 
         if (dtoType.equalsIgnoreCase("Course")){
-            return new CourseModel();
+            return new CourseDTOModel();
+        }
+
+        if (dtoType.equalsIgnoreCase("Lesson")){
+            return new LessonDTOModel();
+        }
+
+        if (dtoType.equalsIgnoreCase("ROOM")){
+            return new RoomDTOModel();
+        }
+
+        if (dtoType.equalsIgnoreCase("TEACHING")){
+            return new TeachingDTOModel();
         }
 
         if (dtoType.equalsIgnoreCase("USER")){
@@ -19,6 +31,9 @@ public class DtoFactory extends AbstractFactory {
         }
         if (dtoType.equalsIgnoreCase("PROFESSOR")){
             return new ProfessorDTOModel();
+        }
+        if (dtoType.equalsIgnoreCase("SECRETARY")){
+            return new SecretaryDTOModel();
         }
         return null;
     }

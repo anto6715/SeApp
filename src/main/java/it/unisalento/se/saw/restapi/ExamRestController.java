@@ -34,7 +34,10 @@ public class ExamRestController {
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Exam save(@RequestBody ExamDTO examDTO) throws RoomNotFoundException, TeachingNotFoundException {
-        return examServices.save(examDTO);
+        examDTO.getTime().setHours(examDTO.getTime().getHours()-1); // altrimenti ha un'ora in più
+        System.out.println(examDTO.getDate());
+        System.out.println(examDTO.getTime());
+        return null;//examServices.save(examDTO);
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

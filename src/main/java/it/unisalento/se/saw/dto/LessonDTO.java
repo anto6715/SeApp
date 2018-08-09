@@ -1,35 +1,69 @@
 package it.unisalento.se.saw.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.Date;
+
 public class LessonDTO {
 
-    private String day;
-    private String time;
-    private String duration;
+    private int id;
     private int idTeaching;
     private int idRoom;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    private Date date;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
+    private Date start;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
+    private Date end;
+    private RoomDTO roomDTO;
+    private TeachingDTO teachingDTO;
 
-    public String getDay() {
-        return day;
+    public int getId() {
+        return id;
     }
 
-    public void setDay(String day) {
-        this.day = day;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getTime() {
-        return time;
+    public Date getDate() {
+        return date;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public String getDuration() {
-        return duration;
+    public Date getStart() {
+        return start;
     }
 
-    public void setDuration(String duration) {
-        this.duration = duration;
+    public void setStart(Date start) {
+        this.start = start;
+    }
+
+    public Date getEnd() {
+        return end;
+    }
+
+    public void setEnd(Date end) {
+        this.end = end;
+    }
+
+    public RoomDTO getRoomDTO() {
+        return roomDTO;
+    }
+
+    public void setRoomDTO(RoomDTO roomDTO) {
+        this.roomDTO = roomDTO;
+    }
+
+    public TeachingDTO getTeachingDTO() {
+        return teachingDTO;
+    }
+
+    public void setTeachingDTO(TeachingDTO teachingDTO) {
+        this.teachingDTO = teachingDTO;
     }
 
     public int getIdTeaching() {

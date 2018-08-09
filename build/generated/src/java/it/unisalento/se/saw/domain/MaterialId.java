@@ -1,5 +1,5 @@
 package it.unisalento.se.saw.domain;
-// Generated 4-ago-2018 9.42.48 by Hibernate Tools 5.2.0.Final
+// Generated 8-ago-2018 18.06.28 by Hibernate Tools 5.2.0.Final
 
 
 import javax.persistence.Column;
@@ -13,20 +13,24 @@ public class MaterialId  implements java.io.Serializable {
 
 
      private int idMaterial;
-     private int teachingIdTeaching;
-     private int teachingCourseIdCourse;
-     private int teachingProfessorIdProfessor;
-     private int teachingProfessorUserIdUser;
+     private int lessonIdLesson;
+     private int lessonTeachingIdTeaching;
+     private int lessonTeachingCourseIdCourse;
+     private int lessonTeachingProfessorIdProfessor;
+     private int lessonTeachingProfessorUserIdUser;
+     private int lessonRoomIdRoom;
 
     public MaterialId() {
     }
 
-    public MaterialId(int idMaterial, int teachingIdTeaching, int teachingCourseIdCourse, int teachingProfessorIdProfessor, int teachingProfessorUserIdUser) {
+    public MaterialId(int idMaterial, int lessonIdLesson, int lessonTeachingIdTeaching, int lessonTeachingCourseIdCourse, int lessonTeachingProfessorIdProfessor, int lessonTeachingProfessorUserIdUser, int lessonRoomIdRoom) {
        this.idMaterial = idMaterial;
-       this.teachingIdTeaching = teachingIdTeaching;
-       this.teachingCourseIdCourse = teachingCourseIdCourse;
-       this.teachingProfessorIdProfessor = teachingProfessorIdProfessor;
-       this.teachingProfessorUserIdUser = teachingProfessorUserIdUser;
+       this.lessonIdLesson = lessonIdLesson;
+       this.lessonTeachingIdTeaching = lessonTeachingIdTeaching;
+       this.lessonTeachingCourseIdCourse = lessonTeachingCourseIdCourse;
+       this.lessonTeachingProfessorIdProfessor = lessonTeachingProfessorIdProfessor;
+       this.lessonTeachingProfessorUserIdUser = lessonTeachingProfessorUserIdUser;
+       this.lessonRoomIdRoom = lessonRoomIdRoom;
     }
    
 
@@ -41,43 +45,63 @@ public class MaterialId  implements java.io.Serializable {
     }
 
 
-    @Column(name="Teaching_idTeaching", nullable=false)
-    public int getTeachingIdTeaching() {
-        return this.teachingIdTeaching;
+    @Column(name="Lesson_idLesson", nullable=false)
+    public int getLessonIdLesson() {
+        return this.lessonIdLesson;
     }
     
-    public void setTeachingIdTeaching(int teachingIdTeaching) {
-        this.teachingIdTeaching = teachingIdTeaching;
+    public void setLessonIdLesson(int lessonIdLesson) {
+        this.lessonIdLesson = lessonIdLesson;
     }
 
 
-    @Column(name="Teaching_Course_idCourse", nullable=false)
-    public int getTeachingCourseIdCourse() {
-        return this.teachingCourseIdCourse;
-    }
-    
-    public void setTeachingCourseIdCourse(int teachingCourseIdCourse) {
-        this.teachingCourseIdCourse = teachingCourseIdCourse;
-    }
-
-
-    @Column(name="Teaching_Professor_idProfessor", nullable=false)
-    public int getTeachingProfessorIdProfessor() {
-        return this.teachingProfessorIdProfessor;
+    @Column(name="Lesson_Teaching_idTeaching", nullable=false)
+    public int getLessonTeachingIdTeaching() {
+        return this.lessonTeachingIdTeaching;
     }
     
-    public void setTeachingProfessorIdProfessor(int teachingProfessorIdProfessor) {
-        this.teachingProfessorIdProfessor = teachingProfessorIdProfessor;
+    public void setLessonTeachingIdTeaching(int lessonTeachingIdTeaching) {
+        this.lessonTeachingIdTeaching = lessonTeachingIdTeaching;
     }
 
 
-    @Column(name="Teaching_Professor_User_idUser", nullable=false)
-    public int getTeachingProfessorUserIdUser() {
-        return this.teachingProfessorUserIdUser;
+    @Column(name="Lesson_Teaching_Course_idCourse", nullable=false)
+    public int getLessonTeachingCourseIdCourse() {
+        return this.lessonTeachingCourseIdCourse;
     }
     
-    public void setTeachingProfessorUserIdUser(int teachingProfessorUserIdUser) {
-        this.teachingProfessorUserIdUser = teachingProfessorUserIdUser;
+    public void setLessonTeachingCourseIdCourse(int lessonTeachingCourseIdCourse) {
+        this.lessonTeachingCourseIdCourse = lessonTeachingCourseIdCourse;
+    }
+
+
+    @Column(name="Lesson_Teaching_Professor_idProfessor", nullable=false)
+    public int getLessonTeachingProfessorIdProfessor() {
+        return this.lessonTeachingProfessorIdProfessor;
+    }
+    
+    public void setLessonTeachingProfessorIdProfessor(int lessonTeachingProfessorIdProfessor) {
+        this.lessonTeachingProfessorIdProfessor = lessonTeachingProfessorIdProfessor;
+    }
+
+
+    @Column(name="Lesson_Teaching_Professor_User_idUser", nullable=false)
+    public int getLessonTeachingProfessorUserIdUser() {
+        return this.lessonTeachingProfessorUserIdUser;
+    }
+    
+    public void setLessonTeachingProfessorUserIdUser(int lessonTeachingProfessorUserIdUser) {
+        this.lessonTeachingProfessorUserIdUser = lessonTeachingProfessorUserIdUser;
+    }
+
+
+    @Column(name="Lesson_Room_idRoom", nullable=false)
+    public int getLessonRoomIdRoom() {
+        return this.lessonRoomIdRoom;
+    }
+    
+    public void setLessonRoomIdRoom(int lessonRoomIdRoom) {
+        this.lessonRoomIdRoom = lessonRoomIdRoom;
     }
 
 
@@ -88,20 +112,24 @@ public class MaterialId  implements java.io.Serializable {
 		 MaterialId castOther = ( MaterialId ) other; 
          
 		 return (this.getIdMaterial()==castOther.getIdMaterial())
- && (this.getTeachingIdTeaching()==castOther.getTeachingIdTeaching())
- && (this.getTeachingCourseIdCourse()==castOther.getTeachingCourseIdCourse())
- && (this.getTeachingProfessorIdProfessor()==castOther.getTeachingProfessorIdProfessor())
- && (this.getTeachingProfessorUserIdUser()==castOther.getTeachingProfessorUserIdUser());
+ && (this.getLessonIdLesson()==castOther.getLessonIdLesson())
+ && (this.getLessonTeachingIdTeaching()==castOther.getLessonTeachingIdTeaching())
+ && (this.getLessonTeachingCourseIdCourse()==castOther.getLessonTeachingCourseIdCourse())
+ && (this.getLessonTeachingProfessorIdProfessor()==castOther.getLessonTeachingProfessorIdProfessor())
+ && (this.getLessonTeachingProfessorUserIdUser()==castOther.getLessonTeachingProfessorUserIdUser())
+ && (this.getLessonRoomIdRoom()==castOther.getLessonRoomIdRoom());
    }
    
    public int hashCode() {
          int result = 17;
          
          result = 37 * result + this.getIdMaterial();
-         result = 37 * result + this.getTeachingIdTeaching();
-         result = 37 * result + this.getTeachingCourseIdCourse();
-         result = 37 * result + this.getTeachingProfessorIdProfessor();
-         result = 37 * result + this.getTeachingProfessorUserIdUser();
+         result = 37 * result + this.getLessonIdLesson();
+         result = 37 * result + this.getLessonTeachingIdTeaching();
+         result = 37 * result + this.getLessonTeachingCourseIdCourse();
+         result = 37 * result + this.getLessonTeachingProfessorIdProfessor();
+         result = 37 * result + this.getLessonTeachingProfessorUserIdUser();
+         result = 37 * result + this.getLessonRoomIdRoom();
          return result;
    }   
 
