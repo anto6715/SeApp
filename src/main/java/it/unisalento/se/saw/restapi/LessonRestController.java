@@ -44,7 +44,7 @@ public class LessonRestController {
     public Lesson save(@RequestBody LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
         try {
             System.out.println(lessonDTO.getStart());
-            return null;//lessonServices.save(lessonDTO);
+            return lessonServices.save(lessonDTO);
         } catch (Exception e) {
             throw new RoomNotFoundException();
         }
@@ -65,7 +65,7 @@ public class LessonRestController {
         }
     }
 
-    @RequestMapping(value = "/getByDate/{date}_{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/getByDate/{date}_{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
     public Set<LessonDTO> getByDate(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date dateObj = sdf.parse(date);

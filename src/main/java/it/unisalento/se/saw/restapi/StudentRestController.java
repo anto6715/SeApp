@@ -42,7 +42,6 @@ public class StudentRestController {
     public Set<StudentDTO> getAll(){
         AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
         DTO<List<Student>, Set<StudentDTO>> dto = abstractFactory.getDTO("SETSTUDENT");
-
         List<Student> students = studentServices.getAll();
         return dto.create(students);
     }

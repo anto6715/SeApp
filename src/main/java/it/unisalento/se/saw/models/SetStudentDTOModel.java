@@ -15,7 +15,6 @@ public class SetStudentDTOModel implements DTO<List<Student>, Set<StudentDTO>> {
         Set<StudentDTO> studentDTOS = new HashSet<>(0);
         for(Student student: students){
             studentDTOS.add(dto.create(student));
-            System.out.println("prova");
         }
         return studentDTOS;
     }

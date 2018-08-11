@@ -2,9 +2,11 @@ package it.unisalento.se.saw.dto;
 
 public class MaterialDTO {
 
+
+    private int id;
     private String link;
     private String name;
-    private int idTeaching;
+    private int idLesson;
 
     public String getLink() {
         return link;
@@ -22,11 +24,19 @@ public class MaterialDTO {
         this.name = name;
     }
 
-    public int getIdTeaching() {
-        return idTeaching;
+    public int getId() {
+        return id;
     }
 
-    public void setIdTeaching(int idTeaching) {
-        this.idTeaching = idTeaching;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getIdLesson() {
+        return idLesson;
+    }
+
+    public void setIdLesson(int idLesson) {
+        this.idLesson = idLesson;
     }
 }
