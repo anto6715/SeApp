@@ -2,6 +2,7 @@ package it.unisalento.se.saw.dto;
 
 public class ReviewDTO {
 
+    private int id;
     private String note;
     private int rate;
     private int idStudent;
@@ -9,6 +10,13 @@ public class ReviewDTO {
     private int idMaterial;
     private int idReviewType;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNote() {
         return note;

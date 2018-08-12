@@ -97,4 +97,22 @@ public class ReviewService implements IReviewServices {
 
         return reviewRepository.save(review);
     }
+
+    @Transactional
+    public Review getByIdStudentAndIdMaterial(int idStudent, int idMaterial) throws ReviewNotFoundException {
+        try {
+            return reviewRepository.findReviewById_StudentIdStudentAndMaterial_Id_IdMaterial(idStudent,idMaterial);
+        } catch (Exception e) {
+            throw new ReviewNotFoundException();
+        }
+    }
+
+    @Transactional
+    public Review getByIdStudentAndIdLesson(int idStudent, int idLesson) throws ReviewNotFoundException {
+        try {
+            return reviewRepository.findReviewById_StudentIdStudentAndLesson_Id_IdLesson(idStudent,idLesson);
+        } catch (Exception e) {
+            throw new ReviewNotFoundException();
+        }
+    }
 }
