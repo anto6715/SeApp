@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/teaching")
@@ -31,8 +32,11 @@ public class TeachingRestController {
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Teaching> getAll() {
-        return teachingServices.getAll();
+    public Set<TeachingDTO> getAll() {
+        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+        DTO<List<Teaching>, Set<TeachingDTO>> dto = abstractFactory.getDTO("SETTEACHING");
+        List<Teaching> teachings = teachingServices.getAll();
+        return dto.create(teachings);
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -53,12 +57,12 @@ public class TeachingRestController {
     }
 
     @RequestMapping(value = "/getByIdCourse/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Teaching> getByIdCourse(@PathVariable int id) throws TeachingNotFoundException {
-        try {
-            return teachingServices.getByIdCourse(id);
-        } catch (Exception e) {
-            throw new TeachingNotFoundException();
-        }
+    public Set<TeachingDTO> getByIdCourse(@PathVariable int id) throws TeachingNotFoundException {
+        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+        DTO<List<Teaching>, Set<TeachingDTO>> dto = abstractFactory.getDTO("SETTEACHING");
+        List<Teaching> teachings = teachingServices.getByIdCourse(id);
+        return dto.create(teachings);
+
     }
 
     @RequestMapping(value = "/getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
