@@ -80,8 +80,12 @@ public class StudentRestController {
     }
 
     @RequestMapping(value = "getByCourse/{course}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Student> getByCourse(@PathVariable("course") int course) throws StudentNotFoundException {
-        return studentServices.getByCourse(course);
+    public Set<StudentDTO> getByCourse(@PathVariable("course") int course) {
+
+        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+        DTO<List<Student>, Set<StudentDTO>> dto = abstractFactory.getDTO("SETSTUDENT");
+        List<Student> students = studentServices.getByCourse(course);
+        return dto.create(students);
     }
 
     @RequestMapping(value = "getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -92,6 +96,7 @@ public class StudentRestController {
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Student post(@RequestBody StudentDTO studentDTO) throws CourseNotFoundException {
+        System.out.println(studentDTO.getIdCourse());
         return studentServices.save(studentDTO);
     }
 

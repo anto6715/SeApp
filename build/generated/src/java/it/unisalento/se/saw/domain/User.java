@@ -35,6 +35,7 @@ public class User  implements java.io.Serializable {
      private Integer age;
      private String uid;
      private Integer userType;
+     private String token;
      @JsonBackReference
      private Set<Professor> professors = new HashSet<Professor>(0);
      @JsonBackReference
@@ -140,7 +141,16 @@ public class User  implements java.io.Serializable {
         this.userType = userType;
     }
 
-@OneToMany(fetch=FetchType.LAZY, mappedBy="user")
+    @Column(name = "token")
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    @OneToMany(fetch=FetchType.LAZY, mappedBy="user")
     public Set<Professor> getProfessors() {
         return this.professors;
     }

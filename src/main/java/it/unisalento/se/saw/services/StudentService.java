@@ -80,8 +80,11 @@ public class StudentService implements IStudentServices {
         AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
         Domain<StudentDTO,User> domain = domainFactory.getDomain("USER");
         User user = domain.create(studentDTO);
+        System.out.println(studentDTO.getUid());
+        System.out.println(user.getUid());
+        return null;
 
-        User saveUser = userServices.save(user);
+        /*User saveUser = userServices.save(user);
         Course course = courseServices.getById(studentDTO.getIdCourse());
 
         StudentId studentId = new StudentId();
@@ -96,7 +99,7 @@ public class StudentService implements IStudentServices {
         student.setId(new StudentId(0,studentDTO.getIdCourse(),user.getIdUser()));
         student.setCourse(course);
 
-        return studentRepository.save(student);
+        return studentRepository.save(student);*/
     }
 
     @Transactional(rollbackFor = UserNotFoundException.class)
