@@ -2,6 +2,7 @@ package it.unisalento.se.saw.restapi;
 
 import it.unisalento.se.saw.Iservices.IUserServices;
 import it.unisalento.se.saw.domain.User;
+import it.unisalento.se.saw.dto.TokenDTO;
 import it.unisalento.se.saw.dto.UserDTO;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -84,4 +85,19 @@ public class UserRestController {
     public void deleteById(@PathVariable("id") int id) throws UserNotFoundException {
         userServices.removeUserById(id);
     }
+
+
+    @RequestMapping(value = "/addFcmToken", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public TokenDTO addFcmToken(@RequestBody TokenDTO tokenDTO) {
+        return userServices.addFcmToken(tokenDTO);
+
+    }
+
+    @RequestMapping(value = "/deleteFcmToken/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void deleteFcmToken(@PathVariable int id) {
+        userServices.deleteFcmToken(id);
+
+    }
+
+
 }

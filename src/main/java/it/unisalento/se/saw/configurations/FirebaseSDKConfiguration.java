@@ -34,4 +34,8 @@ public class FirebaseSDKConfiguration  {
     public void initializeSDK(){
         FirebaseApp.initializeApp(options);
     }
+
+    public  String getCiao(){
+        return "ciao";
+    }
 }

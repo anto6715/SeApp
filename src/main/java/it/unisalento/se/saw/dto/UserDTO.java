@@ -2,6 +2,7 @@ package it.unisalento.se.saw.dto;
 
 public class UserDTO {
 
+    private int idUser;
     private String name;
     private String surname;
     private String email;
@@ -9,6 +10,14 @@ public class UserDTO {
     private String uid;
     private int userType;
     private String token;
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
 
     public int getUserType() {
         return userType;

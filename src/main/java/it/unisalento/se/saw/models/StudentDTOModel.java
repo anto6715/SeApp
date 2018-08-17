@@ -20,6 +20,8 @@ public class StudentDTOModel implements DTO<Student, StudentDTO> {
         studentDTO.setUid(student.getUser().getUid());
         studentDTO.setUserType(student.getUser().getUserType());
         studentDTO.setIdCourse(student.getCourse().getIdCourse());
+        studentDTO.setIdUser(student.getId().getUserIdUser());
+        studentDTO.setToken(student.getUser().getToken());
 
 
         DtoFactory dtoFactory = new DtoFactory();
