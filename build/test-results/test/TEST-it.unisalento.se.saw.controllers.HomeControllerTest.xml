@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.unisalento.se.saw.controllers.HomeControllerTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2018-08-17T09:29:03" hostname="DESKTOP-TUGA85P" time="0.692">
+<testsuite name="it.unisalento.se.saw.controllers.HomeControllerTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2018-08-17T16:44:50" hostname="DESKTOP-TUGA85P" time="0.623">
   <properties/>
-  <testcase name="getAllUsersTest" classname="it.unisalento.se.saw.controllers.HomeControllerTest" time="0.692">
+  <testcase name="getAllUsersTest" classname="it.unisalento.se.saw.controllers.HomeControllerTest" time="0.623">
     <failure message="java.lang.AssertionError: No ModelAndView found" type="java.lang.AssertionError">java.lang.AssertionError: No ModelAndView found
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:36)
 	at org.springframework.test.web.servlet.result.ViewResultMatchers.lambda$name$1(ViewResultMatchers.java:66)

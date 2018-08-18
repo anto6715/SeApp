@@ -9,33 +9,24 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class FirebaseSDKConfiguration  {
-    FileInputStream serviceAccount;
 
-    {
-        try {
-            serviceAccount = new FileInputStream("C:\\Users\\Antonio\\IdeaProjects\\SeApp\\seapp-17679-firebase-adminsdk-c61d6-98ab33d900.json");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    private static FirebaseApp firebaseApp = null;
+
+
+
+    public static void initialize() throws IOException {
+        if (firebaseApp == null ){
+            FileInputStream serviceAccount = new FileInputStream("C:\\Users\\Antonio\\IdeaProjects\\SeApp\\seapp-17679-firebase-adminsdk-c61d6-98ab33d900.json");
+            FirebaseOptions options = new FirebaseOptions.Builder()
+                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                    .setDatabaseUrl("https://seapp-17679.firebaseio.com")
+                    .setProjectId("seapp-17679")
+                    .build();
+
+            firebaseApp = FirebaseApp.initializeApp(options);
         }
+
+
     }
 
-    FirebaseOptions options;
-
-    {
-        try {
-            options = new FirebaseOptions.Builder()
-                        .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                        .setDatabaseUrl("https://seapp-17679.firebaseio.com")
-                        .build();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public void initializeSDK(){
-        FirebaseApp.initializeApp(options);
-    }
-
-    public  String getCiao(){
-        return "ciao";
-    }
 }

@@ -1,8 +1,6 @@
 package it.unisalento.se.saw.services;
 
-import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.firebase.messaging.FirebaseMessagingException;
-import com.google.firebase.messaging.Message;
+
 import it.unisalento.se.saw.Iservices.IUserServices;
 import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.TokenDTO;
@@ -95,23 +93,6 @@ public class UserService implements IUserServices {
         User tkn = userRepository.save(user);
     }
 
-    @Transactional
-    public void send() throws FirebaseMessagingException {
-        // This registration token comes from the client FCM SDKs.
-        String registrationToken = "YOUR_REGISTRATION_TOKEN";
 
-// See documentation on defining a message payload.
-        Message message = Message.builder()
-                .putData("score", "850")
-                .putData("time", "2:45")
-                .setToken(registrationToken)
-                .build();
-
-// Send a message to the device corresponding to the provided
-// registration token.
-        String response = FirebaseMessaging.getInstance().send(message);
-// Response is a message ID string.
-        System.out.println("Successfully sent message: " + response);
-    }
 
 }

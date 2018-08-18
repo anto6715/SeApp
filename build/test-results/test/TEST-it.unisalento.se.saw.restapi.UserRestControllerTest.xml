@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.unisalento.se.saw.restapi.UserRestControllerTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2018-08-17T09:29:03" hostname="DESKTOP-TUGA85P" time="0.182">
+<testsuite name="it.unisalento.se.saw.restapi.UserRestControllerTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2018-08-17T16:44:50" hostname="DESKTOP-TUGA85P" time="0.12">
   <properties/>
-  <testcase name="findUserByIdTest" classname="it.unisalento.se.saw.restapi.UserRestControllerTest" time="0.182">
+  <testcase name="findUserByIdTest" classname="it.unisalento.se.saw.restapi.UserRestControllerTest" time="0.12">
     <failure message="org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException" type="org.springframework.web.util.NestedServletException">org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.lang.NullPointerException
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:986)
 	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:870)
