@@ -12,5 +12,6 @@ public interface TeachingRepository extends JpaRepository<Teaching, TeachingId> 
 
     public Teaching findTeachingById_IdTeaching(int id);
     public Teaching findTeachingByName(String name);
+    public Teaching findTeachingByNameAndAndCourse_IdCourse(String name, int idCourse);
     public List<Teaching> findTeachingsById_CourseIdCourse(int id);
 }

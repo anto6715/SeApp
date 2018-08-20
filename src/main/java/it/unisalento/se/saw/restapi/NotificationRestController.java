@@ -44,12 +44,7 @@ public class NotificationRestController {
 
     @PostMapping(value = "/sendToTopic", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void sendToTopic(@RequestBody NotificationDTO notificationDTO) throws UserNotFoundException, FirebaseMessagingException, IOException {
-        User user = userServices.getById(notificationDTO.getIdUser());
-        if (user.getToken() == null){
-            return;
-        }else{
-            notificationDTO.setToken_topic(user.getToken());
-            this.notificationServices.sendToTopic(notificationDTO);
-        }
+
+        this.notificationServices.sendToTopic(notificationDTO);
     }
 }

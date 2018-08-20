@@ -44,9 +44,9 @@ public class TeachingService implements ITeachingServices {
         }
     }
 
-    public Teaching getByName(String name) throws TeachingNotFoundException {
+    public Teaching getByNameAndIdCourse(String name, int idCourse) throws TeachingNotFoundException {
         try {
-            return teachingRepository.findTeachingByName(name);
+            return teachingRepository.findTeachingByNameAndAndCourse_IdCourse(name, idCourse);
         } catch (Exception e) {
             throw new TeachingNotFoundException();
         }

@@ -65,10 +65,13 @@ public class TeachingRestController {
 
     }
 
-    @RequestMapping(value = "/getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Teaching getByName(@PathVariable String name) throws TeachingNotFoundException {
+    @RequestMapping(value = "/getByNameAndIdCourse/{name}_{idCourse}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public TeachingDTO getByNameAndIdCourse(@PathVariable("name") String name, @PathVariable("idCourse") int idCourse) throws TeachingNotFoundException {
         try {
-            return teachingServices.getByName(name);
+            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+            DTO<Teaching, TeachingDTO> dto = abstractFactory.getDTO("Teaching");
+
+            return dto.create(teachingServices.getByNameAndIdCourse(name, idCourse));
         } catch (Exception e) {
             throw new TeachingNotFoundException();
         }

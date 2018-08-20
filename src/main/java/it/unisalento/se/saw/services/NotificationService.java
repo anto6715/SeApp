@@ -28,6 +28,7 @@ public class NotificationService implements INotificationServices {
                 .putData("title", notificationDTO.getTitle())
                 .putData("body", notificationDTO.getBody())
                 .putData("data", notificationDTO.getData())
+                .putData("type", notificationDTO.getType())
                 .setToken(notificationDTO.getToken_topic())
                 .build();
 
@@ -43,6 +44,7 @@ public class NotificationService implements INotificationServices {
                 .putData("title", notificationDTO.getTitle())
                 .putData("body", notificationDTO.getBody())
                 .putData("data", notificationDTO.getData())
+                .putData("type", notificationDTO.getType())
                 .setTopic(notificationDTO.getToken_topic())
                 .build();
 

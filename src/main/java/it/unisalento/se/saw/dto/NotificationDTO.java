@@ -7,6 +7,15 @@ public class NotificationDTO {
     private String token_topic;
     private int idUser;
     private String data;
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getData() {
         return data;
