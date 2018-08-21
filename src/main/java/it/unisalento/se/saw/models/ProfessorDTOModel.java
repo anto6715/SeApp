@@ -14,6 +14,7 @@ public class ProfessorDTOModel implements DTO<Professor, ProfessorDTO> {
         professorDTO.setUid(professor.getUser().getUid());
         professorDTO.setId(professor.getId().getIdProfessor());
         professorDTO.setUserType(professor.getUser().getUserType());
+        professorDTO.setIdUser(professor.getId().getUserIdUser());
         return professorDTO;
     }
 }
