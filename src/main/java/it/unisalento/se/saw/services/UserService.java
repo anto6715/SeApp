@@ -44,6 +44,15 @@ public class UserService implements IUserServices {
 
     }
 
+    @Transactional
+    public User getByUid(String uid) throws UserNotFoundException {
+        User user = userRepository.findUserByUid(uid);
+        System.out.println(user.getName());
+        return user;
+
+
+    }
+
 
     @Transactional(rollbackFor = UserNotFoundException.class)
     public void removeUserById(int id) throws UserNotFoundException {

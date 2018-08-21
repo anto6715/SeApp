@@ -1,6 +1,7 @@
 package it.unisalento.se.saw.models;
 
 
+import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.ProfessorDTO;
 import it.unisalento.se.saw.dto.SecretaryDTO;
 import it.unisalento.se.saw.dto.StudentDTO;
@@ -46,6 +47,21 @@ public class UserModel implements DTO<Object,UserDTO> {
             return userDTO;
 
         }
+        if (object.getClass() == User.class) {
+            User user = (User) object;
+            UserDTO userDTO = new UserDTO();
+            userDTO.setIdUser(user.getIdUser());
+            userDTO.setToken(user.getToken());
+            userDTO.setAge(user.getAge());
+            userDTO.setEmail(user.getEmail());
+            userDTO.setName(user.getName());
+            userDTO.setUid(user.getUid());
+            userDTO.setSurname(user.getSurname());
+            userDTO.setUserType(user.getUserType());
+            return userDTO;
+
+        }
+
             return null;
 
     }

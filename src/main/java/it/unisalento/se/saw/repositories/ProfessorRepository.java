@@ -17,5 +17,6 @@ public interface ProfessorRepository extends JpaRepository<Professor, ProfessorI
     public Professor findProfessorByUser_NameAndUser_Surname(String name, String surname);
     public List<Professor> findProfessorsByUser_Name(String name);
     public List<Professor> findProfessorsByUser_Surname(String surname);
+    public Professor findProfessorByUserUid(String uid);
 
 }

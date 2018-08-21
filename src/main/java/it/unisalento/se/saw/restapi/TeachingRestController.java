@@ -25,6 +25,7 @@ public class TeachingRestController {
 
     public TeachingRestController() {
         super();
+        System.out.println("avvio");
     }
 
     public TeachingRestController(ITeachingServices teachingServices) {
@@ -61,6 +62,15 @@ public class TeachingRestController {
         AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
         DTO<List<Teaching>, Set<TeachingDTO>> dto = abstractFactory.getDTO("SETTEACHING");
         List<Teaching> teachings = teachingServices.getByIdCourse(id);
+        return dto.create(teachings);
+
+    }
+
+    @RequestMapping(value = "/getByProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Set<TeachingDTO> getByProf(@PathVariable int id) throws TeachingNotFoundException {
+        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+        DTO<List<Teaching>, Set<TeachingDTO>> dto = abstractFactory.getDTO("SETTEACHING");
+        List<Teaching> teachings = teachingServices.getByProf(id);
         return dto.create(teachings);
 
     }

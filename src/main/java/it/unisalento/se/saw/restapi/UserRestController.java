@@ -1,10 +1,21 @@
 package it.unisalento.se.saw.restapi;
 
+import it.unisalento.se.saw.Iservices.IProfessorServices;
+import it.unisalento.se.saw.Iservices.IStudentServices;
 import it.unisalento.se.saw.Iservices.IUserServices;
+import it.unisalento.se.saw.domain.Professor;
+import it.unisalento.se.saw.domain.Student;
 import it.unisalento.se.saw.domain.User;
+import it.unisalento.se.saw.dto.ProfessorDTO;
+import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.dto.TokenDTO;
 import it.unisalento.se.saw.dto.UserDTO;
+import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
+import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DTO;
+import it.unisalento.se.saw.models.FactoryProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +29,12 @@ public class UserRestController {
 
     @Autowired
     IUserServices userServices;
+
+    @Autowired
+    IStudentServices studentServices;
+
+    @Autowired
+    IProfessorServices professorServices;
 
     public UserRestController() {
         super();
@@ -44,6 +61,33 @@ public class UserRestController {
         userDTO.setUid(user.getUid());
         userDTO.setUserType((user.getUserType()));
         return userDTO;
+    }
+
+
+    @RequestMapping(value = "/getByUid/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Object getByUid(@PathVariable("uid") String uid) throws UserNotFoundException, StudentNotFoundException, ProfessorNotFoundException {
+        User user = userServices.getByUid(uid);
+        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+        if(user.getUserType() ==1){
+           try{
+               DTO<Student, StudentDTO> dto = abstractFactory.getDTO("Student");
+               return dto.create(studentServices.getByUid(uid));
+           } catch (Exception e) {
+               throw new StudentNotFoundException();
+           }
+        }
+
+        if (user.getUserType() == 3) {
+            try {
+                DTO<Professor, ProfessorDTO> dto = abstractFactory.getDTO("Professor");
+                return dto.create(professorServices.getByUid(uid));
+            } catch (Exception e) {
+                throw new ProfessorNotFoundException();
+            }
+        }
+
+
+        return null;
     }
 
     @RequestMapping(value = "/getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

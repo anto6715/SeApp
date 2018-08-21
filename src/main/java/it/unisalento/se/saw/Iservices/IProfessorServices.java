@@ -14,6 +14,7 @@ public interface IProfessorServices {
     public List<Professor> getAll();
     public Professor save(ProfessorDTO professorDTO) throws CourseNotFoundException;
     public Professor getById(int id) throws ProfessorNotFoundException;
+    public Professor getByUid(String uid) throws ProfessorNotFoundException;
     public List<Professor> getByName(String name) throws ProfessorNotFoundException;
     public List<Professor> getBySurname(String surname) throws ProfessorNotFoundException;
     public Set<Professor> getByIdCourse(int id) throws ProfessorNotFoundException;

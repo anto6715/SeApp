@@ -68,6 +68,15 @@ public class ProfessorService implements IProfessorServices {
     }
 
     @Transactional
+    public Professor getByUid(String uid) throws ProfessorNotFoundException {
+        try {
+            return professorRepository.findProfessorByUserUid(uid);
+        } catch (Exception e) {
+            throw new ProfessorNotFoundException();
+        }
+    }
+
+    @Transactional
     public List<Professor> getByName(String name) throws ProfessorNotFoundException {
         try {
             return professorRepository.findProfessorsByUser_Name(name);
