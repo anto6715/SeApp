@@ -41,6 +41,10 @@ public class LessonService implements ILessonServices {
         return lessonRepository.findLessonsByDateAndId_TeachingCourseIdCourse(date, id);
     }
 
+    public List<Lesson> getByDateAndIdProfessor(Date date, int id) {
+        return lessonRepository.findLessonsByDateAndId_TeachingProfessorIdProfessor(date,id);
+    }
+
 
     public Lesson getById(int id) throws LessonNotFoundException {
         try {

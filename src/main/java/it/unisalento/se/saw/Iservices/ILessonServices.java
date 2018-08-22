@@ -13,6 +13,7 @@ public interface ILessonServices {
 
     public List<Lesson> getAll();
     public List<Lesson> getByDate(Date date, int id);
+    public List<Lesson> getByDateAndIdProfessor(Date date, int id);
     public Lesson getById(int id) throws LessonNotFoundException;
     public List<Lesson> getByRoom(int id);
     public Lesson save(LessonDTO lessonDTO) throws TeachingNotFoundException, RoomNotFoundException;

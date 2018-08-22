@@ -76,4 +76,16 @@ public class LessonRestController {
 
 
     }
+
+    @RequestMapping(value = "/getByDateAndIdProf/{date}_{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
+    public Set<LessonDTO> getByDateAndIdProfessor(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateObj = sdf.parse(date);
+        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+        DTO<List<Lesson>, Set<LessonDTO>> dto = abstractFactory.getDTO("SETLESSON");
+        List<Lesson> lessons = lessonServices.getByDateAndIdProfessor(dateObj,id);
+        return dto.create(lessons);
+
+
+    }
 }
