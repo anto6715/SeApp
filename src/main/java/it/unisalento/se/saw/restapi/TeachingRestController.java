@@ -66,7 +66,7 @@ public class TeachingRestController {
 
     }
 
-    @RequestMapping(value = "/getByProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/getByIdProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<TeachingDTO> getByProf(@PathVariable int id) throws TeachingNotFoundException {
         AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
         DTO<List<Teaching>, Set<TeachingDTO>> dto = abstractFactory.getDTO("SETTEACHING");
