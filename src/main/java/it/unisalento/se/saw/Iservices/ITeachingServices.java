@@ -13,6 +13,7 @@ public interface ITeachingServices {
     public List<Teaching> getAll();
     public Teaching getById(int id) throws TeachingNotFoundException;
     public Teaching getByNameAndIdCourse(String name, int idCourse) throws TeachingNotFoundException;
+    public Teaching getByNameAndIdProf(String name, int idCourse) throws TeachingNotFoundException;
     public List<Teaching> getByIdCourse(int id);
     public List<Teaching> getByProf(int id);
     public Teaching save(TeachingDTO teachingDTO) throws CourseNotFoundException, ProfessorNotFoundException;

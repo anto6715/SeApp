@@ -15,6 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/review")
@@ -45,6 +46,17 @@ public class ReviewRestController {
     public Review getById(@PathVariable int id) throws ReviewNotFoundException {
         try {
             return reviewServices.getById(id);
+        } catch (Exception e) {
+            throw new ReviewNotFoundException();
+        }
+    }
+
+    @RequestMapping(value = "/getByIdLesson/{idLesson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Set<ReviewDTO> getByIdLesson(@PathVariable int idLesson) throws ReviewNotFoundException {
+        try {
+            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+            DTO<List<Review>, Set<ReviewDTO> > dto = abstractFactory.getDTO("SETREVIEW");
+            return dto.create(reviewServices.getByIdLesson(idLesson));
         } catch (Exception e) {
             throw new ReviewNotFoundException();
         }

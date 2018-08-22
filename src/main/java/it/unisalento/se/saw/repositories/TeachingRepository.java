@@ -13,6 +13,7 @@ public interface TeachingRepository extends JpaRepository<Teaching, TeachingId> 
     public Teaching findTeachingById_IdTeaching(int id);
     public Teaching findTeachingByName(String name);
     public Teaching findTeachingByNameAndAndCourse_IdCourse(String name, int idCourse);
+    public Teaching findTeachingByNameAndProfessor_Id_IdProfessor(String name, int idProf);
     public List<Teaching> findTeachingsById_CourseIdCourse(int id);
     public List<Teaching> findTeachingsById_ProfessorIdProfessor(int id);
 }

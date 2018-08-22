@@ -115,4 +115,9 @@ public class ReviewService implements IReviewServices {
             throw new ReviewNotFoundException();
         }
     }
+
+    @Transactional
+    public List<Review> getByIdLesson(int id) {
+        return reviewRepository.findReviewsByLesson_Id_IdLesson(id);
+    }
 }

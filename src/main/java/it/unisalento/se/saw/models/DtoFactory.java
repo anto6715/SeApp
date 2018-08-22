@@ -30,6 +30,10 @@ public class DtoFactory extends AbstractFactory {
             return new SetCourseDTOModel();
         }
 
+        if (dtoType.equalsIgnoreCase("SETREVIEW")){
+            return new SetReviewDTOModel();
+        }
+
         if (dtoType.equalsIgnoreCase("SETMATERIAL")){
             return new SetMaterialDTOModel();
         }

@@ -16,5 +16,6 @@ public interface IReviewServices {
     public Review save(ReviewDTO reviewDTO) throws ReviewTypeNotFoundException, StudentNotFoundException;
     public Review getByIdStudentAndIdMaterial(int idStudent, int idMaterial) throws ReviewNotFoundException;
     public Review getByIdStudentAndIdLesson(int idStudent, int idLesson) throws ReviewNotFoundException;
+    public List<Review> getByIdLesson(int id);
 
 }
