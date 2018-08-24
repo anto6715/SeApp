@@ -62,6 +62,17 @@ public class ReviewRestController {
         }
     }
 
+    @RequestMapping(value = "/getByIdMaterial/{idMaterial}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Set<ReviewDTO> getByIdMaterial(@PathVariable int idMaterial) throws ReviewNotFoundException {
+        try {
+            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+            DTO<List<Review>, Set<ReviewDTO> > dto = abstractFactory.getDTO("SETREVIEW");
+            return dto.create(reviewServices.getByIdMaterial(idMaterial));
+        } catch (Exception e) {
+            throw new ReviewNotFoundException();
+        }
+    }
+
     @RequestMapping(value = "/getByType/{idType}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Review> getByType(@PathVariable int idType) {
         return reviewServices.getByType(idType);

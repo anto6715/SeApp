@@ -7,6 +7,15 @@ public class MaterialDTO {
     private String link;
     private String name;
     private int idLesson;
+    private String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String getLink() {
         return link;

@@ -17,5 +17,6 @@ public interface IReviewServices {
     public Review getByIdStudentAndIdMaterial(int idStudent, int idMaterial) throws ReviewNotFoundException;
     public Review getByIdStudentAndIdLesson(int idStudent, int idLesson) throws ReviewNotFoundException;
     public List<Review> getByIdLesson(int id);
+    public List<Review> getByIdMaterial(int id);
 
 }

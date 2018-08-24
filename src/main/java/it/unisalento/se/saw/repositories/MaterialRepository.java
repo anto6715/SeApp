@@ -13,4 +13,5 @@ public interface MaterialRepository extends JpaRepository<Material, MaterialId> 
 
     public Material findMaterialById_IdMaterial(int id);
     public List<Material> findMaterialsById_LessonIdLesson(int id);
+    public List<Material> findMaterialsById_LessonTeachingIdTeaching(int id);
 }

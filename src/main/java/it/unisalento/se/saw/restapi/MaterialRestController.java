@@ -65,4 +65,13 @@ public class MaterialRestController {
         List<Material> materials = materialServices.getByIdLesson(id);
         return dto.create(materials);
     }
+
+    @RequestMapping(value = "/getByIdTeaching/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Set<MaterialDTO> getByIdTeaching(@PathVariable int id){
+
+        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+        DTO<List<Material>, Set<MaterialDTO>> dto = abstractFactory.getDTO("SETMATERIAL");
+        List<Material> materials = materialServices.getByIdTeaching(id);
+        return dto.create(materials);
+    }
 }

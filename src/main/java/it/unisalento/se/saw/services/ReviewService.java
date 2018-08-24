@@ -120,4 +120,9 @@ public class ReviewService implements IReviewServices {
     public List<Review> getByIdLesson(int id) {
         return reviewRepository.findReviewsByLesson_Id_IdLesson(id);
     }
+
+    @Transactional
+    public List<Review> getByIdMaterial(int id) {
+        return reviewRepository.findReviewsByMaterial_Id_IdMaterial(id);
+    }
 }

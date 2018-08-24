@@ -44,6 +44,12 @@ public class MaterialService implements IMaterialServices {
     public List<Material> getByIdLesson(int id){
         return materialRepository.findMaterialsById_LessonIdLesson(id);
     }
+
+    @Transactional
+    public List<Material> getByIdTeaching(int id) {
+        return materialRepository.findMaterialsById_LessonTeachingIdTeaching(id);
+    }
+
     @Transactional
     public Material save(MaterialDTO materialDTO) throws TeachingNotFoundException {
         try {

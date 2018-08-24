@@ -15,5 +15,6 @@ public interface ReviewRepository extends JpaRepository<Review, ReviewId> {
     public Review findReviewById_StudentIdStudentAndMaterial_Id_IdMaterial(int idStudent, int idMaterial);
     public Review findReviewById_StudentIdStudentAndLesson_Id_IdLesson(int idStudent, int idLesson);
     public List<Review> findReviewsByLesson_Id_IdLesson(int id);
+    public List<Review> findReviewsByMaterial_Id_IdMaterial(int id);
 
 }
