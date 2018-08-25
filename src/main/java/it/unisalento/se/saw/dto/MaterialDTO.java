@@ -8,6 +8,15 @@ public class MaterialDTO {
     private String name;
     private int idLesson;
     private String date;
+    private int idUserProf;
+
+    public int getIdUserProf() {
+        return idUserProf;
+    }
+
+    public void setIdUserProf(int idUserProf) {
+        this.idUserProf = idUserProf;
+    }
 
     public String getDate() {
         return date;

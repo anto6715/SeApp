@@ -12,6 +12,7 @@ public class MaterialDTOModel implements DTO<Material, MaterialDTO> {
         materialDTO.setLink(material.getLink());
         materialDTO.setName(material.getName());
         materialDTO.setDate(material.getLesson().getDate().toString());
+        materialDTO.setIdUserProf(material.getLesson().getTeaching().getProfessor().getId().getUserIdUser());
 
         return materialDTO;
     }
