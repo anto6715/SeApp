@@ -60,13 +60,13 @@ public class SegnalationService implements ISegnalationServices {
         Room room;
         SegnalationState segnalationState;
         try {
-            professor = professorServices.getById(segnalationDTO.getIdProfessor());
+            professor = professorServices.getById(segnalationDTO.getProfessorDTO().getId());
         } catch (Exception e) {
             throw new ProfessorNotFoundException();
         }
 
         try {
-            room = roomServices.getById(segnalationDTO.getIdRoom());
+            room = roomServices.getById(segnalationDTO.getRoomDTO().getId());
         } catch (Exception e) {
             throw new RoomNotFoundException();
         }

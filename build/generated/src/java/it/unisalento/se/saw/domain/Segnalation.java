@@ -31,6 +31,7 @@ public class Segnalation  implements java.io.Serializable {
      private Room room;
      private SegnalationState segnalationState;
      private String note;
+     private String description;
 
     public Segnalation() {
     }
@@ -42,12 +43,13 @@ public class Segnalation  implements java.io.Serializable {
         this.room = room;
         this.segnalationState = segnalationState;
     }
-    public Segnalation(SegnalationId id, Professor professor, Room room, SegnalationState segnalationState, String note) {
+    public Segnalation(SegnalationId id, Professor professor, Room room, SegnalationState segnalationState, String note, String description) {
        this.id = id;
        this.professor = professor;
        this.room = room;
        this.segnalationState = segnalationState;
        this.note = note;
+       this.description = description;
     }
    
      @EmbeddedId
@@ -109,9 +111,14 @@ public class Segnalation  implements java.io.Serializable {
         this.note = note;
     }
 
+    @Column(name = "description", length = 500)
+    public String getDescription() {
+        return description;
+    }
 
-
-
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
 
 
