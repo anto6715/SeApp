@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6689836d-55da-4a68-a228-547743152f98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/SegnalationDTOModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/SetSegnalationDTOModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/domain/Segnalation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/domain/Segnalation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/dto/SegnalationDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/dto/SegnalationDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/models/DtoFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/models/DtoFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/SegnalationRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/SegnalationRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/services/SegnalationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/services/SegnalationService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/Segnalation.java" beforeDir="false" afterPath="$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/Segnalation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/SegnalationDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/SegnalationDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DtoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DtoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SegnalationRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SegnalationRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/SegnalationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/SegnalationService.java" afterDir="false" />
-    </list>
+    <list default="true" id="6689836d-55da-4a68-a228-547743152f98" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -893,7 +877,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-13" />
     <option name="y" value="-13" />
     <option name="width" value="1225" />
@@ -1059,7 +1043,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535372070969" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535390126733" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -1223,15 +1207,15 @@
       <workItem from="1535099403442" duration="5022000" />
       <workItem from="1535184368491" duration="1373000" />
       <workItem from="1535274020471" duration="793000" />
-      <workItem from="1535360422518" duration="5211000" />
+      <workItem from="1535360422518" duration="5370000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113551000" />
+    <option name="totallyTimeSpent" value="113710000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49795082" visible="true" weight="0.21879195" />
       <window_info id="Structure" order="1" sideWeight="0.5020492" side_tool="true" weight="0.2557047" />
