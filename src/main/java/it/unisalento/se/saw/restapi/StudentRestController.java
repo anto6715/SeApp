@@ -1,18 +1,13 @@
 package it.unisalento.se.saw.restapi;
 
 import it.unisalento.se.saw.Iservices.IStudentServices;
-import it.unisalento.se.saw.domain.Lesson;
 import it.unisalento.se.saw.domain.Student;
-import it.unisalento.se.saw.domain.User;
-import it.unisalento.se.saw.dto.CourseDTO;
-import it.unisalento.se.saw.dto.LessonDTO;
 import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
-import it.unisalento.se.saw.models.DTO;
-import it.unisalento.se.saw.models.DtoFactory;
+import it.unisalento.se.saw.models.DTOFactory.DTO;
 import it.unisalento.se.saw.models.FactoryProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

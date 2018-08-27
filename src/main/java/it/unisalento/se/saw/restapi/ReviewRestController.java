@@ -8,7 +8,7 @@ import it.unisalento.se.saw.exceptions.ReviewNotFoundException;
 import it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
-import it.unisalento.se.saw.models.DTO;
+import it.unisalento.se.saw.models.DTOFactory.DTO;
 import it.unisalento.se.saw.models.FactoryProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

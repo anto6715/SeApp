@@ -8,7 +8,7 @@ import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.SecretaryDTO;
 import it.unisalento.se.saw.exceptions.SecretaryNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
-import it.unisalento.se.saw.models.Domain;
+import it.unisalento.se.saw.models.DomainFactory.Domain;
 import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.SecretaryRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -5,7 +5,7 @@ import it.unisalento.se.saw.domain.Secretary;
 import it.unisalento.se.saw.dto.SecretaryDTO;
 import it.unisalento.se.saw.exceptions.SecretaryNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
-import it.unisalento.se.saw.models.DTO;
+import it.unisalento.se.saw.models.DTOFactory.DTO;
 import it.unisalento.se.saw.models.FactoryProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
