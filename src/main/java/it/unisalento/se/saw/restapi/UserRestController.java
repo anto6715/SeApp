@@ -53,14 +53,13 @@ public class UserRestController {
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public UserDTO getById(@PathVariable("id") int id) throws UserNotFoundException{
-        User user= userServices.getById(id);
-        UserDTO userDTO = new UserDTO();
-        userDTO.setName(user.getName());
-        userDTO.setSurname(user.getSurname());
-        userDTO.setEmail(user.getEmail());
-        userDTO.setUid(user.getUid());
-        userDTO.setUserType((user.getUserType()));
-        return userDTO;
+        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+        DTO<User, UserDTO> dto = abstractFactory.getDTO("User");
+        return dto.create(userServices.getById(id));
+    }
+    @RequestMapping(value = "/getId/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public User getId(@PathVariable("id") int id) throws UserNotFoundException {
+        return userServices.getById(id);
     }
 
 

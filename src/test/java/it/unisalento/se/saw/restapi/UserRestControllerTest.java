@@ -2,7 +2,10 @@ package it.unisalento.se.saw.restapi;
 import com.jayway.jsonpath.JsonPath;
 import it.unisalento.se.saw.Iservices.IUserServices;
 import it.unisalento.se.saw.domain.User;
+import it.unisalento.se.saw.dto.UserDTO;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.FactoryProducer;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -60,18 +63,31 @@ public class UserRestControllerTest {
     @Test
     public void findUserByIdTest() throws Exception {
         User user = new User();
-        user.setName("Sandro");
-        user.setSurname("Fiore");
+        user.setIdUser(1);
+        user.setName("Antonio");
+        user.setSurname("Mariani");
+        user.setEmail("prova@email.it");
+        user.setAge(25);
+        user.setUid("MQqa7A80zxQPvY5VV6oeFSBM33o1");
+        user.setToken(null);
+        user.setUserType(1);
 
-        when(userServicesMock.getById(1)).thenReturn(user);
+        when(userServicesMock.getById(32)).thenReturn(user);
 
-        mockMvc.perform(get("/user/getById/{id}",1))
+
+        mockMvc.perform(get("/user/getById/{id}",32))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON_UTF))
-                .andExpect(jsonPath("$.name", is("Sandro")))
-                .andExpect(jsonPath("$.surname", is("Fiore")));
-
-        verify(userServicesMock, times(1)).getById(1);
+                .andExpect(jsonPath("$.idUser", is(1)))
+                .andExpect(jsonPath("$.name", is("Antonio")))
+                .andExpect(jsonPath("$.surname", is("Mariani")))
+                .andExpect(jsonPath("$.email", is("prova@email.it")))
+                .andExpect(jsonPath("$.age", is(25)))
+                .andExpect(jsonPath("$.uid", is("MQqa7A80zxQPvY5VV6oeFSBM33o1")))
+                .andExpect(jsonPath("$.token", is(nullValue())))
+                .andExpect(jsonPath("$.userType", is(1)));
+        System.out.println("ciao");
+        verify(userServicesMock, times(1)).getById(32);
         verifyNoMoreInteractions(userServicesMock);
     }
 

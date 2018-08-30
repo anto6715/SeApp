@@ -11,6 +11,7 @@ public class UserDTOModel implements DTO<Object,UserDTO> {
 
 
     public UserDTO create(Object object){
+        System.out.println();
 
         if (object.getClass() == ProfessorDTO.class) {
             ProfessorDTO professorDTO = (ProfessorDTO) object;
@@ -22,8 +23,7 @@ public class UserDTOModel implements DTO<Object,UserDTO> {
             userDTO.setSurname(professorDTO.getSurname());
             userDTO.setUserType(3);
             return userDTO;
-        }
-        if(object.getClass() == StudentDTO.class) {
+        } else if(object.getClass() == StudentDTO.class) {
             StudentDTO studentDTO = (StudentDTO) object;
             UserDTO userDTO = new UserDTO();
             userDTO.setAge(studentDTO.getAge());
@@ -34,7 +34,7 @@ public class UserDTOModel implements DTO<Object,UserDTO> {
             userDTO.setUserType(1);
             return userDTO;
 
-        }
+        } else
         if (object.getClass() == SecretaryDTO.class) {
             SecretaryDTO secretaryDTO = (SecretaryDTO) object;
             UserDTO userDTO = new UserDTO();
@@ -47,8 +47,9 @@ public class UserDTOModel implements DTO<Object,UserDTO> {
             return userDTO;
 
         }
-        if (object.getClass() == User.class) {
+         else {
             User user = (User) object;
+            System.out.println("prova");
             UserDTO userDTO = new UserDTO();
             userDTO.setIdUser(user.getIdUser());
             userDTO.setToken(user.getToken());
@@ -61,8 +62,6 @@ public class UserDTOModel implements DTO<Object,UserDTO> {
             return userDTO;
 
         }
-
-            return null;
 
     }
 
