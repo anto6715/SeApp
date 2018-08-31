@@ -2,13 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6689836d-55da-4a68-a228-547743152f98" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetRoomDTOModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetSecretaryDTOModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/StudentRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/StudentRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/TeachingRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/TeachingRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/StudentRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/StudentRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/TeachingRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/TeachingRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/models/DTOFactory/DtoFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/models/DTOFactory/DtoFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/SecretaryRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/SecretaryRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/SegnalationRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/SegnalationRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/gretty_ports.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/gretty_ports.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DtoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DtoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/RoomRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/RoomRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SecretaryRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SecretaryRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SegnalationRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SegnalationRestController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -95,27 +101,27 @@
         <counts>
           <entry key="gradle" value="3" />
           <entry key="html" value="1" />
-          <entry key="java" value="439" />
+          <entry key="java" value="450" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="3" />
           <entry key="HTML" value="1" />
-          <entry key="JAVA" value="439" />
+          <entry key="JAVA" value="450" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="20" />
           <entry key="gradle" value="13" />
-          <entry key="java" value="15150" />
+          <entry key="java" value="15744" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="13" />
-          <entry key="JAVA" value="15150" />
+          <entry key="JAVA" value="15744" />
           <entry key="PLAIN_TEXT" value="20" />
         </counts>
       </usages-collector>
@@ -123,11 +129,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/StudentRestController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/RoomRestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="69" column="73" selection-start-line="69" selection-start-column="73" selection-end-line="69" selection-end-column="73" />
+            <state relative-caret-position="204">
+              <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DtoFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetRoomDTOModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -792,11 +822,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/CourseRestController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/SetLessonDTOModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/SetCourseDTOModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/LessonRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/ILessonServices.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/LessonService.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/LessonRestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/TeachingRepository.java" />
@@ -817,7 +842,6 @@
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/SegnalationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/SetSegnalationDTOModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DtoFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SegnalationRestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/SegnalationDTOModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/configurations/SingleFirebaseSDKConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/UserDTOModel.java" />
@@ -839,10 +863,16 @@
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/UserRestControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/UserDTOModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetUserDTOModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DtoFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/UserRestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/TeachingRestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/StudentRestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SegnalationStateRestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SegnalationRestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetSecretaryDTOModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SecretaryRestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/RoomRestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetRoomDTOModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DtoFactory.java" />
       </list>
     </option>
   </component>
@@ -1011,6 +1041,27 @@
               <item name="unisalento" type="1f31426a:PackageElementNode" />
               <item name="se" type="1f31426a:PackageElementNode" />
               <item name="saw" type="1f31426a:PackageElementNode" />
+              <item name="models" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+              <item name="unisalento" type="1f31426a:PackageElementNode" />
+              <item name="se" type="1f31426a:PackageElementNode" />
+              <item name="saw" type="1f31426a:PackageElementNode" />
+              <item name="models" type="1f31426a:PackageElementNode" />
+              <item name="DTOFactory" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+              <item name="unisalento" type="1f31426a:PackageElementNode" />
+              <item name="se" type="1f31426a:PackageElementNode" />
+              <item name="saw" type="1f31426a:PackageElementNode" />
               <item name="restapi" type="1f31426a:PackageElementNode" />
             </path>
             <path>
@@ -1068,7 +1119,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535707517588" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535709070851" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="coverage" />
@@ -1242,7 +1293,7 @@
       <workItem from="1535274020471" duration="793000" />
       <workItem from="1535360422518" duration="6792000" />
       <workItem from="1535615919668" duration="14756000" />
-      <workItem from="1535705017287" duration="2493000" />
+      <workItem from="1535705017287" duration="4633000" />
     </task>
     <servers />
   </component>
@@ -1279,7 +1330,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132381000" />
+    <option name="totallyTimeSpent" value="134521000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1328,35 +1379,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DomainFactory.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DomainFactory/Domain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DomainFactory/DomainFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DomainFactory/UserDomainModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetTeachingDTOModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetStudentDTOModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1444,13 +1466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
           <caret line="40" column="55" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SegnalationStateRestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1646,27 +1661,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DtoFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="52" column="40" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/UserRestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
-          <folding>
-            <element signature="e#1579#1580#0" expanded="true" />
-            <element signature="e#1627#1628#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/TeachingRestController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1513">
@@ -1681,8 +1675,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/StudentRestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="69" column="73" selection-start-line="69" selection-start-column="73" selection-end-line="69" selection-end-column="73" />
+        <state relative-caret-position="255">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SegnalationStateRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding>
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#705#706#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SecretaryRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetSecretaryDTOModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="84" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/UserRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="71" column="8" lean-forward="true" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SegnalationRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="856">
+          <caret line="70" column="81" selection-start-line="70" selection-start-column="81" selection-end-line="70" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/RoomRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetRoomDTOModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DtoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

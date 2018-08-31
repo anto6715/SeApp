@@ -20,6 +20,14 @@ public class RoomRestController {
     @Autowired
     IRoomServices roomServices;
 
+    AbstractFactory abstractDTOFactory;
+
+    public RoomRestController() {
+        super();
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
+
+    }
+
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Room> getAll() {
         return roomServices.getAll();
@@ -38,15 +46,6 @@ public class RoomRestController {
             AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
             DTO<Room,RoomDTO> dto = abstractFactory.getDTO("Room");
             return dto.create(room);
-        } catch (Exception e) {
-            throw new RoomNotFoundException();
-        }
-    }
-
-    @RequestMapping(value = "/getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Room getByName(@PathVariable String name) throws RoomNotFoundException {
-        try {
-            return roomServices.getByName(name);
         } catch (Exception e) {
             throw new RoomNotFoundException();
         }

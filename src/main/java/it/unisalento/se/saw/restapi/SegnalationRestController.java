@@ -24,8 +24,11 @@ public class SegnalationRestController {
     @Autowired
     ISegnalationServices segnalationServices;
 
+    AbstractFactory abstractDTOFactory;
+
     public SegnalationRestController() {
         super();
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
     }
 
     public SegnalationRestController(ISegnalationServices segnalationServices) {
@@ -34,8 +37,7 @@ public class SegnalationRestController {
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<SegnalationDTO> getAll() {
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        DTO<List<Segnalation>, Set<SegnalationDTO>> dto = abstractFactory.getDTO("SetSegnalation");
+        DTO<List<Segnalation>, Set<SegnalationDTO>> dto = this.abstractDTOFactory.getDTO("SetSegnalation");
         return dto.create(segnalationServices.getAll());
     }
 
@@ -51,8 +53,7 @@ public class SegnalationRestController {
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public SegnalationDTO getById(@PathVariable int id) throws SegnalationNotFoundException {
         try {
-            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-            DTO<Segnalation, SegnalationDTO> dto = abstractFactory.getDTO("Segnalation");
+            DTO<Segnalation, SegnalationDTO> dto = this.abstractDTOFactory.getDTO("Segnalation");
             return dto.create(segnalationServices.getById(id));
         } catch (Exception e) {
             throw new SegnalationNotFoundException();
@@ -60,14 +61,14 @@ public class SegnalationRestController {
     }
 
     @RequestMapping(value = "/getByRoom/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Segnalation> getByRoom(@PathVariable int id) {
-        return segnalationServices.getByRoom(id);
+    public Set<SegnalationDTO> getByRoom(@PathVariable int id) {
+        DTO<List<Segnalation>, Set<SegnalationDTO>> dto = this.abstractDTOFactory.getDTO("SetSegnalation");
+        return dto.create(segnalationServices.getByRoom(id));
     }
 
     @RequestMapping(value = "/getByIdProfessor/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<SegnalationDTO> getByProfessor(@PathVariable int id) {
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        DTO<List<Segnalation>, Set<SegnalationDTO>> dto = abstractFactory.getDTO("SetSegnalation");
+        DTO<List<Segnalation>, Set<SegnalationDTO>> dto = this.abstractDTOFactory.getDTO("SetSegnalation");
         return dto.create(segnalationServices.getByProfessor(id));
     }
 }

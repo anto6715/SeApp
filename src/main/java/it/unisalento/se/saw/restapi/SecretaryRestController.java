@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.ManyToOne;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("secretary")
@@ -21,29 +22,32 @@ public class SecretaryRestController {
     @Autowired
     ISecretaryServices secretaryServices;
 
-    @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+
+
+    AbstractFactory abstractDTOFactory;
+
+    public SecretaryRestController() {
+        super();
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
+    }
+
+
+        @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ManyToOne
-    public List<Secretary> getAll() {
-        return secretaryServices.getAll();
+    public Set<SecretaryDTO> getAll() {
+        DTO<List<Secretary>, Set<SecretaryDTO>> dto = this.abstractDTOFactory.getDTO("SetSecretary");
+        return dto.create(secretaryServices.getAll());
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public SecretaryDTO getById(@PathVariable("id") int id) throws SecretaryNotFoundException {
-        Secretary secretary = secretaryServices.getById(id);
-        AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
-        DTO<Secretary, SecretaryDTO> dto = dtoFactory.getDTO("SECRETARY");
-        SecretaryDTO secretaryDTO = dto.create(secretary);
-        return secretaryDTO;
+        DTO<Secretary, SecretaryDTO> dto = this.abstractDTOFactory.getDTO("SECRETARY");
+        return  dto.create(secretaryServices.getById(id));
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Secretary post(@RequestBody SecretaryDTO secretaryDTO) throws SecretaryNotFoundException {
         return secretaryServices.save(secretaryDTO);
-    }
-
-    @RequestMapping(value = "/delete/{id}")
-    public void deleteById(@PathVariable("id") int id) throws SecretaryNotFoundException {
-        secretaryServices.removeById(id);
     }
 
 
