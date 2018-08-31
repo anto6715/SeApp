@@ -11,4 +11,6 @@ import java.util.List;
 public interface SecretaryRepository extends JpaRepository<Secretary, SecretaryId> {
 
     public Secretary findSecretaryById_IdSecretary(int id);
+
+    Secretary findSecretaryByUserUid(String uid);
 }
