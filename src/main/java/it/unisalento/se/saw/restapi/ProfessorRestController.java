@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -23,59 +24,44 @@ public class ProfessorRestController {
     @Autowired
     IProfessorServices professorServices;
 
+    AbstractFactory abstractDTOFactory;
+
+    public ProfessorRestController() {
+        super();
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
+    }
+
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Professor> getAll() {
-        return professorServices.getAll();
+    public Set<ProfessorDTO> getAll() {
+        DTO<List<Professor>, Set<ProfessorDTO>> dto = this.abstractDTOFactory.getDTO("SetProfessor");
+        return dto.create(professorServices.getAll());
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Professor post(@RequestBody ProfessorDTO professorDTO) throws CourseNotFoundException {
-        System.out.println("qui");
         return professorServices.save(professorDTO);
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ProfessorDTO getById(@PathVariable("id") int id) throws ProfessorNotFoundException {
        try {
-           Professor professor = professorServices.getById(id);
-           AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
-           DTO<Professor,ProfessorDTO> dto = dtoFactory.getDTO("PROFESSOR");
-           ProfessorDTO professorDTO = dto.create(professor);
-           return professorDTO;
+           DTO<Professor,ProfessorDTO> dto = this.abstractDTOFactory.getDTO("PROFESSOR");
+           return dto.create(professorServices.getById(id));
        } catch (Exception e) {
            throw new ProfessorNotFoundException();
        }
 
     }
 
-    @RequestMapping(value = "/getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Professor> getByName(@PathVariable("name") String name) throws ProfessorNotFoundException {
-        try {
-            return professorServices.getByName(name);
-        } catch (Exception e) {
-            throw new ProfessorNotFoundException();
-        }
-
-    }
-
-    @RequestMapping(value = "/getBySurname/{surname}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Professor> getBySurname(@PathVariable("surname") String surname) throws ProfessorNotFoundException {
-        try {
-            return professorServices.getBySurname(surname);
-        } catch (Exception e) {
-            throw new ProfessorNotFoundException();
-        }
-
-    }
-
     @RequestMapping(value = "/getByCourse/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<Professor> getByCourse(@PathVariable("id") int id) throws ProfessorNotFoundException {
+    public Set<ProfessorDTO> getByCourse(@PathVariable("id") int id) throws ProfessorNotFoundException {
         try {
-            return professorServices.getByIdCourse(id);
+            DTO<List<Professor>, Set<ProfessorDTO>> dto = this.abstractDTOFactory.getDTO("SetProfessor");
+            List<Professor> professors = new ArrayList<>( professorServices.getByIdCourse(id));
+            return dto.create(professors);
         } catch (Exception e) {
             throw new ProfessorNotFoundException();
         }
-
     }
 
 

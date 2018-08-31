@@ -24,17 +24,15 @@ public class ReviewRestController {
     @Autowired
     IReviewServices reviewServices;
 
+    AbstractFactory abstractDTOFactory;
+
     public ReviewRestController() {
         super();
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
     }
 
     public ReviewRestController(IReviewServices reviewServices) {
         this.reviewServices = reviewServices;
-    }
-
-    @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Review> getAll() {
-        return reviewServices.getAll();
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -43,9 +41,10 @@ public class ReviewRestController {
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Review getById(@PathVariable int id) throws ReviewNotFoundException {
+    public ReviewDTO getById(@PathVariable int id) throws ReviewNotFoundException {
         try {
-            return reviewServices.getById(id);
+            DTO<Review, ReviewDTO> dto = this.abstractDTOFactory.getDTO("Review");
+            return dto.create(reviewServices.getById(id));
         } catch (Exception e) {
             throw new ReviewNotFoundException();
         }
@@ -54,8 +53,7 @@ public class ReviewRestController {
     @RequestMapping(value = "/getByIdLesson/{idLesson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<ReviewDTO> getByIdLesson(@PathVariable int idLesson) throws ReviewNotFoundException {
         try {
-            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-            DTO<List<Review>, Set<ReviewDTO> > dto = abstractFactory.getDTO("SETREVIEW");
+            DTO<List<Review>, Set<ReviewDTO> > dto = this.abstractDTOFactory.getDTO("SETREVIEW");
             return dto.create(reviewServices.getByIdLesson(idLesson));
         } catch (Exception e) {
             throw new ReviewNotFoundException();
@@ -65,24 +63,17 @@ public class ReviewRestController {
     @RequestMapping(value = "/getByIdMaterial/{idMaterial}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<ReviewDTO> getByIdMaterial(@PathVariable int idMaterial) throws ReviewNotFoundException {
         try {
-            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-            DTO<List<Review>, Set<ReviewDTO> > dto = abstractFactory.getDTO("SETREVIEW");
+            DTO<List<Review>, Set<ReviewDTO> > dto = this.abstractDTOFactory.getDTO("SETREVIEW");
             return dto.create(reviewServices.getByIdMaterial(idMaterial));
         } catch (Exception e) {
             throw new ReviewNotFoundException();
         }
     }
 
-    @RequestMapping(value = "/getByType/{idType}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Review> getByType(@PathVariable int idType) {
-        return reviewServices.getByType(idType);
-    }
-
     @RequestMapping(value = "/getByIdStudentAndIdMaterial/{idStudent}_{idMaterial}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ReviewDTO getByIdStudentAndIdMaterial(@PathVariable("idStudent") int idStudent, @PathVariable("idMaterial") int idMaterial) throws ReviewNotFoundException {
         try {
-            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-            DTO<Review, ReviewDTO> dto = abstractFactory.getDTO("Review");
+            DTO<Review, ReviewDTO> dto = this.abstractDTOFactory.getDTO("Review");
             return dto.create(reviewServices.getByIdStudentAndIdMaterial(idStudent,idMaterial));
         } catch (Exception e) {
             throw new ReviewNotFoundException();
@@ -93,8 +84,7 @@ public class ReviewRestController {
     @RequestMapping(value = "/getByIdStudentAndIdLesson/{idStudent}_{idLesson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ReviewDTO getByIdStudentAndIdLesson(@PathVariable("idStudent") int idStudent, @PathVariable("idLesson") int idLesson) throws ReviewNotFoundException {
         try {
-            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-            DTO<Review, ReviewDTO> dto = abstractFactory.getDTO("Review");
+            DTO<Review, ReviewDTO> dto = this.abstractDTOFactory.getDTO("Review");
             return dto.create(reviewServices.getByIdStudentAndIdLesson(idStudent,idLesson));
         } catch (Exception e) {
             throw new ReviewNotFoundException();

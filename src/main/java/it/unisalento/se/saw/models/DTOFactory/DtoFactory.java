@@ -57,6 +57,10 @@ public class DtoFactory extends AbstractFactory {
             return new SetRoomDTOModel();
         }
 
+        if (dtoType.equalsIgnoreCase("SETPROFESSOR")){
+            return new SetProfessorDTOModel();
+        }
+
         if (dtoType.equalsIgnoreCase("SETUSER")){
             return new SetUserDTOModel();
         }

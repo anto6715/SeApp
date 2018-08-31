@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/room")
@@ -25,12 +26,12 @@ public class RoomRestController {
     public RoomRestController() {
         super();
         this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
-
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Room> getAll() {
-        return roomServices.getAll();
+    public Set<RoomDTO> getAll() {
+        DTO<List<Room>, Set<RoomDTO>> dto = this.abstractDTOFactory.getDTO("SETROOM");
+        return dto.create(roomServices.getAll());
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -41,29 +42,18 @@ public class RoomRestController {
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public RoomDTO getById(@PathVariable int id) throws RoomNotFoundException {
         try {
-
-            Room room = roomServices.getById(id);
-            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-            DTO<Room,RoomDTO> dto = abstractFactory.getDTO("Room");
-            return dto.create(room);
+            DTO<Room,RoomDTO> dto = this.abstractDTOFactory.getDTO("Room");
+            return dto.create(roomServices.getById(id));
         } catch (Exception e) {
             throw new RoomNotFoundException();
         }
     }
 
     @RequestMapping(value = "/getByCapacity/{capacity}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Room> getByCapacity(@PathVariable int capacity) throws RoomNotFoundException {
+    public Set<RoomDTO> getByCapacity(@PathVariable int capacity) throws RoomNotFoundException {
         try {
-            return roomServices.getByCapacity(capacity);
-        } catch (Exception e) {
-            throw new RoomNotFoundException();
-        }
-    }
-
-    @RequestMapping(value = "/delete/{id}")
-    public void deleteById(@PathVariable("id") int id) throws RoomNotFoundException {
-        try {
-            roomServices.remove(id);
+            DTO<List<Room>, Set<RoomDTO>> dto = this.abstractDTOFactory.getDTO("SETROOM");
+            return dto.create(roomServices.getByCapacity(capacity));
         } catch (Exception e) {
             throw new RoomNotFoundException();
         }
