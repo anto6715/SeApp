@@ -1,10 +1,25 @@
 package it.unisalento.se.saw.services;
 
 
+import it.unisalento.se.saw.Iservices.IProfessorServices;
+import it.unisalento.se.saw.Iservices.ISecretaryServices;
+import it.unisalento.se.saw.Iservices.IStudentServices;
 import it.unisalento.se.saw.Iservices.IUserServices;
+import it.unisalento.se.saw.domain.Professor;
+import it.unisalento.se.saw.domain.Secretary;
+import it.unisalento.se.saw.domain.Student;
 import it.unisalento.se.saw.domain.User;
+import it.unisalento.se.saw.dto.ProfessorDTO;
+import it.unisalento.se.saw.dto.SecretaryDTO;
+import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.dto.TokenDTO;
+import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
+import it.unisalento.se.saw.exceptions.SecretaryNotFoundException;
+import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DTOFactory.DTO;
+import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +32,15 @@ public class UserService implements IUserServices {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    IStudentServices studentServices;
+
+    @Autowired
+    IProfessorServices professorServices;
+
+    @Autowired
+    ISecretaryServices secretaryServices;
 
     @Transactional(readOnly=true)
     public List<User> getAll(){
@@ -45,10 +69,32 @@ public class UserService implements IUserServices {
     }
 
     @Transactional
-    public User getByUid(String uid) throws UserNotFoundException {
+    public Object getByUid(String uid) throws UserNotFoundException, StudentNotFoundException, SecretaryNotFoundException, ProfessorNotFoundException {
         User user = userRepository.findUserByUid(uid);
-        System.out.println(user.getName());
-        return user;
+        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
+        if(user.getUserType() ==1){
+            try{
+                DTO<Student, StudentDTO> dto = abstractFactory.getDTO("Student");
+                return dto.create(studentServices.getByUid(uid));
+            } catch (Exception e) {
+                throw new StudentNotFoundException();
+            }
+        } else
+        if (user.getUserType() == 2) {
+            try {
+                DTO<Secretary, SecretaryDTO> dto = abstractFactory.getDTO("Secretary");
+                return dto.create(secretaryServices.getByUid(uid));
+            } catch (Exception e) {
+                throw new SecretaryNotFoundException();
+            }
+        }else  {
+            try {
+                DTO<Professor, ProfessorDTO> dto = abstractFactory.getDTO("Professor");
+                return dto.create(professorServices.getByUid(uid));
+            } catch (Exception e) {
+                throw new ProfessorNotFoundException();
+            }
+        }
 
 
     }
@@ -93,13 +139,6 @@ public class UserService implements IUserServices {
         token.setIdUser(tkn.getIdUser());
         token.setToken(tkn.getToken());
         return token;
-    }
-
-    @Transactional
-    public void deleteFcmToken(int id){
-        User user = userRepository.getOne(id);
-        user.setToken(null);
-        User tkn = userRepository.save(user);
     }
 
 

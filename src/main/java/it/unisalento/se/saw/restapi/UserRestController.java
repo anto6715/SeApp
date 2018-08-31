@@ -73,32 +73,8 @@ public class UserRestController {
 
     @RequestMapping(value = "/getByUid/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Object getByUid(@PathVariable("uid") String uid) throws UserNotFoundException, StudentNotFoundException, ProfessorNotFoundException, SecretaryNotFoundException {
-        User user = userServices.getByUid(uid);
-        if(user.getUserType() ==1){
-           try{
-               DTO<Student, StudentDTO> dto = this.abstractDTOFactory.getDTO("Student");
-               return dto.create(studentServices.getByUid(uid));
-           } catch (Exception e) {
-               throw new StudentNotFoundException();
-           }
-        }
-        if (user.getUserType() == 2) {
-            try {
-                DTO<Secretary, SecretaryDTO> dto = this.abstractDTOFactory.getDTO("Secretary");
-                return dto.create(secretaryServices.getByUid(uid));
-            } catch (Exception e) {
-                throw new SecretaryNotFoundException();
-            }
-        }
-        if (user.getUserType() == 3) {
-            try {
-                DTO<Professor, ProfessorDTO> dto = this.abstractDTOFactory.getDTO("Professor");
-                return dto.create(professorServices.getByUid(uid));
-            } catch (Exception e) {
-                throw new ProfessorNotFoundException();
-            }
-        }
-        return null;
+        return userServices.getByUid(uid);
+
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)      // va usata la domain factory
@@ -116,12 +92,6 @@ public class UserRestController {
     @RequestMapping(value = "/addFcmToken", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public TokenDTO addFcmToken(@RequestBody TokenDTO tokenDTO) {
         return userServices.addFcmToken(tokenDTO);
-
-    }
-
-    @RequestMapping(value = "/deleteFcmToken/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteFcmToken(@PathVariable int id) {
-        userServices.deleteFcmToken(id);
 
     }
 
