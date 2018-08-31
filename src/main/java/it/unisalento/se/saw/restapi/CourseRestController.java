@@ -30,8 +30,11 @@ public class CourseRestController {
     @Autowired
     IProfessorServices professorServices;
 
+    AbstractFactory abstractDTOFactory;
+
     public CourseRestController() {
         super();
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
     }
 
     public CourseRestController(ICourseServices courseServices) {
@@ -46,19 +49,14 @@ public class CourseRestController {
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public CourseDTO getById(@PathVariable("id") int id) throws CourseNotFoundException {
-        Course course = courseServices.getById(id);
-        DtoFactory dtoFactory = new DtoFactory();
-        DTO<Course,CourseDTO> dto = dtoFactory.getDTO("COURSE");
-        CourseDTO courseDTO = dto.create(course);
-        return  courseDTO;
+        DTO<Course,CourseDTO> dto = abstractDTOFactory.getDTO("COURSE");
+        return  dto.create(courseServices.getById(id));
     }
 
     @RequestMapping(value = "/getByIdProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<CourseDTO> getByIdProf(@PathVariable("id") int id) throws CourseNotFoundException, ProfessorNotFoundException {
-        Professor professor = professorServices.getById(id);
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        DTO<Set<Course>, Set<CourseDTO>> dto = abstractFactory.getDTO("SETCOURSE");
-        return dto.create(professor.getCourses());
+        DTO<Set<Course>, Set<CourseDTO>> dto = this.abstractDTOFactory.getDTO("SETCOURSE");
+        return dto.create(professorServices.getById(id).getCourses());
     }
 
     @RequestMapping(value = "/getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -80,10 +78,5 @@ public class CourseRestController {
         course.setName(courseDTO.getName());
         course.setType(courseDTO.getType());
         return courseServices.save(course);
-    }
-
-    @RequestMapping(value = "/delete/{id}")
-    public void deleteById(@PathVariable("id") int id) throws CourseNotFoundException {
-        courseServices.removeCourseById(id);
     }
 }

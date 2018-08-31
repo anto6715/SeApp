@@ -23,8 +23,11 @@ public class MaterialRestController {
     @Autowired
     IMaterialServices materialServices;
 
+    AbstractFactory abstractDTOFactory;
+
     public MaterialRestController() {
         super();
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
     }
 
     public MaterialRestController(IMaterialServices materialServices) {
@@ -48,10 +51,8 @@ public class MaterialRestController {
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public MaterialDTO getById(@PathVariable int id) throws MaterialNotFoundException {
         try {
-            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-            DTO<Material, MaterialDTO> dto = abstractFactory.getDTO("MATERIAL");
-            Material material = materialServices.getById(id);
-            return dto.create(material);
+            DTO<Material, MaterialDTO> dto = this.abstractDTOFactory.getDTO("MATERIAL");
+            return dto.create( materialServices.getById(id));
         } catch (Exception e) {
             throw new MaterialNotFoundException();
         }
@@ -59,19 +60,13 @@ public class MaterialRestController {
 
     @RequestMapping(value = "/getByIdLesson/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<MaterialDTO> getByIdLesson(@PathVariable int id){
-
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        DTO<List<Material>, Set<MaterialDTO>> dto = abstractFactory.getDTO("SETMATERIAL");
-        List<Material> materials = materialServices.getByIdLesson(id);
-        return dto.create(materials);
+        DTO<List<Material>, Set<MaterialDTO>> dto = this.abstractDTOFactory.getDTO("SETMATERIAL");
+        return dto.create( materialServices.getByIdLesson(id));
     }
 
     @RequestMapping(value = "/getByIdTeaching/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<MaterialDTO> getByIdTeaching(@PathVariable int id){
-
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        DTO<List<Material>, Set<MaterialDTO>> dto = abstractFactory.getDTO("SETMATERIAL");
-        List<Material> materials = materialServices.getByIdTeaching(id);
-        return dto.create(materials);
+        DTO<List<Material>, Set<MaterialDTO>> dto = this.abstractDTOFactory.getDTO("SETMATERIAL");
+        return dto.create(materialServices.getByIdTeaching(id));
     }
 }

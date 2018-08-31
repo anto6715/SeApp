@@ -26,8 +26,11 @@ public class LessonRestController {
     @Autowired
     ILessonServices lessonServices;
 
+    AbstractFactory abstractDTOFactory;
+
     public LessonRestController() {
         super();
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
     }
 
     public LessonRestController(ILessonServices lessonServices) {
@@ -49,16 +52,11 @@ public class LessonRestController {
         }
     }
 
-
-
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public LessonDTO getById(@PathVariable int id) throws LessonNotFoundException {
         try {
-            Lesson lesson = lessonServices.getById(id);
-            System.out.println(lesson.getDate());
-            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-            DTO<Lesson,LessonDTO> dto = abstractFactory.getDTO("LESSON");
-            return dto.create(lesson);
+            DTO<Lesson,LessonDTO> dto = this.abstractDTOFactory.getDTO("LESSON");
+            return dto.create(lessonServices.getById(id));
         } catch (Exception e) {
             throw new LessonNotFoundException();
         }
@@ -68,22 +66,16 @@ public class LessonRestController {
     public Set<LessonDTO> getByDate(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date dateObj = sdf.parse(date);
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        DTO<List<Lesson>, Set<LessonDTO>> dto = abstractFactory.getDTO("SETLESSON");
-        List<Lesson> lessons = lessonServices.getByDate(dateObj,id);
-        return dto.create(lessons);
-
-
+        DTO<List<Lesson>, Set<LessonDTO>> dto = this.abstractDTOFactory.getDTO("SETLESSON");
+        return dto.create(lessonServices.getByDate(dateObj,id));
     }
 
     @RequestMapping(value = "/getByDateAndIdProf/{date}_{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
     public Set<LessonDTO> getByDateAndIdProfessor(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date dateObj = sdf.parse(date);
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        DTO<List<Lesson>, Set<LessonDTO>> dto = abstractFactory.getDTO("SETLESSON");
-        List<Lesson> lessons = lessonServices.getByDateAndIdProfessor(dateObj,id);
-        return dto.create(lessons);
+        DTO<List<Lesson>, Set<LessonDTO>> dto = this.abstractDTOFactory.getDTO("SETLESSON");
+        return dto.create(lessonServices.getByDateAndIdProfessor(dateObj,id));
 
 
     }
