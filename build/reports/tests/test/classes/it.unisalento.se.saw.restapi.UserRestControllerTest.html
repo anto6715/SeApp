@@ -23,13 +23,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">1</div>
+<div class="counter">2</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">1</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.103s</div>
+<div class="counter">0.699s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">50%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,16 +61,82 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Tests</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Standard output</a>
+<a href="#tab1">Tests</a>
 </li>
 <li>
 <a href="#tab2">Standard error</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="findUserByUidTest"></a>
+<h3 class="failures">findUserByUidTest</h3>
+<span class="code">
+<pre>java.lang.AssertionError: Content type not set
+	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:36)
+	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:66)
+	at org.springframework.test.web.servlet.result.ContentResultMatchers.lambda$contentType$0(ContentResultMatchers.java:79)
+	at org.springframework.test.web.servlet.MockMvc$1.andExpect(MockMvc.java:179)
+	at it.unisalento.se.saw.restapi.UserRestControllerTest.findUserByUidTest(UserRestControllerTest.java:93)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.mockito.internal.runners.JUnit45AndHigherRunnerImpl.run(JUnit45AndHigherRunnerImpl.java:37)
+	at org.mockito.runners.MockitoJUnitRunner.run(MockitoJUnitRunner.java:62)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:106)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:66)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy1.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:109)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:155)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:137)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
+	at java.lang.Thread.run(Thread.java:748)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -82,38 +148,39 @@
 </thead>
 <tr>
 <td class="success">findUserByIdTest</td>
-<td class="success">1.103s</td>
+<td class="success">0.658s</td>
 <td class="success">passed</td>
 </tr>
+<tr>
+<td class="failures">findUserByUidTest</td>
+<td class="failures">0.041s</td>
+<td class="failures">failed</td>
+</tr>
 </table>
-</div>
-<div id="tab1" class="tab">
-<h2>Standard output</h2>
-<span class="code">
-<pre>prova
-
-prova
-ciao
-</pre>
-</span>
 </div>
 <div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>349 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getByName/{name}],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;it.unisalento.se.saw.domain.User&gt; it.unisalento.se.saw.restapi.UserRestController.getByName(java.lang.String)
-354 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;it.unisalento.se.saw.domain.User&gt; it.unisalento.se.saw.restapi.UserRestController.getAll()
-354 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getByUid/{uid}],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object it.unisalento.se.saw.restapi.UserRestController.getByUid(java.lang.String) throws it.unisalento.se.saw.exceptions.UserNotFoundException,it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-355 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/deleteFcmToken/{id}],methods=[POST],produces=[application/json]}&quot; onto public void it.unisalento.se.saw.restapi.UserRestController.deleteFcmToken(int)
-356 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/addFcmToken],methods=[POST],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.TokenDTO it.unisalento.se.saw.restapi.UserRestController.addFcmToken(it.unisalento.se.saw.dto.TokenDTO)
-356 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getByNameSurname/{name}_{surname}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.getByNameSurname(java.lang.String,java.lang.String) throws it.unisalento.se.saw.exceptions.UserNotFoundException
-356 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.getById(int) throws it.unisalento.se.saw.exceptions.UserNotFoundException
-360 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/delete/{id}]}&quot; onto public void it.unisalento.se.saw.restapi.UserRestController.deleteById(int) throws it.unisalento.se.saw.exceptions.UserNotFoundException
-361 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.domain.User it.unisalento.se.saw.restapi.UserRestController.post(it.unisalento.se.saw.dto.UserDTO)
-364 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/update/{id}_{name}],produces=[application/json]}&quot; onto public it.unisalento.se.saw.domain.User it.unisalento.se.saw.restapi.UserRestController.updateNameById(int,java.lang.String) throws it.unisalento.se.saw.exceptions.UserNotFoundException
-669 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@eba2347
-743 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-743 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-747 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 4 ms
+<pre>214 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.UserDTO&gt; it.unisalento.se.saw.restapi.UserRestController.getAll()
+222 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/addFcmToken],methods=[POST],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.TokenDTO it.unisalento.se.saw.restapi.UserRestController.addFcmToken(it.unisalento.se.saw.dto.TokenDTO)
+223 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/deleteFcmToken/{id}],methods=[POST],produces=[application/json]}&quot; onto public void it.unisalento.se.saw.restapi.UserRestController.deleteFcmToken(int)
+224 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.getById(int) throws it.unisalento.se.saw.exceptions.UserNotFoundException
+224 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getByUid/{uid}],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object it.unisalento.se.saw.restapi.UserRestController.getByUid(java.lang.String) throws it.unisalento.se.saw.exceptions.UserNotFoundException,it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+225 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.domain.User it.unisalento.se.saw.restapi.UserRestController.post(it.unisalento.se.saw.dto.UserDTO)
+402 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@695b602d
+448 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+448 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+452 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 4 ms
+623 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.UserDTO&gt; it.unisalento.se.saw.restapi.UserRestController.getAll()
+624 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/addFcmToken],methods=[POST],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.TokenDTO it.unisalento.se.saw.restapi.UserRestController.addFcmToken(it.unisalento.se.saw.dto.TokenDTO)
+625 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/deleteFcmToken/{id}],methods=[POST],produces=[application/json]}&quot; onto public void it.unisalento.se.saw.restapi.UserRestController.deleteFcmToken(int)
+626 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.getById(int) throws it.unisalento.se.saw.exceptions.UserNotFoundException
+627 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getByUid/{uid}],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object it.unisalento.se.saw.restapi.UserRestController.getByUid(java.lang.String) throws it.unisalento.se.saw.exceptions.UserNotFoundException,it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+629 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.domain.User it.unisalento.se.saw.restapi.UserRestController.post(it.unisalento.se.saw.dto.UserDTO)
+638 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@234dda54
+642 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+643 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+643 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
 </pre>
 </span>
 </div>
@@ -125,7 +192,7 @@ ciao
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.8</a> at 31-ago-2018 10.49.23</p>
+<a href="http://www.gradle.org">Gradle 4.8</a> at 31-ago-2018 14.28.55</p>
 </div>
 </div>
 </body>

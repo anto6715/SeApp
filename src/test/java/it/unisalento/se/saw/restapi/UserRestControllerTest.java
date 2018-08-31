@@ -1,11 +1,7 @@
 package it.unisalento.se.saw.restapi;
-import com.jayway.jsonpath.JsonPath;
 import it.unisalento.se.saw.Iservices.IUserServices;
+import it.unisalento.se.saw.domain.Student;
 import it.unisalento.se.saw.domain.User;
-import it.unisalento.se.saw.dto.UserDTO;
-import it.unisalento.se.saw.exceptions.UserNotFoundException;
-import it.unisalento.se.saw.models.AbstractFactory;
-import it.unisalento.se.saw.models.FactoryProducer;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,24 +15,13 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import java.nio.charset.Charset;
-import java.util.Arrays;
-import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.hasProperty;
-import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.isEmptyOrNullString;
 import static org.hamcrest.Matchers.nullValue;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -76,7 +61,6 @@ public class UserRestControllerTest {
 
 
         mockMvc.perform(get("/user/getById/{id}",32))
-                .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON_UTF))
                 .andExpect(jsonPath("$.idUser", is(1)))
                 .andExpect(jsonPath("$.name", is("Antonio")))
@@ -86,8 +70,30 @@ public class UserRestControllerTest {
                 .andExpect(jsonPath("$.uid", is("MQqa7A80zxQPvY5VV6oeFSBM33o1")))
                 .andExpect(jsonPath("$.token", is(nullValue())))
                 .andExpect(jsonPath("$.userType", is(1)));
-        System.out.println("ciao");
+
         verify(userServicesMock, times(1)).getById(32);
+        verifyNoMoreInteractions(userServicesMock);
+    }
+
+    @Test
+    public void findStudentByUidTest() throws Exception {
+        User user = new User();
+        Student student = new Student();
+        when(userServicesMock.getByUid("MQqa7A80zxQPvY5VV6oeFSBM33o1")).thenReturn(user);
+
+
+        mockMvc.perform(get("/user/getByUid/{uid}","MQqa7A80zxQPvY5VV6oeFSBM33o1"))
+                .andExpect(content().contentType(APPLICATION_JSON_UTF))
+                .andExpect(jsonPath("$.idUser", is(1)))
+                .andExpect(jsonPath("$.name", is("Antonio")))
+                .andExpect(jsonPath("$.surname", is("Mariani")))
+                .andExpect(jsonPath("$.email", is("prova@email.it")))
+                .andExpect(jsonPath("$.age", is(25)))
+                .andExpect(jsonPath("$.uid", is("MQqa7A80zxQPvY5VV6oeFSBM33o1")))
+                .andExpect(jsonPath("$.token", is(nullValue())))
+                .andExpect(jsonPath("$.userType", is(1)));
+
+        verify(userServicesMock, times(1)).getByUid("MQqa7A80zxQPvY5VV6oeFSBM33o1");
         verifyNoMoreInteractions(userServicesMock);
     }
 
