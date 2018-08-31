@@ -76,7 +76,7 @@ public class ReviewRestController {
             DTO<Review, ReviewDTO> dto = this.abstractDTOFactory.getDTO("Review");
             return dto.create(reviewServices.getByIdStudentAndIdMaterial(idStudent,idMaterial));
         } catch (Exception e) {
-            throw new ReviewNotFoundException();
+            return null;
         }
 
     }
@@ -87,7 +87,7 @@ public class ReviewRestController {
             DTO<Review, ReviewDTO> dto = this.abstractDTOFactory.getDTO("Review");
             return dto.create(reviewServices.getByIdStudentAndIdLesson(idStudent,idLesson));
         } catch (Exception e) {
-            throw new ReviewNotFoundException();
+            return null;
         }
 
     }

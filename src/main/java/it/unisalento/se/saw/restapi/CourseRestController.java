@@ -59,15 +59,6 @@ public class CourseRestController {
         return dto.create(professorServices.getById(id).getCourses());
     }
 
-    @RequestMapping(value = "/getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public CourseDTO getByName(@PathVariable("name") String name) throws CourseNotFoundException {
-        Course course = courseServices.getByName(name);
-        DtoFactory dtoFactory = new DtoFactory();
-        DTO<Course,CourseDTO> dto = dtoFactory.getDTO("COURSE");
-        CourseDTO courseDTO = dto.create(course);
-        return  courseDTO;
-    }
-
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Course post(@RequestBody CourseDTO courseDTO) {
         Course course = new Course();

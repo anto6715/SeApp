@@ -5,6 +5,8 @@ import it.unisalento.se.saw.domain.Accessory;
 import it.unisalento.se.saw.dto.AccessoryDTO;
 import it.unisalento.se.saw.exceptions.AccessoryNotFoundException;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.FactoryProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +20,11 @@ public class AccessoryRestController {
     @Autowired
     IAccessoryServices accessoryServices;
 
+    AbstractFactory abstractDTOFactory;
+
     public AccessoryRestController() {
         super();
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
     }
 
     public  AccessoryRestController(IAccessoryServices accessoryServices) {
