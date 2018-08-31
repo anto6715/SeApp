@@ -37,16 +37,17 @@ public class UserRestController {
     @Autowired
     IProfessorServices professorServices;
 
-    AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
+    AbstractFactory abstractDTOFactory;
 
     public UserRestController() {
         super();
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
     }
 
     public UserRestController(IUserServices userServices) {
         this.userServices = userServices;
     }
-    
+
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ManyToOne
     public Set<UserDTO> getAll() {

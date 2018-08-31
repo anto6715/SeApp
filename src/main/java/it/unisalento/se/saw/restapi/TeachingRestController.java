@@ -23,9 +23,11 @@ public class TeachingRestController {
     @Autowired
     ITeachingServices teachingServices;
 
+    AbstractFactory abstractDTOFactory;
+
     public TeachingRestController() {
         super();
-        System.out.println("avvio");
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
     }
 
     public TeachingRestController(ITeachingServices teachingServices) {
@@ -34,10 +36,8 @@ public class TeachingRestController {
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<TeachingDTO> getAll() {
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        DTO<List<Teaching>, Set<TeachingDTO>> dto = abstractFactory.getDTO("SETTEACHING");
-        List<Teaching> teachings = teachingServices.getAll();
-        return dto.create(teachings);
+        DTO<List<Teaching>, Set<TeachingDTO>> dto = this.abstractDTOFactory.getDTO("SETTEACHING");
+        return dto.create(teachingServices.getAll());
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -48,10 +48,8 @@ public class TeachingRestController {
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public TeachingDTO getById(@PathVariable int id) throws TeachingNotFoundException {
         try {
-            Teaching teaching= teachingServices.getById(id);
-            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-            DTO<Teaching, TeachingDTO> dto = abstractFactory.getDTO("Teaching");
-            return dto.create(teaching);
+            DTO<Teaching, TeachingDTO> dto = this.abstractDTOFactory.getDTO("Teaching");
+            return dto.create(teachingServices.getById(id));
         } catch (Exception e) {
             throw new TeachingNotFoundException();
         }
