@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.ManyToOne;
 import java.util.List;
+import java.util.Set;
 
 @RestController // contiene 2 annotation: Controller e responseBody
 @RequestMapping("/user")
@@ -36,6 +37,8 @@ public class UserRestController {
     @Autowired
     IProfessorServices professorServices;
 
+    AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
+
     public UserRestController() {
         super();
     }
@@ -43,70 +46,49 @@ public class UserRestController {
     public UserRestController(IUserServices userServices) {
         this.userServices = userServices;
     }
-
-
+    
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ManyToOne
-    public List<User> getAll() {
-        return userServices.getAll();
+    public Set<UserDTO> getAll() {
+        DTO<List<User>, Set<UserDTO>> dto = this.abstractDTOFactory.getDTO("SetUser");
+        return dto.create(userServices.getAll());
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public UserDTO getById(@PathVariable("id") int id) throws UserNotFoundException{
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        DTO<User, UserDTO> dto = abstractFactory.getDTO("User");
-        return dto.create(userServices.getById(id));
-    }
-    @RequestMapping(value = "/getId/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public User getId(@PathVariable("id") int id) throws UserNotFoundException {
-        return userServices.getById(id);
+        try{
+            DTO<User, UserDTO> dto = this.abstractDTOFactory.getDTO("User");
+            return dto.create(userServices.getById(id));
+        } catch (Exception e) {
+            throw new UserNotFoundException();
+        }
+
     }
 
 
     @RequestMapping(value = "/getByUid/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Object getByUid(@PathVariable("uid") String uid) throws UserNotFoundException, StudentNotFoundException, ProfessorNotFoundException {
         User user = userServices.getByUid(uid);
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
         if(user.getUserType() ==1){
            try{
-               DTO<Student, StudentDTO> dto = abstractFactory.getDTO("Student");
+               DTO<Student, StudentDTO> dto = this.abstractDTOFactory.getDTO("Student");
                return dto.create(studentServices.getByUid(uid));
            } catch (Exception e) {
                throw new StudentNotFoundException();
            }
         }
-
         if (user.getUserType() == 3) {
             try {
-                DTO<Professor, ProfessorDTO> dto = abstractFactory.getDTO("Professor");
+                DTO<Professor, ProfessorDTO> dto = this.abstractDTOFactory.getDTO("Professor");
                 return dto.create(professorServices.getByUid(uid));
             } catch (Exception e) {
                 throw new ProfessorNotFoundException();
             }
         }
-
-
         return null;
     }
 
-    @RequestMapping(value = "/getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<User> getByName(@PathVariable("name") String name){
-               return userServices.getByName(name);
-    }
-
-    @RequestMapping(value = "/getByNameSurname/{name}_{surname}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserDTO getByNameSurname(@PathVariable("name") String name, @PathVariable("surname") String surname) throws UserNotFoundException{
-        User user= userServices.getByNameSurname(name, surname);
-        UserDTO userDTO = new UserDTO();
-        userDTO.setName(user.getName());
-        userDTO.setSurname(user.getSurname());
-        userDTO.setEmail(user.getEmail());
-        userDTO.setUid(user.getUid());
-        userDTO.setUserType((user.getUserType()));
-        return userDTO;
-    }
-
-    @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)      // va usata la domain factory
     public User post(@RequestBody UserDTO userDTO) {
         User user = new User();
         user.setName(userDTO.getName());
@@ -117,18 +99,6 @@ public class UserRestController {
         user.setUserType(userDTO.getUserType());
         return userServices.save(user);
     }
-
-    @RequestMapping(value = "/update/{id}_{name}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public User updateNameById(@PathVariable("id") int id, @PathVariable("name") String name) throws UserNotFoundException{
-        User user = userServices.updateName(id, name);
-        return user;
-    }
-
-    @RequestMapping(value = "/delete/{id}")
-    public void deleteById(@PathVariable("id") int id) throws UserNotFoundException {
-        userServices.removeUserById(id);
-    }
-
 
     @RequestMapping(value = "/addFcmToken", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public TokenDTO addFcmToken(@RequestBody TokenDTO tokenDTO) {
