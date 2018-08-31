@@ -41,11 +41,12 @@ public class UserRestController {
 
     public UserRestController() {
         super();
-        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
+        this.getFactory();
     }
 
     public UserRestController(IUserServices userServices) {
         this.userServices = userServices;
+        this.getFactory();
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -111,6 +112,10 @@ public class UserRestController {
     public void deleteFcmToken(@PathVariable int id) {
         userServices.deleteFcmToken(id);
 
+    }
+
+    public void getFactory() {
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
     }
 
 
