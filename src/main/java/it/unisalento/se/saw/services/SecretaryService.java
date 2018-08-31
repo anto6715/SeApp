@@ -67,4 +67,13 @@ public class SecretaryService implements ISecretaryServices {
         }
 
     }
+
+    @Transactional
+    public Secretary getByUid(String uid) throws SecretaryNotFoundException{
+        try {
+            return secretaryRepository.findSecretaryByUserUid(uid);
+        } catch (Exception e){
+            throw new SecretaryNotFoundException();
+        }
+    }
 }

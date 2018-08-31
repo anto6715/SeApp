@@ -1,16 +1,16 @@
 package it.unisalento.se.saw.restapi;
 
 import it.unisalento.se.saw.Iservices.IProfessorServices;
+import it.unisalento.se.saw.Iservices.ISecretaryServices;
 import it.unisalento.se.saw.Iservices.IStudentServices;
 import it.unisalento.se.saw.Iservices.IUserServices;
 import it.unisalento.se.saw.domain.Professor;
+import it.unisalento.se.saw.domain.Secretary;
 import it.unisalento.se.saw.domain.Student;
 import it.unisalento.se.saw.domain.User;
-import it.unisalento.se.saw.dto.ProfessorDTO;
-import it.unisalento.se.saw.dto.StudentDTO;
-import it.unisalento.se.saw.dto.TokenDTO;
-import it.unisalento.se.saw.dto.UserDTO;
+import it.unisalento.se.saw.dto.*;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
+import it.unisalento.se.saw.exceptions.SecretaryNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
@@ -36,6 +36,9 @@ public class UserRestController {
 
     @Autowired
     IProfessorServices professorServices;
+
+    @Autowired
+    ISecretaryServices secretaryServices;
 
     AbstractFactory abstractDTOFactory;
 
@@ -68,7 +71,7 @@ public class UserRestController {
 
 
     @RequestMapping(value = "/getByUid/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Object getByUid(@PathVariable("uid") String uid) throws UserNotFoundException, StudentNotFoundException, ProfessorNotFoundException {
+    public Object getByUid(@PathVariable("uid") String uid) throws UserNotFoundException, StudentNotFoundException, ProfessorNotFoundException, SecretaryNotFoundException {
         User user = userServices.getByUid(uid);
         if(user.getUserType() ==1){
            try{
@@ -77,6 +80,14 @@ public class UserRestController {
            } catch (Exception e) {
                throw new StudentNotFoundException();
            }
+        }
+        if (user.getUserType() == 2) {
+            try {
+                DTO<Secretary, SecretaryDTO> dto = this.abstractDTOFactory.getDTO("Secretary");
+                return dto.create(secretaryServices.getByUid(uid));
+            } catch (Exception e) {
+                throw new SecretaryNotFoundException();
+            }
         }
         if (user.getUserType() == 3) {
             try {
