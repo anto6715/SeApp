@@ -24,8 +24,11 @@ public class StudentRestController {
     @Autowired
     IStudentServices studentServices;
 
+    AbstractFactory abstractDTOFactory;
+
     public StudentRestController() {
         super();
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
     }
 
     public StudentRestController(IStudentServices studentServices) {
@@ -35,24 +38,15 @@ public class StudentRestController {
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ManyToOne
     public Set<StudentDTO> getAll(){
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        DTO<List<Student>, Set<StudentDTO>> dto = abstractFactory.getDTO("SETSTUDENT");
-        List<Student> students = studentServices.getAll();
-        return dto.create(students);
+        DTO<List<Student>, Set<StudentDTO>> dto = this.abstractDTOFactory.getDTO("SETSTUDENT");
+        return dto.create(studentServices.getAll());
     }
 
     @RequestMapping(value = "getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public StudentDTO getById(@PathVariable("id") int id) throws StudentNotFoundException {
         try{
-            Student student = studentServices.getById(id);
-
-
-            AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
-            DTO<Student,StudentDTO> dto = dtoFactory.getDTO("STUDENT");
-            StudentDTO studentDTO = dto.create(student);
-
-
-            return studentDTO;
+            DTO<Student,StudentDTO> dto = this.abstractDTOFactory.getDTO("STUDENT");
+            return dto.create(studentServices.getById(id));
         } catch (Exception e) {
             System.out.println("Utente non trovato");
         }
@@ -63,11 +57,8 @@ public class StudentRestController {
     @RequestMapping(value = "getByUid/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public StudentDTO getByUid(@PathVariable("uid") String uid) throws StudentNotFoundException {
         try{
-            Student student = studentServices.getByUid(uid);
-            AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
-            DTO<Student,StudentDTO> dto = dtoFactory.getDTO("STUDENT");
-            StudentDTO studentDTO = dto.create(student);
-            return studentDTO;
+            DTO<Student,StudentDTO> dto = this.abstractDTOFactory.getDTO("STUDENT");
+            return dto.create(studentServices.getByUid(uid));
         } catch (Exception e) {
             System.out.println("Utente non trovato");
         }
@@ -76,16 +67,8 @@ public class StudentRestController {
 
     @RequestMapping(value = "getByCourse/{course}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<StudentDTO> getByCourse(@PathVariable("course") int course) {
-
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        DTO<List<Student>, Set<StudentDTO>> dto = abstractFactory.getDTO("SETSTUDENT");
-        List<Student> students = studentServices.getByCourse(course);
-        return dto.create(students);
-    }
-
-    @RequestMapping(value = "getByName/{name}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Student> getByName(@PathVariable("name") String name) throws StudentNotFoundException, UserNotFoundException {
-        return studentServices.getByName(name);
+        DTO<List<Student>, Set<StudentDTO>> dto = this.abstractDTOFactory.getDTO("SETSTUDENT");
+        return dto.create(studentServices.getByCourse(course));
     }
 
 
@@ -93,10 +76,5 @@ public class StudentRestController {
     public Student post(@RequestBody StudentDTO studentDTO) throws CourseNotFoundException {
         System.out.println(studentDTO.getIdCourse());
         return studentServices.save(studentDTO);
-    }
-
-    @RequestMapping(value = "/delete/{id}")
-    public void deleteById(@PathVariable("id") int id) throws StudentNotFoundException {
-        studentServices.removeById(id);
     }
 }

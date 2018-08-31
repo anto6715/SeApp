@@ -57,28 +57,22 @@ public class TeachingRestController {
 
     @RequestMapping(value = "/getByIdCourse/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<TeachingDTO> getByIdCourse(@PathVariable int id) throws TeachingNotFoundException {
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        DTO<List<Teaching>, Set<TeachingDTO>> dto = abstractFactory.getDTO("SETTEACHING");
-        List<Teaching> teachings = teachingServices.getByIdCourse(id);
-        return dto.create(teachings);
+        DTO<List<Teaching>, Set<TeachingDTO>> dto = this.abstractDTOFactory.getDTO("SETTEACHING");
+        return dto.create(teachingServices.getByIdCourse(id));
 
     }
 
     @RequestMapping(value = "/getByIdProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<TeachingDTO> getByProf(@PathVariable int id) throws TeachingNotFoundException {
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        DTO<List<Teaching>, Set<TeachingDTO>> dto = abstractFactory.getDTO("SETTEACHING");
-        List<Teaching> teachings = teachingServices.getByProf(id);
-        return dto.create(teachings);
+        DTO<List<Teaching>, Set<TeachingDTO>> dto = this.abstractDTOFactory.getDTO("SETTEACHING");
+        return dto.create(teachingServices.getByProf(id));
 
     }
 
     @RequestMapping(value = "/getByNameAndIdCourse/{name}_{idCourse}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public TeachingDTO getByNameAndIdCourse(@PathVariable("name") String name, @PathVariable("idCourse") int idCourse) throws TeachingNotFoundException {
         try {
-            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-            DTO<Teaching, TeachingDTO> dto = abstractFactory.getDTO("Teaching");
-
+            DTO<Teaching, TeachingDTO> dto = this.abstractDTOFactory.getDTO("Teaching");
             return dto.create(teachingServices.getByNameAndIdCourse(name, idCourse));
         } catch (Exception e) {
             throw new TeachingNotFoundException();
@@ -88,19 +82,8 @@ public class TeachingRestController {
     @RequestMapping(value = "/getByNameAndIdProf/{name}_{idProf}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public TeachingDTO getByNameAndIdProf(@PathVariable("name") String name, @PathVariable("idProf") int idProf) throws TeachingNotFoundException {
         try {
-            AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-            DTO<Teaching, TeachingDTO> dto = abstractFactory.getDTO("Teaching");
-
+            DTO<Teaching, TeachingDTO> dto = this.abstractDTOFactory.getDTO("Teaching");
             return dto.create(teachingServices.getByNameAndIdProf(name, idProf));
-        } catch (Exception e) {
-            throw new TeachingNotFoundException();
-        }
-    }
-
-    @RequestMapping(value = "/delete/{id}")
-    public void deleteById(@PathVariable("id") int id) throws TeachingNotFoundException {
-        try {
-            teachingServices.remove(id);
         } catch (Exception e) {
             throw new TeachingNotFoundException();
         }
