@@ -39,6 +39,13 @@ public class CourseRestController {
         this.abstractDOMAINFactory = FactoryProducer.getFactory("DOMAIN");
     }
 
+    public CourseRestController(ICourseServices courseServices, IProfessorServices professorServices) {
+        this.courseServices = courseServices;
+        this.professorServices = professorServices;
+        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
+        this.abstractDOMAINFactory = FactoryProducer.getFactory("DOMAIN");
+    }
+
     public CourseRestController(ICourseServices courseServices) {
         this.courseServices = courseServices;
     }
