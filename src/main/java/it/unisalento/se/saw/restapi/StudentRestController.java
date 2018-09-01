@@ -28,7 +28,6 @@ public class StudentRestController {
 
     public StudentRestController() {
         super();
-        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
     }
 
     public StudentRestController(IStudentServices studentServices) {
@@ -38,15 +37,13 @@ public class StudentRestController {
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ManyToOne
     public Set<StudentDTO> getAll(){
-        DTO<List<Student>, Set<StudentDTO>> dto = this.abstractDTOFactory.getDTO("SETSTUDENT");
-        return dto.create(studentServices.getAll());
+        return studentServices.getAll();
     }
 
     @RequestMapping(value = "getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public StudentDTO getById(@PathVariable("id") int id) throws StudentNotFoundException {
         try{
-            DTO<Student,StudentDTO> dto = this.abstractDTOFactory.getDTO("STUDENT");
-            return dto.create(studentServices.getById(id));
+            return studentServices.getById(id);
         } catch (Exception e) {
             System.out.println("Utente non trovato");
         }
@@ -57,8 +54,7 @@ public class StudentRestController {
     @RequestMapping(value = "getByUid/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public StudentDTO getByUid(@PathVariable("uid") String uid) throws StudentNotFoundException {
         try{
-            DTO<Student,StudentDTO> dto = this.abstractDTOFactory.getDTO("STUDENT");
-            return dto.create(studentServices.getByUid(uid));
+            return studentServices.getByUid(uid);
         } catch (Exception e) {
             System.out.println("Utente non trovato");
         }
@@ -67,14 +63,12 @@ public class StudentRestController {
 
     @RequestMapping(value = "getByCourse/{course}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<StudentDTO> getByCourse(@PathVariable("course") int course) {
-        DTO<List<Student>, Set<StudentDTO>> dto = this.abstractDTOFactory.getDTO("SETSTUDENT");
-        return dto.create(studentServices.getByCourse(course));
+        return studentServices.getByCourse(course);
     }
 
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Student post(@RequestBody StudentDTO studentDTO) throws CourseNotFoundException {
-        System.out.println(studentDTO.getIdCourse());
+    public StudentDTO post(@RequestBody StudentDTO studentDTO) throws CourseNotFoundException {
         return studentServices.save(studentDTO);
     }
 }

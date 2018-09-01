@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.293s</div>
+<div class="counter">0.629s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,22 +79,22 @@
 </thead>
 <tr>
 <td class="success">addToken</td>
-<td class="success">0.054s</td>
+<td class="success">0.133s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">findUserByIdTest</td>
-<td class="success">0.031s</td>
+<td class="success">0.087s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getAllUser</td>
-<td class="success">0.075s</td>
+<td class="success">0.313s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getUserByUid</td>
-<td class="success">0.133s</td>
+<td class="success">0.096s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -102,42 +102,42 @@
 <div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>1234 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.UserDTO&gt; it.unisalento.se.saw.restapi.UserRestController.getAll()
-1235 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.getById(int) throws it.unisalento.se.saw.exceptions.UserNotFoundException
-1235 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getByUid/{uid}],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object it.unisalento.se.saw.restapi.UserRestController.getByUid(java.lang.String) throws it.unisalento.se.saw.exceptions.UserNotFoundException,it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException,it.unisalento.se.saw.exceptions.SecretaryNotFoundException
-1236 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/addFcmToken],methods=[POST],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.TokenDTO it.unisalento.se.saw.restapi.UserRestController.addFcmToken(it.unisalento.se.saw.dto.TokenDTO)
-1237 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.post(it.unisalento.se.saw.dto.UserDTO)
-1243 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@601fe973
-1249 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-1251 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-1252 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-1287 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.UserDTO&gt; it.unisalento.se.saw.restapi.UserRestController.getAll()
-1300 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.getById(int) throws it.unisalento.se.saw.exceptions.UserNotFoundException
-1308 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getByUid/{uid}],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object it.unisalento.se.saw.restapi.UserRestController.getByUid(java.lang.String) throws it.unisalento.se.saw.exceptions.UserNotFoundException,it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException,it.unisalento.se.saw.exceptions.SecretaryNotFoundException
-1309 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/addFcmToken],methods=[POST],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.TokenDTO it.unisalento.se.saw.restapi.UserRestController.addFcmToken(it.unisalento.se.saw.dto.TokenDTO)
-1312 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.post(it.unisalento.se.saw.dto.UserDTO)
-1331 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@2d7dfca7
-1336 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-1336 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-1338 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 2 ms
-1366 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.UserDTO&gt; it.unisalento.se.saw.restapi.UserRestController.getAll()
-1368 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.getById(int) throws it.unisalento.se.saw.exceptions.UserNotFoundException
-1369 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getByUid/{uid}],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object it.unisalento.se.saw.restapi.UserRestController.getByUid(java.lang.String) throws it.unisalento.se.saw.exceptions.UserNotFoundException,it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException,it.unisalento.se.saw.exceptions.SecretaryNotFoundException
-1372 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/addFcmToken],methods=[POST],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.TokenDTO it.unisalento.se.saw.restapi.UserRestController.addFcmToken(it.unisalento.se.saw.dto.TokenDTO)
-1375 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.post(it.unisalento.se.saw.dto.UserDTO)
-1403 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@55a0f9a
-1425 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-1481 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-1483 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-1500 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.UserDTO&gt; it.unisalento.se.saw.restapi.UserRestController.getAll()
-1500 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.getById(int) throws it.unisalento.se.saw.exceptions.UserNotFoundException
-1501 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getByUid/{uid}],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object it.unisalento.se.saw.restapi.UserRestController.getByUid(java.lang.String) throws it.unisalento.se.saw.exceptions.UserNotFoundException,it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException,it.unisalento.se.saw.exceptions.SecretaryNotFoundException
-1501 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/addFcmToken],methods=[POST],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.TokenDTO it.unisalento.se.saw.restapi.UserRestController.addFcmToken(it.unisalento.se.saw.dto.TokenDTO)
-1501 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.post(it.unisalento.se.saw.dto.UserDTO)
-1513 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@385c75aa
-1517 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-1517 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-1518 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+<pre>4414 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.UserDTO&gt; it.unisalento.se.saw.restapi.UserRestController.getAll()
+4417 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.post(it.unisalento.se.saw.dto.UserDTO)
+4419 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.getById(int) throws it.unisalento.se.saw.exceptions.UserNotFoundException
+4423 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getByUid/{uid}],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object it.unisalento.se.saw.restapi.UserRestController.getByUid(java.lang.String) throws it.unisalento.se.saw.exceptions.UserNotFoundException,it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException,it.unisalento.se.saw.exceptions.SecretaryNotFoundException
+4430 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/addFcmToken],methods=[POST],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.TokenDTO it.unisalento.se.saw.restapi.UserRestController.addFcmToken(it.unisalento.se.saw.dto.TokenDTO)
+4471 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@4809fb8e
+4479 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+4483 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+4485 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+4548 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.UserDTO&gt; it.unisalento.se.saw.restapi.UserRestController.getAll()
+4550 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.post(it.unisalento.se.saw.dto.UserDTO)
+4555 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.getById(int) throws it.unisalento.se.saw.exceptions.UserNotFoundException
+4559 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getByUid/{uid}],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object it.unisalento.se.saw.restapi.UserRestController.getByUid(java.lang.String) throws it.unisalento.se.saw.exceptions.UserNotFoundException,it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException,it.unisalento.se.saw.exceptions.SecretaryNotFoundException
+4570 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/addFcmToken],methods=[POST],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.TokenDTO it.unisalento.se.saw.restapi.UserRestController.addFcmToken(it.unisalento.se.saw.dto.TokenDTO)
+4683 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@797a0e0
+4703 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+4705 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+4713 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+4863 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.UserDTO&gt; it.unisalento.se.saw.restapi.UserRestController.getAll()
+4866 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.post(it.unisalento.se.saw.dto.UserDTO)
+4869 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.getById(int) throws it.unisalento.se.saw.exceptions.UserNotFoundException
+4872 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getByUid/{uid}],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object it.unisalento.se.saw.restapi.UserRestController.getByUid(java.lang.String) throws it.unisalento.se.saw.exceptions.UserNotFoundException,it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException,it.unisalento.se.saw.exceptions.SecretaryNotFoundException
+4876 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/addFcmToken],methods=[POST],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.TokenDTO it.unisalento.se.saw.restapi.UserRestController.addFcmToken(it.unisalento.se.saw.dto.TokenDTO)
+4898 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7bca2f5d
+4907 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+4908 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+4910 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+4949 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.UserDTO&gt; it.unisalento.se.saw.restapi.UserRestController.getAll()
+4953 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.post(it.unisalento.se.saw.dto.UserDTO)
+4955 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.UserDTO it.unisalento.se.saw.restapi.UserRestController.getById(int) throws it.unisalento.se.saw.exceptions.UserNotFoundException
+4958 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/getByUid/{uid}],methods=[GET],produces=[application/json]}&quot; onto public java.lang.Object it.unisalento.se.saw.restapi.UserRestController.getByUid(java.lang.String) throws it.unisalento.se.saw.exceptions.UserNotFoundException,it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException,it.unisalento.se.saw.exceptions.SecretaryNotFoundException
+4963 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/user/addFcmToken],methods=[POST],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.TokenDTO it.unisalento.se.saw.restapi.UserRestController.addFcmToken(it.unisalento.se.saw.dto.TokenDTO)
+4983 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@2148117d
+4992 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+4992 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+4994 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
 </pre>
 </span>
 </div>
@@ -149,7 +149,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.8</a> at 1-set-2018 14.27.47</p>
+<a href="http://www.gradle.org">Gradle 4.8</a> at 1-set-2018 14.48.03</p>
 </div>
 </div>
 </body>

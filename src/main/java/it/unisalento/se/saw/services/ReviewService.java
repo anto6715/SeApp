@@ -3,9 +3,13 @@ package it.unisalento.se.saw.services;
 import it.unisalento.se.saw.Iservices.*;
 import it.unisalento.se.saw.domain.*;
 import it.unisalento.se.saw.dto.ReviewDTO;
+import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.exceptions.ReviewNotFoundException;
 import it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DomainFactory.Domain;
+import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +35,8 @@ public class ReviewService implements IReviewServices {
     @Autowired
     IStudentServices studentServices;
 
+    AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("Domain");
+
     @Transactional
     public List<Review> getAll() {
         return reviewRepository.findAll();
@@ -51,13 +57,14 @@ public class ReviewService implements IReviewServices {
 
     @Transactional
     public Review save(ReviewDTO reviewDTO) throws ReviewTypeNotFoundException , StudentNotFoundException{
+        Domain<StudentDTO, Student> studentDomain = abstractDomainFactory.getDomain("Student");
         Lesson lesson;
         Material material;
         ReviewType reviewType;
         Student student;
 
         try {
-            student = studentServices.getById(reviewDTO.getIdStudent());
+            student = studentDomain.create(studentServices.getById(reviewDTO.getIdStudent()));
         } catch (Exception e) {
             throw new StudentNotFoundException();
         }

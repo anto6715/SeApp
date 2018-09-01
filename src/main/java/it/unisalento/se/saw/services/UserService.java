@@ -74,7 +74,7 @@ public class UserService implements IUserServices {
         if(user.getUserType() ==1){
             try{
                 DTO<Student, StudentDTO> dto = abstractFactory.getDTO("Student");
-                return dto.create(studentServices.getByUid(uid));
+                return studentServices.getByUid(uid);
             } catch (Exception e) {
                 throw new StudentNotFoundException();
             }

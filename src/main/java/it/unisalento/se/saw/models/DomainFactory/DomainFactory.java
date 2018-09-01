@@ -24,6 +24,10 @@ public class DomainFactory extends AbstractFactory {
         if(domainType.equalsIgnoreCase("COURSE")){
             return new CourseDomainModel();
         }
+
+        if(domainType.equalsIgnoreCase("STUDENT")){
+            return new StudentDomainModel();
+        }
         return null;
     }
 

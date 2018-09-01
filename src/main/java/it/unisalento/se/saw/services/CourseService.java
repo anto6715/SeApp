@@ -49,7 +49,7 @@ public class CourseService implements ICourseServices {
     @Transactional
     public CourseDTO save(CourseDTO courseDTO) {
         Domain<CourseDTO, Course> domain = abstractDomainFactory.getDomain("Course");
-        DTO<Course, CourseDTO> dto = abstractDTOFactory.getDTO("SETCOURSE");
+        DTO<Course, CourseDTO> dto = abstractDTOFactory.getDTO("COURSE");
         return dto.create(courseRepository.save(domain.create(courseDTO)));
     }
 
