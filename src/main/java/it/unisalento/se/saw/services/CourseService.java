@@ -39,7 +39,7 @@ public class CourseService implements ICourseServices {
     @Override
     public CourseDTO getByName(String name) throws CourseNotFoundException {
         try {
-            DTO<Course, CourseDTO> dto = abstractDTOFactory.getDTO("SETCOURSE");
+            DTO<Course, CourseDTO> dto = abstractDTOFactory.getDTO("COURSE");
             return dto.create(courseRepository.getCourseByName(name));
         } catch (Exception e) {
             throw  new CourseNotFoundException();
@@ -56,7 +56,7 @@ public class CourseService implements ICourseServices {
     @Override
     public CourseDTO getById(int id) throws CourseNotFoundException {
         try {
-            DTO<Course, CourseDTO> dto = abstractDTOFactory.getDTO("SETCOURSE");
+            DTO<Course, CourseDTO> dto = abstractDTOFactory.getDTO("COURSE");
             return dto.create(courseRepository.getOne(id));
         } catch (Exception e) {
             throw new CourseNotFoundException();

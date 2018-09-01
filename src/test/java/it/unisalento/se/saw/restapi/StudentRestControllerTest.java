@@ -2,6 +2,7 @@ package it.unisalento.se.saw.restapi;
 
 import it.unisalento.se.saw.Iservices.IStudentServices;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -34,6 +35,9 @@ public class StudentRestControllerTest {
                 .setViewResolvers(viewResolver())
                 .build();
     }
+
+    @Test
+
 
 
     public ViewResolver viewResolver() {
