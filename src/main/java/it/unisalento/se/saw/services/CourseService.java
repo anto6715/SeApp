@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -30,8 +31,9 @@ public class CourseService implements ICourseServices {
 
     @Transactional(readOnly = true)
     public Set<CourseDTO> getAll() {
-        DTO<List<Course>, Set<CourseDTO>> dto = abstractDTOFactory.getDTO("SETCOURSE");
-        return dto.create(courseRepository.findAll());
+        DTO<Set<Course>, Set<CourseDTO>> dto = abstractDTOFactory.getDTO("SETCOURSE");
+        Set<Course> courses = new HashSet<>(courseRepository.findAll());
+        return dto.create(courses);
     }
 
     @Override
