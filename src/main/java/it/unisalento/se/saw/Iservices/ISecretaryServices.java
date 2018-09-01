@@ -11,6 +11,5 @@ public interface ISecretaryServices {
     public List<Secretary> getAll();
     public Secretary getById(int id) throws SecretaryNotFoundException;
     public Secretary save(SecretaryDTO secretaryDTO);
-    public void removeById(int id) throws SecretaryNotFoundException;
     public Secretary getByUid(String uid) throws SecretaryNotFoundException;
 }

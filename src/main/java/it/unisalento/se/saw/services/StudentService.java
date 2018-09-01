@@ -3,13 +3,17 @@ package it.unisalento.se.saw.services;
 import it.unisalento.se.saw.Iservices.ICourseServices;
 import it.unisalento.se.saw.Iservices.IStudentServices;
 import it.unisalento.se.saw.Iservices.IUserServices;
+import it.unisalento.se.saw.domain.Course;
 import it.unisalento.se.saw.domain.Student;
+import it.unisalento.se.saw.domain.StudentId;
 import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.StudentDTO;
+import it.unisalento.se.saw.dto.UserDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DTOFactory.DTO;
 import it.unisalento.se.saw.models.DomainFactory.Domain;
 import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.StudentRepository;
@@ -58,10 +62,6 @@ public class StudentService implements IStudentServices {
         return studentRepository.findStudentsByCourse_IdCourse(course);
     }
 
-    @Transactional
-    public List<Student> getByName(String name) {
-        return studentRepository.findStudentsByUser_NameAndUserUserType(name,1);
-    }
 
 
     @Transactional
@@ -75,13 +75,17 @@ public class StudentService implements IStudentServices {
     @Transactional
     public Student save(StudentDTO studentDTO) throws CourseNotFoundException {
         AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
+        AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+
         Domain<StudentDTO,User> domain = domainFactory.getDomain("USER");
+        Domain<UserDTO,User> domainUserDTOUser = domainFactory.getDomain("User");
+        DTO<User,UserDTO> dto = dtoFactory.getDTO("User");
+
         User user = domain.create(studentDTO);
         System.out.println(studentDTO.getUid());
         System.out.println(user.getUid());
-        return null;
 
-        /*User saveUser = userServices.save(user);
+        User saveUser = domainUserDTOUser.create(userServices.save(dto.create(user)));
         Course course = courseServices.getById(studentDTO.getIdCourse());
 
         StudentId studentId = new StudentId();
@@ -96,18 +100,7 @@ public class StudentService implements IStudentServices {
         student.setId(new StudentId(0,studentDTO.getIdCourse(),user.getIdUser()));
         student.setCourse(course);
 
-        return studentRepository.save(student);*/
-    }
-
-    @Transactional(rollbackFor = UserNotFoundException.class)
-    public void removeById(int id) throws StudentNotFoundException {
-        try {
-            Student student = studentRepository.findStudentById_IdStudent(id);
-            studentRepository.delete(student);
-            userServices.removeUserById(student.getId().getUserIdUser());
-        } catch (Exception e){
-            throw new StudentNotFoundException();
-        }
+        return studentRepository.save(student);
     }
 
 }

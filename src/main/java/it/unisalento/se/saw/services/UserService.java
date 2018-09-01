@@ -9,16 +9,14 @@ import it.unisalento.se.saw.domain.Professor;
 import it.unisalento.se.saw.domain.Secretary;
 import it.unisalento.se.saw.domain.Student;
 import it.unisalento.se.saw.domain.User;
-import it.unisalento.se.saw.dto.ProfessorDTO;
-import it.unisalento.se.saw.dto.SecretaryDTO;
-import it.unisalento.se.saw.dto.StudentDTO;
-import it.unisalento.se.saw.dto.TokenDTO;
+import it.unisalento.se.saw.dto.*;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
 import it.unisalento.se.saw.exceptions.SecretaryNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.DTOFactory.DTO;
+import it.unisalento.se.saw.models.DomainFactory.Domain;
 import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,26 +40,27 @@ public class UserService implements IUserServices {
     @Autowired
     ISecretaryServices secretaryServices;
 
+    AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
+    AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DTO");
+
     @Transactional(readOnly=true)
     public List<User> getAll(){
         return userRepository.findAll();
     }
 
     @Transactional
-    public User save(User user) {
-        return userRepository.save(user);
+    public UserDTO save(UserDTO userDTO) {
+        DTO<User,UserDTO> dto = abstractDTOFactory.getDTO("User");
+        Domain<UserDTO, User> domain = abstractDomainFactory.getDomain("User");
+        return dto.create(userRepository.save(domain.create(userDTO)));
     }
 
-    @Transactional
-    public List<User> getByName(String name){
-        return userRepository.findUsersByName(name);
-    }
 
     @Transactional
-    public User getById(int id) throws UserNotFoundException {
+    public UserDTO getById(int id) throws UserNotFoundException {
         try {
-            User user = userRepository.getOne(id);
-            return user;
+            DTO<User, UserDTO> dto = abstractDTOFactory.getDTO("User");
+            return dto.create(userRepository.getOne(id));
         } catch (Exception e) {
             throw new UserNotFoundException();
         }
@@ -97,37 +96,6 @@ public class UserService implements IUserServices {
         }
 
 
-    }
-
-
-    @Transactional(rollbackFor = UserNotFoundException.class)
-    public void removeUserById(int id) throws UserNotFoundException {
-        try {
-            User user = userRepository.getOne(id);
-            userRepository.delete(user);
-        } catch (Exception e){
-            throw new UserNotFoundException();
-        }
-    }
-
-    @Transactional
-    public User updateName(int id, String name) throws UserNotFoundException {
-        try {
-            User user = userRepository.getOne(id);
-            user.setName(name);
-            userRepository.save(user);
-            return user;
-        }catch (Exception e) {
-            throw new UserNotFoundException();
-        }
-    }
-    @Transactional
-    public User getByNameSurname(String name, String surname) throws UserNotFoundException {
-        try {
-            return userRepository.getUserByNameAndSurname(name, surname);
-        } catch (Exception e) {
-            throw new UserNotFoundException();
-        }
     }
 
     @Transactional

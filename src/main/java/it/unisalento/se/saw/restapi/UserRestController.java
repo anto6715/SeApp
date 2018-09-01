@@ -62,8 +62,7 @@ public class UserRestController {
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public UserDTO getById(@PathVariable("id") int id) throws UserNotFoundException{
         try{
-            DTO<User, UserDTO> dto = this.abstractDTOFactory.getDTO("User");
-            return dto.create(userServices.getById(id));
+            return userServices.getById(id);
         } catch (Exception e) {
             throw new UserNotFoundException();
         }
@@ -78,15 +77,8 @@ public class UserRestController {
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)      // va usata la domain factory
-    public User post(@RequestBody UserDTO userDTO) {
-        User user = new User();
-        user.setName(userDTO.getName());
-        user.setSurname(userDTO.getSurname());
-        user.setAge(userDTO.getAge());
-        user.setEmail(userDTO.getEmail());
-        user.setUid(userDTO.getUid());
-        user.setUserType(userDTO.getUserType());
-        return userServices.save(user);
+    public UserDTO post(@RequestBody UserDTO userDTO) {
+        return userServices.save(userDTO);
     }
 
     @RequestMapping(value = "/addFcmToken", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)

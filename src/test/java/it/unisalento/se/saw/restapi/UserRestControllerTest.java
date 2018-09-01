@@ -6,6 +6,7 @@ import it.unisalento.se.saw.domain.Student;
 import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.dto.TokenDTO;
+import it.unisalento.se.saw.dto.UserDTO;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -56,18 +57,19 @@ public class UserRestControllerTest {
     @Test
     public void findUserByIdTest() throws Exception {
 
-        User user = new User();
-        user.setIdUser(1);
-        user.setName("Antonio");
-        user.setSurname("Mariani");
-        user.setEmail("prova@email.it");
-        user.setAge(25);
-        user.setUid("MQqa7A80zxQPvY5VV6oeFSBM33o1");
-        user.setToken(null);
-        user.setUserType(1);
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserType(1);
+        userDTO.setToken(null);
+        userDTO.setUid("MQqa7A80zxQPvY5VV6oeFSBM33o1");
+        userDTO.setAge(25);
+        userDTO.setEmail("prova@email.it");
+        userDTO.setSurname("Mariani");
+        userDTO.setName("Antonio");
+        userDTO.setIdUser(1);
 
 
-        when(userServicesMock.getById(32)).thenReturn(user);
+
+        when(userServicesMock.getById(32)).thenReturn(userDTO);
 
 
         mockMvc.perform(get("/user/getById/{id}",32))

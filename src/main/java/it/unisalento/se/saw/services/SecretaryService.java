@@ -6,8 +6,10 @@ import it.unisalento.se.saw.domain.Secretary;
 import it.unisalento.se.saw.domain.SecretaryId;
 import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.SecretaryDTO;
+import it.unisalento.se.saw.dto.UserDTO;
 import it.unisalento.se.saw.exceptions.SecretaryNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DTOFactory.DTO;
 import it.unisalento.se.saw.models.DomainFactory.Domain;
 import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.SecretaryRepository;
@@ -43,9 +45,14 @@ public class SecretaryService implements ISecretaryServices {
     @Transactional
     public Secretary save(SecretaryDTO secretaryDTO) {
         AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
-        Domain<SecretaryDTO,User> domain = domainFactory.getDomain("USER");
-        User user = domain.create(secretaryDTO);
-        User saveUser = userServices.save(user);
+        AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+
+        Domain<SecretaryDTO,User> domainSecretaryUser = domainFactory.getDomain("USER");
+        Domain<UserDTO,User> domainUserDTOUser = domainFactory.getDomain("USER");
+        DTO<User, UserDTO> dto = dtoFactory.getDTO("USER");
+
+        User user = domainSecretaryUser.create(secretaryDTO);
+        User saveUser = domainUserDTOUser.create(userServices.save(dto.create(user)));
 
         SecretaryId secretaryId = new SecretaryId();
         secretaryId.setUserIdUser(user.getIdUser());
@@ -54,18 +61,6 @@ public class SecretaryService implements ISecretaryServices {
         secretary.setUser(user);
         secretary.setId(secretaryId);
         return secretaryRepository.save(secretary);
-    }
-
-    @Transactional
-    public void removeById(int id) throws SecretaryNotFoundException {
-        try{
-            Secretary secretary = secretaryRepository.findSecretaryById_IdSecretary(id);
-            secretaryRepository.delete(secretary);
-            userServices.removeUserById(secretary.getId().getUserIdUser());
-        } catch (Exception e) {
-            throw new SecretaryNotFoundException();
-        }
-
     }
 
     @Transactional

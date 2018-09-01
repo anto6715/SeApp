@@ -6,7 +6,11 @@ import it.unisalento.se.saw.Iservices.INotificationServices;
 import it.unisalento.se.saw.Iservices.IUserServices;
 import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.NotificationDTO;
+import it.unisalento.se.saw.dto.UserDTO;
 import it.unisalento.se.saw.exceptions.UserNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DomainFactory.Domain;
+import it.unisalento.se.saw.models.FactoryProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +27,8 @@ public class NotificationRestController {
     @Autowired
     IUserServices userServices;
 
+    AbstractFactory abstractFactory = FactoryProducer.getFactory("DOMAIN");
+
     public NotificationRestController(){
         super();
     }
@@ -33,7 +39,8 @@ public class NotificationRestController {
 
     @PostMapping(value = "/sendToUser", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void sendToUser(@RequestBody NotificationDTO notificationDTO) throws UserNotFoundException, FirebaseMessagingException, IOException {
-        User user = userServices.getById(notificationDTO.getIdUser());
+        Domain<UserDTO, User> domain = abstractFactory.getDomain("User");
+        User user = domain.create(userServices.getById(notificationDTO.getIdUser()));
         if (user.getToken() == null){
             return;
         }else{

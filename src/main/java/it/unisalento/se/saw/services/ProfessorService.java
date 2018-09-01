@@ -8,9 +8,11 @@ import it.unisalento.se.saw.domain.Professor;
 import it.unisalento.se.saw.domain.ProfessorId;
 import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.ProfessorDTO;
+import it.unisalento.se.saw.dto.UserDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
 import it.unisalento.se.saw.models.*;
+import it.unisalento.se.saw.models.DTOFactory.DTO;
 import it.unisalento.se.saw.models.DomainFactory.Domain;
 import it.unisalento.se.saw.repositories.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +40,15 @@ public class ProfessorService implements IProfessorServices {
     public Professor save(ProfessorDTO professorDTO) throws CourseNotFoundException {
 
         AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
-        Domain<ProfessorDTO,User> domain = domainFactory.getDomain("USER");
-        User user = domain.create(professorDTO);
+        AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
 
-        User saveUser = userServices.save(user);
+        DTO<User, UserDTO> dto = dtoFactory.getDTO("User");
+        Domain<ProfessorDTO,User> domainProfDTOUser = domainFactory.getDomain("USER");
+        Domain<UserDTO,User> domainUserDTOUser = domainFactory.getDomain("USER");
+
+        User user = domainProfDTOUser.create(professorDTO);
+
+        User saveUser = domainUserDTOUser.create(userServices.save(dto.create(user)));
         Course course = courseServices.getById(professorDTO.getCourse());
 
         ProfessorId professorId = new ProfessorId();
