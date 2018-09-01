@@ -14,8 +14,10 @@ import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
 import it.unisalento.se.saw.models.*;
 import it.unisalento.se.saw.models.DTOFactory.DTO;
+import it.unisalento.se.saw.models.DTOFactory.DtoFactory;
 import it.unisalento.se.saw.models.DomainFactory.Domain;
 import it.unisalento.se.saw.repositories.ProfessorRepository;
+import it.unisalento.se.saw.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,9 +30,10 @@ public class ProfessorService implements IProfessorServices {
     @Autowired
     ProfessorRepository professorRepository;
     @Autowired
-    IUserServices userServices;
+    UserRepository userRepository;
     @Autowired
     ICourseServices courseServices;
+
 
     AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
@@ -42,33 +45,25 @@ public class ProfessorService implements IProfessorServices {
     }
 
     @Transactional
-    public Professor save(ProfessorDTO professorDTO) throws CourseNotFoundException {
-
-
-
-
-        DTO<User, UserDTO> dto = dtoFactory.getDTO("User");
+    public ProfessorDTO save(ProfessorDTO professorDTO) throws CourseNotFoundException {
+        DTO<Professor,ProfessorDTO> dtoProf = dtoFactory.getDTO("Professor");
         Domain<ProfessorDTO,User> domainProfDTOUser = domainFactory.getDomain("USER");
-        Domain<UserDTO,User> domainUserDTOUser = domainFactory.getDomain("USER");
-        Domain<CourseDTO, Course> domainCourse = domainFactory.getDomain("COURSE");
 
-        User user = domainProfDTOUser.create(professorDTO);
-
-        User saveUser = domainUserDTOUser.create(userServices.save(dto.create(user)));
-        Course course = domainCourse.create(courseServices.getById(professorDTO.getCourse()));
+        User saveUser = userRepository.save(domainProfDTOUser.create(professorDTO));
+        Course course = courseServices.getDomainById(professorDTO.getCourse());
 
         ProfessorId professorId = new ProfessorId();
-        professorId.setUserIdUser(user.getIdUser());
+        professorId.setUserIdUser(saveUser.getIdUser());
 
         Professor professor = new Professor();
-        professor.setUser(user);
+        professor.setUser(saveUser);
         professor.setId(professorId);
 
         //professor save non restituisce idProfessor necessario per salvare in professor_has_couse
         Professor professorTemp = professorRepository.save(professor);
         Professor professorHasCourse = professorRepository.findProfessorById_UserIdUser(professorTemp.getId().getUserIdUser());
         professorHasCourse.getCourses().add(course);
-        return professorRepository.save(professorHasCourse);
+        return dtoProf.create(professorRepository.saveAndFlush(professorHasCourse));
     }
 
     @Transactional

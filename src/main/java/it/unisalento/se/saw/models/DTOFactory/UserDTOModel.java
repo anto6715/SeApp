@@ -10,7 +10,8 @@ import it.unisalento.se.saw.dto.UserDTO;
 public class UserDTOModel implements DTO<Object,UserDTO> {
 
 
-    public UserDTO create(Object object){
+    public UserDTO create(Object object) {
+        System.out.println(object.getClass());
         if (object.getClass() == ProfessorDTO.class) {
             ProfessorDTO professorDTO = (ProfessorDTO) object;
             UserDTO userDTO = new UserDTO();
@@ -21,7 +22,8 @@ public class UserDTOModel implements DTO<Object,UserDTO> {
             userDTO.setSurname(professorDTO.getSurname());
             userDTO.setUserType(3);
             return userDTO;
-        } else if(object.getClass() == StudentDTO.class) {
+        }
+        if (object.getClass() == StudentDTO.class) {
             StudentDTO studentDTO = (StudentDTO) object;
             UserDTO userDTO = new UserDTO();
             userDTO.setAge(studentDTO.getAge());
@@ -32,7 +34,7 @@ public class UserDTOModel implements DTO<Object,UserDTO> {
             userDTO.setUserType(1);
             return userDTO;
 
-        } else
+        }
         if (object.getClass() == SecretaryDTO.class) {
             SecretaryDTO secretaryDTO = (SecretaryDTO) object;
             UserDTO userDTO = new UserDTO();
@@ -45,21 +47,22 @@ public class UserDTOModel implements DTO<Object,UserDTO> {
             return userDTO;
 
         }
-         else {
+        if (object.getClass() == User.class) {
+
             User user = (User) object;
             UserDTO userDTO = new UserDTO();
+            userDTO.setSurname(user.getSurname());
+            userDTO.setName(user.getName());
             userDTO.setIdUser(user.getIdUser());
             userDTO.setToken(user.getToken());
             userDTO.setAge(user.getAge());
             userDTO.setEmail(user.getEmail());
-            userDTO.setName(user.getName());
             userDTO.setUid(user.getUid());
-            userDTO.setSurname(user.getSurname());
             userDTO.setUserType(user.getUserType());
             return userDTO;
 
         }
+        return null;
 
     }
-
 }

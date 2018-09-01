@@ -1,12 +1,8 @@
 package it.unisalento.se.saw.services;
 
 import it.unisalento.se.saw.Iservices.ISecretaryServices;
-import it.unisalento.se.saw.Iservices.IUserServices;
 import it.unisalento.se.saw.domain.Secretary;
-import it.unisalento.se.saw.domain.SecretaryId;
-import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.SecretaryDTO;
-import it.unisalento.se.saw.dto.UserDTO;
 import it.unisalento.se.saw.exceptions.SecretaryNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.DTOFactory.DTO;
@@ -17,58 +13,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.util.Set;
 
 @Service
 public class SecretaryService implements ISecretaryServices {
     @Autowired
     SecretaryRepository secretaryRepository;
 
-    @Autowired
-    IUserServices userServices;
+    AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
+    AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
 
-    @Transactional(readOnly = true)
-    public List<Secretary> getAll() {
-        return secretaryRepository.findAll();
+
+    @Transactional
+    public SecretaryDTO getById(int id) throws SecretaryNotFoundException {
+        DTO<Secretary, SecretaryDTO> dto = dtoFactory.getDTO("Secretary");
+        return dto.create(secretaryRepository.findSecretaryById_IdSecretary(id));
+
     }
 
     @Transactional
-    public Secretary getById(int id) throws SecretaryNotFoundException {
-        try {
-            Secretary secretary = secretaryRepository.findSecretaryById_IdSecretary(id);
-            return secretary;
-        } catch (Exception e) {
-            throw new SecretaryNotFoundException();
-        }
+    public SecretaryDTO save(SecretaryDTO secretaryDTO) {
+        Domain<SecretaryDTO, Secretary> domain = domainFactory.getDomain("Secretary");
+        DTO<Secretary, SecretaryDTO> dto = dtoFactory.getDTO("Secretary");
+        return dto.create(secretaryRepository.save(domain.create(secretaryDTO)));
     }
 
     @Transactional
-    public Secretary save(SecretaryDTO secretaryDTO) {
-        AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
-        AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+    public SecretaryDTO getByUid(String uid) throws SecretaryNotFoundException{
 
-        Domain<SecretaryDTO,User> domainSecretaryUser = domainFactory.getDomain("USER");
-        Domain<UserDTO,User> domainUserDTOUser = domainFactory.getDomain("USER");
-        DTO<User, UserDTO> dto = dtoFactory.getDTO("USER");
+            DTO<Secretary, SecretaryDTO> dto = dtoFactory.getDTO("Secretary");
+            return dto.create(secretaryRepository.findSecretaryByUserUid(uid));
 
-        User user = domainSecretaryUser.create(secretaryDTO);
-        User saveUser = domainUserDTOUser.create(userServices.save(dto.create(user)));
-
-        SecretaryId secretaryId = new SecretaryId();
-        secretaryId.setUserIdUser(user.getIdUser());
-
-        Secretary secretary = new Secretary();
-        secretary.setUser(user);
-        secretary.setId(secretaryId);
-        return secretaryRepository.save(secretary);
-    }
-
-    @Transactional
-    public Secretary getByUid(String uid) throws SecretaryNotFoundException{
-        try {
-            return secretaryRepository.findSecretaryByUserUid(uid);
-        } catch (Exception e){
-            throw new SecretaryNotFoundException();
-        }
     }
 }

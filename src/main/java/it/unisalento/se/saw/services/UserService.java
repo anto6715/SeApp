@@ -41,7 +41,7 @@ public class UserService implements IUserServices {
     ISecretaryServices secretaryServices;
 
     AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
-    AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DTO");
+    AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DOMAIN");
 
     @Transactional(readOnly=true)
     public List<User> getAll(){
@@ -82,7 +82,7 @@ public class UserService implements IUserServices {
         if (user.getUserType() == 2) {
             try {
                 DTO<Secretary, SecretaryDTO> dto = abstractFactory.getDTO("Secretary");
-                return dto.create(secretaryServices.getByUid(uid));
+                return secretaryServices.getByUid(uid);
             } catch (Exception e) {
                 throw new SecretaryNotFoundException();
             }

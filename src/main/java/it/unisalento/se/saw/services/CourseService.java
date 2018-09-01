@@ -63,4 +63,8 @@ public class CourseService implements ICourseServices {
         }
     }
 
+    public Course getDomainById(int id) {
+        return courseRepository.getOne(id);
+    }
+
 }

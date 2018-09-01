@@ -24,29 +24,30 @@ public class SecretaryRestController {
 
 
 
-    AbstractFactory abstractDTOFactory;
 
     public SecretaryRestController() {
         super();
-        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
+    }
+
+    public SecretaryRestController(ISecretaryServices secretaryServicesMock) {
+        this.secretaryServices = secretaryServicesMock;
     }
 
 
-        @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ManyToOne
-    public Set<SecretaryDTO> getAll() {
-        DTO<List<Secretary>, Set<SecretaryDTO>> dto = this.abstractDTOFactory.getDTO("SetSecretary");
-        return dto.create(secretaryServices.getAll());
-    }
+
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public SecretaryDTO getById(@PathVariable("id") int id) throws SecretaryNotFoundException {
-        DTO<Secretary, SecretaryDTO> dto = this.abstractDTOFactory.getDTO("SECRETARY");
-        return  dto.create(secretaryServices.getById(id));
+        return  secretaryServices.getById(id);
+    }
+
+    @RequestMapping(value = "/getByUid/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public SecretaryDTO getByUid(@PathVariable("uid") String uid) throws SecretaryNotFoundException {
+        return  secretaryServices.getByUid(uid);
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Secretary post(@RequestBody SecretaryDTO secretaryDTO) throws SecretaryNotFoundException {
+    public SecretaryDTO post(@RequestBody SecretaryDTO secretaryDTO) throws SecretaryNotFoundException {
         return secretaryServices.save(secretaryDTO);
     }
 

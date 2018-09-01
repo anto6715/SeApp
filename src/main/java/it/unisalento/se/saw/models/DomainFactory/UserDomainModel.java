@@ -4,10 +4,12 @@ import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.ProfessorDTO;
 import it.unisalento.se.saw.dto.SecretaryDTO;
 import it.unisalento.se.saw.dto.StudentDTO;
+import it.unisalento.se.saw.dto.UserDTO;
 
 public class UserDomainModel implements Domain<Object, User> {
     @Override
     public User create(Object object) {
+        System.out.println(object.getClass());
         if (object.getClass() == ProfessorDTO.class){
             ProfessorDTO professorDTO = (ProfessorDTO) object;
             User user = new User();
@@ -42,6 +44,20 @@ public class UserDomainModel implements Domain<Object, User> {
             user.setUid(secretaryDTO.getUid());
             user.setUserType(secretaryDTO.getUserType());
             user.setToken(secretaryDTO.getToken());
+            return user;
+        }
+        if (object.getClass() == UserDTO.class){
+            UserDTO userDTO = (UserDTO) object;
+            User user = new User();
+            user.setName(userDTO.getName());
+            user.setSurname(userDTO.getSurname());
+            user.setAge(userDTO.getAge());
+            user.setEmail(userDTO.getEmail());
+            user.setUid(userDTO.getUid());
+            user.setUserType(userDTO.getUserType());
+            user.setToken(userDTO.getToken());
+            user.setIdUser(userDTO.getIdUser());
+            System.out.println("domain fine");
             return user;
         }
 

@@ -38,7 +38,7 @@ public class ProfessorRestController {
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Professor post(@RequestBody ProfessorDTO professorDTO) throws CourseNotFoundException {
+    public ProfessorDTO post(@RequestBody ProfessorDTO professorDTO) throws CourseNotFoundException {
         return professorServices.save(professorDTO);
     }
 
