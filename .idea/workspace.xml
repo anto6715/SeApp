@@ -3,14 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6689836d-55da-4a68-a228-547743152f98" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/Iservices/IUserServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/Iservices/IUserServices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/UserRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/UserRestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/services/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/it/unisalento/se/saw/restapi/UserRestControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/it/unisalento/se/saw/restapi/UserRestControllerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/gretty_ports.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/it.unisalento.se.saw.restapi.UserRestControllerTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/it.unisalento.se.saw.restapi.UserRestControllerTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/it.unisalento.se.saw.restapi.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/it.unisalento.se.saw.restapi.html" afterDir="false" />
@@ -18,9 +12,6 @@
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/IUserServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/IUserServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/UserRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/UserRestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/UserRestControllerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -33,7 +24,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SeApp$SeApp__test_.ic" NAME="SeApp [test] Coverage Results" MODIFIED="1535640756932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/SeApp$SeApp__test_.ic" NAME="SeApp [test] Coverage Results" MODIFIED="1535730323431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -81,7 +72,7 @@
     <session id="373022293">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="26" />
+          <entry key="project.closed" value="27" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="3" />
@@ -122,64 +113,20 @@
         <counts>
           <entry key="dummy" value="20" />
           <entry key="gradle" value="13" />
-          <entry key="java" value="18436" />
+          <entry key="java" value="18538" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="13" />
-          <entry key="JAVA" value="18436" />
+          <entry key="JAVA" value="18538" />
           <entry key="PLAIN_TEXT" value="20" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/UserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="90" column="14" selection-start-line="90" selection-start-column="14" selection-end-line="90" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/UserRestControllerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="160" column="45" selection-start-line="160" selection-start-column="45" selection-end-line="160" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/UserRestController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="67" column="17" lean-forward="true" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
-              <folding>
-                <element signature="e#4720#4721#0" expanded="true" />
-                <element signature="e#4795#4796#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/IUserServices.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="21" column="51" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -887,8 +834,8 @@
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/ReviewRestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ReviewService.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/IUserServices.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/UserRestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/UserService.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/UserRestControllerTest.java" />
       </list>
     </option>
@@ -899,8 +846,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="953" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -1135,7 +1082,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535729990304" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535730499593" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="coverage" />
@@ -1309,23 +1256,11 @@
       <workItem from="1535274020471" duration="793000" />
       <workItem from="1535360422518" duration="6792000" />
       <workItem from="1535615919668" duration="14756000" />
-      <workItem from="1535705017287" duration="18963000" />
+      <workItem from="1535705017287" duration="19533000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 24m 32s.xml">
-      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 24m 46s.xml">
-      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 25m 10s.xml">
-      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 25m 57s.xml">
-      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
-    </history-entry>
     <history-entry file="SeApp_[test] - 2018.08.31 at 17h 35m 05s.xml">
       <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
@@ -1344,13 +1279,24 @@
     <history-entry file="SeApp_[test] - 2018.08.31 at 17h 39m 42s.xml">
       <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
+    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 40m 16s.xml">
+      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 42m 41s.xml">
+      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 42m 53s.xml">
+      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 45m 39s.xml">
+      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148851000" />
+    <option name="totallyTimeSpent" value="149421000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49795082" weight="0.46061268" />
       <window_info id="Structure" order="1" sideWeight="0.5020492" side_tool="true" weight="0.2557047" />
@@ -1362,7 +1308,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35487404" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35140997" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1385,7 +1331,7 @@
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.24026845" />
+      <window_info active="true" anchor="right" id="Coverage" order="10" side_tool="true" visible="true" weight="0.23987207" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1763,30 +1709,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/UserService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/UserRestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="90" column="14" selection-start-line="90" selection-start-column="14" selection-end-line="90" selection-end-column="14" />
+        <state relative-caret-position="901">
+          <caret line="75" column="14" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
+          <folding>
+            <element signature="e#4720#4721#0" expanded="true" />
+            <element signature="e#4795#4796#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/UserRestControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="160" column="45" selection-start-line="160" selection-start-column="45" selection-end-line="160" selection-end-column="45" />
+        <state relative-caret-position="221">
+          <caret line="156" column="38" lean-forward="true" selection-start-line="156" selection-start-column="38" selection-end-line="156" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/UserRestController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="67" column="17" lean-forward="true" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+        <state relative-caret-position="289">
+          <caret line="73" column="76" selection-start-line="73" selection-start-column="76" selection-end-line="73" selection-end-column="76" />
           <folding>
-            <element signature="e#4720#4721#0" expanded="true" />
-            <element signature="e#4795#4796#0" expanded="true" />
+            <element signature="method#getById#0;class#UserService#0" />
           </folding>
         </state>
       </provider>

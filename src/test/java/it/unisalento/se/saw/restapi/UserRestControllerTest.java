@@ -139,7 +139,7 @@ public class UserRestControllerTest {
     }
 
     @Test
-    public void getStudentByUid() throws Exception {
+    public void getUserByUid() throws Exception {
         StudentDTO studentDTO = new StudentDTO();
         studentDTO.setIdUser(32);
         studentDTO.setName("Antonio");
