@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("segnalationState")
@@ -28,17 +29,17 @@ public class SegnalationStateRestController {
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<SegnalationState> getAll() {
+    public Set<SegnalationStateDTO> getAll() {
         return segnalationStateServices.getAll();
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public SegnalationState save(@RequestBody SegnalationStateDTO segnalationStateDTO) {
+    public SegnalationStateDTO save(@RequestBody SegnalationStateDTO segnalationStateDTO) {
         return segnalationStateServices.save(segnalationStateDTO);
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public SegnalationState getById(@PathVariable int id) throws SegnalationStateNotFoundException {
+    public SegnalationStateDTO getById(@PathVariable int id) throws SegnalationStateNotFoundException {
         try {
             return segnalationStateServices.getById(id);
         } catch (Exception e) {

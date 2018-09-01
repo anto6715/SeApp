@@ -61,8 +61,8 @@ public class StudentRestController {
         return null;
     }
 
-    @RequestMapping(value = "getByCourse/{course}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<StudentDTO> getByCourse(@PathVariable("course") int course) {
+    @RequestMapping(value = "getByCourse/{idCourse}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Set<StudentDTO> getByCourse(@PathVariable("idCourse") int course) {
         return studentServices.getByCourse(course);
     }
 

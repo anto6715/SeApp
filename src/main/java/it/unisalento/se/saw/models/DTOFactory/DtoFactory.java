@@ -13,12 +13,20 @@ public class DtoFactory extends AbstractFactory {
             return new StudentDTOModel();
         }
 
+        if (dtoType.equalsIgnoreCase("SEGNALATIONSTATE")){
+            return new SegnalationStateDTOModel();
+        }
+
         if (dtoType.equalsIgnoreCase("SETLESSON")){
             return new SetLessonDTOModel();
         }
 
         if (dtoType.equalsIgnoreCase("SETSTUDENT")){
             return new SetStudentDTOModel();
+        }
+
+        if (dtoType.equalsIgnoreCase("SETSEGNALATIONSTATE")){
+            return new SetSegnalationStateDTOModel();
         }
 
         if (dtoType.equalsIgnoreCase("MATERIAL")){
