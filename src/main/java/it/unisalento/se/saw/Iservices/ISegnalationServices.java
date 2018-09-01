@@ -8,13 +8,14 @@ import it.unisalento.se.saw.exceptions.SegnalationNotFoundException;
 import it.unisalento.se.saw.exceptions.SegnalationStateNotFoundException;
 
 import java.util.List;
+import java.util.Set;
 
 public interface ISegnalationServices {
 
-    public List<Segnalation> getAll();
-    public List<Segnalation> getByRoom(int id);
-    public List<Segnalation> getByProfessor(int id);
-    public Segnalation getById(int id) throws SegnalationNotFoundException;
-    public Segnalation save(SegnalationDTO segnalationDTO) throws ProfessorNotFoundException, RoomNotFoundException, SegnalationStateNotFoundException;
-    public void remove(int id) throws SegnalationNotFoundException;
+    public Set<SegnalationDTO> getAll();
+    public Set<SegnalationDTO> getByRoom(int id);
+    public Set<SegnalationDTO> getByProfessor(int id);
+    public SegnalationDTO getById(int id) throws SegnalationNotFoundException;
+    public SegnalationDTO save(SegnalationDTO segnalationDTO) throws ProfessorNotFoundException, RoomNotFoundException, SegnalationStateNotFoundException;
+
 }

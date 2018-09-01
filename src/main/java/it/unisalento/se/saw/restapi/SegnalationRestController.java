@@ -37,12 +37,11 @@ public class SegnalationRestController {
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<SegnalationDTO> getAll() {
-        DTO<List<Segnalation>, Set<SegnalationDTO>> dto = this.abstractDTOFactory.getDTO("SetSegnalation");
-        return dto.create(segnalationServices.getAll());
+        return segnalationServices.getAll();
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Segnalation save(@RequestBody SegnalationDTO segnalationDTO) throws RoomNotFoundException, ProfessorNotFoundException {
+    public SegnalationDTO save(@RequestBody SegnalationDTO segnalationDTO) throws RoomNotFoundException, ProfessorNotFoundException {
         try {
             return segnalationServices.save(segnalationDTO);
         } catch (Exception e) {
@@ -53,8 +52,7 @@ public class SegnalationRestController {
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public SegnalationDTO getById(@PathVariable int id) throws SegnalationNotFoundException {
         try {
-            DTO<Segnalation, SegnalationDTO> dto = this.abstractDTOFactory.getDTO("Segnalation");
-            return dto.create(segnalationServices.getById(id));
+            return segnalationServices.getById(id);
         } catch (Exception e) {
             throw new SegnalationNotFoundException();
         }
@@ -62,13 +60,11 @@ public class SegnalationRestController {
 
     @RequestMapping(value = "/getByRoom/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<SegnalationDTO> getByRoom(@PathVariable int id) {
-        DTO<List<Segnalation>, Set<SegnalationDTO>> dto = this.abstractDTOFactory.getDTO("SetSegnalation");
-        return dto.create(segnalationServices.getByRoom(id));
+        return segnalationServices.getByRoom(id);
     }
 
     @RequestMapping(value = "/getByIdProfessor/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<SegnalationDTO> getByProfessor(@PathVariable int id) {
-        DTO<List<Segnalation>, Set<SegnalationDTO>> dto = this.abstractDTOFactory.getDTO("SetSegnalation");
-        return dto.create(segnalationServices.getByProfessor(id));
+        return segnalationServices.getByProfessor(id);
     }
 }

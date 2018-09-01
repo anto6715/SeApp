@@ -32,6 +32,9 @@ public class DomainFactory extends AbstractFactory {
         if(domainType.equalsIgnoreCase("SEGNALATIONSTATE")){
             return new SegnalationStateDomainModel();
         }
+        if(domainType.equalsIgnoreCase("SEGNALATION")){
+            return new SegnalationDomainModel();
+        }
         return null;
     }
 
