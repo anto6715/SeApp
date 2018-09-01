@@ -8,9 +8,13 @@ import it.unisalento.se.saw.domain.ExamId;
 import it.unisalento.se.saw.domain.Room;
 import it.unisalento.se.saw.domain.Teaching;
 import it.unisalento.se.saw.dto.ExamDTO;
+import it.unisalento.se.saw.dto.TeachingDTO;
 import it.unisalento.se.saw.exceptions.ExamNotFoundException;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
 import it.unisalento.se.saw.exceptions.TeachingNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DomainFactory.Domain;
+import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.ExamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,6 +51,8 @@ public class ExamService implements IExamServices {
 
     @Transactional
     public Exam save(ExamDTO examDTO) throws RoomNotFoundException, TeachingNotFoundException {
+        AbstractFactory abstractFactory = FactoryProducer.getFactory("DOMAIN");
+        Domain<TeachingDTO, Teaching> domainTeaching = abstractFactory.getDomain("Teaching");
         Room room;
         Teaching teaching;
         try {
@@ -56,7 +62,7 @@ public class ExamService implements IExamServices {
         }
 
         try{
-            teaching = teachingServices.getById(examDTO.getIdTeaching());
+            teaching = domainTeaching.create(teachingServices.getById(examDTO.getIdTeaching()));
         } catch (Exception e) {
             throw new TeachingNotFoundException();
         }

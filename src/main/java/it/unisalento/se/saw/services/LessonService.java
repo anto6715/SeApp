@@ -8,9 +8,13 @@ import it.unisalento.se.saw.domain.LessonId;
 import it.unisalento.se.saw.domain.Room;
 import it.unisalento.se.saw.domain.Teaching;
 import it.unisalento.se.saw.dto.LessonDTO;
+import it.unisalento.se.saw.dto.TeachingDTO;
 import it.unisalento.se.saw.exceptions.LessonNotFoundException;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
 import it.unisalento.se.saw.exceptions.TeachingNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DomainFactory.Domain;
+import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.LessonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,7 +64,11 @@ public class LessonService implements ILessonServices {
 
     @Transactional
     public Lesson save(LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
-        Teaching teaching = teachingServices.getById(lessonDTO.getIdTeaching());
+        AbstractFactory abstractFactory = FactoryProducer.getFactory("DOMAIN");
+        Domain<TeachingDTO, Teaching> domainTeaching = abstractFactory.getDomain("Teaching");
+
+
+        Teaching teaching =domainTeaching.create(teachingServices.getById(lessonDTO.getIdTeaching()));
         Room room = roomServices.getById(lessonDTO.getIdRoom());
 
         LessonId lessonId = new LessonId();

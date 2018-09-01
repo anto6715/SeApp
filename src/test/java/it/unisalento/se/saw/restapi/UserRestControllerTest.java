@@ -55,6 +55,7 @@ public class UserRestControllerTest {
 
     @Test
     public void findUserByIdTest() throws Exception {
+
         User user = new User();
         user.setIdUser(1);
         user.setName("Antonio");

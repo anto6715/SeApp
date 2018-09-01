@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6689836d-55da-4a68-a228-547743152f98" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DomainFactory/TeachingDomainModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/TeachingRestControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/Iservices/ITeachingServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/Iservices/ITeachingServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/models/DomainFactory/DomainFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/models/DomainFactory/DomainFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/TeachingRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/TeachingRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/services/ExamService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/services/ExamService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/services/LessonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/services/LessonService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/services/TeachingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/services/TeachingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/it/unisalento/se/saw/restapi/UserRestControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/it/unisalento/se/saw/restapi/UserRestControllerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/it.unisalento.se.saw.restapi.UserRestControllerTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/it.unisalento.se.saw.restapi.UserRestControllerTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/it.unisalento.se.saw.restapi.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/it.unisalento.se.saw.restapi.html" afterDir="false" />
@@ -12,6 +22,82 @@
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/ILessonServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/ILessonServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/IMaterialServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/IMaterialServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/INotificationServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/INotificationServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/IProfessorServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/IProfessorServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/IReviewServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/IReviewServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/ISecretaryServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/ISecretaryServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/ITeachingServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/ITeachingServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/IUserServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/IUserServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/configurations/FirebaseSDKConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/domain/Segnalation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/domain/Segnalation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/dto/MaterialDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/dto/MaterialDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/dto/NotificationDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/dto/NotificationDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/dto/SegnalationDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/dto/SegnalationDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/AbstractFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/AbstractFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/CourseDTOModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/DTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/Domain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/DomainFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/DtoFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/FactoryProducer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/FactoryProducer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/LessonDTOModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/MaterialDTOModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/ProfessorDTOModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/ReviewDTOModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/RoomDTOModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/SecretaryDTOModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/SetLessonDTOModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/SetMaterialDTOModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/SetStudentDTOModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/SetTeachingDTOModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/StudentDTOModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/TeachingDTOModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/UserDomainModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/UserModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/LessonRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/LessonRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/MaterialRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/MaterialRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/ProfessorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/ProfessorRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/ReviewRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/ReviewRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/SecretaryRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/SecretaryRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/StudentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/StudentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/TeachingRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/TeachingRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/repositories/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/AccessoryRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/AccessoryRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/CourseRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/CourseRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/ExamRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/ExamRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/LessonRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/LessonRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/MaterialRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/MaterialRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/NotificationRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/NotificationRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/ProfessorRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/ProfessorRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/ReviewRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/ReviewRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/ReviewTypeRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/ReviewTypeRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/RoomRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/RoomRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/SecretaryRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/SecretaryRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/SegnalationRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/SegnalationRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/StudentRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/StudentRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/TeachingRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/TeachingRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/UserRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/UserRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/ExamService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/ExamService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/LessonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/LessonService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/MaterialService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/MaterialService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/NotificationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/NotificationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/ProfessorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/ProfessorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/ReviewService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/SecretaryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/SecretaryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/SegnalationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/SegnalationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/StudentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/TeachingService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/TeachingService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/it/unisalento/se/saw/controllers/HomeControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/it/unisalento/se/saw/restapi/UserRestControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/it/unisalento/se/saw/restapi/UserRestControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/ITeachingServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/ITeachingServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DomainFactory/DomainFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DomainFactory/DomainFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/TeachingRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/TeachingRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ExamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ExamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/LessonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/LessonService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/TeachingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/TeachingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/UserRestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/UserRestControllerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -24,7 +110,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SeApp$SeApp__test_.ic" NAME="SeApp [test] Coverage Results" MODIFIED="1535730323431" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/SeApp$SeApp__test_.ic" NAME="SeApp [test] Coverage Results" MODIFIED="1535799568288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="true" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -78,7 +164,7 @@
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.12" value="3" />
-          <entry key="project.open.time.13" value="3" />
+          <entry key="project.open.time.13" value="4" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="3" />
           <entry key="project.open.time.16" value="3" />
@@ -92,41 +178,90 @@
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.39" value="2" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="33" />
+          <entry key="project.opened" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="gradle" value="3" />
+          <entry key="gradle" value="4" />
           <entry key="html" value="1" />
-          <entry key="java" value="469" />
+          <entry key="java" value="496" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Groovy" value="3" />
+          <entry key="Groovy" value="4" />
           <entry key="HTML" value="1" />
-          <entry key="JAVA" value="469" />
+          <entry key="JAVA" value="496" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="20" />
           <entry key="gradle" value="13" />
-          <entry key="java" value="18538" />
+          <entry key="java" value="20188" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="13" />
-          <entry key="JAVA" value="18538" />
+          <entry key="JAVA" value="20188" />
           <entry key="PLAIN_TEXT" value="20" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/UserRestControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="470">
+              <caret line="187" selection-start-line="187" selection-end-line="187" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#findUserByIdTest#0;class#UserRestControllerTest#0" />
+                <element signature="method#addToken#0;class#UserRestControllerTest#0" />
+                <element signature="method#getAllUser#0;class#UserRestControllerTest#0" />
+                <element signature="method#getUserByUid#0;class#UserRestControllerTest#0" />
+                <element signature="method#viewResolver#0;class#UserRestControllerTest#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/TeachingRestControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="266" column="45" selection-start-line="266" selection-start-column="45" selection-end-line="266" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getById#0;class#TeachingRestControllerTest#0" />
+                <element signature="method#getByNameAndIdCourse#0;class#TeachingRestControllerTest#0" />
+                <element signature="method#getById#2;class#TeachingRestControllerTest#0" />
+                <element signature="method#save#0;class#TeachingRestControllerTest#0" />
+                <element signature="method#getAll#0;class#TeachingRestControllerTest#0" />
+                <element signature="method#getAllByIdCourse#0;class#TeachingRestControllerTest#0" />
+                <element signature="method#viewResolver#0;class#TeachingRestControllerTest#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/TeachingRestController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="52" column="46" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -786,13 +921,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/Segnalation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/SegnalationDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/SegnalationService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/SetSegnalationDTOModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DtoFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/SegnalationDTOModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/configurations/SingleFirebaseSDKConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/UserDTOModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/RoomDTOModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/ReviewDTOModel.java" />
@@ -811,7 +939,6 @@
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/RoomDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/UserDTOModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetUserDTOModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/TeachingRestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/StudentRestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SegnalationStateRestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/SegnalationRestController.java" />
@@ -837,6 +964,14 @@
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/UserRestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/UserService.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/UserRestControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/ITeachingServices.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DomainFactory/TeachingDomainModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DomainFactory/DomainFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ExamService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/LessonService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/TeachingService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/TeachingRestController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/TeachingRestControllerTest.java" />
       </list>
     </option>
   </component>
@@ -847,15 +982,149 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="x" value="-6" />
+    <option name="width" value="781" />
+    <option name="height" value="830" />
   </component>
   <component name="ProjectView">
     <navigator currentView="PackagesPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+              <item name="unisalento" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+              <item name="unisalento" type="1f31426a:PackageElementNode" />
+              <item name="se" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+              <item name="unisalento" type="1f31426a:PackageElementNode" />
+              <item name="se" type="1f31426a:PackageElementNode" />
+              <item name="saw" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+              <item name="unisalento" type="1f31426a:PackageElementNode" />
+              <item name="se" type="1f31426a:PackageElementNode" />
+              <item name="saw" type="1f31426a:PackageElementNode" />
+              <item name="models" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+              <item name="unisalento" type="1f31426a:PackageElementNode" />
+              <item name="se" type="1f31426a:PackageElementNode" />
+              <item name="saw" type="1f31426a:PackageElementNode" />
+              <item name="models" type="1f31426a:PackageElementNode" />
+              <item name="DomainFactory" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+              <item name="unisalento" type="1f31426a:PackageElementNode" />
+              <item name="se" type="1f31426a:PackageElementNode" />
+              <item name="saw" type="1f31426a:PackageElementNode" />
+              <item name="restapi" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+              <item name="unisalento" type="1f31426a:PackageElementNode" />
+              <item name="se" type="1f31426a:PackageElementNode" />
+              <item name="saw" type="1f31426a:PackageElementNode" />
+              <item name="services" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+              <item name="unisalento" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+              <item name="unisalento" type="1f31426a:PackageElementNode" />
+              <item name="se" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+              <item name="unisalento" type="1f31426a:PackageElementNode" />
+              <item name="se" type="1f31426a:PackageElementNode" />
+              <item name="saw" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
+              <item name="it" type="1f31426a:PackageElementNode" />
+              <item name="unisalento" type="1f31426a:PackageElementNode" />
+              <item name="se" type="1f31426a:PackageElementNode" />
+              <item name="saw" type="1f31426a:PackageElementNode" />
+              <item name="restapi" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -954,135 +1223,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-              <item name="unisalento" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-              <item name="unisalento" type="1f31426a:PackageElementNode" />
-              <item name="se" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-              <item name="unisalento" type="1f31426a:PackageElementNode" />
-              <item name="se" type="1f31426a:PackageElementNode" />
-              <item name="saw" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-              <item name="unisalento" type="1f31426a:PackageElementNode" />
-              <item name="se" type="1f31426a:PackageElementNode" />
-              <item name="saw" type="1f31426a:PackageElementNode" />
-              <item name="Iservices" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-              <item name="unisalento" type="1f31426a:PackageElementNode" />
-              <item name="se" type="1f31426a:PackageElementNode" />
-              <item name="saw" type="1f31426a:PackageElementNode" />
-              <item name="restapi" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-              <item name="unisalento" type="1f31426a:PackageElementNode" />
-              <item name="se" type="1f31426a:PackageElementNode" />
-              <item name="saw" type="1f31426a:PackageElementNode" />
-              <item name="services" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-              <item name="unisalento" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-              <item name="unisalento" type="1f31426a:PackageElementNode" />
-              <item name="se" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-              <item name="unisalento" type="1f31426a:PackageElementNode" />
-              <item name="se" type="1f31426a:PackageElementNode" />
-              <item name="saw" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-              <item name="unisalento" type="1f31426a:PackageElementNode" />
-              <item name="se" type="1f31426a:PackageElementNode" />
-              <item name="saw" type="1f31426a:PackageElementNode" />
-              <item name="restapi" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535730499593" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535799550429" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="coverage" />
@@ -1124,24 +1270,6 @@
       </ExternalSystemSettings>
       <method v="2" />
     </configuration>
-    <configuration name="SeApp [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <method v="2" />
-    </configuration>
     <configuration name="SeApp [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -1161,56 +1289,68 @@
       <extension name="coverage" sample_coverage="false" track_test_folders="true" />
       <method v="2" />
     </configuration>
-    <configuration name="SeApp [tomcatStartWar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="tomcatStartWar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <method v="2" />
+    <configuration name="TeachingRestControllerTest.getAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeApp_test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.unisalento.se.saw.restapi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.unisalento.se.saw.restapi" />
+      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.restapi.TeachingRestControllerTest" />
+      <option name="METHOD_NAME" value="getAll" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration name="SeApp [war]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="war" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <method v="2" />
+    <configuration name="TeachingRestControllerTest.getAllByIdCourse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeApp_test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.unisalento.se.saw.restapi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.unisalento.se.saw.restapi" />
+      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.restapi.TeachingRestControllerTest" />
+      <option name="METHOD_NAME" value="getAllByIdCourse" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TeachingRestControllerTest.getAllByIdProf" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeApp_test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.unisalento.se.saw.restapi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.unisalento.se.saw.restapi" />
+      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.restapi.TeachingRestControllerTest" />
+      <option name="METHOD_NAME" value="getAllByIdProf" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.SeApp [war]" />
-      <item itemvalue="Gradle.SeApp [build]" />
-      <item itemvalue="Gradle.SeApp [tomcatStartWar]" />
       <item itemvalue="Gradle.SeApp [appStart]" />
       <item itemvalue="Gradle.SeApp [test]" />
+      <item itemvalue="JUnit.TeachingRestControllerTest.getAll" />
+      <item itemvalue="JUnit.TeachingRestControllerTest.getAllByIdCourse" />
+      <item itemvalue="JUnit.TeachingRestControllerTest.getAllByIdProf" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.SeApp [test]" />
+        <item itemvalue="JUnit.TeachingRestControllerTest.getAllByIdProf" />
+        <item itemvalue="JUnit.TeachingRestControllerTest.getAllByIdCourse" />
+        <item itemvalue="JUnit.TeachingRestControllerTest.getAll" />
         <item itemvalue="Gradle.SeApp [appStart]" />
-        <item itemvalue="Gradle.SeApp [tomcatStartWar]" />
-        <item itemvalue="Gradle.SeApp [build]" />
-        <item itemvalue="Gradle.SeApp [war]" />
       </list>
     </recent_temporary>
   </component>
@@ -1257,48 +1397,50 @@
       <workItem from="1535360422518" duration="6792000" />
       <workItem from="1535615919668" duration="14756000" />
       <workItem from="1535705017287" duration="19533000" />
+      <workItem from="1535788902022" duration="10414000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 35m 05s.xml">
+    <history-entry file="SeApp_[test] - 2018.09.01 at 12h 47m 32s.xml">
       <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 38m 30s.xml">
+    <history-entry file="SeApp_[test] - 2018.09.01 at 12h 48m 43s.xml">
       <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 38m 49s.xml">
+    <history-entry file="SeApp_[test] - 2018.09.01 at 12h 48m 58s.xml">
       <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 39m 03s.xml">
+    <history-entry file="SeApp_[test] - 2018.09.01 at 12h 50m 33s.xml">
       <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 39m 32s.xml">
+    <history-entry file="SeApp_[test] - 2018.09.01 at 12h 50m 44s.xml">
       <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 39m 42s.xml">
+    <history-entry file="TeachingRestControllerTest_getAll - 2018.09.01 at 12h 56m 31s.xml">
+      <configuration name="TeachingRestControllerTest.getAll" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TeachingRestControllerTest_getAllByIdCourse - 2018.09.01 at 12h 58m 23s.xml">
+      <configuration name="TeachingRestControllerTest.getAllByIdCourse" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TeachingRestControllerTest_getAllByIdProf - 2018.09.01 at 12h 59m 15s.xml">
+      <configuration name="TeachingRestControllerTest.getAllByIdProf" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SeApp_[test] - 2018.09.01 at 12h 59m 24s.xml">
       <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 40m 16s.xml">
-      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 42m 41s.xml">
-      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 42m 53s.xml">
-      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
-    </history-entry>
-    <history-entry file="SeApp_[test] - 2018.08.31 at 17h 45m 39s.xml">
+    <history-entry file="SeApp_[test] - 2018.09.01 at 12h 59m 42s.xml">
       <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149421000" />
+    <option name="totallyTimeSpent" value="159835000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49795082" weight="0.46061268" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49795082" visible="true" weight="0.28304905" />
       <window_info id="Structure" order="1" sideWeight="0.5020492" side_tool="true" weight="0.2557047" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1308,7 +1450,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35140997" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29067245" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1341,139 +1483,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/StudentRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/Secretary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="23" selection-start-line="23" selection-end-line="23" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/Lesson.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/LessonId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" column="28" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/SecretaryRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="59" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/SegnalationStateRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SecretaryDTOModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="69" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/LessonDTOModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/ISecretaryServices.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/ReviewRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="68" selection-start-line="17" selection-start-column="68" selection-end-line="17" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/ReviewTypeRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/FactoryProducer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/AbstractFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/RoomDTOModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="48" lean-forward="true" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/RoomDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/configurations/SingleFirebaseSDKConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="158" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/exceptions/UserNotFoundException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1513,21 +1522,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
           <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/TeachingRestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1050#1051#0" expanded="true" />
-            <element signature="e#1106#1107#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1542,10 +1536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
           <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-          <folding>
-            <element signature="e#682#683#0" expanded="true" />
-            <element signature="e#705#706#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1560,9 +1550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="84" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="84" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1584,9 +1571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="69" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1629,9 +1613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1639,9 +1620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="60" column="45" selection-start-line="60" selection-start-column="45" selection-end-line="60" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1649,10 +1627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-          <folding>
-            <element signature="e#896#897#0" expanded="true" />
-            <element signature="e#919#920#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1660,10 +1634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="884">
           <caret line="68" column="98" selection-start-line="68" selection-start-column="98" selection-end-line="68" selection-end-column="98" />
-          <folding>
-            <element signature="e#1269#1270#0" expanded="true" />
-            <element signature="e#1317#1318#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1713,20 +1683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
           <caret line="75" column="14" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
-          <folding>
-            <element signature="e#4720#4721#0" expanded="true" />
-            <element signature="e#4795#4796#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/UserRestControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="156" column="38" lean-forward="true" selection-start-line="156" selection-start-column="38" selection-end-line="156" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1734,8 +1690,185 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="73" column="76" selection-start-line="73" selection-start-column="76" selection-end-line="73" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/5.0.3.RELEASE/f7db7b3c2d173e4eaea30938a346861fa598f7b1/spring-test-5.0.3.RELEASE-sources.jar!/org/springframework/test/web/servlet/request/MockMvcRequestBuilders.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.0.4.RELEASE/4c83662d0a602b46635de6562750d44c397aad41/spring-core-5.0.4.RELEASE-sources.jar!/org/springframework/util/StreamUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="212" selection-start-line="212" selection-end-line="212" />
           <folding>
-            <element signature="method#getById#0;class#UserService#0" />
+            <element signature="e#6907#6908#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.0.4.RELEASE/4c83662d0a602b46635de6562750d44c397aad41/spring-core-5.0.4.RELEASE-sources.jar!/org/springframework/util/Assert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="194" selection-start-line="194" selection-end-line="194" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/5.0.3.RELEASE/f7db7b3c2d173e4eaea30938a346861fa598f7b1/spring-test-5.0.3.RELEASE-sources.jar!/org/springframework/mock/web/DelegatingServletInputStream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/5.0.3.RELEASE/f7db7b3c2d173e4eaea30938a346861fa598f7b1/spring-test-5.0.3.RELEASE-sources.jar!/org/springframework/mock/web/MockHttpServletRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="301" selection-start-line="301" selection-end-line="301" />
+          <folding>
+            <element signature="e#8668#8669#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/5.0.3.RELEASE/f7db7b3c2d173e4eaea30938a346861fa598f7b1/spring-test-5.0.3.RELEASE-sources.jar!/org/springframework/test/web/servlet/request/MockHttpServletRequestBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="678" selection-start-line="678" selection-end-line="678" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/5.0.3.RELEASE/f7db7b3c2d173e4eaea30938a346861fa598f7b1/spring-test-5.0.3.RELEASE-sources.jar!/org/springframework/test/web/servlet/MockMvc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1802">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.3.RELEASE/c9d95dcd7a662dc0609c0673c29d4b4c8cde079c/spring-web-5.0.3.RELEASE-sources.jar!/org/springframework/web/method/HandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="219" selection-start-line="219" selection-end-line="219" />
+          <folding>
+            <element signature="e#7477#7478#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.3.RELEASE/c9d95dcd7a662dc0609c0673c29d4b4c8cde079c/spring-web-5.0.3.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="206" selection-start-line="206" selection-end-line="206" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19">
+          <caret line="57" column="11" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/ITeachingServices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="20" column="75" selection-start-line="20" selection-start-column="75" selection-end-line="20" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DomainFactory/TeachingDomainModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/Teaching.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DomainFactory/UserDomainModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DomainFactory/DomainFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ExamService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="54" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/LessonService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="67" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/TeachingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1167">
+          <caret line="92" column="5" lean-forward="true" selection-start-line="92" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/UserRestControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="187" selection-start-line="187" selection-end-line="187" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#findUserByIdTest#0;class#UserRestControllerTest#0" />
+            <element signature="method#addToken#0;class#UserRestControllerTest#0" />
+            <element signature="method#getAllUser#0;class#UserRestControllerTest#0" />
+            <element signature="method#getUserByUid#0;class#UserRestControllerTest#0" />
+            <element signature="method#viewResolver#0;class#UserRestControllerTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/TeachingRestControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="266" column="45" selection-start-line="266" selection-start-column="45" selection-end-line="266" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getById#0;class#TeachingRestControllerTest#0" />
+            <element signature="method#getByNameAndIdCourse#0;class#TeachingRestControllerTest#0" />
+            <element signature="method#getById#2;class#TeachingRestControllerTest#0" />
+            <element signature="method#save#0;class#TeachingRestControllerTest#0" />
+            <element signature="method#getAll#0;class#TeachingRestControllerTest#0" />
+            <element signature="method#getAllByIdCourse#0;class#TeachingRestControllerTest#0" />
+            <element signature="method#viewResolver#0;class#TeachingRestControllerTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/TeachingRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="52" column="46" selection-start-line="52" selection-start-column="30" selection-end-line="52" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
