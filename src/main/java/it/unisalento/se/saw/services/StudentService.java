@@ -7,6 +7,7 @@ import it.unisalento.se.saw.domain.Course;
 import it.unisalento.se.saw.domain.Student;
 import it.unisalento.se.saw.domain.StudentId;
 import it.unisalento.se.saw.domain.User;
+import it.unisalento.se.saw.dto.CourseDTO;
 import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.dto.UserDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
@@ -79,6 +80,7 @@ public class StudentService implements IStudentServices {
 
         Domain<StudentDTO,User> domain = domainFactory.getDomain("USER");
         Domain<UserDTO,User> domainUserDTOUser = domainFactory.getDomain("User");
+        Domain<CourseDTO, Course> domainCourse = domainFactory.getDomain("COURSE");
         DTO<User,UserDTO> dto = dtoFactory.getDTO("User");
 
         User user = domain.create(studentDTO);
@@ -86,7 +88,7 @@ public class StudentService implements IStudentServices {
         System.out.println(user.getUid());
 
         User saveUser = domainUserDTOUser.create(userServices.save(dto.create(user)));
-        Course course = courseServices.getById(studentDTO.getIdCourse());
+        Course course = domainCourse.create(courseServices.getById(studentDTO.getIdCourse()));
 
         StudentId studentId = new StudentId();
         studentId.setCourseIdCourse(studentDTO.getIdCourse());

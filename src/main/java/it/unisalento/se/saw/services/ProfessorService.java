@@ -7,6 +7,7 @@ import it.unisalento.se.saw.domain.Course;
 import it.unisalento.se.saw.domain.Professor;
 import it.unisalento.se.saw.domain.ProfessorId;
 import it.unisalento.se.saw.domain.User;
+import it.unisalento.se.saw.dto.CourseDTO;
 import it.unisalento.se.saw.dto.ProfessorDTO;
 import it.unisalento.se.saw.dto.UserDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
@@ -31,6 +32,10 @@ public class ProfessorService implements IProfessorServices {
     @Autowired
     ICourseServices courseServices;
 
+    AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
+    AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+
+
     @Transactional(readOnly = true)
     public List<Professor> getAll() {
         return professorRepository.findAll();
@@ -39,17 +44,18 @@ public class ProfessorService implements IProfessorServices {
     @Transactional
     public Professor save(ProfessorDTO professorDTO) throws CourseNotFoundException {
 
-        AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
-        AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+
+
 
         DTO<User, UserDTO> dto = dtoFactory.getDTO("User");
         Domain<ProfessorDTO,User> domainProfDTOUser = domainFactory.getDomain("USER");
         Domain<UserDTO,User> domainUserDTOUser = domainFactory.getDomain("USER");
+        Domain<CourseDTO, Course> domainCourse = domainFactory.getDomain("COURSE");
 
         User user = domainProfDTOUser.create(professorDTO);
 
         User saveUser = domainUserDTOUser.create(userServices.save(dto.create(user)));
-        Course course = courseServices.getById(professorDTO.getCourse());
+        Course course = domainCourse.create(courseServices.getById(professorDTO.getCourse()));
 
         ProfessorId professorId = new ProfessorId();
         professorId.setUserIdUser(user.getIdUser());
@@ -101,8 +107,8 @@ public class ProfessorService implements IProfessorServices {
     }
     public Set<Professor> getByIdCourse(int id) throws ProfessorNotFoundException {
         try {
-
-            Course course = courseServices.getById(id);
+            Domain<CourseDTO, Course> domainCourse = domainFactory.getDomain("COURSE");
+            Course course = domainCourse.create(courseServices.getById(id));
             return course.getProfessors();
         } catch (Exception e) {
             throw new ProfessorNotFoundException();

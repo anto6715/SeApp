@@ -6,9 +6,12 @@ import it.unisalento.se.saw.domain.Course;
 import it.unisalento.se.saw.domain.Professor;
 import it.unisalento.se.saw.domain.Teaching;
 import it.unisalento.se.saw.domain.TeachingId;
+import it.unisalento.se.saw.dto.CourseDTO;
 import it.unisalento.se.saw.dto.TeachingDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.FactoryProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class TeachingDomainModel implements Domain<TeachingDTO, Teaching> {
@@ -18,11 +21,14 @@ public class TeachingDomainModel implements Domain<TeachingDTO, Teaching> {
     @Autowired
     IProfessorServices professorServices;
 
+    AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
+
     @Override
     public Teaching create(TeachingDTO teachingDTO) {
+        Domain<CourseDTO, Course> courseDomain = domainFactory.getDomain("COURSE");
         Course course = null;
         try {
-            course = courseServices.getById(teachingDTO.getIdCourse());
+            course = courseDomain.create(courseServices.getById(teachingDTO.getIdCourse()));
         } catch (CourseNotFoundException e) {
             e.printStackTrace();
         }

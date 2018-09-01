@@ -99,7 +99,7 @@ public class TeachingRestControllerTest {
         teachingDTO.setId(10);
 
         when(teachingServicesMock.getByNameAndIdCourse("name",3)).thenReturn(teachingDTO);
-        mockMvc.perform(get("/teaching/getByNameAndIdCourse/{name}_{idCourse}","name",3)).andDo(print())
+        mockMvc.perform(get("/teaching/getByNameAndIdCourse/{name}_{idCourse}","name",3))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.id", is(10)))

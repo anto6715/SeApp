@@ -31,10 +31,12 @@ public class CourseRestController {
     IProfessorServices professorServices;
 
     AbstractFactory abstractDTOFactory;
+    AbstractFactory abstractDOMAINFactory;
 
     public CourseRestController() {
         super();
         this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
+        this.abstractDOMAINFactory = FactoryProducer.getFactory("DOMAIN");
     }
 
     public CourseRestController(ICourseServices courseServices) {
@@ -43,14 +45,13 @@ public class CourseRestController {
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ManyToOne
-    public List<Course> getAll() {
+    public Set<CourseDTO> getAll() {
         return courseServices.getAll();
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public CourseDTO getById(@PathVariable("id") int id) throws CourseNotFoundException {
-        DTO<Course,CourseDTO> dto = abstractDTOFactory.getDTO("COURSE");
-        return  dto.create(courseServices.getById(id));
+        return  courseServices.getById(id);
     }
 
     @RequestMapping(value = "/getByIdProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -60,14 +61,7 @@ public class CourseRestController {
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Course post(@RequestBody CourseDTO courseDTO) {
-        Course course = new Course();
-        course.setCredits(courseDTO.getCredits());
-        course.setLanguage(courseDTO.getLanguage());
-        course.setLenght(courseDTO.getLenght());
-        course.setLocation(courseDTO.getLocation());
-        course.setName(courseDTO.getName());
-        course.setType(courseDTO.getType());
-        return courseServices.save(course);
+    public CourseDTO post(@RequestBody CourseDTO courseDTO) {
+        return courseServices.save(courseDTO);
     }
 }
