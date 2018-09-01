@@ -53,7 +53,10 @@ public class UserDTOModel implements DTO<Object,UserDTO> {
             UserDTO userDTO = new UserDTO();
             userDTO.setSurname(user.getSurname());
             userDTO.setName(user.getName());
-            userDTO.setIdUser(user.getIdUser());
+            if (user.getIdUser() != null) {
+                userDTO.setIdUser(user.getIdUser());
+            }
+
             userDTO.setToken(user.getToken());
             userDTO.setAge(user.getAge());
             userDTO.setEmail(user.getEmail());

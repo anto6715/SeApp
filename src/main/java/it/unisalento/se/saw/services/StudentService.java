@@ -1,8 +1,15 @@
 package it.unisalento.se.saw.services;
 
+import it.unisalento.se.saw.Iservices.ICourseServices;
 import it.unisalento.se.saw.Iservices.IStudentServices;
+import it.unisalento.se.saw.Iservices.IUserServices;
+import it.unisalento.se.saw.domain.Course;
 import it.unisalento.se.saw.domain.Student;
+import it.unisalento.se.saw.domain.StudentId;
+import it.unisalento.se.saw.domain.User;
+import it.unisalento.se.saw.dto.CourseDTO;
 import it.unisalento.se.saw.dto.StudentDTO;
+import it.unisalento.se.saw.dto.UserDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
@@ -24,6 +31,11 @@ public class StudentService implements IStudentServices {
 
     @Autowired
     StudentRepository studentRepository;
+    @Autowired
+    IUserServices userServices;
+
+    @Autowired
+    ICourseServices courseServices;
 
 
     AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
@@ -65,10 +77,31 @@ public class StudentService implements IStudentServices {
     }
     @Transactional
     public StudentDTO save(StudentDTO studentDTO) throws CourseNotFoundException {
+        Domain<StudentDTO, User> domain = domainFactory.getDomain("USER");
+        Domain<UserDTO,User> domainUserDTOUser = domainFactory.getDomain("User");
+        Domain<CourseDTO, Course> domainCourse = domainFactory.getDomain("COURSE");
+        DTO<User,UserDTO> dtoUser = dtoFactory.getDTO("User");
+        DTO<Student,StudentDTO> dtoStudent = dtoFactory.getDTO("User");
 
-        Domain<StudentDTO,Student> domain = domainFactory.getDomain("Student");
-        DTO<Student, StudentDTO> dto = dtoFactory.getDTO("Student");
-        return dto.create(studentRepository.save(domain.create(studentDTO)));
+        User user = domain.create(studentDTO);
+        System.out.println(studentDTO.getUid());
+        System.out.println(user.getUid());
+
+        User saveUser = domainUserDTOUser.create(userServices.save(dtoUser.create(user)));
+        Course course = courseServices.getDomainById(studentDTO.getIdCourse());
+
+        StudentId studentId = new StudentId();
+        studentId.setCourseIdCourse(studentDTO.getIdCourse());
+        studentId.setUserIdUser(saveUser.getIdUser());
+
+        Student student = new Student();
+        student.setMatricola(studentDTO.getMatricola());
+        student.setYear(studentDTO.getYear());
+        student.setYearStart(studentDTO.getYearStart());
+        student.setUser(saveUser);
+        student.setId(new StudentId(0,studentDTO.getIdCourse(),saveUser.getIdUser()));
+        student.setCourse(course);
+        return dtoStudent.create(studentRepository.save(student));
     }
 
 }
