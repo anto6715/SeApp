@@ -13,6 +13,7 @@ import it.unisalento.se.saw.exceptions.LessonNotFoundException;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
 import it.unisalento.se.saw.exceptions.TeachingNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DTOFactory.DTO;
 import it.unisalento.se.saw.models.DomainFactory.Domain;
 import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.LessonRepository;
@@ -22,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class LessonService implements ILessonServices {
@@ -35,24 +37,31 @@ public class LessonService implements ILessonServices {
     @Autowired
     IRoomServices roomServices;
 
+    AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+
     @Transactional(readOnly = true)
-    public List<Lesson> getAll() {
-        return lessonRepository.findAll();
+    public Set<LessonDTO> getAll() {
+        DTO<List<Lesson>, Set<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
+        return dto.create(lessonRepository.findAll());
     }
 
     @Transactional
-    public List<Lesson> getByDate(Date date, int id) {
-        return lessonRepository.findLessonsByDateAndId_TeachingCourseIdCourse(date, id);
+    public Set<LessonDTO> getByDate(Date date, int id) {
+        DTO<List<Lesson>, Set<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
+        return dto.create(lessonRepository.findLessonsByDateAndId_TeachingCourseIdCourse(date, id));
     }
 
-    public List<Lesson> getByDateAndIdProfessor(Date date, int id) {
-        return lessonRepository.findLessonsByDateAndId_TeachingProfessorIdProfessor(date,id);
+    @Transactional
+    public Set<LessonDTO> getByDateAndIdProfessor(Date date, int id) {
+        DTO<List<Lesson>, Set<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
+        return dto.create(lessonRepository.findLessonsByDateAndId_TeachingProfessorIdProfessor(date,id));
     }
 
-
-    public Lesson getById(int id) throws LessonNotFoundException {
+    @Transactional
+    public LessonDTO getById(int id) throws LessonNotFoundException {
         try {
-            return lessonRepository.findLessonById_IdLesson(id);
+            DTO<Lesson,LessonDTO> dto = dtoFactory.getDTO("LESSON");
+            return dto.create(lessonRepository.findLessonById_IdLesson(id));
         } catch (Exception e) {
             throw new LessonNotFoundException();
         }
@@ -67,8 +76,9 @@ public class LessonService implements ILessonServices {
         }
     }
 
-    public List<Lesson> getByRoom(int id) {
-        return null;
+    public Set<LessonDTO> getByRoom(int id) {
+        DTO<List<Lesson>, Set<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
+        return dto.create(lessonRepository.findLessonsById_RoomIdRoom(id));
     }
 
     @Transactional
@@ -100,15 +110,6 @@ public class LessonService implements ILessonServices {
         System.out.println(lessonDTO.getEnd());
         return lessonRepository.save(lesson);
 
-
-    }
-    public void remove(int id) throws LessonNotFoundException {
-        try {
-            Lesson lesson = lessonRepository.findLessonById_IdLesson(id);
-            lessonRepository.delete(lesson);
-        } catch (Exception e) {
-            throw new LessonNotFoundException();
-        }
 
     }
 }

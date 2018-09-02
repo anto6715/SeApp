@@ -30,20 +30,18 @@ public class CourseRestController {
     @Autowired
     IProfessorServices professorServices;
 
-    AbstractFactory abstractDTOFactory;
-    AbstractFactory abstractDOMAINFactory;
+
+    AbstractFactory domainFactory;
 
     public CourseRestController() {
         super();
-        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
-        this.abstractDOMAINFactory = FactoryProducer.getFactory("DOMAIN");
+        domainFactory = FactoryProducer.getFactory("DOMAIN");
     }
 
     public CourseRestController(ICourseServices courseServices, IProfessorServices professorServices) {
         this.courseServices = courseServices;
         this.professorServices = professorServices;
-        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
-        this.abstractDOMAINFactory = FactoryProducer.getFactory("DOMAIN");
+        domainFactory = FactoryProducer.getFactory("DOMAIN");
     }
 
     public CourseRestController(ICourseServices courseServices) {
@@ -63,7 +61,7 @@ public class CourseRestController {
 
     @RequestMapping(value = "/getByIdProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<CourseDTO> getByIdProf(@PathVariable("id") int id) throws CourseNotFoundException, ProfessorNotFoundException {
-        DTO<Set<Course>, Set<CourseDTO>> dto = this.abstractDTOFactory.getDTO("SETCOURSE");
+        DTO<Set<Course>, Set<CourseDTO>> dto = domainFactory.getDTO("SETCOURSE");
         return dto.create(professorServices.getDomainById(id).getCourses());
     }
 

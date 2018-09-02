@@ -6,11 +6,29 @@ import it.unisalento.se.saw.models.DomainFactory.Domain;
 public class DtoFactory extends AbstractFactory {
     @Override
     public DTO getDTO(String dtoType){
+
         if(dtoType == null){
             return null;
         }
+
         if (dtoType.equalsIgnoreCase("STUDENT")){
             return new StudentDTOModel();
+        }
+
+        if (dtoType.equalsIgnoreCase("ACCESSORY")){
+            return new AccessoryDTOModel();
+        }
+
+        if (dtoType.equalsIgnoreCase("SETACCESSORY")){
+            return new SetAccessoryDTOModel();
+        }
+
+        if (dtoType.equalsIgnoreCase("EXAM")){
+            return new ExamDTOModel();
+        }
+
+        if (dtoType.equalsIgnoreCase("SETEXAM")){
+            return new SetExamDTOModel();
         }
 
         if (dtoType.equalsIgnoreCase("SEGNALATIONSTATE")){

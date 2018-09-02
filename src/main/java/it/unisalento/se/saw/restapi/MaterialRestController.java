@@ -23,11 +23,9 @@ public class MaterialRestController {
     @Autowired
     IMaterialServices materialServices;
 
-    AbstractFactory abstractDTOFactory;
 
     public MaterialRestController() {
         super();
-        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
     }
 
     public MaterialRestController(IMaterialServices materialServices) {
@@ -35,12 +33,12 @@ public class MaterialRestController {
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Material> getAll() {
+    public Set<MaterialDTO> getAll() {
         return materialServices.getAll();
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Material save(@RequestBody MaterialDTO materialDTO) throws TeachingNotFoundException {
+    public MaterialDTO save(@RequestBody MaterialDTO materialDTO) throws TeachingNotFoundException {
         try {
             return materialServices.save(materialDTO);
         } catch (Exception e) {
@@ -51,8 +49,7 @@ public class MaterialRestController {
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public MaterialDTO getById(@PathVariable int id) throws MaterialNotFoundException {
         try {
-            DTO<Material, MaterialDTO> dto = this.abstractDTOFactory.getDTO("MATERIAL");
-            return dto.create( materialServices.getById(id));
+            return materialServices.getById(id);
         } catch (Exception e) {
             throw new MaterialNotFoundException();
         }
@@ -60,13 +57,11 @@ public class MaterialRestController {
 
     @RequestMapping(value = "/getByIdLesson/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<MaterialDTO> getByIdLesson(@PathVariable int id){
-        DTO<List<Material>, Set<MaterialDTO>> dto = this.abstractDTOFactory.getDTO("SETMATERIAL");
-        return dto.create( materialServices.getByIdLesson(id));
+        return materialServices.getByIdLesson(id);
     }
 
     @RequestMapping(value = "/getByIdTeaching/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<MaterialDTO> getByIdTeaching(@PathVariable int id){
-        DTO<List<Material>, Set<MaterialDTO>> dto = this.abstractDTOFactory.getDTO("SETMATERIAL");
-        return dto.create(materialServices.getByIdTeaching(id));
+        return materialServices.getByIdTeaching(id);
     }
 }

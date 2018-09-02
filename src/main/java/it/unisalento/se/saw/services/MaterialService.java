@@ -3,20 +3,22 @@ package it.unisalento.se.saw.services;
 
 import it.unisalento.se.saw.Iservices.ILessonServices;
 import it.unisalento.se.saw.Iservices.IMaterialServices;
-import it.unisalento.se.saw.Iservices.ITeachingServices;
 import it.unisalento.se.saw.domain.Lesson;
 import it.unisalento.se.saw.domain.Material;
 import it.unisalento.se.saw.domain.MaterialId;
-import it.unisalento.se.saw.domain.Teaching;
 import it.unisalento.se.saw.dto.MaterialDTO;
+import it.unisalento.se.saw.exceptions.LessonNotFoundException;
 import it.unisalento.se.saw.exceptions.MaterialNotFoundException;
-import it.unisalento.se.saw.exceptions.TeachingNotFoundException;
+import it.unisalento.se.saw.models.AbstractFactory;
+import it.unisalento.se.saw.models.DTOFactory.DTO;
+import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.MaterialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class MaterialService implements IMaterialServices {
@@ -27,14 +29,18 @@ public class MaterialService implements IMaterialServices {
     @Autowired
     ILessonServices lessonServices;
 
+    AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+
     @Transactional(readOnly = true)
-    public List<Material> getAll() {
-        return materialRepository.findAll();
+    public Set<MaterialDTO> getAll() {
+        DTO<List<Material>, Set<MaterialDTO>> dto = dtoFactory.getDTO("SETMATERIAL");
+        return dto.create(materialRepository.findAll());
     }
     @Transactional
-    public Material getById(int id) throws MaterialNotFoundException {
+    public MaterialDTO getById(int id) throws MaterialNotFoundException {
         try {
-            return materialRepository.findMaterialById_IdMaterial(id);
+            DTO<Material, MaterialDTO> dto = dtoFactory.getDTO("MATERIAL");
+            return dto.create(materialRepository.findMaterialById_IdMaterial(id));
         } catch (Exception e) {
             throw new MaterialNotFoundException();
         }
@@ -50,47 +56,42 @@ public class MaterialService implements IMaterialServices {
     }
 
     @Transactional
-    public List<Material> getByIdLesson(int id){
-        return materialRepository.findMaterialsById_LessonIdLesson(id);
+    public Set<MaterialDTO> getByIdLesson(int id){
+        DTO<List<Material>, Set<MaterialDTO>> dto = dtoFactory.getDTO("SETMATERIAL");
+        return dto.create(materialRepository.findMaterialsById_LessonIdLesson(id));
     }
 
     @Transactional
-    public List<Material> getByIdTeaching(int id) {
-        return materialRepository.findMaterialsById_LessonTeachingIdTeaching(id);
+    public Set<MaterialDTO> getByIdTeaching(int id) {
+        DTO<List<Material>, Set<MaterialDTO>> dto = dtoFactory.getDTO("SETMATERIAL");
+        return dto.create(materialRepository.findMaterialsById_LessonTeachingIdTeaching(id));
     }
 
     @Transactional
-    public Material save(MaterialDTO materialDTO) throws TeachingNotFoundException {
+    public MaterialDTO save(MaterialDTO materialDTO) {
+        DTO<Material, MaterialDTO> dto = dtoFactory.getDTO("MATERIAL");
+        Lesson lesson = null;
         try {
-            Lesson lesson = lessonServices.getById(materialDTO.getIdLesson());
-
-            MaterialId materialId = new MaterialId();
-            materialId.setLessonIdLesson(lesson.getId().getIdLesson());
-            materialId.setLessonRoomIdRoom(lesson.getId().getRoomIdRoom());
-            materialId.setLessonTeachingCourseIdCourse(lesson.getId().getTeachingCourseIdCourse());
-            materialId.setLessonTeachingIdTeaching(lesson.getId().getTeachingIdTeaching());
-            materialId.setLessonTeachingProfessorIdProfessor(lesson.getId().getTeachingProfessorIdProfessor());
-            materialId.setLessonTeachingProfessorUserIdUser(lesson.getId().getTeachingProfessorUserIdUser());
-
-            Material material = new Material();
-
-            material.setLink(materialDTO.getLink());
-            material.setName(materialDTO.getName());
-            material.setId(materialId);
-            material.setLesson(lesson);
-            return materialRepository.save(material);
-        } catch (Exception e) {
-            throw new TeachingNotFoundException();
+            lesson = lessonServices.getDomainById(materialDTO.getIdLesson());
+        } catch (LessonNotFoundException e) {
+            e.printStackTrace();
         }
-    }
-    @Transactional
-    public void remove(int id) throws MaterialNotFoundException {
-        try {
-            Material material = materialRepository.findMaterialById_IdMaterial(id);
-            materialRepository.delete(material);
-        } catch (Exception e) {
-            throw new MaterialNotFoundException();
-        }
+
+        MaterialId materialId = new MaterialId();
+        materialId.setLessonIdLesson(lesson.getId().getIdLesson());
+        materialId.setLessonRoomIdRoom(lesson.getId().getRoomIdRoom());
+        materialId.setLessonTeachingCourseIdCourse(lesson.getId().getTeachingCourseIdCourse());
+        materialId.setLessonTeachingIdTeaching(lesson.getId().getTeachingIdTeaching());
+        materialId.setLessonTeachingProfessorIdProfessor(lesson.getId().getTeachingProfessorIdProfessor());
+        materialId.setLessonTeachingProfessorUserIdUser(lesson.getId().getTeachingProfessorUserIdUser());
+
+        Material material = new Material();
+
+        material.setLink(materialDTO.getLink());
+        material.setName(materialDTO.getName());
+        material.setId(materialId);
+        material.setLesson(lesson);
+        return dto.create(materialRepository.save(material));
 
     }
 }

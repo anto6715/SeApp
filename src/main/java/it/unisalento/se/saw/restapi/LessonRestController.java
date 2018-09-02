@@ -38,14 +38,13 @@ public class LessonRestController {
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Lesson> getAll() {
+    public Set<LessonDTO> getAll() {
         return lessonServices.getAll();
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Lesson save(@RequestBody LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
         try {
-            System.out.println(lessonDTO.getStart());
             return lessonServices.save(lessonDTO);
         } catch (Exception e) {
             throw new RoomNotFoundException();
@@ -55,8 +54,16 @@ public class LessonRestController {
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public LessonDTO getById(@PathVariable int id) throws LessonNotFoundException {
         try {
-            DTO<Lesson,LessonDTO> dto = this.abstractDTOFactory.getDTO("LESSON");
-            return dto.create(lessonServices.getById(id));
+            return lessonServices.getById(id);
+        } catch (Exception e) {
+            throw new LessonNotFoundException();
+        }
+    }
+
+    @RequestMapping(value = "/getByIdRoom/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Set<LessonDTO> getByIdRoom(@PathVariable int id) throws LessonNotFoundException {
+        try {
+            return lessonServices.getByRoom(id);
         } catch (Exception e) {
             throw new LessonNotFoundException();
         }
@@ -66,16 +73,14 @@ public class LessonRestController {
     public Set<LessonDTO> getByDate(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date dateObj = sdf.parse(date);
-        DTO<List<Lesson>, Set<LessonDTO>> dto = this.abstractDTOFactory.getDTO("SETLESSON");
-        return dto.create(lessonServices.getByDate(dateObj,id));
+        return lessonServices.getByDate(dateObj,id);
     }
 
     @RequestMapping(value = "/getByDateAndIdProf/{date}_{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
     public Set<LessonDTO> getByDateAndIdProfessor(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date dateObj = sdf.parse(date);
-        DTO<List<Lesson>, Set<LessonDTO>> dto = this.abstractDTOFactory.getDTO("SETLESSON");
-        return dto.create(lessonServices.getByDateAndIdProfessor(dateObj,id));
+        return lessonServices.getByDateAndIdProfessor(dateObj,id);
 
 
     }

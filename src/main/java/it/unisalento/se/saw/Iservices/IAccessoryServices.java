@@ -1,19 +1,17 @@
 package it.unisalento.se.saw.Iservices;
 
-import it.unisalento.se.saw.domain.Accessory;
 import it.unisalento.se.saw.dto.AccessoryDTO;
 import it.unisalento.se.saw.exceptions.AccessoryNotFoundException;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
 
-import java.util.List;
+import java.util.Set;
 
 public interface IAccessoryServices {
 
-    public List<Accessory> getAll();
-    public Accessory getById(int id) throws AccessoryNotFoundException;
-    public List<Accessory> getByIdRoom(int id);
-    public Accessory save(AccessoryDTO accessoryDTO) throws RoomNotFoundException;
-    public void remove(int id) throws AccessoryNotFoundException;
+    public Set<AccessoryDTO> getAll();
+    public AccessoryDTO getById(int id) throws AccessoryNotFoundException;
+    public Set<AccessoryDTO> getByIdRoom(int id);
+    public AccessoryDTO save(AccessoryDTO accessoryDTO) throws RoomNotFoundException;
 
 
 }

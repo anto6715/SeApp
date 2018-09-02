@@ -4,6 +4,15 @@ public class AccessoryDTO {
 
     private int idRoom;
     private String type;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getIdRoom() {
         return idRoom;

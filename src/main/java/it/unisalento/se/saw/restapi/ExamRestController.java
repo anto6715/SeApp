@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/exam")
@@ -28,19 +28,17 @@ public class ExamRestController {
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Exam> getAll() {
+    public Set<ExamDTO> getAll() {
         return examServices.getAll();
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Exam save(@RequestBody ExamDTO examDTO) throws RoomNotFoundException, TeachingNotFoundException {
-        System.out.println(examDTO.getDate());
-        System.out.println(examDTO.getTime());
+    public ExamDTO save(@RequestBody ExamDTO examDTO) {
         return examServices.save(examDTO);
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Exam getById(@PathVariable int id) throws ExamNotFoundException {
+    public ExamDTO getById(@PathVariable int id) throws ExamNotFoundException {
         try {
             return examServices.getById(id);
         } catch (Exception e) {

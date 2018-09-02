@@ -8,20 +8,19 @@ import it.unisalento.se.saw.domain.ExamId;
 import it.unisalento.se.saw.domain.Room;
 import it.unisalento.se.saw.domain.Teaching;
 import it.unisalento.se.saw.dto.ExamDTO;
-import it.unisalento.se.saw.dto.TeachingDTO;
 import it.unisalento.se.saw.exceptions.ExamNotFoundException;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
 import it.unisalento.se.saw.exceptions.TeachingNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
-import it.unisalento.se.saw.models.DomainFactory.Domain;
+import it.unisalento.se.saw.models.DTOFactory.DTO;
 import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.ExamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ExamService implements IExamServices {
@@ -35,36 +34,38 @@ public class ExamService implements IExamServices {
     @Autowired
     ITeachingServices teachingServices;
 
+    AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+
     @Transactional(readOnly = true)
-    public List<Exam> getAll() {
-        return examRepository.findAll();
+    public Set<ExamDTO> getAll() {
+        DTO<List<Exam>, Set<ExamDTO>> dto = dtoFactory.getDTO("SetExam");
+        return dto.create(examRepository.findAll());
     }
 
     @Transactional
-    public Exam getById(int id) throws ExamNotFoundException {
+    public ExamDTO getById(int id) throws ExamNotFoundException {
         try {
-            return examRepository.findExamById_IdExam(id);
+            DTO<Exam, ExamDTO> dto = dtoFactory.getDTO("Exam");
+            return dto.create(examRepository.findExamById_IdExam(id));
         } catch (Exception e) {
             throw new ExamNotFoundException();
         }
     }
 
     @Transactional
-    public Exam save(ExamDTO examDTO) throws RoomNotFoundException, TeachingNotFoundException {
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DOMAIN");
-        Domain<TeachingDTO, Teaching> domainTeaching = abstractFactory.getDomain("Teaching");
-        Room room;
-        Teaching teaching;
+    public ExamDTO save(ExamDTO examDTO) {
+        DTO<Exam, ExamDTO> dto = dtoFactory.getDTO("Exam");
+        Room room = null;
         try {
             room = roomServices.getDomainById(examDTO.getIdRoom());
-        } catch (Exception e) {
-            throw new RoomNotFoundException();
+        } catch (RoomNotFoundException e) {
+            e.printStackTrace();
         }
-
-        try{
-            teaching = domainTeaching.create(teachingServices.getById(examDTO.getIdTeaching()));
-        } catch (Exception e) {
-            throw new TeachingNotFoundException();
+        Teaching teaching = null;
+        try {
+            teaching = teachingServices.getDomainById(examDTO.getIdTeaching());
+        } catch (TeachingNotFoundException e) {
+            e.printStackTrace();
         }
 
 
@@ -83,13 +84,9 @@ public class ExamService implements IExamServices {
         exam.setId(examId);
         exam.setData(examDTO.getDate());
         exam.setTime(examDTO.getTime());
-        return examRepository.save(exam);
+        return dto.create(examRepository.save(exam));
 
     }
 
 
-    @Transactional
-    public void remove(int id) throws ExamNotFoundException {
-
-    }
 }
