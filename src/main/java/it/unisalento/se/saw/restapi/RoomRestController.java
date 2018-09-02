@@ -30,20 +30,18 @@ public class RoomRestController {
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<RoomDTO> getAll() {
-        DTO<List<Room>, Set<RoomDTO>> dto = this.abstractDTOFactory.getDTO("SETROOM");
-        return dto.create(roomServices.getAll());
+        return roomServices.getAll();
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Room save(@RequestBody RoomDTO roomDTO) {
+    public RoomDTO save(@RequestBody RoomDTO roomDTO) {
         return roomServices.save(roomDTO);
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public RoomDTO getById(@PathVariable int id) throws RoomNotFoundException {
         try {
-            DTO<Room,RoomDTO> dto = this.abstractDTOFactory.getDTO("Room");
-            return dto.create(roomServices.getById(id));
+            return roomServices.getById(id);
         } catch (Exception e) {
             throw new RoomNotFoundException();
         }
@@ -52,8 +50,7 @@ public class RoomRestController {
     @RequestMapping(value = "/getByCapacity/{capacity}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<RoomDTO> getByCapacity(@PathVariable int capacity) throws RoomNotFoundException {
         try {
-            DTO<List<Room>, Set<RoomDTO>> dto = this.abstractDTOFactory.getDTO("SETROOM");
-            return dto.create(roomServices.getByCapacity(capacity));
+            return roomServices.getByCapacity(capacity);
         } catch (Exception e) {
             throw new RoomNotFoundException();
         }

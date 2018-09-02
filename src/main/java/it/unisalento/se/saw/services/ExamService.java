@@ -56,7 +56,7 @@ public class ExamService implements IExamServices {
         Room room;
         Teaching teaching;
         try {
-            room = roomServices.getById(examDTO.getIdRoom());
+            room = roomServices.getDomainById(examDTO.getIdRoom());
         } catch (Exception e) {
             throw new RoomNotFoundException();
         }

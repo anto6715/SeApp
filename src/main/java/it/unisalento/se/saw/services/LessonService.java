@@ -69,7 +69,7 @@ public class LessonService implements ILessonServices {
 
 
         Teaching teaching =domainTeaching.create(teachingServices.getById(lessonDTO.getIdTeaching()));
-        Room room = roomServices.getById(lessonDTO.getIdRoom());
+        Room room = roomServices.getDomainById(lessonDTO.getIdRoom());
 
         LessonId lessonId = new LessonId();
         lessonId.setTeachingIdTeaching(teaching.getId().getIdTeaching());

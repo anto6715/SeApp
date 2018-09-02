@@ -43,7 +43,7 @@ public class AccessoryService implements IAccessoryServices {
 
     public Accessory save(AccessoryDTO accessoryDTO) throws RoomNotFoundException {
         try {
-            Room room = roomServices.getById(accessoryDTO.getIdRoom());
+            Room room = roomServices.getDomainById(accessoryDTO.getIdRoom());
             System.out.println(room.getName());
             AccessoryId accessoryId = new AccessoryId();
 
