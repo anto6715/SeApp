@@ -31,17 +31,17 @@ public class CourseRestController {
     IProfessorServices professorServices;
 
 
-    AbstractFactory domainFactory;
+    AbstractFactory dtoFactory;
 
     public CourseRestController() {
         super();
-        domainFactory = FactoryProducer.getFactory("DOMAIN");
+        dtoFactory = FactoryProducer.getFactory("DTO");
     }
 
     public CourseRestController(ICourseServices courseServices, IProfessorServices professorServices) {
         this.courseServices = courseServices;
         this.professorServices = professorServices;
-        domainFactory = FactoryProducer.getFactory("DOMAIN");
+        dtoFactory = FactoryProducer.getFactory("DTO");
     }
 
     public CourseRestController(ICourseServices courseServices) {
@@ -61,7 +61,7 @@ public class CourseRestController {
 
     @RequestMapping(value = "/getByIdProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<CourseDTO> getByIdProf(@PathVariable("id") int id) throws CourseNotFoundException, ProfessorNotFoundException {
-        DTO<Set<Course>, Set<CourseDTO>> dto = domainFactory.getDTO("SETCOURSE");
+        DTO<Set<Course>, Set<CourseDTO>> dto = dtoFactory.getDTO("SETCOURSE");
         return dto.create(professorServices.getDomainById(id).getCourses());
     }
 
