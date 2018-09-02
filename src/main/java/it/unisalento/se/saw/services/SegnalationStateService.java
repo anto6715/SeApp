@@ -40,6 +40,14 @@ public class SegnalationStateService implements ISegnalationStateServices {
             throw new SegnalationStateNotFoundException();
         }
     }
+
+    public SegnalationState getDomainById(int id) throws SegnalationStateNotFoundException {
+        try {
+            return segnalationStateRepository.getOne(id);
+        } catch (Exception e) {
+            throw new SegnalationStateNotFoundException();
+        }
+    }
     @Transactional
     public SegnalationStateDTO save(SegnalationStateDTO segnalationStateDTO) {
         DTO<SegnalationState, SegnalationStateDTO> dto = abstractDTOFactory.getDTO("SegnalationState");

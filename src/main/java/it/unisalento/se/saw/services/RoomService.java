@@ -33,6 +33,16 @@ public class RoomService implements IRoomServices {
             throw new RoomNotFoundException();
         }
     }
+
+    @Transactional
+    public Room getDomainById(int id) throws RoomNotFoundException {
+        try {
+            return roomRepository.getOne(id);
+        } catch (Exception e) {
+            throw new RoomNotFoundException();
+        }
+    }
+
     @Transactional
     public Room getByName(String name) throws RoomNotFoundException {
         try {

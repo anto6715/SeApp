@@ -12,6 +12,6 @@ public interface IStudentServices {
     public Set<StudentDTO> getByCourse(int course);
     public StudentDTO getById(int id) throws StudentNotFoundException;
     public StudentDTO getByUid(String uid) throws StudentNotFoundException;
-    StudentDTO save(StudentDTO studentDTO) throws CourseNotFoundException;
+    StudentDTO save(StudentDTO studentDTO);
 
 }

@@ -77,14 +77,19 @@ public class StudentService implements IStudentServices {
         }
     }
     @Transactional
-    public StudentDTO save(StudentDTO studentDTO) throws CourseNotFoundException {
+    public StudentDTO save(StudentDTO studentDTO) {
         Domain<StudentDTO, User> domain = domainFactory.getDomain("USER");
         DTO<Student,StudentDTO> dtoStudent = dtoFactory.getDTO("User");
 
         User user = domain.create(studentDTO);
 
         User saveUser = userRepository.save(user);
-        Course course = courseServices.getDomainById(studentDTO.getIdCourse());
+        Course course = null;
+        try {
+            course = courseServices.getDomainById(studentDTO.getIdCourse());
+        } catch (CourseNotFoundException e) {
+            e.printStackTrace();
+        }
 
         StudentId studentId = new StudentId();
         studentId.setCourseIdCourse(studentDTO.getIdCourse());

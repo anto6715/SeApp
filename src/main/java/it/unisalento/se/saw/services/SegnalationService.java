@@ -1,8 +1,12 @@
 package it.unisalento.se.saw.services;
 
+import it.unisalento.se.saw.Iservices.IProfessorServices;
+import it.unisalento.se.saw.Iservices.IRoomServices;
 import it.unisalento.se.saw.Iservices.ISegnalationServices;
+import it.unisalento.se.saw.Iservices.ISegnalationStateServices;
 import it.unisalento.se.saw.domain.*;
 import it.unisalento.se.saw.dto.SegnalationDTO;
+import it.unisalento.se.saw.dto.SegnalationStateDTO;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
 import it.unisalento.se.saw.exceptions.SegnalationNotFoundException;
@@ -24,6 +28,15 @@ public class SegnalationService implements ISegnalationServices {
 
     @Autowired
     SegnalationRepository segnalationRepository;
+
+    @Autowired
+    IRoomServices roomServices;
+
+    @Autowired
+    IProfessorServices professorServices;
+
+    @Autowired
+    ISegnalationStateServices segnalationStateServices;
 
 
 
@@ -56,9 +69,41 @@ public class SegnalationService implements ISegnalationServices {
     }
 
     @Transactional
-    public SegnalationDTO save(SegnalationDTO segnalationDTO) throws ProfessorNotFoundException, RoomNotFoundException, SegnalationStateNotFoundException {
-        Domain<SegnalationDTO, Segnalation> segnalationDomain = abstractDomainFactory.getDomain("Segnalation");
+    public SegnalationDTO save(SegnalationDTO segnalationDTO){
         DTO<Segnalation, SegnalationDTO> dto = abstractDTOFactory.getDTO("Segnalation");
-        return dto.create(segnalationRepository.save(segnalationDomain.create(segnalationDTO)));
+
+        Professor professor = null;
+        try {
+            professor = professorServices.getDomainById(segnalationDTO.getProfessorDTO().getId());
+        } catch (ProfessorNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Room room = null;
+        try {
+            room = roomServices.getDomainById(segnalationDTO.getRoomDTO().getId());
+        } catch (RoomNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        SegnalationState segnalationState = null;
+        try {
+            segnalationState = segnalationStateServices.getDomainById(segnalationDTO.getIdState());
+        } catch (SegnalationStateNotFoundException e) {
+            e.printStackTrace();
+        }
+        SegnalationId segnalationId = new SegnalationId();
+        segnalationId.setProfessorIdProfessor(professor.getId().getIdProfessor());
+        segnalationId.setProfessorUserIdUser(professor.getId().getUserIdUser());
+        segnalationId.setRoomIdRoom(room.getIdRoom());
+        segnalationId.setSegnalationStateIdSegnalationState(segnalationState.getIdSegnalationState());
+
+        Segnalation segnalation = new Segnalation();
+        segnalation.setNote(segnalationDTO.getNote());
+        segnalation.setRoom(room);
+        segnalation.setId(segnalationId);
+        segnalation.setProfessor(professor);
+        segnalation.setSegnalationState(segnalationState);
+        return dto.create(segnalationRepository.save(segnalation));
     }
 }
