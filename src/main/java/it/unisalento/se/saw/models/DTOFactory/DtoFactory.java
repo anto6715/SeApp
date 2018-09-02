@@ -27,6 +27,14 @@ public class DtoFactory extends AbstractFactory {
             return new ExamDTOModel();
         }
 
+        if (dtoType.equalsIgnoreCase("REVIEWTYPE")){
+            return new ReviewTypeDTOModel();
+        }
+
+        if (dtoType.equalsIgnoreCase("SETREVIEWTYPE")){
+            return new SetReviewTypeDTOModel();
+        }
+
         if (dtoType.equalsIgnoreCase("SETEXAM")){
             return new SetExamDTOModel();
         }

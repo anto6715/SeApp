@@ -86,7 +86,7 @@ public class ReviewService implements IReviewServices {
         }
 
         try {
-            reviewType = reviewTypeServices.getById(reviewDTO.getIdReviewType());
+            reviewType = reviewTypeServices.getDomainById(reviewDTO.getIdReviewType());
 
         } catch (Exception e) {
             throw new ReviewTypeNotFoundException();

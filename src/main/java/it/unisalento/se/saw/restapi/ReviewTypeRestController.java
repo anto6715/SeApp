@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/reviewType")
@@ -20,17 +21,17 @@ public class ReviewTypeRestController {
 
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ReviewType> getAll() {
+    public Set<ReviewTypeDTO> getAll() {
         return reviewTypeServices.getAll();
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ReviewType save(@RequestBody ReviewTypeDTO reviewTypeDTO) {
+    public ReviewTypeDTO save(@RequestBody ReviewTypeDTO reviewTypeDTO) {
         return reviewTypeServices.save(reviewTypeDTO);
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ReviewType getById(@PathVariable int id) throws ReviewTypeNotFoundException {
+    public ReviewTypeDTO getById(@PathVariable int id) throws ReviewTypeNotFoundException {
         return reviewTypeServices.getById(id);
     }
 
