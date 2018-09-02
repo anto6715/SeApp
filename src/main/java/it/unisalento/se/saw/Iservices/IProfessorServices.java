@@ -13,6 +13,7 @@ public interface IProfessorServices {
     public List<Professor> getAll();
     public ProfessorDTO save(ProfessorDTO professorDTO) throws CourseNotFoundException;
     public Professor getById(int id) throws ProfessorNotFoundException;
+    public Professor getDomainById(int id) throws ProfessorNotFoundException;
     public Professor getByUid(String uid) throws ProfessorNotFoundException;
     public List<Professor> getByName(String name) throws ProfessorNotFoundException;
     public List<Professor> getBySurname(String surname) throws ProfessorNotFoundException;

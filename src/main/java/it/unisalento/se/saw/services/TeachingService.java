@@ -4,7 +4,11 @@ package it.unisalento.se.saw.services;
 import it.unisalento.se.saw.Iservices.ICourseServices;
 import it.unisalento.se.saw.Iservices.IProfessorServices;
 import it.unisalento.se.saw.Iservices.ITeachingServices;
+import it.unisalento.se.saw.domain.Course;
+import it.unisalento.se.saw.domain.Professor;
 import it.unisalento.se.saw.domain.Teaching;
+import it.unisalento.se.saw.domain.TeachingId;
+import it.unisalento.se.saw.dto.CourseDTO;
 import it.unisalento.se.saw.dto.TeachingDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
@@ -34,6 +38,7 @@ public class TeachingService implements ITeachingServices {
     IProfessorServices professorServices;
 
     AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
+    AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DOMAIN");
 
     @Transactional(readOnly = true)
     public Set<TeachingDTO> getAll() {
@@ -84,21 +89,37 @@ public class TeachingService implements ITeachingServices {
 
 
     @Transactional
-    public TeachingDTO save(TeachingDTO teachingDTO) throws CourseNotFoundException, ProfessorNotFoundException {
-        AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DOMAIN");
-        AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
-        Domain<TeachingDTO, Teaching> domainTeaching = abstractDomainFactory.getDomain("Teaching");
+    public TeachingDTO save(TeachingDTO teachingDTO) {
         DTO<Teaching, TeachingDTO> dtoTeaching = abstractDTOFactory.getDTO("Teaching");
-        return dtoTeaching.create(teachingRepository.save(domainTeaching.create(teachingDTO)));
-    }
-
-    public void remove(int id) throws TeachingNotFoundException{
+        Domain<CourseDTO, Course> courseDomain = abstractDomainFactory.getDomain("COURSE");
+        Course course = null;
         try {
-            Teaching teaching = teachingRepository.findTeachingById_IdTeaching(id);
-            teachingRepository.delete(teaching);
-        } catch (Exception e) {
-            throw new TeachingNotFoundException();
+            course = courseServices.getDomainById(teachingDTO.getIdCourse());
+        } catch (CourseNotFoundException e) {
+            e.printStackTrace();
         }
 
+        Professor professor = null;
+        try {
+            professor = professorServices.getDomainById(teachingDTO.getIdProfessor());
+        } catch (ProfessorNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        TeachingId teachingId = new TeachingId();
+        teachingId.setCourseIdCourse(course.getIdCourse());
+        teachingId.setProfessorIdProfessor(professor.getId().getIdProfessor());
+        teachingId.setProfessorUserIdUser(professor.getId().getUserIdUser());
+
+
+        Teaching teaching = new Teaching();
+        teaching.setCredits(teachingDTO.getCredits());
+        teaching.setName(teachingDTO.getName());
+        teaching.setYear(teachingDTO.getYear());
+        teaching.setCourse(course);
+        teaching.setProfessor(professor);
+
+        teaching.setId(teachingId);
+        return dtoTeaching.create(teachingRepository.save(teaching));
     }
 }

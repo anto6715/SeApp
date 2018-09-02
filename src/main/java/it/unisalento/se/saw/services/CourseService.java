@@ -63,8 +63,12 @@ public class CourseService implements ICourseServices {
         }
     }
 
-    public Course getDomainById(int id) {
-        return courseRepository.getOne(id);
+    public Course getDomainById(int id) throws CourseNotFoundException {
+        try {
+            return courseRepository.getOne(id);
+        } catch (Exception e) {
+            throw new CourseNotFoundException();
+        }
     }
 
 }

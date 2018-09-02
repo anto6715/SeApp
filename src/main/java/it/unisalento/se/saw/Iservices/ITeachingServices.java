@@ -16,8 +16,7 @@ public interface ITeachingServices {
     public TeachingDTO getByNameAndIdProf(String name, int idCourse) throws TeachingNotFoundException;
     public Set<TeachingDTO> getByIdCourse(int id);
     public Set<TeachingDTO> getByProf(int id);
-    public TeachingDTO save(TeachingDTO teachingDTO) throws CourseNotFoundException, ProfessorNotFoundException;
-    public void remove(int id) throws TeachingNotFoundException;
+    public TeachingDTO save(TeachingDTO teachingDTO);
     public Teaching getDomainById(int id) throws TeachingNotFoundException;
 
 }

@@ -17,6 +17,7 @@ import it.unisalento.se.saw.models.DTOFactory.DTO;
 import it.unisalento.se.saw.models.DomainFactory.Domain;
 import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.StudentRepository;
+import it.unisalento.se.saw.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,7 +33,7 @@ public class StudentService implements IStudentServices {
     @Autowired
     StudentRepository studentRepository;
     @Autowired
-    IUserServices userServices;
+    UserRepository userRepository;
 
     @Autowired
     ICourseServices courseServices;
@@ -78,16 +79,11 @@ public class StudentService implements IStudentServices {
     @Transactional
     public StudentDTO save(StudentDTO studentDTO) throws CourseNotFoundException {
         Domain<StudentDTO, User> domain = domainFactory.getDomain("USER");
-        Domain<UserDTO,User> domainUserDTOUser = domainFactory.getDomain("User");
-        Domain<CourseDTO, Course> domainCourse = domainFactory.getDomain("COURSE");
-        DTO<User,UserDTO> dtoUser = dtoFactory.getDTO("User");
         DTO<Student,StudentDTO> dtoStudent = dtoFactory.getDTO("User");
 
         User user = domain.create(studentDTO);
-        System.out.println(studentDTO.getUid());
-        System.out.println(user.getUid());
 
-        User saveUser = domainUserDTOUser.create(userServices.save(dtoUser.create(user)));
+        User saveUser = userRepository.save(user);
         Course course = courseServices.getDomainById(studentDTO.getIdCourse());
 
         StudentId studentId = new StudentId();

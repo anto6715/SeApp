@@ -13,5 +13,5 @@ public interface ICourseServices {
     public CourseDTO getByName(String name) throws CourseNotFoundException;
     public CourseDTO save(CourseDTO courseDTO);
     public CourseDTO getById(int id) throws CourseNotFoundException;
-    public Course getDomainById(int id);
+    public Course getDomainById(int id) throws CourseNotFoundException;
 }
