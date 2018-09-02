@@ -7,6 +7,7 @@ import it.unisalento.se.saw.dto.SegnalationDTO;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
 import it.unisalento.se.saw.exceptions.SegnalationNotFoundException;
+import it.unisalento.se.saw.exceptions.SegnalationStateNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.DTOFactory.DTO;
 import it.unisalento.se.saw.models.FactoryProducer;
@@ -24,16 +25,6 @@ public class SegnalationRestController {
     @Autowired
     ISegnalationServices segnalationServices;
 
-    AbstractFactory abstractDTOFactory;
-
-    public SegnalationRestController() {
-        super();
-        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
-    }
-
-    public SegnalationRestController(ISegnalationServices segnalationServices) {
-        this.segnalationServices = segnalationServices;
-    }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<SegnalationDTO> getAll() {
@@ -41,21 +32,13 @@ public class SegnalationRestController {
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public SegnalationDTO save(@RequestBody SegnalationDTO segnalationDTO) throws RoomNotFoundException, ProfessorNotFoundException {
-        try {
-            return segnalationServices.save(segnalationDTO);
-        } catch (Exception e) {
-            throw new RoomNotFoundException();
-        }
+    public SegnalationDTO save(@RequestBody SegnalationDTO segnalationDTO) throws SegnalationStateNotFoundException, ProfessorNotFoundException, RoomNotFoundException {
+        return segnalationServices.save(segnalationDTO);
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public SegnalationDTO getById(@PathVariable int id) throws SegnalationNotFoundException {
-        try {
-            return segnalationServices.getById(id);
-        } catch (Exception e) {
-            throw new SegnalationNotFoundException();
-        }
+        return segnalationServices.getById(id);
     }
 
     @RequestMapping(value = "/getByRoom/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

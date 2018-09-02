@@ -3,9 +3,11 @@ package it.unisalento.se.saw.restapi;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.unisalento.se.saw.Iservices.ISegnalationStateServices;
 import it.unisalento.se.saw.dto.SegnalationStateDTO;
+import it.unisalento.se.saw.tools.Tools;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
@@ -43,11 +45,12 @@ public class SegnalationStateRestControllerTest {
     @Mock
     ISegnalationStateServices segnalationStateServicesMock;
 
+    @InjectMocks
+    SegnalationStateRestController segnalationStateRestController;
+
     @Before
     public void setUp(){
-        mockMvc = MockMvcBuilders.standaloneSetup(new SegnalationStateRestController(segnalationStateServicesMock))
-                .setViewResolvers(viewResolver())
-                .build();
+        mockMvc = Tools.getMockMvc(segnalationStateRestController);
     }
 
     @Test
@@ -93,7 +96,7 @@ public class SegnalationStateRestControllerTest {
         SegnalationStateDTO segnalationStateDTO = new SegnalationStateDTO();
         segnalationStateDTO.setId(1);
         segnalationStateDTO.setState("inviata");
-        String json = new ObjectMapper().writeValueAsString(segnalationStateDTO);
+        String json = Tools.getJson(segnalationStateDTO);
 
         when(segnalationStateServicesMock.save(any(SegnalationStateDTO.class))).thenReturn(segnalationStateDTO);
 
@@ -107,13 +110,5 @@ public class SegnalationStateRestControllerTest {
 
         verify(segnalationStateServicesMock, times(1)).save(refEq(segnalationStateDTO));
         verifyNoMoreInteractions(segnalationStateServicesMock);
-    }
-
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/templates/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
     }
 }

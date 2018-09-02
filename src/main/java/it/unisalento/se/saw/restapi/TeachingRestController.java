@@ -20,15 +20,6 @@ public class TeachingRestController {
     ITeachingServices teachingServices;
 
 
-
-    public TeachingRestController() {
-        super();
-    }
-
-    public TeachingRestController(ITeachingServices teachingServices) {
-        this.teachingServices = teachingServices;
-    }
-
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<TeachingDTO> getAll() {
         return teachingServices.getAll();
@@ -47,7 +38,6 @@ public class TeachingRestController {
     @RequestMapping(value = "/getByIdCourse/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<TeachingDTO> getByIdCourse(@PathVariable int id) throws TeachingNotFoundException {
         return teachingServices.getByIdCourse(id);
-
     }
 
     @RequestMapping(value = "/getByIdProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -58,20 +48,11 @@ public class TeachingRestController {
 
     @RequestMapping(value = "/getByNameAndIdCourse/{name}_{idCourse}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public TeachingDTO getByNameAndIdCourse(@PathVariable("name") String name, @PathVariable("idCourse") int idCourse) throws TeachingNotFoundException {
-        try {
-
-            return teachingServices.getByNameAndIdCourse(name, idCourse);
-        } catch (Exception e) {
-            throw new TeachingNotFoundException();
-        }
+        return teachingServices.getByNameAndIdCourse(name, idCourse);
     }
 
     @RequestMapping(value = "/getByNameAndIdProf/{name}_{idProf}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public TeachingDTO getByNameAndIdProf(@PathVariable("name") String name, @PathVariable("idProf") int idProf) throws TeachingNotFoundException {
-        try {
-            return teachingServices.getByNameAndIdProf(name, idProf);
-        } catch (Exception e) {
-            throw new TeachingNotFoundException();
-        }
+        return teachingServices.getByNameAndIdProf(name, idProf);
     }
 }

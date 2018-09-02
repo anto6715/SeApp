@@ -1,20 +1,15 @@
 package it.unisalento.se.saw.restapi;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 import it.unisalento.se.saw.Iservices.ISegnalationServices;
-import it.unisalento.se.saw.domain.Segnalation;
 import it.unisalento.se.saw.dto.SegnalationDTO;
+import it.unisalento.se.saw.tools.Tools;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
 
 import java.nio.charset.Charset;
 import java.util.HashSet;
@@ -46,11 +41,12 @@ public class SegnalationRestControllerTest {
     @Mock
     ISegnalationServices segnalationServicesMock;
 
+    @InjectMocks
+    SegnalationRestController segnalationRestController;
+
     @Before
     public void setUp(){
-        mockMvc = MockMvcBuilders.standaloneSetup(new SegnalationRestController(segnalationServicesMock))
-                .setViewResolvers(viewResolver())
-                .build();
+        mockMvc = Tools.getMockMvc(segnalationRestController);
     }
 
     @Test
@@ -177,7 +173,7 @@ public class SegnalationRestControllerTest {
         segnalationDTO.setDescription("description");
         segnalationDTO.setId(2);
 
-        String json = new ObjectMapper().writeValueAsString(segnalationDTO);
+        String json = Tools.getJson(segnalationDTO);
 
         when(segnalationServicesMock.save(any(SegnalationDTO.class))).thenReturn(segnalationDTO);
 
@@ -195,14 +191,5 @@ public class SegnalationRestControllerTest {
 
         verify(segnalationServicesMock, times(1)).save(refEq(segnalationDTO));
         verifyNoMoreInteractions(segnalationServicesMock);
-    }
-
-
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/templates/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
     }
 }

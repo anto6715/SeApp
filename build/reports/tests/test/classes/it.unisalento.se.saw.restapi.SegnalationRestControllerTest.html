@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.217s</div>
+<div class="counter">0.453s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,27 +79,27 @@
 </thead>
 <tr>
 <td class="success">getAllTest</td>
-<td class="success">0.033s</td>
+<td class="success">0.091s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByIdTest</td>
-<td class="success">0.060s</td>
+<td class="success">0.101s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByProfTest</td>
-<td class="success">0.039s</td>
+<td class="success">0.074s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByRoomTest</td>
-<td class="success">0.050s</td>
+<td class="success">0.118s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">saveTest</td>
-<td class="success">0.035s</td>
+<td class="success">0.069s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -107,51 +107,51 @@
 <div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>1058 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.save(it.unisalento.se.saw.dto.SegnalationDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-1059 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getAll()
-1059 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationNotFoundException
-1060 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByIdProfessor/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByProfessor(int)
-1060 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByRoom(int)
-1068 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@6b93998c
-1070 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-1070 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-1070 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-1102 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.save(it.unisalento.se.saw.dto.SegnalationDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-1103 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getAll()
-1103 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationNotFoundException
-1104 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByIdProfessor/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByProfessor(int)
-1109 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByRoom(int)
-1117 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5e183d0f
-1121 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-1121 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-1122 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
-1140 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.save(it.unisalento.se.saw.dto.SegnalationDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-1141 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getAll()
-1141 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationNotFoundException
-1141 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByIdProfessor/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByProfessor(int)
-1141 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByRoom(int)
-1157 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@34d21300
-1170 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-1172 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-1173 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
-1207 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.save(it.unisalento.se.saw.dto.SegnalationDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-1208 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getAll()
-1209 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationNotFoundException
-1210 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByIdProfessor/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByProfessor(int)
-1212 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByRoom(int)
-1222 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@68a7b487
-1229 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-1229 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-1229 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-1240 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.save(it.unisalento.se.saw.dto.SegnalationDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-1241 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getAll()
-1244 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationNotFoundException
-1246 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByIdProfessor/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByProfessor(int)
-1247 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByRoom(int)
-1260 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@3200ac7b
-1264 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-1264 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-1265 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+<pre>2315 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.save(it.unisalento.se.saw.dto.SegnalationDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+2316 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getAll()
+2326 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationNotFoundException
+2327 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByRoom(int)
+2330 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByIdProfessor/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByProfessor(int)
+2355 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@35f4a998
+2361 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2362 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2368 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2430 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.save(it.unisalento.se.saw.dto.SegnalationDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+2431 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getAll()
+2431 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationNotFoundException
+2432 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByRoom(int)
+2432 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByIdProfessor/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByProfessor(int)
+2448 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@545fd270
+2454 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2455 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2455 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2495 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.save(it.unisalento.se.saw.dto.SegnalationDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+2496 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getAll()
+2497 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationNotFoundException
+2498 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByRoom(int)
+2499 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByIdProfessor/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByProfessor(int)
+2534 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5a68775a
+2576 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2576 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2577 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2623 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.save(it.unisalento.se.saw.dto.SegnalationDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+2632 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getAll()
+2633 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationNotFoundException
+2636 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByRoom(int)
+2638 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByIdProfessor/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByProfessor(int)
+2665 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@43e9c81c
+2670 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2670 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2671 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+2688 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.save(it.unisalento.se.saw.dto.SegnalationDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+2689 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getAll()
+2696 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationDTO it.unisalento.se.saw.restapi.SegnalationRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationNotFoundException
+2699 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByRoom(int)
+2701 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalation/getByIdProfessor/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationDTO&gt; it.unisalento.se.saw.restapi.SegnalationRestController.getByProfessor(int)
+2739 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@544fadd3
+2743 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2745 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2745 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
 </pre>
 </span>
 </div>
@@ -163,7 +163,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.8</a> at 1-set-2018 20.05.53</p>
+<a href="http://www.gradle.org">Gradle 4.8</a> at 2-set-2018 12.12.15</p>
 </div>
 </div>
 </body>

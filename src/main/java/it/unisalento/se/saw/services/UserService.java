@@ -60,7 +60,8 @@ public class UserService implements IUserServices {
     public UserDTO getById(int id) throws UserNotFoundException {
         try {
             DTO<User, UserDTO> dto = abstractDTOFactory.getDTO("User");
-            return dto.create(userRepository.getOne(id));
+            User user = userRepository.getOne(id);
+            return dto.create(user);
         } catch (Exception e) {
             throw new UserNotFoundException();
         }

@@ -24,41 +24,21 @@ public class StudentRestController {
     @Autowired
     IStudentServices studentServices;
 
-    AbstractFactory abstractDTOFactory;
-
-    public StudentRestController() {
-        super();
-    }
-
-    public StudentRestController(IStudentServices studentServices) {
-        this.studentServices = studentServices;
-    }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ManyToOne
     public Set<StudentDTO> getAll(){
         return studentServices.getAll();
     }
 
     @RequestMapping(value = "getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public StudentDTO getById(@PathVariable("id") int id) throws StudentNotFoundException {
-        try{
             return studentServices.getById(id);
-        } catch (Exception e) {
-            System.out.println("Utente non trovato");
-        }
-        return null;
     }
 
 
     @RequestMapping(value = "getByUid/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public StudentDTO getByUid(@PathVariable("uid") String uid) throws StudentNotFoundException {
-        try{
-            return studentServices.getByUid(uid);
-        } catch (Exception e) {
-            System.out.println("Utente non trovato");
-        }
-        return null;
+        return studentServices.getByUid(uid);
     }
 
     @RequestMapping(value = "getByCourse/{idCourse}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

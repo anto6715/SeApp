@@ -3,24 +3,17 @@ package it.unisalento.se.saw.restapi;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.unisalento.se.saw.Iservices.ITeachingServices;
 import it.unisalento.se.saw.dto.TeachingDTO;
+import it.unisalento.se.saw.tools.Tools;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.invocation.InvocationOnMock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.mockito.stubbing.Answer;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
-
 import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
@@ -29,7 +22,6 @@ import static org.mockito.Mockito.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -48,11 +40,12 @@ public class TeachingRestControllerTest {
     @Mock
     ITeachingServices teachingServicesMock;
 
+    @InjectMocks
+    TeachingRestController teachingRestController;
+
     @Before
     public void setUp(){
-        mockMvc = MockMvcBuilders.standaloneSetup(new TeachingRestController(teachingServicesMock))
-                .setViewResolvers(viewResolver())
-                .build();
+        mockMvc = Tools.getMockMvc(teachingRestController);
     }
 
     @Test
@@ -158,7 +151,7 @@ public class TeachingRestControllerTest {
         teachingDTO.setCredits(2);
         teachingDTO.setId(10);
 
-        String json = new ObjectMapper().writeValueAsString(teachingDTO);
+        String json = Tools.getJson(teachingDTO);
 
         when(teachingServicesMock.save(any(TeachingDTO.class))).thenReturn(teachingDTO);
         mockMvc.perform(post("/teaching/save")
@@ -281,12 +274,4 @@ public class TeachingRestControllerTest {
         verifyNoMoreInteractions(teachingServicesMock);
     }
 
-
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/templates/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
-    }
 }

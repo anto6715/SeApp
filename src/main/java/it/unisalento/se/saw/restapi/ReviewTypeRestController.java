@@ -18,13 +18,6 @@ public class ReviewTypeRestController {
     @Autowired
     IReviewTypeServices reviewTypeServices;
 
-    public ReviewTypeRestController() {
-        super();
-    }
-
-    public ReviewTypeRestController(IReviewTypeServices reviewTypeServices) {
-        this.reviewTypeServices = reviewTypeServices;
-    }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ReviewType> getAll() {
@@ -38,11 +31,7 @@ public class ReviewTypeRestController {
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ReviewType getById(@PathVariable int id) throws ReviewTypeNotFoundException {
-        try {
-            return reviewTypeServices.getById(id);
-        } catch (Exception e) {
-            throw new ReviewTypeNotFoundException();
-        }
+        return reviewTypeServices.getById(id);
     }
 
 

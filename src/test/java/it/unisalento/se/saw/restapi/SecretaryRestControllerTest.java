@@ -1,24 +1,19 @@
 package it.unisalento.se.saw.restapi;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 import it.unisalento.se.saw.Iservices.ISecretaryServices;
 import it.unisalento.se.saw.dto.SecretaryDTO;
+import it.unisalento.se.saw.tools.Tools;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
 
 import java.nio.charset.Charset;
 
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Mockito.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -41,11 +36,12 @@ public class SecretaryRestControllerTest {
     @Mock
     ISecretaryServices secretaryServicesMock;
 
+    @InjectMocks
+    SecretaryRestController secretaryRestController;
+
     @Before
     public void setUp(){
-        mockMvc = MockMvcBuilders.standaloneSetup(new SecretaryRestController(secretaryServicesMock))
-                .setViewResolvers(viewResolver())
-                .build();
+        mockMvc = Tools.getMockMvc(secretaryRestController);
     }
 
     @Test
@@ -124,7 +120,7 @@ public class SecretaryRestControllerTest {
         secretaryDTO.setUserType(2);
         secretaryDTO.setIdUser(4);
         secretaryDTO.setToken("token");
-        String json = new ObjectMapper().writeValueAsString(secretaryDTO);
+        String json = Tools.getJson(secretaryDTO);
 
         when(secretaryServicesMock.save(any(SecretaryDTO.class))).thenReturn(secretaryDTO);
 
@@ -145,13 +141,5 @@ public class SecretaryRestControllerTest {
 
         verify(secretaryServicesMock, times(1)).save(refEq(secretaryDTO));
         verifyNoMoreInteractions(secretaryServicesMock);
-    }
-
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/templates/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
     }
 }

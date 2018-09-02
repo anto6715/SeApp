@@ -21,12 +21,6 @@ public class RoomRestController {
     @Autowired
     IRoomServices roomServices;
 
-    AbstractFactory abstractDTOFactory;
-
-    public RoomRestController() {
-        super();
-        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
-    }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<RoomDTO> getAll() {
@@ -40,19 +34,12 @@ public class RoomRestController {
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public RoomDTO getById(@PathVariable int id) throws RoomNotFoundException {
-        try {
-            return roomServices.getById(id);
-        } catch (Exception e) {
-            throw new RoomNotFoundException();
-        }
+        return roomServices.getById(id);
     }
 
     @RequestMapping(value = "/getByCapacity/{capacity}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<RoomDTO> getByCapacity(@PathVariable int capacity) throws RoomNotFoundException {
-        try {
-            return roomServices.getByCapacity(capacity);
-        } catch (Exception e) {
-            throw new RoomNotFoundException();
-        }
+    public Set<RoomDTO> getByCapacity(@PathVariable int capacity) {
+        return roomServices.getByCapacity(capacity);
+
     }
 }

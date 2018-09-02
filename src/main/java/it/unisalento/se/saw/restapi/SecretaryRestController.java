@@ -22,20 +22,6 @@ public class SecretaryRestController {
     @Autowired
     ISecretaryServices secretaryServices;
 
-
-
-
-    public SecretaryRestController() {
-        super();
-    }
-
-    public SecretaryRestController(ISecretaryServices secretaryServicesMock) {
-        this.secretaryServices = secretaryServicesMock;
-    }
-
-
-
-
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public SecretaryDTO getById(@PathVariable("id") int id) throws SecretaryNotFoundException {
         return  secretaryServices.getById(id);

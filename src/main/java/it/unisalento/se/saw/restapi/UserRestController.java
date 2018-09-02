@@ -40,17 +40,8 @@ public class UserRestController {
     @Autowired
     ISecretaryServices secretaryServices;
 
-    AbstractFactory abstractDTOFactory;
+    AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
 
-    public UserRestController() {
-        super();
-        this.getFactory();
-    }
-
-    public UserRestController(IUserServices userServices) {
-        this.userServices = userServices;
-        this.getFactory();
-    }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ManyToOne
@@ -61,11 +52,7 @@ public class UserRestController {
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public UserDTO getById(@PathVariable("id") int id) throws UserNotFoundException{
-        try{
-            return userServices.getById(id);
-        } catch (Exception e) {
-            throw new UserNotFoundException();
-        }
+        return userServices.getById(id);
 
     }
 
@@ -77,7 +64,7 @@ public class UserRestController {
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)      // va usata la domain factory
-    public UserDTO post(@RequestBody UserDTO userDTO) {
+    public UserDTO save(@RequestBody UserDTO userDTO) {
         return userServices.save(userDTO);
     }
 
@@ -85,10 +72,6 @@ public class UserRestController {
     public TokenDTO addFcmToken(@RequestBody TokenDTO tokenDTO) {
         return userServices.addFcmToken(tokenDTO);
 
-    }
-
-    public void getFactory() {
-        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
     }
 
 

@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
 import javax.persistence.OneToOne;
 import java.util.List;
 import java.util.Set;
@@ -51,12 +52,13 @@ public class StudentService implements IStudentServices {
 
     @Transactional(readOnly = true)
     public StudentDTO getById(int id) throws StudentNotFoundException {
-        try {
+        try{
             DTO<Student, StudentDTO> dto = dtoFactory.getDTO("Student");
             return dto.create(studentRepository.findStudentById_IdStudent(id));
         } catch (Exception e) {
             throw new StudentNotFoundException();
         }
+
     }
 
     @Transactional(readOnly = true)
@@ -87,7 +89,7 @@ public class StudentService implements IStudentServices {
     @Transactional
     public StudentDTO save(StudentDTO studentDTO) {
         Domain<StudentDTO, User> domain = domainFactory.getDomain("USER");
-        DTO<Student,StudentDTO> dtoStudent = dtoFactory.getDTO("User");
+        DTO<Student,StudentDTO> dtoStudent = dtoFactory.getDTO("Student");
 
         User user = domain.create(studentDTO);
 

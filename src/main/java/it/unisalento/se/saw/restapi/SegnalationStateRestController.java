@@ -20,14 +20,6 @@ public class SegnalationStateRestController {
     @Autowired
     ISegnalationStateServices segnalationStateServices;
 
-    public  SegnalationStateRestController(){
-        super();
-    }
-
-    public SegnalationStateRestController(ISegnalationStateServices segnalationStateServices) {
-        this.segnalationStateServices = segnalationStateServices;
-    }
-
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<SegnalationStateDTO> getAll() {
         return segnalationStateServices.getAll();
@@ -40,10 +32,6 @@ public class SegnalationStateRestController {
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public SegnalationStateDTO getById(@PathVariable int id) throws SegnalationStateNotFoundException {
-        try {
-            return segnalationStateServices.getById(id);
-        } catch (Exception e) {
-            throw new SegnalationStateNotFoundException();
-        }
+        return segnalationStateServices.getById(id);
     }
 }

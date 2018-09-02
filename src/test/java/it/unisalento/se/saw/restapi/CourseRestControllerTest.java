@@ -1,27 +1,23 @@
 package it.unisalento.se.saw.restapi;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
+;
 import it.unisalento.se.saw.Iservices.ICourseServices;
 import it.unisalento.se.saw.Iservices.IProfessorServices;
 import it.unisalento.se.saw.dto.CourseDTO;
+import it.unisalento.se.saw.tools.Tools;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
 
 import java.nio.charset.Charset;
 import java.util.HashSet;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Mockito.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -46,11 +42,12 @@ public class CourseRestControllerTest {
     @Mock
     IProfessorServices professorServicesMock;
 
+    @InjectMocks
+    CourseRestController courseRestController;
+
     @Before
     public void setUp(){
-        mockMvc = MockMvcBuilders.standaloneSetup(new CourseRestController(courseServicesMock, professorServicesMock))
-                .setViewResolvers(viewResolver())
-                .build();
+        mockMvc = Tools.getMockMvc(courseRestController);
     }
 
     @Test
@@ -121,7 +118,7 @@ public class CourseRestControllerTest {
         courseDTO.setLocation("Lecce");
         courseDTO.setLanguage("English");
         courseDTO.setName("name");
-        String json = new ObjectMapper().writeValueAsString(courseDTO);
+        String json = Tools.getJson(courseDTO);
 
         when(courseServicesMock.save(any(CourseDTO.class))).thenReturn(courseDTO);
 
@@ -140,13 +137,5 @@ public class CourseRestControllerTest {
 
         verify(courseServicesMock, times(1)).save(refEq(courseDTO));
         verifyNoMoreInteractions(courseServicesMock);
-    }
-
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/templates/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
     }
 }

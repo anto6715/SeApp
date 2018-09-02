@@ -31,18 +31,7 @@ public class CourseRestController {
     IProfessorServices professorServices;
 
 
-    AbstractFactory dtoFactory;
-
-    public CourseRestController() {
-        super();
-        dtoFactory = FactoryProducer.getFactory("DTO");
-    }
-
-    public CourseRestController(ICourseServices courseServices, IProfessorServices professorServices) {
-        this.courseServices = courseServices;
-        this.professorServices = professorServices;
-        dtoFactory = FactoryProducer.getFactory("DTO");
-    }
+    AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");;
 
     public CourseRestController(ICourseServices courseServices) {
         this.courseServices = courseServices;

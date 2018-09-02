@@ -3,9 +3,11 @@ package it.unisalento.se.saw.restapi;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.unisalento.se.saw.Iservices.IStudentServices;
 import it.unisalento.se.saw.dto.StudentDTO;
+import it.unisalento.se.saw.tools.Tools;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
@@ -43,11 +45,12 @@ public class StudentRestControllerTest {
     @Mock
     IStudentServices studentServicesMock;
 
+    @InjectMocks
+    StudentRestController studentRestController;
+
     @Before
     public void setUp(){
-        mockMvc = MockMvcBuilders.standaloneSetup(new StudentRestController(studentServicesMock))
-                .setViewResolvers(viewResolver())
-                .build();
+        mockMvc = Tools.getMockMvc(studentRestController);
     }
 
     @Test
@@ -176,7 +179,7 @@ public class StudentRestControllerTest {
         studentDTO.setMatricola("matricola");
         studentDTO.setYear(4);
         studentDTO.setUid("uid");
-        String json = new ObjectMapper().writeValueAsString(studentDTO);
+        String json = Tools.getJson(studentDTO);
 
         when(studentServicesMock.save(any(StudentDTO.class))).thenReturn(studentDTO);
 
@@ -198,11 +201,4 @@ public class StudentRestControllerTest {
     }
 
 
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/templates/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
-    }
 }

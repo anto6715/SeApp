@@ -1,23 +1,19 @@
 package it.unisalento.se.saw.restapi;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import it.unisalento.se.saw.Iservices.IStudentServices;
 import it.unisalento.se.saw.Iservices.IUserServices;
-import it.unisalento.se.saw.domain.Student;
 import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.dto.TokenDTO;
 import it.unisalento.se.saw.dto.UserDTO;
+import it.unisalento.se.saw.tools.Tools;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -47,11 +43,12 @@ public class UserRestControllerTest {
     @Mock
     private IStudentServices studentServices;
 
+    @InjectMocks
+    UserRestController userRestController;
+
     @Before
     public void setUp(){
-        mockMvc = MockMvcBuilders.standaloneSetup(new UserRestController(userServicesMock))
-                .setViewResolvers(viewResolver())
-                .build();
+        mockMvc = Tools.getMockMvc(userRestController);
     }
 
     @Test
@@ -93,7 +90,7 @@ public class UserRestControllerTest {
         TokenDTO tokenDTO = new TokenDTO();
         tokenDTO.setToken("123");
         tokenDTO.setIdUser(32);
-        String json = new ObjectMapper().writeValueAsString(tokenDTO);
+        String json = Tools.getJson(tokenDTO);
 
         when(userServicesMock.addFcmToken(any(TokenDTO.class))).thenReturn(tokenDTO);
 
@@ -186,12 +183,41 @@ public class UserRestControllerTest {
         verifyNoMoreInteractions(userServicesMock);
     }
 
+    @Test
+    public void saveTest() throws Exception {
 
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/templates/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserType(1);
+        userDTO.setToken(null);
+        userDTO.setUid("MQqa7A80zxQPvY5VV6oeFSBM33o1");
+        userDTO.setAge(25);
+        userDTO.setEmail("prova@email.it");
+        userDTO.setSurname("Mariani");
+        userDTO.setName("Antonio");
+        userDTO.setIdUser(1);
+        String json = Tools.getJson(userDTO);
+
+
+        when(userServicesMock.save(any(UserDTO.class))).thenReturn(userDTO);
+
+
+        mockMvc.perform(post("/user/save")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content(json))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(APPLICATION_JSON_UTF))
+                .andExpect(jsonPath("$.idUser", is(1)))
+                .andExpect(jsonPath("$.name", is("Antonio")))
+                .andExpect(jsonPath("$.surname", is("Mariani")))
+                .andExpect(jsonPath("$.email", is("prova@email.it")))
+                .andExpect(jsonPath("$.age", is(25)))
+                .andExpect(jsonPath("$.uid", is("MQqa7A80zxQPvY5VV6oeFSBM33o1")))
+                .andExpect(jsonPath("$.token", is(nullValue())))
+                .andExpect(jsonPath("$.userType", is(1)));
+
+        verify(userServicesMock, times(1)).save(refEq(userDTO));
+        verifyNoMoreInteractions(userServicesMock);
     }
+
+
 }
