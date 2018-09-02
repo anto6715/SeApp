@@ -2,12 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6689836d-55da-4a68-a228-547743152f98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/ReviewTypeDTOModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetReviewTypeDTOModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/IReviewTypeServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/IReviewTypeServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DtoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DtoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/ReviewTypeRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/ReviewTypeRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ReviewTypeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ReviewTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/ReviewRestControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/ReviewRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/it/unisalento/se/saw/restapi/ReviewRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/gretty_ports.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/gretty_ports.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/IReviewTypeServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/Iservices/IReviewTypeServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/dto/ReviewTypeDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/dto/ReviewTypeDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/DTOFactory/DtoFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/models/DTOFactory/DtoFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/ReviewTypeRestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/restapi/ReviewTypeRestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/ReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/ReviewService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/ReviewTypeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/ReviewTypeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/StudentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/it/unisalento/se/saw/services/StudentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/ReviewRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/ReviewRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/ReviewTypeRestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/ReviewTypeRestControllerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -103,27 +110,27 @@
         <counts>
           <entry key="gradle" value="4" />
           <entry key="html" value="1" />
-          <entry key="java" value="762" />
+          <entry key="java" value="769" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="4" />
           <entry key="HTML" value="1" />
-          <entry key="JAVA" value="762" />
+          <entry key="JAVA" value="769" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="25" />
           <entry key="gradle" value="13" />
-          <entry key="java" value="29857" />
+          <entry key="java" value="30517" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="13" />
-          <entry key="JAVA" value="29857" />
+          <entry key="JAVA" value="30517" />
           <entry key="PLAIN_TEXT" value="25" />
         </counts>
       </usages-collector>
@@ -132,76 +139,42 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/ReviewTypeRestControllerTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/RoomRestControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+            <state relative-caret-position="121">
+              <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#getAllTest#0;class#RoomRestControllerTest#0" />
+                <element signature="method#getByIdTest#0;class#RoomRestControllerTest#0" />
+                <element signature="method#getByCapacity#0;class#RoomRestControllerTest#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/ReviewRestControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="454">
+              <caret line="190" column="41" selection-start-line="190" selection-start-column="41" selection-end-line="190" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#getByIdTest#0;class#ReviewRestControllerTest#0" />
+                <element signature="method#getByIdStudentAndIdMaterialTest#0;class#ReviewRestControllerTest#0" />
+                <element signature="method#getByIdStudentAndIdLessonTest#0;class#ReviewRestControllerTest#0" />
+                <element signature="method#saveTest#0;class#ReviewRestControllerTest#0" />
+                <element signature="method#getByIdStudentAndIdLessonTest#2;class#ReviewRestControllerTest#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/ReviewDTO.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/ReviewRestController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ReviewTypeService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="44" column="63" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DtoFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/StudentDTOModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/UserDTOModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="712">
-              <caret line="51" selection-start-line="51" selection-end-line="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/UserDTO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/StudentService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="95" column="50" lean-forward="true" selection-start-line="95" selection-start-column="50" selection-end-line="95" selection-end-column="50" />
+            <state relative-caret-position="177">
+              <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -866,9 +839,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/ReviewRestController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/IProfessorServices.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/ProfessorRestController.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ProfessorService.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/IMaterialServices.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/MaterialRestController.java" />
@@ -909,14 +879,17 @@
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/RoomRestController.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/RoomRestControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/ReviewTypeDTO.java" />
-        <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/ReviewTypeRestControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/StudentService.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/ReviewTypeRestController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ReviewTypeService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/IReviewTypeServices.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/ReviewTypeDTOModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetReviewTypeDTODomain.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ReviewService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/IReviewTypeServices.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ReviewTypeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DtoFactory.java" />
+        <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/ReviewTypeRestControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/ReviewRestController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/ReviewRestControllerTest.java" />
       </list>
     </option>
   </component>
@@ -987,38 +960,7 @@
               <item name="unisalento" type="1f31426a:PackageElementNode" />
               <item name="se" type="1f31426a:PackageElementNode" />
               <item name="saw" type="1f31426a:PackageElementNode" />
-              <item name="models" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-              <item name="unisalento" type="1f31426a:PackageElementNode" />
-              <item name="se" type="1f31426a:PackageElementNode" />
-              <item name="saw" type="1f31426a:PackageElementNode" />
-              <item name="models" type="1f31426a:PackageElementNode" />
-              <item name="DTOFactory" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-              <item name="unisalento" type="1f31426a:PackageElementNode" />
-              <item name="se" type="1f31426a:PackageElementNode" />
-              <item name="saw" type="1f31426a:PackageElementNode" />
               <item name="restapi" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
-              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
-              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
-              <item name="it" type="1f31426a:PackageElementNode" />
-              <item name="unisalento" type="1f31426a:PackageElementNode" />
-              <item name="se" type="1f31426a:PackageElementNode" />
-              <item name="saw" type="1f31426a:PackageElementNode" />
-              <item name="services" type="1f31426a:PackageElementNode" />
             </path>
             <path>
               <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
@@ -1173,7 +1115,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535891298732" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535892938324" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -1197,26 +1139,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.SeApp [appStart]">
-    <configuration name="SeApp [appStart]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="appStart" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <method v="2" />
-    </configuration>
-    <configuration name="RoomRestControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ReviewRestControllerTest.getByIdMaterial">
+    <configuration name="ReviewRestControllerTest.getByIdLessonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeApp_test" />
       <extension name="coverage">
         <pattern>
@@ -1225,28 +1149,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="it.unisalento.se.saw.restapi" />
-      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.restapi.RoomRestControllerTest" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RoomRestControllerTest.getByCapacity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SeApp_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.unisalento.se.saw.restapi.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.unisalento.se.saw.restapi" />
-      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.restapi.RoomRestControllerTest" />
-      <option name="METHOD_NAME" value="getByCapacity" />
+      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.restapi.ReviewRestControllerTest" />
+      <option name="METHOD_NAME" value="getByIdLessonTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoomRestControllerTest.getById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReviewRestControllerTest.getByIdMaterial" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeApp_test" />
       <extension name="coverage">
         <pattern>
@@ -1255,14 +1165,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="it.unisalento.se.saw.restapi" />
-      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.restapi.RoomRestControllerTest" />
-      <option name="METHOD_NAME" value="getById" />
+      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.restapi.ReviewRestControllerTest" />
+      <option name="METHOD_NAME" value="getByIdMaterial" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoomRestControllerTest.save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReviewRestControllerTest.getByIdStudentAndIdLessonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeApp_test" />
       <extension name="coverage">
         <pattern>
@@ -1271,27 +1181,59 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="it.unisalento.se.saw.restapi" />
-      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.restapi.RoomRestControllerTest" />
-      <option name="METHOD_NAME" value="save" />
+      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.restapi.ReviewRestControllerTest" />
+      <option name="METHOD_NAME" value="getByIdStudentAndIdLessonTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReviewRestControllerTest.getByIdStudentAndIdMaterialTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeApp_test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.unisalento.se.saw.restapi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.unisalento.se.saw.restapi" />
+      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.restapi.ReviewRestControllerTest" />
+      <option name="METHOD_NAME" value="getByIdStudentAndIdMaterialTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReviewRestControllerTest.saveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeApp_test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="it.unisalento.se.saw.restapi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="it.unisalento.se.saw.restapi" />
+      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.restapi.ReviewRestControllerTest" />
+      <option name="METHOD_NAME" value="saveTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.RoomRestControllerTest.getById" />
-      <item itemvalue="JUnit.RoomRestControllerTest.save" />
-      <item itemvalue="JUnit.RoomRestControllerTest.getByCapacity" />
-      <item itemvalue="JUnit.RoomRestControllerTest" />
-      <item itemvalue="Gradle.SeApp [appStart]" />
+      <item itemvalue="JUnit.ReviewRestControllerTest.getByIdStudentAndIdMaterialTest" />
+      <item itemvalue="JUnit.ReviewRestControllerTest.getByIdStudentAndIdLessonTest" />
+      <item itemvalue="JUnit.ReviewRestControllerTest.saveTest" />
+      <item itemvalue="JUnit.ReviewRestControllerTest.getByIdLessonTest" />
+      <item itemvalue="JUnit.ReviewRestControllerTest.getByIdMaterial" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.SeApp [appStart]" />
-        <item itemvalue="JUnit.RoomRestControllerTest" />
-        <item itemvalue="JUnit.RoomRestControllerTest.getByCapacity" />
-        <item itemvalue="JUnit.RoomRestControllerTest.save" />
-        <item itemvalue="JUnit.RoomRestControllerTest.getById" />
+        <item itemvalue="JUnit.ReviewRestControllerTest.getByIdMaterial" />
+        <item itemvalue="JUnit.ReviewRestControllerTest.getByIdLessonTest" />
+        <item itemvalue="JUnit.ReviewRestControllerTest.saveTest" />
+        <item itemvalue="JUnit.ReviewRestControllerTest.getByIdStudentAndIdLessonTest" />
+        <item itemvalue="JUnit.ReviewRestControllerTest.getByIdStudentAndIdMaterialTest" />
       </list>
     </recent_temporary>
   </component>
@@ -1340,50 +1282,50 @@
       <workItem from="1535705017287" duration="19533000" />
       <workItem from="1535788902022" duration="34703000" />
       <workItem from="1535873590046" duration="13816000" />
-      <workItem from="1535889854244" duration="1244000" />
+      <workItem from="1535889854244" duration="3032000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="SegnalationRestControllerTest - 2018.09.02 at 13h 12m 45s.xml">
-      <configuration name="SegnalationRestControllerTest" configurationId="JUnit" />
+    <history-entry file="ReviewTypeRestControllerTest_getAllTest - 2018.09.02 at 14h 31m 38s.xml">
+      <configuration name="ReviewTypeRestControllerTest.getAllTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SecretaryRestControllerTest - 2018.09.02 at 13h 40m 13s.xml">
-      <configuration name="SecretaryRestControllerTest" configurationId="JUnit" />
+    <history-entry file="ReviewTypeRestControllerTest_getByIdTest - 2018.09.02 at 14h 34m 57s.xml">
+      <configuration name="ReviewTypeRestControllerTest.getByIdTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CourseRestControllerTest - 2018.09.02 at 13h 43m 36s.xml">
-      <configuration name="CourseRestControllerTest" configurationId="JUnit" />
+    <history-entry file="ReviewTypeRestControllerTest_getByIdTest - 2018.09.02 at 14h 35m 17s.xml">
+      <configuration name="ReviewTypeRestControllerTest.getByIdTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RoomRestControllerTest_getAll - 2018.09.02 at 13h 51m 38s.xml">
-      <configuration name="RoomRestControllerTest.getAll" configurationId="JUnit" />
+    <history-entry file="ReviewTypeRestControllerTest_saveTest - 2018.09.02 at 14h 36m 45s.xml">
+      <configuration name="ReviewTypeRestControllerTest.saveTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RoomRestControllerTest_getById - 2018.09.02 at 13h 52m 33s.xml">
-      <configuration name="RoomRestControllerTest.getById" configurationId="JUnit" />
+    <history-entry file="ReviewTypeRestControllerTest_saveTest - 2018.09.02 at 14h 36m 56s.xml">
+      <configuration name="ReviewTypeRestControllerTest.saveTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RoomRestControllerTest_getById - 2018.09.02 at 13h 52m 44s.xml">
-      <configuration name="RoomRestControllerTest.getById" configurationId="JUnit" />
+    <history-entry file="ReviewRestControllerTest_getByIdTest - 2018.09.02 at 14h 45m 13s.xml">
+      <configuration name="ReviewRestControllerTest.getByIdTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RoomRestControllerTest_save - 2018.09.02 at 13h 54m 13s.xml">
-      <configuration name="RoomRestControllerTest.save" configurationId="JUnit" />
+    <history-entry file="ReviewRestControllerTest_getByIdStudentAndIdMaterialTest - 2018.09.02 at 14h 47m 43s.xml">
+      <configuration name="ReviewRestControllerTest.getByIdStudentAndIdMaterialTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RoomRestControllerTest_save - 2018.09.02 at 13h 54m 36s.xml">
-      <configuration name="RoomRestControllerTest.save" configurationId="JUnit" />
+    <history-entry file="ReviewRestControllerTest_getByIdStudentAndIdMaterialTest - 2018.09.02 at 14h 48m 28s.xml">
+      <configuration name="ReviewRestControllerTest.getByIdStudentAndIdMaterialTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RoomRestControllerTest_getByCapacity - 2018.09.02 at 13h 56m 35s.xml">
-      <configuration name="RoomRestControllerTest.getByCapacity" configurationId="JUnit" />
+    <history-entry file="ReviewRestControllerTest_getByIdStudentAndIdMaterialTest - 2018.09.02 at 14h 49m 05s.xml">
+      <configuration name="ReviewRestControllerTest.getByIdStudentAndIdMaterialTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="RoomRestControllerTest - 2018.09.02 at 13h 59m 43s.xml">
-      <configuration name="RoomRestControllerTest" configurationId="JUnit" />
+    <history-entry file="ReviewRestControllerTest_getByIdStudentAndIdLessonTest - 2018.09.02 at 14h 50m 05s.xml">
+      <configuration name="ReviewRestControllerTest.getByIdStudentAndIdLessonTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199184000" />
+    <option name="totallyTimeSpent" value="200972000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49795082" visible="true" weight="0.22121535" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49795082" visible="true" weight="0.22121535" />
       <window_info id="Structure" order="1" sideWeight="0.5020492" side_tool="true" weight="0.2557047" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1393,7 +1335,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29067245" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29067245" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1419,7 +1361,7 @@
       <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5091743" side_tool="true" visible="true" weight="0.11886994" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49795082" visible="true" weight="0.28304905" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49795082" visible="true" weight="0.22121535" />
       <window_info id="Structure" order="1" sideWeight="0.5020492" side_tool="true" weight="0.2557047" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1428,9 +1370,9 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29067245" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29067245" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1448,11 +1390,11 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="right" id="Gradle" order="6" sideWeight="0.4938838" visible="true" weight="0.1444563" />
+      <window_info anchor="right" id="Gradle" order="6" sideWeight="0.49082568" weight="0.24360341" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
-      <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5061162" side_tool="true" weight="0.6556503" />
+      <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5091743" side_tool="true" visible="true" weight="0.11886994" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1462,27 +1404,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/LessonRestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/MaterialService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="74" column="50" selection-start-line="74" selection-start-column="50" selection-end-line="74" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/ExamDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetExamDTOModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -1592,6 +1513,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-91">
           <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="e#2832#2833#0" expanded="true" />
+            <element signature="e#2881#2882#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1766,32 +1691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/CourseRestControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="125" column="16" lean-forward="true" selection-start-line="125" selection-start-column="16" selection-end-line="126" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getAllTest#0;class#CourseRestControllerTest#0" />
-            <element signature="method#getByIdTest#0;class#CourseRestControllerTest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/RoomRestControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="48" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getAllTest#0;class#RoomRestControllerTest#0" />
-            <element signature="method#saveTest#0;class#RoomRestControllerTest#0" />
-            <element signature="method#getByIdTest#0;class#RoomRestControllerTest#0" />
-            <element signature="method#getByCapacity#0;class#RoomRestControllerTest#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/ReviewTypeDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1800,23 +1699,6 @@
             <element signature="e#159#160#0" expanded="true" />
             <element signature="e#192#193#0" expanded="true" />
             <element signature="e#220#221#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/ReviewDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/ReviewTypeRestControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="44" column="31" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1849,20 +1731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/ReviewTypeRestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/IReviewTypeServices.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="59" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/ReviewTypeDTOModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1883,17 +1751,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DtoFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ReviewService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
+        <state relative-caret-position="464">
+          <caret line="88" column="53" selection-start-line="88" selection-start-column="53" selection-end-line="88" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/IReviewTypeServices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ReviewTypeService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="44" column="63" selection-start-line="44" selection-start-column="63" selection-end-line="44" selection-end-column="63" />
+        <state relative-caret-position="453">
+          <caret line="43" column="50" lean-forward="true" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/ReviewDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/DtoFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/CourseRestControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="125" column="16" lean-forward="true" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getAllTest#0;class#CourseRestControllerTest#0" />
+            <element signature="method#getByIdTest#0;class#CourseRestControllerTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/ReviewTypeRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/ReviewTypeRestControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="623">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getAllTest#0;class#ReviewTypeRestControllerTest#0" />
+            <element signature="method#getByIdTest#0;class#ReviewTypeRestControllerTest#0" />
+            <element signature="method#saveTest#0;class#ReviewTypeRestControllerTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/RoomRestControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getAllTest#0;class#RoomRestControllerTest#0" />
+            <element signature="method#getByIdTest#0;class#RoomRestControllerTest#0" />
+            <element signature="method#getByCapacity#0;class#RoomRestControllerTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/ReviewRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/ReviewRestControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="190" column="41" selection-start-line="190" selection-start-column="41" selection-end-line="190" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getByIdTest#0;class#ReviewRestControllerTest#0" />
+            <element signature="method#getByIdStudentAndIdMaterialTest#0;class#ReviewRestControllerTest#0" />
+            <element signature="method#getByIdStudentAndIdLessonTest#0;class#ReviewRestControllerTest#0" />
+            <element signature="method#saveTest#0;class#ReviewRestControllerTest#0" />
+            <element signature="method#getByIdStudentAndIdLessonTest#2;class#ReviewRestControllerTest#0" />
+          </folding>
         </state>
       </provider>
     </entry>
