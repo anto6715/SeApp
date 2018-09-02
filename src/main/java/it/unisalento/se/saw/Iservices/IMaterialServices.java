@@ -13,6 +13,7 @@ public interface IMaterialServices {
     public List<Material> getByIdLesson(int id);
     public List<Material> getByIdTeaching(int id);
     public Material getById(int id) throws MaterialNotFoundException;
+    public Material getDomainById(int id) throws MaterialNotFoundException;
     public Material save(MaterialDTO materialDTO) throws TeachingNotFoundException;
     public void remove(int id) throws MaterialNotFoundException;
 }

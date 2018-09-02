@@ -3,12 +3,11 @@ package it.unisalento.se.saw.services;
 import it.unisalento.se.saw.Iservices.*;
 import it.unisalento.se.saw.domain.*;
 import it.unisalento.se.saw.dto.ReviewDTO;
-import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.exceptions.ReviewNotFoundException;
 import it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException;
 import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
-import it.unisalento.se.saw.models.DomainFactory.Domain;
+import it.unisalento.se.saw.models.DTOFactory.DTO;
 import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ReviewService implements IReviewServices {
@@ -35,48 +35,52 @@ public class ReviewService implements IReviewServices {
     @Autowired
     IStudentServices studentServices;
 
-    AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("Domain");
+    AbstractFactory domainFactory = FactoryProducer.getFactory("Domain");
+    AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
 
     @Transactional
-    public List<Review> getAll() {
-        return reviewRepository.findAll();
+    public Set<ReviewDTO> getAll() {
+        DTO<List<Review>, Set<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
+        return dto.create(reviewRepository.findAll());
     }
     @Transactional
-    public Review getById(int id) throws ReviewNotFoundException {
+    public ReviewDTO getById(int id) throws ReviewNotFoundException {
         try{
-            return reviewRepository.findReviewById_IdReview(id);
+            DTO<Review, ReviewDTO> dto = dtoFactory.getDTO("Review");
+            return dto.create(reviewRepository.findReviewById_IdReview(id));
         } catch (Exception e) {
             throw new ReviewNotFoundException();
         }
     }
 
     @Transactional
-    public List<Review> getByType(int idType){
-        return reviewRepository.findReviewsById_ReviewTypeIdReviewType(idType);
+    public Set<ReviewDTO> getByType(int idType){
+        DTO<List<Review>, Set<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
+        return dto.create(reviewRepository.findReviewsById_ReviewTypeIdReviewType(idType));
     }
 
     @Transactional
-    public Review save(ReviewDTO reviewDTO) throws ReviewTypeNotFoundException , StudentNotFoundException{
-        Domain<StudentDTO, Student> studentDomain = abstractDomainFactory.getDomain("Student");
+    public ReviewDTO save(ReviewDTO reviewDTO) throws ReviewTypeNotFoundException , StudentNotFoundException{
+        DTO<Review, ReviewDTO> dto = dtoFactory.getDTO("Review");
         Lesson lesson;
         Material material;
         ReviewType reviewType;
         Student student;
 
         try {
-            student = studentDomain.create(studentServices.getById(reviewDTO.getIdStudent()));
+            student = studentServices.getDomainById(reviewDTO.getIdStudent());
         } catch (Exception e) {
             throw new StudentNotFoundException();
         }
 
         try {
-            lesson = lessonServices.getById(reviewDTO.getIdLesson());
+            lesson = lessonServices.getDomainById(reviewDTO.getIdLesson());
         } catch (Exception e) {
             lesson = new Lesson();
         }
 
         try {
-            material = materialServices.getById(reviewDTO.getIdMaterial());
+            material = materialServices.getDomainById(reviewDTO.getIdMaterial());
         } catch (Exception e) {
             material = new Material();
         }
@@ -102,34 +106,38 @@ public class ReviewService implements IReviewServices {
         review.setMaterial(material);
         review.setReviewType(reviewType);
 
-        return reviewRepository.save(review);
+        return dto.create(reviewRepository.save(review));
     }
 
     @Transactional
-    public Review getByIdStudentAndIdMaterial(int idStudent, int idMaterial) throws ReviewNotFoundException {
+    public ReviewDTO getByIdStudentAndIdMaterial(int idStudent, int idMaterial) throws ReviewNotFoundException {
         try {
-            return reviewRepository.findReviewById_StudentIdStudentAndMaterial_Id_IdMaterial(idStudent,idMaterial);
+            DTO<Review, ReviewDTO> dto = dtoFactory.getDTO("Review");
+            return dto.create(reviewRepository.findReviewById_StudentIdStudentAndMaterial_Id_IdMaterial(idStudent,idMaterial));
         } catch (Exception e) {
             return null;
         }
     }
 
     @Transactional
-    public Review getByIdStudentAndIdLesson(int idStudent, int idLesson) throws ReviewNotFoundException {
+    public ReviewDTO getByIdStudentAndIdLesson(int idStudent, int idLesson) throws ReviewNotFoundException {
         try {
-            return reviewRepository.findReviewById_StudentIdStudentAndLesson_Id_IdLesson(idStudent,idLesson);
+            DTO<Review, ReviewDTO> dto = dtoFactory.getDTO("Review");
+            return dto.create(reviewRepository.findReviewById_StudentIdStudentAndLesson_Id_IdLesson(idStudent,idLesson));
         } catch (Exception e) {
             return null;
         }
     }
 
     @Transactional
-    public List<Review> getByIdLesson(int id) {
-        return reviewRepository.findReviewsByLesson_Id_IdLesson(id);
+    public Set<ReviewDTO> getByIdLesson(int id) {
+        DTO<List<Review>, Set<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
+        return dto.create(reviewRepository.findReviewsByLesson_Id_IdLesson(id));
     }
 
     @Transactional
-    public List<Review> getByIdMaterial(int id) {
-        return reviewRepository.findReviewsByMaterial_Id_IdMaterial(id);
+    public Set<ReviewDTO> getByIdMaterial(int id) {
+        DTO<List<Review>, Set<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
+        return dto.create(reviewRepository.findReviewsByMaterial_Id_IdMaterial(id));
     }
 }

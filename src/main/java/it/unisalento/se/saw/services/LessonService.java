@@ -58,6 +58,15 @@ public class LessonService implements ILessonServices {
         }
     }
 
+    @Transactional
+    public Lesson getDomainById(int id) throws LessonNotFoundException {
+        try {
+            return lessonRepository.findLessonById_IdLesson(id);
+        } catch (Exception e) {
+            throw new LessonNotFoundException();
+        }
+    }
+
     public List<Lesson> getByRoom(int id) {
         return null;
     }

@@ -89,7 +89,7 @@ public class UserService implements IUserServices {
         }else  {
             try {
                 DTO<Professor, ProfessorDTO> dto = abstractFactory.getDTO("Professor");
-                return dto.create(professorServices.getByUid(uid));
+                return professorServices.getByUid(uid);
             } catch (Exception e) {
                 throw new ProfessorNotFoundException();
             }

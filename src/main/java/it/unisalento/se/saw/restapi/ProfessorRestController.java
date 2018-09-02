@@ -33,20 +33,18 @@ public class ProfessorRestController {
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<ProfessorDTO> getAll() {
-        DTO<List<Professor>, Set<ProfessorDTO>> dto = this.abstractDTOFactory.getDTO("SetProfessor");
-        return dto.create(professorServices.getAll());
+        return professorServices.getAll();
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ProfessorDTO post(@RequestBody ProfessorDTO professorDTO) throws CourseNotFoundException {
+    public ProfessorDTO save(@RequestBody ProfessorDTO professorDTO) throws CourseNotFoundException {
         return professorServices.save(professorDTO);
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ProfessorDTO getById(@PathVariable("id") int id) throws ProfessorNotFoundException {
        try {
-           DTO<Professor,ProfessorDTO> dto = this.abstractDTOFactory.getDTO("PROFESSOR");
-           return dto.create(professorServices.getById(id));
+           return professorServices.getById(id);
        } catch (Exception e) {
            throw new ProfessorNotFoundException();
        }
@@ -56,9 +54,7 @@ public class ProfessorRestController {
     @RequestMapping(value = "/getByCourse/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<ProfessorDTO> getByCourse(@PathVariable("id") int id) throws ProfessorNotFoundException {
         try {
-            DTO<List<Professor>, Set<ProfessorDTO>> dto = this.abstractDTOFactory.getDTO("SetProfessor");
-            List<Professor> professors = new ArrayList<>( professorServices.getByIdCourse(id));
-            return dto.create(professors);
+            return professorServices.getByIdCourse(id);
         } catch (Exception e) {
             throw new ProfessorNotFoundException();
         }

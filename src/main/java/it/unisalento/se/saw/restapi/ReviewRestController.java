@@ -36,15 +36,14 @@ public class ReviewRestController {
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Review save(@RequestBody ReviewDTO reviewDTO) throws StudentNotFoundException, ReviewTypeNotFoundException {
+    public ReviewDTO save(@RequestBody ReviewDTO reviewDTO) throws StudentNotFoundException, ReviewTypeNotFoundException {
         return reviewServices.save(reviewDTO);
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ReviewDTO getById(@PathVariable int id) throws ReviewNotFoundException {
         try {
-            DTO<Review, ReviewDTO> dto = this.abstractDTOFactory.getDTO("Review");
-            return dto.create(reviewServices.getById(id));
+            return reviewServices.getById(id);
         } catch (Exception e) {
             throw new ReviewNotFoundException();
         }
@@ -53,8 +52,7 @@ public class ReviewRestController {
     @RequestMapping(value = "/getByIdLesson/{idLesson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<ReviewDTO> getByIdLesson(@PathVariable int idLesson) throws ReviewNotFoundException {
         try {
-            DTO<List<Review>, Set<ReviewDTO> > dto = this.abstractDTOFactory.getDTO("SETREVIEW");
-            return dto.create(reviewServices.getByIdLesson(idLesson));
+            return reviewServices.getByIdLesson(idLesson);
         } catch (Exception e) {
             throw new ReviewNotFoundException();
         }
@@ -63,8 +61,7 @@ public class ReviewRestController {
     @RequestMapping(value = "/getByIdMaterial/{idMaterial}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<ReviewDTO> getByIdMaterial(@PathVariable int idMaterial) throws ReviewNotFoundException {
         try {
-            DTO<List<Review>, Set<ReviewDTO> > dto = this.abstractDTOFactory.getDTO("SETREVIEW");
-            return dto.create(reviewServices.getByIdMaterial(idMaterial));
+            return reviewServices.getByIdMaterial(idMaterial);
         } catch (Exception e) {
             throw new ReviewNotFoundException();
         }
@@ -73,8 +70,7 @@ public class ReviewRestController {
     @RequestMapping(value = "/getByIdStudentAndIdMaterial/{idStudent}_{idMaterial}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ReviewDTO getByIdStudentAndIdMaterial(@PathVariable("idStudent") int idStudent, @PathVariable("idMaterial") int idMaterial) throws ReviewNotFoundException {
         try {
-            DTO<Review, ReviewDTO> dto = this.abstractDTOFactory.getDTO("Review");
-            return dto.create(reviewServices.getByIdStudentAndIdMaterial(idStudent,idMaterial));
+            return reviewServices.getByIdStudentAndIdMaterial(idStudent,idMaterial);
         } catch (Exception e) {
             return null;
         }
@@ -84,8 +80,7 @@ public class ReviewRestController {
     @RequestMapping(value = "/getByIdStudentAndIdLesson/{idStudent}_{idLesson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ReviewDTO getByIdStudentAndIdLesson(@PathVariable("idStudent") int idStudent, @PathVariable("idLesson") int idLesson) throws ReviewNotFoundException {
         try {
-            DTO<Review, ReviewDTO> dto = this.abstractDTOFactory.getDTO("Review");
-            return dto.create(reviewServices.getByIdStudentAndIdLesson(idStudent,idLesson));
+            return reviewServices.getByIdStudentAndIdLesson(idStudent,idLesson);
         } catch (Exception e) {
             return null;
         }

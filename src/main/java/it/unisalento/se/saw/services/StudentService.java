@@ -50,11 +50,19 @@ public class StudentService implements IStudentServices {
     }
 
     @Transactional(readOnly = true)
-    @OneToOne
     public StudentDTO getById(int id) throws StudentNotFoundException {
         try {
             DTO<Student, StudentDTO> dto = dtoFactory.getDTO("Student");
             return dto.create(studentRepository.findStudentById_IdStudent(id));
+        } catch (Exception e) {
+            throw new StudentNotFoundException();
+        }
+    }
+
+    @Transactional(readOnly = true)
+    public Student getDomainById(int id) throws StudentNotFoundException {
+        try {
+            return studentRepository.findStudentById_IdStudent(id);
         } catch (Exception e) {
             throw new StudentNotFoundException();
         }

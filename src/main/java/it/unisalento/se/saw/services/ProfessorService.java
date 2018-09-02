@@ -2,19 +2,15 @@ package it.unisalento.se.saw.services;
 
 import it.unisalento.se.saw.Iservices.ICourseServices;
 import it.unisalento.se.saw.Iservices.IProfessorServices;
-import it.unisalento.se.saw.Iservices.IUserServices;
 import it.unisalento.se.saw.domain.Course;
 import it.unisalento.se.saw.domain.Professor;
 import it.unisalento.se.saw.domain.ProfessorId;
 import it.unisalento.se.saw.domain.User;
-import it.unisalento.se.saw.dto.CourseDTO;
 import it.unisalento.se.saw.dto.ProfessorDTO;
-import it.unisalento.se.saw.dto.UserDTO;
 import it.unisalento.se.saw.exceptions.CourseNotFoundException;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
 import it.unisalento.se.saw.models.*;
 import it.unisalento.se.saw.models.DTOFactory.DTO;
-import it.unisalento.se.saw.models.DTOFactory.DtoFactory;
 import it.unisalento.se.saw.models.DomainFactory.Domain;
 import it.unisalento.se.saw.repositories.ProfessorRepository;
 import it.unisalento.se.saw.repositories.UserRepository;
@@ -40,8 +36,9 @@ public class ProfessorService implements IProfessorServices {
 
 
     @Transactional(readOnly = true)
-    public List<Professor> getAll() {
-        return professorRepository.findAll();
+    public Set<ProfessorDTO> getAll() {
+        DTO<List<Professor>, Set<ProfessorDTO>> dto = dtoFactory.getDTO("SetProfessor");
+        return dto.create(professorRepository.findAll());
     }
 
     @Transactional
@@ -67,9 +64,10 @@ public class ProfessorService implements IProfessorServices {
     }
 
     @Transactional
-    public Professor getById(int id) throws ProfessorNotFoundException {
+    public ProfessorDTO getById(int id) throws ProfessorNotFoundException {
        try {
-           return professorRepository.findProfessorById_IdProfessor(id);
+           DTO<Professor,ProfessorDTO> dto = dtoFactory.getDTO("Professor");
+           return dto.create(professorRepository.findProfessorById_IdProfessor(id));
        } catch (Exception e) {
            throw new ProfessorNotFoundException();
        }
@@ -85,35 +83,21 @@ public class ProfessorService implements IProfessorServices {
     }
 
     @Transactional
-    public Professor getByUid(String uid) throws ProfessorNotFoundException {
+    public ProfessorDTO getByUid(String uid) throws ProfessorNotFoundException {
         try {
-            return professorRepository.findProfessorByUserUid(uid);
+            DTO<Professor,ProfessorDTO> dto = dtoFactory.getDTO("Professor");
+            return dto.create(professorRepository.findProfessorByUserUid(uid));
         } catch (Exception e) {
             throw new ProfessorNotFoundException();
         }
     }
 
-    @Transactional
-    public List<Professor> getByName(String name) throws ProfessorNotFoundException {
+    public Set<ProfessorDTO> getByIdCourse(int id) throws ProfessorNotFoundException {
         try {
-            return professorRepository.findProfessorsByUser_Name(name);
-        } catch (Exception e) {
-            throw new ProfessorNotFoundException();
-        }
-    }
-
-    public List<Professor> getBySurname(String surnname) throws ProfessorNotFoundException {
-        try {
-            return professorRepository.findProfessorsByUser_Surname(surnname);
-        } catch (Exception e) {
-            throw new ProfessorNotFoundException();
-        }
-    }
-    public Set<Professor> getByIdCourse(int id) throws ProfessorNotFoundException {
-        try {
-            Domain<CourseDTO, Course> domainCourse = domainFactory.getDomain("COURSE");
-            Course course = domainCourse.create(courseServices.getById(id));
-            return course.getProfessors();
+            DTO<List<Professor>, Set<ProfessorDTO>> dto = dtoFactory.getDTO("SetProfessor");
+            Course course = courseServices.getDomainById(id);
+            List<Professor> professors = new ArrayList<>( course.getProfessors());
+            return dto.create(professors);
         } catch (Exception e) {
             throw new ProfessorNotFoundException();
         }

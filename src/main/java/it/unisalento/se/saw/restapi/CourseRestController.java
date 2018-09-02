@@ -64,7 +64,7 @@ public class CourseRestController {
     @RequestMapping(value = "/getByIdProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<CourseDTO> getByIdProf(@PathVariable("id") int id) throws CourseNotFoundException, ProfessorNotFoundException {
         DTO<Set<Course>, Set<CourseDTO>> dto = this.abstractDTOFactory.getDTO("SETCOURSE");
-        return dto.create(professorServices.getById(id).getCourses());
+        return dto.create(professorServices.getDomainById(id).getCourses());
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
