@@ -15,6 +15,7 @@ public class SecretaryDTOModel implements DTO<Secretary, SecretaryDTO> {
         secretaryDTO.setUserType(secretary.getUser().getUserType());
         secretaryDTO.setUid(secretary.getUser().getUid());
         secretaryDTO.setId(secretary.getId().getIdSecretary());
+        secretaryDTO.setIdUser(secretary.getUser().getIdUser());
         return secretaryDTO;
     }
 }
