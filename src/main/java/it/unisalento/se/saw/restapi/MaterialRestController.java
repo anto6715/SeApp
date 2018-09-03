@@ -24,14 +24,6 @@ public class MaterialRestController {
     IMaterialServices materialServices;
 
 
-    public MaterialRestController() {
-        super();
-    }
-
-    public MaterialRestController(IMaterialServices materialServices) {
-        this.materialServices = materialServices;
-    }
-
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<MaterialDTO> getAll() {
         return materialServices.getAll();
@@ -39,20 +31,12 @@ public class MaterialRestController {
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public MaterialDTO save(@RequestBody MaterialDTO materialDTO) throws TeachingNotFoundException {
-        try {
-            return materialServices.save(materialDTO);
-        } catch (Exception e) {
-            throw new TeachingNotFoundException();
-        }
+        return materialServices.save(materialDTO);
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public MaterialDTO getById(@PathVariable int id) throws MaterialNotFoundException {
-        try {
-            return materialServices.getById(id);
-        } catch (Exception e) {
-            throw new MaterialNotFoundException();
-        }
+        return materialServices.getById(id);
     }
 
     @RequestMapping(value = "/getByIdLesson/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

@@ -23,9 +23,6 @@ public class ExamRestController {
         super();
     }
 
-    public ExamRestController(IExamServices examServices) {
-        this.examServices= examServices;
-    }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<ExamDTO> getAll() {
@@ -39,10 +36,6 @@ public class ExamRestController {
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ExamDTO getById(@PathVariable int id) throws ExamNotFoundException {
-        try {
-            return examServices.getById(id);
-        } catch (Exception e) {
-            throw new ExamNotFoundException();
-        }
+        return examServices.getById(id);
     }
 }

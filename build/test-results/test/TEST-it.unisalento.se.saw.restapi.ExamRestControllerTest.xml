@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="it.unisalento.se.saw.restapi.ExamRestControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-09-03T09:21:36" hostname="DESKTOP-TUGA85P" time="0.159">
+  <properties/>
+  <testcase name="saveTest" classname="it.unisalento.se.saw.restapi.ExamRestControllerTest" time="0.089"/>
+  <testcase name="getByIdTest" classname="it.unisalento.se.saw.restapi.ExamRestControllerTest" time="0.026"/>
+  <testcase name="getAllTest" classname="it.unisalento.se.saw.restapi.ExamRestControllerTest" time="0.043"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[2395 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/exam/save],methods=[POST],consumes=[application/json]}" onto public it.unisalento.se.saw.dto.ExamDTO it.unisalento.se.saw.restapi.ExamRestController.save(it.unisalento.se.saw.dto.ExamDTO)
+2395 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/exam/getAll],methods=[GET],produces=[application/json]}" onto public java.util.Set<it.unisalento.se.saw.dto.ExamDTO> it.unisalento.se.saw.restapi.ExamRestController.getAll()
+2396 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/exam/getById/{id}],methods=[GET],produces=[application/json]}" onto public it.unisalento.se.saw.dto.ExamDTO it.unisalento.se.saw.restapi.ExamRestController.getById(int) throws it.unisalento.se.saw.exceptions.ExamNotFoundException
+2422 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7ba4ab1a
+2432 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2433 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2434 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2475 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/exam/save],methods=[POST],consumes=[application/json]}" onto public it.unisalento.se.saw.dto.ExamDTO it.unisalento.se.saw.restapi.ExamRestController.save(it.unisalento.se.saw.dto.ExamDTO)
+2475 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/exam/getAll],methods=[GET],produces=[application/json]}" onto public java.util.Set<it.unisalento.se.saw.dto.ExamDTO> it.unisalento.se.saw.restapi.ExamRestController.getAll()
+2476 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/exam/getById/{id}],methods=[GET],produces=[application/json]}" onto public it.unisalento.se.saw.dto.ExamDTO it.unisalento.se.saw.restapi.ExamRestController.getById(int) throws it.unisalento.se.saw.exceptions.ExamNotFoundException
+2487 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@1d6a4fc9
+2490 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2490 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2490 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2504 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/exam/save],methods=[POST],consumes=[application/json]}" onto public it.unisalento.se.saw.dto.ExamDTO it.unisalento.se.saw.restapi.ExamRestController.save(it.unisalento.se.saw.dto.ExamDTO)
+2505 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/exam/getAll],methods=[GET],produces=[application/json]}" onto public java.util.Set<it.unisalento.se.saw.dto.ExamDTO> it.unisalento.se.saw.restapi.ExamRestController.getAll()
+2506 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/exam/getById/{id}],methods=[GET],produces=[application/json]}" onto public it.unisalento.se.saw.dto.ExamDTO it.unisalento.se.saw.restapi.ExamRestController.getById(int) throws it.unisalento.se.saw.exceptions.ExamNotFoundException
+2517 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7e39360c
+2518 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2518 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2518 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+]]></system-err>
+</testsuite>

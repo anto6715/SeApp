@@ -38,6 +38,7 @@ public class LessonService implements ILessonServices {
     IRoomServices roomServices;
 
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+    AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
 
     @Transactional(readOnly = true)
     public Set<LessonDTO> getAll() {
@@ -82,9 +83,10 @@ public class LessonService implements ILessonServices {
     }
 
     @Transactional
-    public Lesson save(LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DOMAIN");
-        Domain<TeachingDTO, Teaching> domainTeaching = abstractFactory.getDomain("Teaching");
+    public LessonDTO save(LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
+
+        Domain<TeachingDTO, Teaching> domainTeaching = domainFactory.getDomain("Teaching");
+        DTO<Lesson, LessonDTO> dto = dtoFactory.getDTO("Lesson");
 
 
         Teaching teaching =domainTeaching.create(teachingServices.getById(lessonDTO.getIdTeaching()));
@@ -107,8 +109,7 @@ public class LessonService implements ILessonServices {
         lesson.setDate(lessonDTO.getDate());
         lesson.setStart(lessonDTO.getStart());
         lesson.setEnd(lessonDTO.getEnd());
-        System.out.println(lessonDTO.getEnd());
-        return lessonRepository.save(lesson);
+        return dto.create(lessonRepository.save(lesson));
 
 
     }

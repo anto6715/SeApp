@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class it.unisalento.se.saw.restapi.ReviewRestControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class it.unisalento.se.saw.restapi.ReviewRestControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/it.unisalento.se.saw.restapi.html">it.unisalento.se.saw.restapi</a> &gt; ReviewRestControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.347s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">getByIdLessonTest</td>
+<td class="success">0.049s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getByIdMaterialTest</td>
+<td class="success">0.045s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getByIdStudentAndIdLessonTest</td>
+<td class="success">0.062s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getByIdStudentAndIdMaterialTest</td>
+<td class="success">0.057s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getByIdTest</td>
+<td class="success">0.063s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">saveTest</td>
+<td class="success">0.071s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>3319 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.save(it.unisalento.se.saw.dto.ReviewDTO) throws it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException
+3319 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getById(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3319 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdLesson/{idLesson}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ReviewDTO&gt; it.unisalento.se.saw.restapi.ReviewRestController.getByIdLesson(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3319 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdMaterial/{idMaterial}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ReviewDTO&gt; it.unisalento.se.saw.restapi.ReviewRestController.getByIdMaterial(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3319 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdStudentAndIdMaterial/{idStudent}_{idMaterial}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getByIdStudentAndIdMaterial(int,int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3319 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdStudentAndIdLesson/{idStudent}_{idLesson}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getByIdStudentAndIdLesson(int,int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3335 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@2fe8398
+3343 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+3343 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+3343 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+3399 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.save(it.unisalento.se.saw.dto.ReviewDTO) throws it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException
+3400 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getById(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3400 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdLesson/{idLesson}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ReviewDTO&gt; it.unisalento.se.saw.restapi.ReviewRestController.getByIdLesson(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3401 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdMaterial/{idMaterial}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ReviewDTO&gt; it.unisalento.se.saw.restapi.ReviewRestController.getByIdMaterial(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3402 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdStudentAndIdMaterial/{idStudent}_{idMaterial}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getByIdStudentAndIdMaterial(int,int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3403 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdStudentAndIdLesson/{idStudent}_{idLesson}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getByIdStudentAndIdLesson(int,int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3420 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7c04a5fb
+3420 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+3420 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+3420 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+3446 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.save(it.unisalento.se.saw.dto.ReviewDTO) throws it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException
+3449 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getById(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3450 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdLesson/{idLesson}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ReviewDTO&gt; it.unisalento.se.saw.restapi.ReviewRestController.getByIdLesson(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3451 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdMaterial/{idMaterial}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ReviewDTO&gt; it.unisalento.se.saw.restapi.ReviewRestController.getByIdMaterial(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3461 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdStudentAndIdMaterial/{idStudent}_{idMaterial}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getByIdStudentAndIdMaterial(int,int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3462 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdStudentAndIdLesson/{idStudent}_{idLesson}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getByIdStudentAndIdLesson(int,int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3473 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7f05252e
+3477 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+3478 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+3479 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+3500 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.save(it.unisalento.se.saw.dto.ReviewDTO) throws it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException
+3501 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getById(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3502 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdLesson/{idLesson}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ReviewDTO&gt; it.unisalento.se.saw.restapi.ReviewRestController.getByIdLesson(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3504 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdMaterial/{idMaterial}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ReviewDTO&gt; it.unisalento.se.saw.restapi.ReviewRestController.getByIdMaterial(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3505 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdStudentAndIdMaterial/{idStudent}_{idMaterial}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getByIdStudentAndIdMaterial(int,int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3507 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdStudentAndIdLesson/{idStudent}_{idLesson}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getByIdStudentAndIdLesson(int,int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3509 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@1030ae32
+3509 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+3509 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+3509 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+3572 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.save(it.unisalento.se.saw.dto.ReviewDTO) throws it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException
+3572 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getById(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3587 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdLesson/{idLesson}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ReviewDTO&gt; it.unisalento.se.saw.restapi.ReviewRestController.getByIdLesson(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3587 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdMaterial/{idMaterial}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ReviewDTO&gt; it.unisalento.se.saw.restapi.ReviewRestController.getByIdMaterial(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3587 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdStudentAndIdMaterial/{idStudent}_{idMaterial}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getByIdStudentAndIdMaterial(int,int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3587 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdStudentAndIdLesson/{idStudent}_{idLesson}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getByIdStudentAndIdLesson(int,int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3603 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@67b85bdc
+3603 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+3603 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+3603 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+3618 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.save(it.unisalento.se.saw.dto.ReviewDTO) throws it.unisalento.se.saw.exceptions.StudentNotFoundException,it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException
+3618 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getById(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3618 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdLesson/{idLesson}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ReviewDTO&gt; it.unisalento.se.saw.restapi.ReviewRestController.getByIdLesson(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3618 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdMaterial/{idMaterial}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ReviewDTO&gt; it.unisalento.se.saw.restapi.ReviewRestController.getByIdMaterial(int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3618 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdStudentAndIdMaterial/{idStudent}_{idMaterial}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getByIdStudentAndIdMaterial(int,int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3618 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/review/getByIdStudentAndIdLesson/{idStudent}_{idLesson}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ReviewDTO it.unisalento.se.saw.restapi.ReviewRestController.getByIdStudentAndIdLesson(int,int) throws it.unisalento.se.saw.exceptions.ReviewNotFoundException
+3634 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@29902a4c
+3670 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+3671 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+3671 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.8</a> at 3-set-2018 11.21.40</p>
+</div>
+</div>
+</body>
+</html>

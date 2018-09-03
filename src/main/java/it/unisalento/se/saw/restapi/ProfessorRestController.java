@@ -24,13 +24,6 @@ public class ProfessorRestController {
     @Autowired
     IProfessorServices professorServices;
 
-    AbstractFactory abstractDTOFactory;
-
-    public ProfessorRestController() {
-        super();
-        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
-    }
-
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<ProfessorDTO> getAll() {
         return professorServices.getAll();
@@ -43,21 +36,12 @@ public class ProfessorRestController {
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ProfessorDTO getById(@PathVariable("id") int id) throws ProfessorNotFoundException {
-       try {
-           return professorServices.getById(id);
-       } catch (Exception e) {
-           throw new ProfessorNotFoundException();
-       }
-
+       return professorServices.getById(id);
     }
 
     @RequestMapping(value = "/getByCourse/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<ProfessorDTO> getByCourse(@PathVariable("id") int id) throws ProfessorNotFoundException {
-        try {
-            return professorServices.getByIdCourse(id);
-        } catch (Exception e) {
-            throw new ProfessorNotFoundException();
-        }
+    public Set<ProfessorDTO> getByIdCourse(@PathVariable("id") int id) throws ProfessorNotFoundException {
+        return professorServices.getByIdCourse(id);
     }
 
 

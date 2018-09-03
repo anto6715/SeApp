@@ -17,5 +17,5 @@ public interface ILessonServices {
     public LessonDTO getById(int id) throws LessonNotFoundException;
     public Lesson getDomainById(int id) throws LessonNotFoundException;
     public Set<LessonDTO> getByRoom(int id);
-    public Lesson save(LessonDTO lessonDTO) throws TeachingNotFoundException, RoomNotFoundException;
+    public LessonDTO save(LessonDTO lessonDTO) throws TeachingNotFoundException, RoomNotFoundException;
 }

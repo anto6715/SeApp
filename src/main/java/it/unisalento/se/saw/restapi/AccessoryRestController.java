@@ -20,14 +20,6 @@ public class AccessoryRestController {
     IAccessoryServices accessoryServices;
 
 
-    public AccessoryRestController() {
-        super();
-    }
-
-    public  AccessoryRestController(IAccessoryServices accessoryServices) {
-        this.accessoryServices = accessoryServices;
-    }
-
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public Set<AccessoryDTO> getAll() {
         return accessoryServices.getAll();
@@ -35,11 +27,7 @@ public class AccessoryRestController {
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public AccessoryDTO save(@RequestBody AccessoryDTO accessoryDTO) throws RoomNotFoundException {
-        try {
-            return accessoryServices.save(accessoryDTO);
-        } catch (Exception e) {
-            throw new RoomNotFoundException();
-        }
+        return accessoryServices.save(accessoryDTO);
     }
 
     @RequestMapping(value = "/getByIdRoom/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -49,10 +37,6 @@ public class AccessoryRestController {
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public AccessoryDTO getById(@PathVariable int id) throws AccessoryNotFoundException {
-        try {
-            return accessoryServices.getById(id);
-        } catch (Exception e) {
-            throw new AccessoryNotFoundException();
-        }
+        return accessoryServices.getById(id);
     }
 }

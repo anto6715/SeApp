@@ -26,12 +26,6 @@ public class LessonRestController {
     @Autowired
     ILessonServices lessonServices;
 
-    AbstractFactory abstractDTOFactory;
-
-    public LessonRestController() {
-        super();
-        this.abstractDTOFactory = FactoryProducer.getFactory("DTO");
-    }
 
     public LessonRestController(ILessonServices lessonServices) {
         this.lessonServices = lessonServices;
@@ -43,34 +37,22 @@ public class LessonRestController {
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Lesson save(@RequestBody LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
-        try {
-            return lessonServices.save(lessonDTO);
-        } catch (Exception e) {
-            throw new RoomNotFoundException();
-        }
+    public LessonDTO save(@RequestBody LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
+        return lessonServices.save(lessonDTO);
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public LessonDTO getById(@PathVariable int id) throws LessonNotFoundException {
-        try {
-            return lessonServices.getById(id);
-        } catch (Exception e) {
-            throw new LessonNotFoundException();
-        }
+        return lessonServices.getById(id);
     }
 
     @RequestMapping(value = "/getByIdRoom/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<LessonDTO> getByIdRoom(@PathVariable int id) throws LessonNotFoundException {
-        try {
-            return lessonServices.getByRoom(id);
-        } catch (Exception e) {
-            throw new LessonNotFoundException();
-        }
+    public Set<LessonDTO> getByIdRoom(@PathVariable int id) {
+        return lessonServices.getByRoom(id);
     }
 
     @RequestMapping(value = "/getByDate/{date}_{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
-    public Set<LessonDTO> getByDate(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
+    public Set<LessonDTO> getByDateAndIdCourse(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date dateObj = sdf.parse(date);
         return lessonServices.getByDate(dateObj,id);
@@ -81,7 +63,5 @@ public class LessonRestController {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date dateObj = sdf.parse(date);
         return lessonServices.getByDateAndIdProfessor(dateObj,id);
-
-
     }
 }
