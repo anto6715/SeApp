@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="it.unisalento.se.saw.services.StudentServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2018-09-03T14:27:57" hostname="DESKTOP-TUGA85P" time="0.04">
+  <properties/>
+  <testcase name="saveTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.007"/>
+  <testcase name="getByCourseTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.004"/>
+  <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.001"/>
+  <testcase name="getAllTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.0"/>
+  <testcase name="getByIdErrorTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.012"/>
+  <testcase name="getByUidTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.001"/>
+  <testcase name="getDomainByIdTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.002"/>
+  <system-out><![CDATA[class it.unisalento.se.saw.dto.StudentDTO
+Student not found
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

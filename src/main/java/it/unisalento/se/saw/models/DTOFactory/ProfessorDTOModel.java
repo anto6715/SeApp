@@ -7,7 +7,10 @@ public class ProfessorDTOModel implements DTO<Professor, ProfessorDTO> {
     @Override
     public ProfessorDTO create(Professor professor) {
         ProfessorDTO professorDTO = new ProfessorDTO();
-        professorDTO.setAge(professor.getUser().getAge());
+        if (professor.getUser().getAge() != null) {
+            professorDTO.setAge(professor.getUser().getAge());
+        }
+
         professorDTO.setEmail(professor.getUser().getEmail());
         professorDTO.setName(professor.getUser().getName());
         professorDTO.setSurname(professor.getUser().getSurname());

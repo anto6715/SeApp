@@ -62,12 +62,8 @@ public class StudentService implements IStudentServices {
     }
 
     @Transactional(readOnly = true)
-    public Student getDomainById(int id) throws StudentNotFoundException {
-        try {
-            return studentRepository.findStudentById_IdStudent(id);
-        } catch (Exception e) {
-            throw new StudentNotFoundException();
-        }
+    public Student getDomainById(int id) {
+        return studentRepository.findStudentById_IdStudent(id);
     }
 
     public Set<StudentDTO> getByCourse(int course){
@@ -75,17 +71,12 @@ public class StudentService implements IStudentServices {
         return dto.create(studentRepository.findStudentsByCourse_IdCourse(course));
     }
 
-
-
     @Transactional
     public StudentDTO getByUid(String uid) throws StudentNotFoundException{
-        try {
-            DTO<Student, StudentDTO> dto = dtoFactory.getDTO("Student");
-            return dto.create(studentRepository.findStudentByUserUid(uid));
-        } catch (Exception e){
-            throw new StudentNotFoundException();
-        }
+        DTO<Student, StudentDTO> dto = dtoFactory.getDTO("Student");
+        return dto.create(studentRepository.findStudentByUserUid(uid));
     }
+
     @Transactional
     public StudentDTO save(StudentDTO studentDTO) {
         Domain<StudentDTO, User> domain = domainFactory.getDomain("USER");

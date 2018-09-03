@@ -24,6 +24,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class UserService implements IUserServices {
@@ -40,17 +41,18 @@ public class UserService implements IUserServices {
     @Autowired
     ISecretaryServices secretaryServices;
 
-    AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
+    AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
     AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DOMAIN");
 
     @Transactional(readOnly=true)
     public List<User> getAll(){
+        DTO<List<User>, Set<UserDTO>> dto = dtoFactory.getDTO("SETUSER");
         return userRepository.findAll();
     }
 
     @Transactional
     public UserDTO save(UserDTO userDTO) {
-        DTO<User,UserDTO> dto = abstractDTOFactory.getDTO("User");
+        DTO<User,UserDTO> dto = dtoFactory.getDTO("User");
         Domain<UserDTO, User> domain = abstractDomainFactory.getDomain("User");
         return dto.create(userRepository.save(domain.create(userDTO)));
     }
@@ -59,10 +61,11 @@ public class UserService implements IUserServices {
     @Transactional
     public UserDTO getById(int id) throws UserNotFoundException {
         try {
-            DTO<User, UserDTO> dto = abstractDTOFactory.getDTO("User");
+            DTO<User, UserDTO> dto = dtoFactory.getDTO("User");
             User user = userRepository.getOne(id);
             return dto.create(user);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new UserNotFoundException();
         }
 

@@ -37,7 +37,7 @@ public class Segnalation  implements java.io.Serializable {
     }
 
 	
-    public Segnalation(SegnalationId id, Professor professor, Room room, SegnalationState segnalationstate) {
+    public Segnalation(SegnalationId id, Professor professor, Room room, SegnalationState segnalationState) {
         this.id = id;
         this.professor = professor;
         this.room = room;

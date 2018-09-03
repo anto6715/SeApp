@@ -31,6 +31,7 @@ public class SegnalationStateService implements ISegnalationStateServices {
         DTO<List<SegnalationState>, Set<SegnalationStateDTO>> dto = abstractDTOFactory.getDTO("SetSegnalationState");
         return dto.create(segnalationStateRepository.findAll());
     }
+
     @Transactional
     public SegnalationStateDTO getById(int id) throws SegnalationStateNotFoundException {
         try {
@@ -42,16 +43,13 @@ public class SegnalationStateService implements ISegnalationStateServices {
     }
 
     public SegnalationState getDomainById(int id) throws SegnalationStateNotFoundException {
-        try {
-            return segnalationStateRepository.getOne(id);
-        } catch (Exception e) {
-            throw new SegnalationStateNotFoundException();
-        }
+        return segnalationStateRepository.getOne(id);
     }
+
     @Transactional
     public SegnalationStateDTO save(SegnalationStateDTO segnalationStateDTO) {
         DTO<SegnalationState, SegnalationStateDTO> dto = abstractDTOFactory.getDTO("SegnalationState");
-        Domain<SegnalationStateDTO, SegnalationState> domain = abstractDomainFactory.getDomain("Segnalation");
+        Domain<SegnalationStateDTO, SegnalationState> domain = abstractDomainFactory.getDomain("SegnalationState");
         return dto.create(segnalationStateRepository.save(domain.create(segnalationStateDTO)));
     }
 }

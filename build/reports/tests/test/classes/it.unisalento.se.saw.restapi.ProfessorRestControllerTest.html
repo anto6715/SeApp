@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.193s</div>
+<div class="counter">0.188s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,22 +79,22 @@
 </thead>
 <tr>
 <td class="success">getAllTest</td>
-<td class="success">0.033s</td>
+<td class="success">0.085s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByIdCourseTest</td>
-<td class="success">0.044s</td>
+<td class="success">0.035s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByIdTest</td>
-<td class="success">0.084s</td>
+<td class="success">0.034s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">saveTest</td>
-<td class="success">0.032s</td>
+<td class="success">0.034s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -102,38 +102,38 @@
 <div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>3101 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.save(it.unisalento.se.saw.dto.ProfessorDTO) throws it.unisalento.se.saw.exceptions.CourseNotFoundException
-3101 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getAll()
-3101 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.getById(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-3101 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getByCourse/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getByIdCourse(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-3116 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7b201813
-3116 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-3116 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-3116 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-3132 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.save(it.unisalento.se.saw.dto.ProfessorDTO) throws it.unisalento.se.saw.exceptions.CourseNotFoundException
-3132 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getAll()
-3132 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.getById(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-3132 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getByCourse/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getByIdCourse(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-3148 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5d9d94da
-3163 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-3163 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-3163 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-3194 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.save(it.unisalento.se.saw.dto.ProfessorDTO) throws it.unisalento.se.saw.exceptions.CourseNotFoundException
-3194 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getAll()
-3194 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.getById(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-3194 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getByCourse/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getByIdCourse(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-3241 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@20e30030
-3241 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-3257 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-3257 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-3257 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.save(it.unisalento.se.saw.dto.ProfessorDTO) throws it.unisalento.se.saw.exceptions.CourseNotFoundException
-3257 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getAll()
-3273 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.getById(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-3273 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getByCourse/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getByIdCourse(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
-3273 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@137168b1
-3273 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-3273 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-3273 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+<pre>2499 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.save(it.unisalento.se.saw.dto.ProfessorDTO) throws it.unisalento.se.saw.exceptions.CourseNotFoundException
+2500 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getAll()
+2501 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getByCourse/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getByIdCourse(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+2501 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.getById(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+2511 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7b201813
+2515 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2515 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2515 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2534 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.save(it.unisalento.se.saw.dto.ProfessorDTO) throws it.unisalento.se.saw.exceptions.CourseNotFoundException
+2535 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getAll()
+2535 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getByCourse/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getByIdCourse(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+2536 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.getById(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+2543 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5d9d94da
+2549 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2550 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2552 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2573 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.save(it.unisalento.se.saw.dto.ProfessorDTO) throws it.unisalento.se.saw.exceptions.CourseNotFoundException
+2574 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getAll()
+2575 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getByCourse/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getByIdCourse(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+2576 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.getById(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+2586 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@20e30030
+2591 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2592 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2592 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2608 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.save(it.unisalento.se.saw.dto.ProfessorDTO) throws it.unisalento.se.saw.exceptions.CourseNotFoundException
+2609 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getAll()
+2618 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getByCourse/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.ProfessorDTO&gt; it.unisalento.se.saw.restapi.ProfessorRestController.getByIdCourse(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+2620 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/professor/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.ProfessorDTO it.unisalento.se.saw.restapi.ProfessorRestController.getById(int) throws it.unisalento.se.saw.exceptions.ProfessorNotFoundException
+2632 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@137168b1
+2639 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2641 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2641 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
 </pre>
 </span>
 </div>
@@ -145,7 +145,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.8</a> at 3-set-2018 11.21.40</p>
+<a href="http://www.gradle.org">Gradle 4.8</a> at 3-set-2018 16.27.58</p>
 </div>
 </div>
 </body>

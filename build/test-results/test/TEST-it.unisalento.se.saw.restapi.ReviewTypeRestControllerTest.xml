@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.unisalento.se.saw.restapi.ReviewTypeRestControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-09-03T09:21:37" hostname="DESKTOP-TUGA85P" time="0.105">
+<testsuite name="it.unisalento.se.saw.restapi.ReviewTypeRestControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-09-03T14:27:56" hostname="DESKTOP-TUGA85P" time="0.095">
   <properties/>
-  <testcase name="saveTest" classname="it.unisalento.se.saw.restapi.ReviewTypeRestControllerTest" time="0.047"/>
-  <testcase name="getByIdTest" classname="it.unisalento.se.saw.restapi.ReviewTypeRestControllerTest" time="0.03"/>
-  <testcase name="getAllTest" classname="it.unisalento.se.saw.restapi.ReviewTypeRestControllerTest" time="0.024"/>
+  <testcase name="saveTest" classname="it.unisalento.se.saw.restapi.ReviewTypeRestControllerTest" time="0.042"/>
+  <testcase name="getByIdTest" classname="it.unisalento.se.saw.restapi.ReviewTypeRestControllerTest" time="0.028"/>
+  <testcase name="getAllTest" classname="it.unisalento.se.saw.restapi.ReviewTypeRestControllerTest" time="0.023"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[3725 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/save],methods=[POST],consumes=[application/json]}" onto public it.unisalento.se.saw.dto.ReviewTypeDTO it.unisalento.se.saw.restapi.ReviewTypeRestController.save(it.unisalento.se.saw.dto.ReviewTypeDTO)
-3727 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/getAll],methods=[GET],produces=[application/json]}" onto public java.util.Set<it.unisalento.se.saw.dto.ReviewTypeDTO> it.unisalento.se.saw.restapi.ReviewTypeRestController.getAll()
-3734 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/getById/{id}],methods=[GET],produces=[application/json]}" onto public it.unisalento.se.saw.dto.ReviewTypeDTO it.unisalento.se.saw.restapi.ReviewTypeRestController.getById(int) throws it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException
-3752 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@2fcb6daa
-3758 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-3759 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-3760 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-3775 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/save],methods=[POST],consumes=[application/json]}" onto public it.unisalento.se.saw.dto.ReviewTypeDTO it.unisalento.se.saw.restapi.ReviewTypeRestController.save(it.unisalento.se.saw.dto.ReviewTypeDTO)
-3777 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/getAll],methods=[GET],produces=[application/json]}" onto public java.util.Set<it.unisalento.se.saw.dto.ReviewTypeDTO> it.unisalento.se.saw.restapi.ReviewTypeRestController.getAll()
-3778 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/getById/{id}],methods=[GET],produces=[application/json]}" onto public it.unisalento.se.saw.dto.ReviewTypeDTO it.unisalento.se.saw.restapi.ReviewTypeRestController.getById(int) throws it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException
-3789 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@56d5d945
-3793 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-3793 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-3794 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
-3805 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/save],methods=[POST],consumes=[application/json]}" onto public it.unisalento.se.saw.dto.ReviewTypeDTO it.unisalento.se.saw.restapi.ReviewTypeRestController.save(it.unisalento.se.saw.dto.ReviewTypeDTO)
-3806 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/getAll],methods=[GET],produces=[application/json]}" onto public java.util.Set<it.unisalento.se.saw.dto.ReviewTypeDTO> it.unisalento.se.saw.restapi.ReviewTypeRestController.getAll()
-3807 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/getById/{id}],methods=[GET],produces=[application/json]}" onto public it.unisalento.se.saw.dto.ReviewTypeDTO it.unisalento.se.saw.restapi.ReviewTypeRestController.getById(int) throws it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException
-3816 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7fe98edc
-3820 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-3821 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-3822 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+  <system-err><![CDATA[2959 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/save],methods=[POST],consumes=[application/json]}" onto public it.unisalento.se.saw.dto.ReviewTypeDTO it.unisalento.se.saw.restapi.ReviewTypeRestController.save(it.unisalento.se.saw.dto.ReviewTypeDTO)
+2961 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/getAll],methods=[GET],produces=[application/json]}" onto public java.util.Set<it.unisalento.se.saw.dto.ReviewTypeDTO> it.unisalento.se.saw.restapi.ReviewTypeRestController.getAll()
+2963 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/getById/{id}],methods=[GET],produces=[application/json]}" onto public it.unisalento.se.saw.dto.ReviewTypeDTO it.unisalento.se.saw.restapi.ReviewTypeRestController.getById(int) throws it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException
+2975 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@2fcb6daa
+2979 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2979 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2979 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2991 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/save],methods=[POST],consumes=[application/json]}" onto public it.unisalento.se.saw.dto.ReviewTypeDTO it.unisalento.se.saw.restapi.ReviewTypeRestController.save(it.unisalento.se.saw.dto.ReviewTypeDTO)
+2995 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/getAll],methods=[GET],produces=[application/json]}" onto public java.util.Set<it.unisalento.se.saw.dto.ReviewTypeDTO> it.unisalento.se.saw.restapi.ReviewTypeRestController.getAll()
+2996 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/getById/{id}],methods=[GET],produces=[application/json]}" onto public it.unisalento.se.saw.dto.ReviewTypeDTO it.unisalento.se.saw.restapi.ReviewTypeRestController.getById(int) throws it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException
+3005 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@56d5d945
+3009 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+3009 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+3010 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+3021 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/save],methods=[POST],consumes=[application/json]}" onto public it.unisalento.se.saw.dto.ReviewTypeDTO it.unisalento.se.saw.restapi.ReviewTypeRestController.save(it.unisalento.se.saw.dto.ReviewTypeDTO)
+3022 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/getAll],methods=[GET],produces=[application/json]}" onto public java.util.Set<it.unisalento.se.saw.dto.ReviewTypeDTO> it.unisalento.se.saw.restapi.ReviewTypeRestController.getAll()
+3023 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/reviewType/getById/{id}],methods=[GET],produces=[application/json]}" onto public it.unisalento.se.saw.dto.ReviewTypeDTO it.unisalento.se.saw.restapi.ReviewTypeRestController.getById(int) throws it.unisalento.se.saw.exceptions.ReviewTypeNotFoundException
+3031 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7fe98edc
+3034 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+3035 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+3036 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
 ]]></system-err>
 </testsuite>

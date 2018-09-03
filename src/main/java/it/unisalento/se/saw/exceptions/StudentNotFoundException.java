@@ -5,4 +5,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(code = HttpStatus.BAD_REQUEST)
 public class StudentNotFoundException extends Exception {
+    @Override
+    public String getMessage() {
+        return "Student not found";
+    }
 }
