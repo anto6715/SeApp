@@ -19,6 +19,7 @@ public class UserDomainModel implements Domain<Object, User> {
             user.setSurname(professorDTO.getSurname());
             user.setUid(professorDTO.getUid());
             user.setUserType(3);
+            user.setIdUser(professorDTO.getIdUser());
             user.setToken(professorDTO.getToken());
             return user;
         }
@@ -31,6 +32,7 @@ public class UserDomainModel implements Domain<Object, User> {
             user.setSurname(studentDTO.getSurname());
             user.setUid(studentDTO.getUid());
             user.setUserType(1);
+            user.setIdUser(studentDTO.getIdUser());
             user.setToken(studentDTO.getToken());
             return user;
         }
@@ -43,6 +45,7 @@ public class UserDomainModel implements Domain<Object, User> {
             user.setSurname(secretaryDTO.getSurname());
             user.setUid(secretaryDTO.getUid());
             user.setUserType(2);
+            user.setIdUser(secretaryDTO.getIdUser());
             user.setToken(secretaryDTO.getToken());
             return user;
         }

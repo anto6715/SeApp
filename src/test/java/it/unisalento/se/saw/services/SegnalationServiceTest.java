@@ -85,6 +85,7 @@ public class SegnalationServiceTest {
         SegnalationId segnalationId = new SegnalationId(1,1,1,1,1);
         Segnalation segnalation = new Segnalation(segnalationId, professor,room,segnalationState);
         /******************************************************/
+
         List<Segnalation> segnalations = new ArrayList<>();
         segnalations.add(segnalation);
 

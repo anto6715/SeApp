@@ -75,11 +75,7 @@ public class ProfessorService implements IProfessorServices {
 
     @Transactional
     public Professor getDomainById(int id) throws ProfessorNotFoundException {
-        try {
-            return professorRepository.findProfessorById_IdProfessor(id);
-        } catch (Exception e) {
-            throw new ProfessorNotFoundException();
-        }
+        return professorRepository.findProfessorById_IdProfessor(id);
     }
 
     @Transactional

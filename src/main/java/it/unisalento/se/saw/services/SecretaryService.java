@@ -45,7 +45,6 @@ public class SecretaryService implements ISecretaryServices {
         Domain<SecretaryDTO, User> domainSecretaryUser = domainFactory.getDomain("USER");
 
         User saveUser = userRepository.save(domainSecretaryUser.create(secretaryDTO));
-
         SecretaryId secretaryId = new SecretaryId();
         secretaryId.setUserIdUser(saveUser.getIdUser());
         secretaryId.setIdSecretary(secretaryDTO.getId());

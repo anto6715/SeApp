@@ -111,22 +111,14 @@ public class ReviewService implements IReviewServices {
 
     @Transactional
     public ReviewDTO getByIdStudentAndIdMaterial(int idStudent, int idMaterial) throws ReviewNotFoundException {
-        try {
-            DTO<Review, ReviewDTO> dto = dtoFactory.getDTO("Review");
-            return dto.create(reviewRepository.findReviewById_StudentIdStudentAndMaterial_Id_IdMaterial(idStudent,idMaterial));
-        } catch (Exception e) {
-            return null;
-        }
+        DTO<Review, ReviewDTO> dto = dtoFactory.getDTO("Review");
+        return dto.create(reviewRepository.findReviewById_StudentIdStudentAndMaterial_Id_IdMaterial(idStudent,idMaterial));
     }
 
     @Transactional
     public ReviewDTO getByIdStudentAndIdLesson(int idStudent, int idLesson) throws ReviewNotFoundException {
-        try {
-            DTO<Review, ReviewDTO> dto = dtoFactory.getDTO("Review");
-            return dto.create(reviewRepository.findReviewById_StudentIdStudentAndLesson_Id_IdLesson(idStudent,idLesson));
-        } catch (Exception e) {
-            return null;
-        }
+        DTO<Review, ReviewDTO> dto = dtoFactory.getDTO("Review");
+        return dto.create(reviewRepository.findReviewById_StudentIdStudentAndLesson_Id_IdLesson(idStudent,idLesson));
     }
 
     @Transactional

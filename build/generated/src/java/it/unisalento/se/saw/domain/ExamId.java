@@ -93,7 +93,7 @@ public class ExamId  implements java.io.Serializable {
     }
 
 
-   public boolean equals(Object other) {
+   /*public boolean equals(Object other) {
          if ( (this == other ) ) return true;
 		 if ( (other == null ) ) return false;
 		 if ( !(other instanceof ExamId) ) return false;
@@ -117,7 +117,7 @@ public class ExamId  implements java.io.Serializable {
          result = 37 * result + this.getTeachingProfessorIdProfessor();
          result = 37 * result + this.getTeachingProfessorUserIdUser();
          return result;
-   }   
+   }   */
 
 
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.unisalento.se.saw.services.UserServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-09-03T14:27:57" hostname="DESKTOP-TUGA85P" time="0.011">
+<testsuite name="it.unisalento.se.saw.services.UserServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-09-04T09:45:21" hostname="DESKTOP-TUGA85P" time="0.008">
   <properties/>
-  <testcase name="saveTest" classname="it.unisalento.se.saw.services.UserServiceTest" time="0.0"/>
+  <testcase name="saveTest" classname="it.unisalento.se.saw.services.UserServiceTest" time="0.001"/>
   <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.UserServiceTest" time="0.0"/>
-  <testcase name="getSecretaryByUidTest" classname="it.unisalento.se.saw.services.UserServiceTest" time="0.001"/>
+  <testcase name="getSecretaryByUidTest" classname="it.unisalento.se.saw.services.UserServiceTest" time="0.0"/>
   <testcase name="getProfByUidTest" classname="it.unisalento.se.saw.services.UserServiceTest" time="0.001"/>
-  <testcase name="addFcmToken" classname="it.unisalento.se.saw.services.UserServiceTest" time="0.0"/>
-  <testcase name="getStudentByUidTest" classname="it.unisalento.se.saw.services.UserServiceTest" time="0.001"/>
+  <testcase name="addFcmToken" classname="it.unisalento.se.saw.services.UserServiceTest" time="0.001"/>
+  <testcase name="getStudentByUidTest" classname="it.unisalento.se.saw.services.UserServiceTest" time="0.0"/>
   <system-out><![CDATA[class it.unisalento.se.saw.dto.UserDTO
 domain fine
 ]]></system-out>

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.181s</div>
+<div class="counter">0.189s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">getAllTest</td>
-<td class="success">0.031s</td>
+<td class="success">0.033s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -89,12 +89,12 @@
 </tr>
 <tr>
 <td class="success">getByIdTest</td>
-<td class="success">0.042s</td>
+<td class="success">0.036s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">saveTest</td>
-<td class="success">0.057s</td>
+<td class="success">0.069s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -102,46 +102,46 @@
 <div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>2110 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.save(it.unisalento.se.saw.dto.LessonDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.TeachingNotFoundException
-2112 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getAll()
-2114 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByIdRoom(int)
-2114 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.getById(int) throws it.unisalento.se.saw.exceptions.LessonNotFoundException
-2115 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDate/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdCourse(java.lang.String,int) throws java.text.ParseException
-2115 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDateAndIdProf/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdProfessor(java.lang.String,int) throws java.text.ParseException
-2124 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@6754f63f
-2128 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-2128 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-2128 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-2165 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.save(it.unisalento.se.saw.dto.LessonDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.TeachingNotFoundException
-2166 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getAll()
-2166 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByIdRoom(int)
-2167 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.getById(int) throws it.unisalento.se.saw.exceptions.LessonNotFoundException
-2167 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDate/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdCourse(java.lang.String,int) throws java.text.ParseException
-2167 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDateAndIdProf/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdProfessor(java.lang.String,int) throws java.text.ParseException
-2188 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@4d51a57c
-2192 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-2192 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-2193 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-2210 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.save(it.unisalento.se.saw.dto.LessonDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.TeachingNotFoundException
-2210 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getAll()
-2211 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByIdRoom(int)
-2211 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.getById(int) throws it.unisalento.se.saw.exceptions.LessonNotFoundException
-2211 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDate/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdCourse(java.lang.String,int) throws java.text.ParseException
-2212 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDateAndIdProf/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdProfessor(java.lang.String,int) throws java.text.ParseException
-2223 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@22b3b756
-2229 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-2229 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-2229 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-2242 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.save(it.unisalento.se.saw.dto.LessonDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.TeachingNotFoundException
-2243 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getAll()
-2244 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByIdRoom(int)
-2244 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.getById(int) throws it.unisalento.se.saw.exceptions.LessonNotFoundException
-2245 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDate/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdCourse(java.lang.String,int) throws java.text.ParseException
-2246 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDateAndIdProf/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdProfessor(java.lang.String,int) throws java.text.ParseException
-2270 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@61fb20fe
-2275 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-2276 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-2277 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+<pre>2347 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.save(it.unisalento.se.saw.dto.LessonDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.TeachingNotFoundException
+2353 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.getById(int) throws it.unisalento.se.saw.exceptions.LessonNotFoundException
+2353 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByIdRoom(int)
+2354 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getAll()
+2354 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDateAndIdProf/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdProfessor(java.lang.String,int) throws java.text.ParseException
+2355 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDate/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdCourse(java.lang.String,int) throws java.text.ParseException
+2369 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@6754f63f
+2375 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2376 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2376 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2415 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.save(it.unisalento.se.saw.dto.LessonDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.TeachingNotFoundException
+2417 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.getById(int) throws it.unisalento.se.saw.exceptions.LessonNotFoundException
+2419 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByIdRoom(int)
+2420 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getAll()
+2421 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDateAndIdProf/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdProfessor(java.lang.String,int) throws java.text.ParseException
+2421 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDate/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdCourse(java.lang.String,int) throws java.text.ParseException
+2433 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@4d51a57c
+2436 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2437 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2437 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2450 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.save(it.unisalento.se.saw.dto.LessonDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.TeachingNotFoundException
+2451 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.getById(int) throws it.unisalento.se.saw.exceptions.LessonNotFoundException
+2452 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByIdRoom(int)
+2452 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getAll()
+2453 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDateAndIdProf/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdProfessor(java.lang.String,int) throws java.text.ParseException
+2453 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDate/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdCourse(java.lang.String,int) throws java.text.ParseException
+2466 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@22b3b756
+2470 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2471 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2472 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2491 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.save(it.unisalento.se.saw.dto.LessonDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException,it.unisalento.se.saw.exceptions.TeachingNotFoundException
+2493 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.LessonDTO it.unisalento.se.saw.restapi.LessonRestController.getById(int) throws it.unisalento.se.saw.exceptions.LessonNotFoundException
+2495 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByIdRoom(int)
+2497 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getAll()
+2499 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDateAndIdProf/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdProfessor(java.lang.String,int) throws java.text.ParseException
+2503 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/lesson/getByDate/{date}_{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.LessonDTO&gt; it.unisalento.se.saw.restapi.LessonRestController.getByDateAndIdCourse(java.lang.String,int) throws java.text.ParseException
+2517 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@61fb20fe
+2521 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2522 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2522 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
 </pre>
 </span>
 </div>
@@ -153,7 +153,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.8</a> at 3-set-2018 16.27.58</p>
+<a href="http://www.gradle.org">Gradle 4.8</a> at 4-set-2018 11.45.21</p>
 </div>
 </div>
 </body>

@@ -48,12 +48,9 @@ public class RoomService implements IRoomServices {
 
     @Transactional
     public Room getDomainById(int id) throws RoomNotFoundException {
-        try {
-            return roomRepository.getOne(id);
-        } catch (Exception e) {
-            throw new RoomNotFoundException();
-        }
+        return roomRepository.getOne(id);
     }
+
     @Transactional
     public RoomDTO save(RoomDTO roomDTO) {
         DTO<Room, RoomDTO> dto = dtoFactory.getDTO("Room");

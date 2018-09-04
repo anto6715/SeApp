@@ -69,7 +69,7 @@ public class TeachingId  implements java.io.Serializable {
     }
 
 
-   public boolean equals(Object other) {
+   /*public boolean equals(Object other) {
          if ( (this == other ) ) return true;
 		 if ( (other == null ) ) return false;
 		 if ( !(other instanceof TeachingId) ) return false;
@@ -89,7 +89,7 @@ public class TeachingId  implements java.io.Serializable {
          result = 37 * result + this.getProfessorIdProfessor();
          result = 37 * result + this.getProfessorUserIdUser();
          return result;
-   }   
+   }   */
 
 
 }

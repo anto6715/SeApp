@@ -45,7 +45,7 @@ public class ProfessorId  implements java.io.Serializable {
     }
 
 
-   public boolean equals(Object other) {
+   /*public boolean equals(Object other) {
          if ( (this == other ) ) return true;
 		 if ( (other == null ) ) return false;
 		 if ( !(other instanceof ProfessorId) ) return false;
@@ -61,7 +61,7 @@ public class ProfessorId  implements java.io.Serializable {
          result = 37 * result + this.getIdProfessor();
          result = 37 * result + this.getUserIdUser();
          return result;
-   }   
+   } */
 
 
 }

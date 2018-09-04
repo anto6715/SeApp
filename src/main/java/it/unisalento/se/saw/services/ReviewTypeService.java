@@ -40,12 +40,9 @@ public class ReviewTypeService implements IReviewTypeServices {
 
     @Transactional
     public ReviewType getDomainById(int id) throws ReviewTypeNotFoundException {
-        try {
-            return reviewTypeRepository.getOne(id);
-        } catch (Exception e) {
-            throw new ReviewTypeNotFoundException();
-        }
+        return reviewTypeRepository.getOne(id);
     }
+
     @Transactional
     public ReviewTypeDTO save(ReviewTypeDTO reviewTypeDTO) {
         DTO<ReviewType, ReviewTypeDTO> dto = dtoFactory.getDTO("ReviewType");

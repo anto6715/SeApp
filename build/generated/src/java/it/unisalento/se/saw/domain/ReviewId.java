@@ -81,7 +81,7 @@ public class ReviewId  implements java.io.Serializable {
     }
 
 
-   public boolean equals(Object other) {
+   /*public boolean equals(Object other) {
          if ( (this == other ) ) return true;
 		 if ( (other == null ) ) return false;
 		 if ( !(other instanceof ReviewId) ) return false;
@@ -103,7 +103,7 @@ public class ReviewId  implements java.io.Serializable {
          result = 37 * result + this.getStudentUserIdUser();
          result = 37 * result + this.getReviewTypeIdReviewType();
          return result;
-   }   
+   }  */
 
 
 }

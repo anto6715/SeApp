@@ -21,11 +21,12 @@ public class DomainFactory extends AbstractFactory {
             return new CourseDomainModel();
         }
 
+        if(domainType.equalsIgnoreCase("ROOM")){
+            return new RoomDomainFactory();
+        }
+
         if(domainType.equalsIgnoreCase("SEGNALATIONSTATE")){
             return new SegnalationStateDomainModel();
-        }
-        if(domainType.equalsIgnoreCase("PROFESSOR")){
-            return new ProfessorDomainModel();
         }
         return null;
     }

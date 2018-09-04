@@ -5,4 +5,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(code = HttpStatus.BAD_REQUEST)
 public class ReviewNotFoundException extends Exception {
+    @Override
+    public String getMessage() {
+        return "Review not found";
+    }
 }

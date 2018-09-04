@@ -57,7 +57,7 @@ public class StudentId  implements java.io.Serializable {
     }
 
 
-   public boolean equals(Object other) {
+  /* public boolean equals(Object other) {
          if ( (this == other ) ) return true;
 		 if ( (other == null ) ) return false;
 		 if ( !(other instanceof StudentId) ) return false;
@@ -75,7 +75,7 @@ public class StudentId  implements java.io.Serializable {
          result = 37 * result + this.getCourseIdCourse();
          result = 37 * result + this.getUserIdUser();
          return result;
-   }   
+   }   */
 
 
 }

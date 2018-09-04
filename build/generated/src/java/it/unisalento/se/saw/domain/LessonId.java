@@ -93,7 +93,7 @@ public class LessonId  implements java.io.Serializable {
     }
 
 
-   public boolean equals(Object other) {
+  /* public boolean equals(Object other) {
          if ( (this == other ) ) return true;
 		 if ( (other == null ) ) return false;
 		 if ( !(other instanceof LessonId) ) return false;
@@ -117,7 +117,7 @@ public class LessonId  implements java.io.Serializable {
          result = 37 * result + this.getTeachingProfessorUserIdUser();
          result = 37 * result + this.getRoomIdRoom();
          return result;
-   }   
+   }   */
 
 
 }
