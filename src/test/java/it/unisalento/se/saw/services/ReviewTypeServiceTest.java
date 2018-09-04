@@ -63,7 +63,7 @@ public class ReviewTypeServiceTest {
             ReviewTypeDTO reviewTypeDTO = reviewTypeService.getById(3);
             assertEquals(reviewType.getIdReviewType(), reviewTypeDTO.getId());
         } catch (ReviewTypeNotFoundException e) {
-            e.printStackTrace();
+            assertEquals("ReviewType not found",e.getMessage());
         }
 
     }

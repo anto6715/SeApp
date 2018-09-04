@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.unisalento.se.saw.services.SegnalationStateServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-09-04T09:45:21" hostname="DESKTOP-TUGA85P" time="0.01">
+<testsuite name="it.unisalento.se.saw.services.SegnalationStateServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-09-04T13:19:34" hostname="DESKTOP-TUGA85P" time="0.009">
   <properties/>
   <testcase name="saveTest" classname="it.unisalento.se.saw.services.SegnalationStateServiceTest" time="0.002"/>
-  <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.SegnalationStateServiceTest" time="0.001"/>
-  <testcase name="getAllTest" classname="it.unisalento.se.saw.services.SegnalationStateServiceTest" time="0.001"/>
-  <testcase name="getByIdErrorTest" classname="it.unisalento.se.saw.services.SegnalationStateServiceTest" time="0.001"/>
-  <testcase name="getDomainByIdTest" classname="it.unisalento.se.saw.services.SegnalationStateServiceTest" time="0.001"/>
+  <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.SegnalationStateServiceTest" time="0.0"/>
+  <testcase name="getAllTest" classname="it.unisalento.se.saw.services.SegnalationStateServiceTest" time="0.002"/>
+  <testcase name="getByIdErrorTest" classname="it.unisalento.se.saw.services.SegnalationStateServiceTest" time="0.0"/>
+  <testcase name="getDomainByIdTest" classname="it.unisalento.se.saw.services.SegnalationStateServiceTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

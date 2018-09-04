@@ -48,11 +48,7 @@ public class MaterialService implements IMaterialServices {
 
     @Transactional
     public Material getDomainById(int id) throws MaterialNotFoundException {
-        try {
-            return materialRepository.findMaterialById_IdMaterial(id);
-        } catch (Exception e) {
-            throw new MaterialNotFoundException();
-        }
+        return materialRepository.findMaterialById_IdMaterial(id);
     }
 
     @Transactional

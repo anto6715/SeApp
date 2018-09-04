@@ -89,7 +89,7 @@ public class LessonService implements ILessonServices {
         DTO<Lesson, LessonDTO> dto = dtoFactory.getDTO("Lesson");
 
 
-        Teaching teaching =domainTeaching.create(teachingServices.getById(lessonDTO.getIdTeaching()));
+        Teaching teaching =teachingServices.getDomainById(lessonDTO.getIdTeaching());
         Room room = roomServices.getDomainById(lessonDTO.getIdRoom());
 
         LessonId lessonId = new LessonId();
