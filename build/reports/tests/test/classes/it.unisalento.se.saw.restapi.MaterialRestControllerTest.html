@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.186s</div>
+<div class="counter">0.128s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,27 +79,27 @@
 </thead>
 <tr>
 <td class="success">getAllTest</td>
-<td class="success">0.036s</td>
+<td class="success">0.021s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByIdLessonTest</td>
-<td class="success">0.037s</td>
+<td class="success">0.027s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByIdTeachingTest</td>
-<td class="success">0.040s</td>
+<td class="success">0.026s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByIdTest</td>
-<td class="success">0.032s</td>
+<td class="success">0.028s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">saveTest</td>
-<td class="success">0.041s</td>
+<td class="success">0.026s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -107,51 +107,51 @@
 <div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>2400 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.save(it.unisalento.se.saw.dto.MaterialDTO) throws it.unisalento.se.saw.exceptions.TeachingNotFoundException
-2400 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getAll()
-2401 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.getById(int) throws it.unisalento.se.saw.exceptions.MaterialNotFoundException
-2401 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdTeaching/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdTeaching(int)
-2402 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdLesson/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdLesson(int)
-2417 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@781cc76
-2423 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-2423 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-2423 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-2444 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.save(it.unisalento.se.saw.dto.MaterialDTO) throws it.unisalento.se.saw.exceptions.TeachingNotFoundException
-2445 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getAll()
-2446 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.getById(int) throws it.unisalento.se.saw.exceptions.MaterialNotFoundException
-2446 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdTeaching/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdTeaching(int)
-2447 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdLesson/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdLesson(int)
-2459 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@54bfa9c3
-2463 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-2463 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-2464 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-2485 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.save(it.unisalento.se.saw.dto.MaterialDTO) throws it.unisalento.se.saw.exceptions.TeachingNotFoundException
-2485 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getAll()
-2486 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.getById(int) throws it.unisalento.se.saw.exceptions.MaterialNotFoundException
-2486 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdTeaching/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdTeaching(int)
-2487 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdLesson/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdLesson(int)
-2497 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7fdbd0f4
-2502 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-2503 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-2503 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-2517 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.save(it.unisalento.se.saw.dto.MaterialDTO) throws it.unisalento.se.saw.exceptions.TeachingNotFoundException
-2518 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getAll()
-2518 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.getById(int) throws it.unisalento.se.saw.exceptions.MaterialNotFoundException
-2518 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdTeaching/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdTeaching(int)
-2519 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdLesson/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdLesson(int)
-2539 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5c36261b
-2543 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-2543 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-2544 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-2559 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.save(it.unisalento.se.saw.dto.MaterialDTO) throws it.unisalento.se.saw.exceptions.TeachingNotFoundException
-2559 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getAll()
-2560 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.getById(int) throws it.unisalento.se.saw.exceptions.MaterialNotFoundException
-2560 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdTeaching/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdTeaching(int)
-2561 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdLesson/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdLesson(int)
-2575 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@94e1556
-2580 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-2581 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-2582 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+<pre>1784 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.save(it.unisalento.se.saw.dto.MaterialDTO) throws it.unisalento.se.saw.exceptions.TeachingNotFoundException
+1784 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getAll()
+1785 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.getById(int) throws it.unisalento.se.saw.exceptions.MaterialNotFoundException
+1785 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdLesson/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdLesson(int)
+1785 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdTeaching/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdTeaching(int)
+1793 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@6153bca4
+1797 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+1797 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+1797 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+1810 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.save(it.unisalento.se.saw.dto.MaterialDTO) throws it.unisalento.se.saw.exceptions.TeachingNotFoundException
+1810 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getAll()
+1811 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.getById(int) throws it.unisalento.se.saw.exceptions.MaterialNotFoundException
+1811 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdLesson/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdLesson(int)
+1811 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdTeaching/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdTeaching(int)
+1821 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@37e008d2
+1825 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+1825 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+1825 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+1839 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.save(it.unisalento.se.saw.dto.MaterialDTO) throws it.unisalento.se.saw.exceptions.TeachingNotFoundException
+1840 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getAll()
+1840 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.getById(int) throws it.unisalento.se.saw.exceptions.MaterialNotFoundException
+1841 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdLesson/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdLesson(int)
+1841 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdTeaching/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdTeaching(int)
+1851 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@1bb50a5f
+1855 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+1855 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+1855 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+1869 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.save(it.unisalento.se.saw.dto.MaterialDTO) throws it.unisalento.se.saw.exceptions.TeachingNotFoundException
+1869 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getAll()
+1870 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.getById(int) throws it.unisalento.se.saw.exceptions.MaterialNotFoundException
+1870 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdLesson/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdLesson(int)
+1871 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdTeaching/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdTeaching(int)
+1879 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@2168ee
+1882 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+1882 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+1882 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+1895 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.save(it.unisalento.se.saw.dto.MaterialDTO) throws it.unisalento.se.saw.exceptions.TeachingNotFoundException
+1895 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getAll()
+1896 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.MaterialDTO it.unisalento.se.saw.restapi.MaterialRestController.getById(int) throws it.unisalento.se.saw.exceptions.MaterialNotFoundException
+1896 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdLesson/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdLesson(int)
+1896 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/material/getByIdTeaching/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.MaterialDTO&gt; it.unisalento.se.saw.restapi.MaterialRestController.getByIdTeaching(int)
+1905 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@4a6a79bd
+1908 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+1908 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+1908 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
 </pre>
 </span>
 </div>
@@ -163,7 +163,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.8</a> at 4-set-2018 15.19.35</p>
+<a href="http://www.gradle.org">Gradle 4.8</a> at 8-set-2018 15.45.09</p>
 </div>
 </div>
 </body>

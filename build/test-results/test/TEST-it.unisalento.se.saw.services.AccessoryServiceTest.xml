@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.unisalento.se.saw.services.AccessoryServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-09-04T13:19:33" hostname="DESKTOP-TUGA85P" time="0.024">
+<testsuite name="it.unisalento.se.saw.services.AccessoryServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-09-08T13:45:07" hostname="DESKTOP-5IEPLHD" time="0.006">
   <properties/>
-  <testcase name="saveTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.004"/>
-  <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.001"/>
-  <testcase name="getAllTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.002"/>
-  <testcase name="getByIdErrorTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.001"/>
-  <testcase name="getByIdRoomTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.001"/>
+  <testcase name="saveTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.002"/>
+  <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.0"/>
+  <testcase name="getAllTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.001"/>
+  <testcase name="getByIdErrorTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.0"/>
+  <testcase name="getByIdRoomTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.0"/>
   <system-out><![CDATA[name
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

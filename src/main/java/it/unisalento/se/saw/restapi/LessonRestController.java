@@ -38,7 +38,14 @@ public class LessonRestController {
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public LessonDTO save(@RequestBody LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
+        System.out.println("qui                                                                          afaf");
         return lessonServices.save(lessonDTO);
+    }
+
+    @PostMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public LessonDTO update(@RequestBody LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
+        System.out.println("qui                                                                          afaf");
+        return lessonServices.update(lessonDTO);
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

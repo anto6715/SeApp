@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.unisalento.se.saw.services.SegnalationServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-09-04T13:19:34" hostname="DESKTOP-TUGA85P" time="0.012">
+<testsuite name="it.unisalento.se.saw.services.SegnalationServiceTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-09-08T13:45:07" hostname="DESKTOP-5IEPLHD" time="0.009">
   <properties/>
-  <testcase name="getByRoomTest" classname="it.unisalento.se.saw.services.SegnalationServiceTest" time="0.004"/>
+  <testcase name="getByRoomTest" classname="it.unisalento.se.saw.services.SegnalationServiceTest" time="0.002"/>
   <testcase name="saveTest" classname="it.unisalento.se.saw.services.SegnalationServiceTest" time="0.001"/>
   <testcase name="getByProfessorTest" classname="it.unisalento.se.saw.services.SegnalationServiceTest" time="0.0"/>
   <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.SegnalationServiceTest" time="0.0"/>
