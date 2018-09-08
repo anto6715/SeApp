@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SeApp.iml" filepath="$PROJECT_DIR$/SeApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SeApp.iml" filepath="$PROJECT_DIR$/.idea/SeApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SeApp_main.iml" filepath="$PROJECT_DIR$/.idea/modules/SeApp_main.iml" group="SeApp" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/SeApp_test.iml" filepath="$PROJECT_DIR$/.idea/modules/SeApp_test.iml" group="SeApp" />
     </modules>
