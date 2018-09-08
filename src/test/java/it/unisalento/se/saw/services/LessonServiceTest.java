@@ -560,7 +560,6 @@ public class LessonServiceTest {
         assertEquals(l.getId(), lessonDTO.getId());
     }
 
-
     @Test
     public void updateTest() throws LessonNotFoundException, RoomNotFoundException, TeachingNotFoundException {
 
