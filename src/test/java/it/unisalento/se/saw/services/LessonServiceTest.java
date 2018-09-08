@@ -559,4 +559,87 @@ public class LessonServiceTest {
 
         assertEquals(l.getId(), lessonDTO.getId());
     }
+
+
+    @Test
+    public void updateTest() throws LessonNotFoundException, RoomNotFoundException, TeachingNotFoundException {
+
+        /***************************Course***************************/
+        Course course = new Course();
+        course.setCredits(1);
+        course.setLanguage("language");
+        course.setLenght(2);
+        course.setLocation("location");
+        course.setName("name");
+        course.setType("type");
+        course.setIdCourse(3);
+        /******************************************************/
+
+        /*****************User*************************************/
+        User user = new User();
+        user.setIdUser(1);
+        user.setUserType(1);
+        user.setToken("token");
+        user.setUid("uid");
+        user.setAge(2);
+        user.setEmail("email");
+        /******************************************************/
+
+        /****************************Room**************************/
+        Room room = new Room();
+        room.setIdRoom(1);
+        room.setCapacity(1);
+        room.setLatitude(1.0);
+        room.setLongitude(0.1);
+        room.setLocation("location");
+        room.setName("name");
+        /******************************************************/
+
+        /*************************Professor*****************************/
+
+        ProfessorId professorId = new ProfessorId();
+        professorId.setUserIdUser(1);
+        professorId.setIdProfessor(1);
+
+        Professor professor = new Professor();
+        professor.setUser(user);
+        professor.setId(professorId);
+
+        /******************************************************/
+
+        /*****************Teaching*************************************/
+        TeachingId teachingId = new TeachingId(1,3,1,1);
+
+        Teaching teaching = new Teaching();
+        teaching.setName("Analisi");
+        teaching.setProfessor(professor);
+        teaching.setCourse(course);
+        teaching.setId(teachingId);
+        teaching.setCredits(10);
+        teaching.setYear(1);
+        /******************************************************/
+
+        /**************************Lesson****************************/
+        LessonId lessonId = new LessonId(1,1,3,1,1,1);
+
+        Lesson lesson = new Lesson(lessonId, room, teaching,new Date(),new Date(),new Date(),null,null);
+        /******************************************************/
+
+        /**************************LessonDTO****************************/
+        LessonDTO lessonDTO = new LessonDTO();
+        lessonDTO.setId(1);
+        lessonDTO.setDate(new Date());
+        lessonDTO.setIdRoom(1);
+        lessonDTO.setIdTeaching(1);
+        /******************************************************/
+
+        when(lessonRepository.findLessonById_IdLesson(1)).thenReturn(lesson);
+        when(roomService.getDomainById(1)).thenReturn(room);
+        when(teachingService.getDomainById(1)).thenReturn(teaching);
+        when(lessonRepository.save(any(Lesson.class))).thenReturn(lesson);
+
+        LessonDTO l = lessonService.update(lessonDTO);
+
+        assertEquals(l.getId(), lessonDTO.getId());
+    }
 }

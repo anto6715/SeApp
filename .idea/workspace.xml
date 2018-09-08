@@ -18,6 +18,34 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/SeApp$CourseRestControllerTest_saveTest.ic" NAME="CourseRestControllerTest.saveTest Coverage Results" MODIFIED="1535806028713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>it.unisalento.se.saw.restapi.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SeApp$SegnalationStateServiceTest.ic" NAME="SegnalationStateServiceTest Coverage Results" MODIFIED="1535981061572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>it.unisalento.se.saw.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SeApp$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1535971258409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>it.unisalento.se.saw.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SeApp$SegnalationRestControllerTest.ic" NAME="SegnalationRestControllerTest Coverage Results" MODIFIED="1535886754244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>it.unisalento.se.saw.restapi.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SeApp$TeachingServicesTest_getAllTest.ic" NAME="TeachingServicesTest.getAllTest Coverage Results" MODIFIED="1535972706838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>it.unisalento.se.saw.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SeApp$UserServiceTest_getById.ic" NAME="UserServiceTest.getById Coverage Results" MODIFIED="1535968157034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>it.unisalento.se.saw.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SeApp$UserServiceTest_getByErrorIdTest.ic" NAME="UserServiceTest.getByErrorIdTest Coverage Results" MODIFIED="1535968015998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>it.unisalento.se.saw.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SeApp$SeApp__test_.ic" NAME="SeApp [test] Coverage Results" MODIFIED="1536414297870" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SeApp$LessonServiceTest_updateTest.ic" NAME="LessonServiceTest.updateTest Coverage Results" MODIFIED="1536414277843" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>it.unisalento.se.saw.services.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/SeApp$UserServiceTest_saveTest.ic" NAME="UserServiceTest.saveTest Coverage Results" MODIFIED="1535969373672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>it.unisalento.se.saw.services.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/SeApp$TeachingServicesTest.ic" NAME="TeachingServicesTest Coverage Results" MODIFIED="1535979707020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>it.unisalento.se.saw.services.*</FILTER>
     </SUITE>
@@ -27,41 +55,25 @@
     <SUITE FILE_PATH="coverage/SeApp$TeachingServicesTest_save.ic" NAME="TeachingServicesTest.save Coverage Results" MODIFIED="1535982007294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>it.unisalento.se.saw.services.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SeApp$UserServiceTest_saveTest.ic" NAME="UserServiceTest.saveTest Coverage Results" MODIFIED="1535969373672" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>it.unisalento.se.saw.services.*</FILTER>
-    </SUITE>
+<<<<<<< HEAD
+    <SUITE FILE_PATH="coverage/SeApp$SeApp__test_.ic" NAME="SeApp [test] Coverage Results" MODIFIED="1536067163105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SeApp$UserServiceTest_getByErrorIdTest.ic" NAME="UserServiceTest.getByErrorIdTest Coverage Results" MODIFIED="1535968015998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+=======
     <SUITE FILE_PATH="coverage/SeApp$StudentServiceTest.ic" NAME="StudentServiceTest Coverage Results" MODIFIED="1535981468650" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>it.unisalento.se.saw.services.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SeApp$CourseRestControllerTest_saveTest.ic" NAME="CourseRestControllerTest.saveTest Coverage Results" MODIFIED="1535806028713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>it.unisalento.se.saw.restapi.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SeApp$TeachingServicesTest_getAllTest.ic" NAME="TeachingServicesTest.getAllTest Coverage Results" MODIFIED="1535972706838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>it.unisalento.se.saw.services.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SeApp$SegnalationRestControllerTest.ic" NAME="SegnalationRestControllerTest Coverage Results" MODIFIED="1535886754244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>it.unisalento.se.saw.restapi.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SeApp$UserServiceTest_getById.ic" NAME="UserServiceTest.getById Coverage Results" MODIFIED="1535968157034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>it.unisalento.se.saw.services.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SeApp$SegnalationStateServiceTest.ic" NAME="SegnalationStateServiceTest Coverage Results" MODIFIED="1535981061572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
       <FILTER>it.unisalento.se.saw.services.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/SeApp$UserServiceTest_getByUid.ic" NAME="UserServiceTest.getByUid Coverage Results" MODIFIED="1535970589323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>it.unisalento.se.saw.services.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SeApp$SeApp__test_.ic" NAME="SeApp [test] Coverage Results" MODIFIED="1536067163105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/SeApp$UserServiceTest_getByErrorIdTest.ic" NAME="UserServiceTest.getByErrorIdTest Coverage Results" MODIFIED="1535968015998" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>it.unisalento.se.saw.services.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/SeApp$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1535971258409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>it.unisalento.se.saw.services.*</FILTER>
-    </SUITE>
   </component>
   <component name="CoverageViewManager">
     <option name="myAutoScrollFromSource" value="true" />
+<<<<<<< HEAD
     <option name="myElementSize" value="75" />
+=======
+    <option name="myElementSize" value="36" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -85,6 +97,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="SeApp" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="SeApp" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -156,18 +174,69 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="924592069">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="24" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="24" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="1417" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="1417" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/LessonService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1054">
               <caret line="85" selection-start-line="85" selection-end-line="85" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/LessonService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-136">
+              <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/LessonServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="498">
+              <caret line="478" lean-forward="true" selection-start-line="478" selection-end-line="478" />
+              <folding>
+                <element signature="method#saveTest#0;class#LessonServiceTest#0" />
+              </folding>
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/LessonDTO.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -195,6 +264,8 @@
           </provider>
         </entry>
       </file>
+=======
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -216,7 +287,7 @@
   <component name="GradleLocalSettings">
     <option name="myGradleHomes">
       <map>
-        <entry key="$PROJECT_DIR$" value="C:\Users\Antonio\.gradle\wrapper\dists\gradle-4.8-bin\divx0s2uj4thofgytb7gf9fsi\gradle-4.8" />
+        <entry key="$PROJECT_DIR$" value="C:\Users\Giuseppe\.gradle\wrapper\dists\gradle-4.8-bin\divx0s2uj4thofgytb7gf9fsi\gradle-4.8" />
       </map>
     </option>
     <option name="myGradleVersions">
@@ -686,7 +757,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="6136517044677" />
+        <entry key="$PROJECT_DIR$" value="6142354459396" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/build.gradle" value="2915642136" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="2007532874" />
@@ -855,9 +926,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/UserServiceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/SegnalationStateServiceTest.java" />
         <option value="$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/Segnalation.java" />
+=======
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/exceptions/SegnalationNotFoundException.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/TeachingServicesTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/StudentServiceTest.java" />
@@ -893,7 +967,10 @@
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/ReviewTypeServiceTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/MaterialServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/exceptions/LessonNotFoundException.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/LessonServiceTest.java" />
+=======
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/SetExamDTOModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/exceptions/ExamNotFoundException.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/ExamServiceTest.java" />
@@ -903,9 +980,19 @@
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/ReviewServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/exceptions/AccessoryNotFoundException.java" />
         <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/AccessoryServiceTest.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/LessonService.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/ILessonServices.java" />
         <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/LessonRestController.java" />
+=======
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/LessonDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/ILessonServices.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/LessonRestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/LessonRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/LessonService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/LessonRestControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/LessonServiceTest.java" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
       </list>
     </option>
   </component>
@@ -916,15 +1003,22 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
+<<<<<<< HEAD
     <option name="x" value="761" />
     <option name="width" value="780" />
     <option name="height" value="839" />
+=======
+    <option name="x" value="952" />
+    <option name="width" value="975" />
+    <option name="height" value="1048" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
   </component>
   <component name="ProjectView">
     <navigator currentView="PackagesPane" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -1016,6 +1110,10 @@
           <select />
         </subPane>
       </pane>
+=======
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1114,14 +1212,96 @@
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="AndroidView" />
+=======
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it.unisalento.se.saw" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it.unisalento.se.saw" type="1f31426a:PackageElementNode" />
+              <item name="domain" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it.unisalento.se.saw" type="1f31426a:PackageElementNode" />
+              <item name="Iservices" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it.unisalento.se.saw" type="1f31426a:PackageElementNode" />
+              <item name="repositories" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_main" type="616d4139:PackageViewModuleNode" />
+              <item name="it.unisalento.se.saw" type="1f31426a:PackageElementNode" />
+              <item name="restapi" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
+              <item name="it.unisalento.se.saw" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
+              <item name="it.unisalento.se.saw" type="1f31426a:PackageElementNode" />
+              <item name="restapi" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="SeApp" type="58d84e3e:PackageViewProjectNode" />
+              <item name="SeApp" type="eaaa3913:PackageViewModuleGroupNode" />
+              <item name="SeApp_test" type="616d4139:PackageViewModuleNode" />
+              <item name="it.unisalento.se.saw" type="1f31426a:PackageElementNode" />
+              <item name="services" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536414652158" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536414397011" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -1145,8 +1325,13 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Gradle.SeApp [appStart]">
     <configuration name="SeApp [appStart]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+=======
+  <component name="RunManager" selected="Gradle.SeApp [test]">
+    <configuration name="SeApp [appStop]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -1157,6 +1342,7 @@
         </option>
         <option name="taskNames">
           <list>
+<<<<<<< HEAD
             <option value="appStart" />
           </list>
         </option>
@@ -1176,45 +1362,72 @@
         <option name="taskNames">
           <list>
             <option value="test" />
+=======
+            <option value="appStop" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
       <method v="2" />
     </configuration>
-    <configuration name="AccessoryServiceTest.getByIdErrorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SeApp_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.unisalento.se.saw.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="it.unisalento.se.saw.services" />
-      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.services.AccessoryServiceTest" />
-      <option name="METHOD_NAME" value="getByIdErrorTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="SeApp [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration name="AccessoryServiceTest.getByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+=======
+    <configuration name="SeApp [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="LessonRestControllerTest.updateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
       <module name="SeApp_test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="it.unisalento.se.saw.services.*" />
+          <option name="PATTERN" value="it.unisalento.se.saw.restapi.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="it.unisalento.se.saw.services" />
-      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.services.AccessoryServiceTest" />
-      <option name="METHOD_NAME" value="getByIdTest" />
+      <option name="PACKAGE_NAME" value="it.unisalento.se.saw.restapi" />
+      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.restapi.LessonRestControllerTest" />
+      <option name="METHOD_NAME" value="updateTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AccessoryServiceTest.saveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LessonServiceTest.updateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SeApp_test" />
       <extension name="coverage">
         <pattern>
@@ -1223,14 +1436,15 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="it.unisalento.se.saw.services" />
-      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.services.AccessoryServiceTest" />
-      <option name="METHOD_NAME" value="saveTest" />
+      <option name="MAIN_CLASS_NAME" value="it.unisalento.se.saw.services.LessonServiceTest" />
+      <option name="METHOD_NAME" value="updateTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+<<<<<<< HEAD
       <item itemvalue="JUnit.AccessoryServiceTest.getByIdTest" />
       <item itemvalue="JUnit.AccessoryServiceTest.getByIdErrorTest" />
       <item itemvalue="JUnit.AccessoryServiceTest.saveTest" />
@@ -1244,6 +1458,21 @@
         <item itemvalue="JUnit.AccessoryServiceTest.saveTest" />
         <item itemvalue="JUnit.AccessoryServiceTest.getByIdErrorTest" />
         <item itemvalue="JUnit.AccessoryServiceTest.getByIdTest" />
+=======
+      <item itemvalue="Gradle.SeApp [appStop]" />
+      <item itemvalue="Gradle.SeApp [build]" />
+      <item itemvalue="Gradle.SeApp [test]" />
+      <item itemvalue="JUnit.LessonRestControllerTest.updateTest" />
+      <item itemvalue="JUnit.LessonServiceTest.updateTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.SeApp [test]" />
+        <item itemvalue="JUnit.LessonServiceTest.updateTest" />
+        <item itemvalue="JUnit.LessonRestControllerTest.updateTest" />
+        <item itemvalue="Gradle.SeApp [build]" />
+        <item itemvalue="Gradle.SeApp [appStop]" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
       </list>
     </recent_temporary>
   </component>
@@ -1296,32 +1525,53 @@
       <workItem from="1535959485601" duration="21811000" />
       <workItem from="1535997277253" duration="299000" />
       <workItem from="1536045417011" duration="9017000" />
+<<<<<<< HEAD
       <workItem from="1536061221976" duration="6098000" />
       <workItem from="1536393994481" duration="6223000" />
+=======
+      <workItem from="1536061221976" duration="5901000" />
+      <workItem from="1536236760786" duration="1704000" />
+      <workItem from="1536313916658" duration="1199000" />
+      <workItem from="1536394102259" duration="11918000" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
     </task>
     <servers />
   </component>
   <component name="TestHistory">
+<<<<<<< HEAD
     <history-entry file="AccessoryServiceTest_getAllTest - 2018.09.04 at 15h 12m 32s.xml">
       <configuration name="AccessoryServiceTest.getAllTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccessoryServiceTest_getAllTest - 2018.09.04 at 15h 13m 04s.xml">
-      <configuration name="AccessoryServiceTest.getAllTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccessoryServiceTest_getByIdRoomTest - 2018.09.04 at 15h 13m 53s.xml">
-      <configuration name="AccessoryServiceTest.getByIdRoomTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccessoryServiceTest_getByIdTest - 2018.09.04 at 15h 14m 53s.xml">
-      <configuration name="AccessoryServiceTest.getByIdTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccessoryServiceTest_getByIdErrorTest - 2018.09.04 at 15h 15m 34s.xml">
-      <configuration name="AccessoryServiceTest.getByIdErrorTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccessoryServiceTest_getByIdErrorTest - 2018.09.04 at 15h 16m 15s.xml">
-      <configuration name="AccessoryServiceTest.getByIdErrorTest" configurationId="JUnit" />
-    </history-entry>
+=======
     <history-entry file="AccessoryServiceTest_getByIdErrorTest - 2018.09.04 at 15h 16m 28s.xml">
       <configuration name="AccessoryServiceTest.getByIdErrorTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SeApp_[test] - 2018.09.08 at 15h 31m 55s.xml">
+      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="SeApp_[test] - 2018.09.08 at 15h 32m 46s.xml">
+      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="LessonRestControllerTest_updateTest - 2018.09.08 at 15h 36m 05s.xml">
+      <configuration name="LessonRestControllerTest.updateTest" configurationId="JUnit" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
+    </history-entry>
+    <history-entry file="LessonServiceTest_updateTest - 2018.09.08 at 15h 42m 31s.xml">
+      <configuration name="LessonServiceTest.updateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LessonServiceTest_updateTest - 2018.09.08 at 15h 44m 03s.xml">
+      <configuration name="LessonServiceTest.updateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LessonServiceTest_updateTest - 2018.09.08 at 15h 44m 19s.xml">
+      <configuration name="LessonServiceTest.updateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LessonServiceTest_updateTest - 2018.09.08 at 15h 44m 45s.xml">
+      <configuration name="LessonServiceTest.updateTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="SeApp_[test] - 2018.09.08 at 15h 44m 53s.xml">
+      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
+    </history-entry>
+    <history-entry file="SeApp_[test] - 2018.09.08 at 15h 45m 09s.xml">
+      <configuration name="SeApp [test]" configurationId="GradleRunConfiguration" />
     </history-entry>
     <history-entry file="AccessoryServiceTest_saveTest - 2018.09.04 at 15h 19m 08s.xml">
       <configuration name="AccessoryServiceTest.saveTest" configurationId="JUnit" />
@@ -1334,13 +1584,21 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="245212000" />
+=======
+    <option name="totallyTimeSpent" value="253613000" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49795082" visible="true" weight="0.20682302" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49795082" visible="true" weight="0.26492536" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
       <window_info id="Structure" order="1" sideWeight="0.5020492" side_tool="true" weight="0.2557047" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1350,7 +1608,11 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.22017354" />
+=======
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2426869" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1362,18 +1624,26 @@
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" />
-      <window_info anchor="bottom" id="Messages" order="14" weight="0.32858709" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.32827735" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" />
+<<<<<<< HEAD
       <window_info anchor="right" id="Gradle" order="6" sideWeight="0.48264644" visible="true" weight="0.13859275" />
       <window_info anchor="right" id="Database" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5173536" side_tool="true" visible="true" weight="0.1748401" />
+=======
+      <window_info anchor="right" id="Gradle" order="6" sideWeight="0.4806867" visible="true" weight="0.17857143" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info active="true" anchor="right" id="Coverage" order="10" sideWeight="0.5193133" side_tool="true" visible="true" weight="0.17857143" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1395,93 +1665,13 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/ProfessorService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-174">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/ProfessorDTOModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/NotificationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/ProfessorId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="47" column="5" selection-start-line="47" selection-start-column="3" selection-end-line="63" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/NotificationDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-55">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/Room.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1157">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/Secretary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1320">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/configurations/SingleFirebaseSDKConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/configurations/WebAppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/configurations/AppInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+=======
     <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/ProfessorServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-272">
           <caret line="26" selection-start-line="26" selection-end-line="26" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getAllTest#0;class#ProfessorServiceTest#0" />
-            <element signature="method#getByIdErrorTest#0;class#ProfessorServiceTest#0" />
-            <element signature="method#saveTest#0;class#ProfessorServiceTest#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1496,10 +1686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-          <folding>
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#342#343#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1507,9 +1693,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
           <caret line="65" column="62" selection-start-line="65" selection-start-column="62" selection-end-line="65" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1548,6 +1731,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/MaterialId.java">
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-324">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
@@ -1558,33 +1742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
-          <folding>
-            <element signature="e#299#300#0" expanded="true" />
-            <element signature="e#340#341#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/LessonId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/LessonServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="883">
-          <caret line="554" column="68" selection-start-line="554" selection-start-column="68" selection-end-line="554" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getAllTest#0;class#LessonServiceTest#0" />
-            <element signature="method#getByDateTest#0;class#LessonServiceTest#0" />
-            <element signature="method#getByDateTest#1;class#LessonServiceTest#0" />
-            <element signature="method#getByRoomTest#0;class#LessonServiceTest#0" />
-            <element signature="method#getByIdTest#0;class#LessonServiceTest#0" />
-            <element signature="method#getByIdTest#1;class#LessonServiceTest#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1606,10 +1763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-          <folding>
-            <element signature="e#297#298#0" expanded="true" />
-            <element signature="e#338#339#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1638,12 +1791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1359">
           <caret line="274" column="57" selection-start-line="274" selection-start-column="57" selection-end-line="274" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getAllTest#0;class#ExamServiceTest#0" />
-            <element signature="method#getByIdTest#0;class#ExamServiceTest#0" />
-            <element signature="method#saveTest#0;class#ExamServiceTest#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1651,13 +1798,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="9" column="32" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="32" />
-          <folding>
-            <element signature="e#299#300#0" expanded="true" />
-            <element signature="e#340#341#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/configurations/AppInitializer.java">
+=======
     <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/Course.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-198">
@@ -1666,6 +1812,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/CourseService.java">
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="591">
           <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
@@ -1676,17 +1823,196 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
           <caret line="128" column="58" selection-start-line="128" selection-start-column="58" selection-end-line="128" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/exceptions/AccessoryNotFoundException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/ReviewServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2669">
+          <caret line="173" column="20" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getAllTest#0;class#CourseServiceTest#0" />
-            <element signature="method#getByIdTest#0;class#CourseServiceTest#0" />
-            <element signature="method#getByIdTest#1;class#CourseServiceTest#0" />
-            <element signature="method#getByIdTest#1;class#CourseServiceTest#0" />
-            <element signature="method#saveTest#0;class#CourseServiceTest#0" />
+            <element signature="method#getByIdLessonTest#0;class#ReviewServiceTest#0" />
+            <element signature="method#getByIdMaterialTest#0;class#ReviewServiceTest#0" />
+            <element signature="method#getByType#0;class#ReviewServiceTest#0" />
+            <element signature="method#getByIdTest#0;class#ReviewServiceTest#0" />
+            <element signature="method#getByIdErrorTest#0;class#ReviewServiceTest#0" />
+            <element signature="method#getByIdStudentAndIdMaterialTest#0;class#ReviewServiceTest#0" />
+            <element signature="method#getByIdStudentAndIdLessonTest#0;class#ReviewServiceTest#0" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/AccessoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/Accessory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/models/DTOFactory/LessonDTOModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/AccessoryId.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/LessonId.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/AccessoryRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/LessonId.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/TeachingRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/StudentRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/SegnalationStateRepository.java">
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/SegnalationRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/SecretaryRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/RoomRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/ReviewTypeRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/ReviewRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/MaterialRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/ExamRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/AccessoryServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="196" column="56" selection-start-line="196" selection-start-column="56" selection-end-line="196" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getByIdRoomTest#0;class#AccessoryServiceTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/Lesson.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/dto/LessonDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/CourseRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/Iservices/ILessonServices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/exceptions/AccessoryNotFoundException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1702,11 +2028,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="47">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/restapi/LessonRestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/ReviewServiceTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/repositories/LessonRepository.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="2669">
           <caret line="173" column="20" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="20" />
           <folding>
@@ -1750,12 +2083,30 @@
     <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/Accessory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
+=======
+        <state relative-caret-position="187">
+          <caret line="19" column="59" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/restapi/LessonRestControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/TeachingServicesTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6443">
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
           <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/src/java/it/unisalento/se/saw/domain/AccessoryId.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/it/unisalento/se/saw/services/LessonService.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="170">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
@@ -1821,6 +2172,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
           <caret line="85" selection-start-line="85" selection-end-line="85" />
+=======
+        <state relative-caret-position="-136">
+          <caret line="90" column="8" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/it/unisalento/se/saw/services/LessonServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="478" lean-forward="true" selection-start-line="478" selection-end-line="478" />
+          <folding>
+            <element signature="method#saveTest#0;class#LessonServiceTest#0" />
+          </folding>
+>>>>>>> dde2120bf69dfd0544f4899f85a10a8470d721b1
         </state>
       </provider>
     </entry>

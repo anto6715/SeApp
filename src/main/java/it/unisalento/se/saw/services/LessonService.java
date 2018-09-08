@@ -83,6 +83,35 @@ public class LessonService implements ILessonServices {
     }
 
     @Transactional
+    public LessonDTO update(LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
+
+        DTO<Lesson, LessonDTO> dto = dtoFactory.getDTO("Lesson");
+
+        Lesson lesson = lessonRepository.findLessonById_IdLesson(lessonDTO.getId());
+        lessonRepository.delete(lesson);
+
+        Lesson updateLesson = new Lesson();
+        Room room = roomServices.getDomainById(lessonDTO.getIdRoom());
+        Teaching teaching = teachingServices.getDomainById(lessonDTO.getIdTeaching());
+
+        LessonId lessonId = new LessonId();
+        lessonId.setRoomIdRoom(room.getIdRoom());
+        lessonId.setTeachingIdTeaching(teaching.getId().getIdTeaching());
+        lessonId.setTeachingCourseIdCourse(teaching.getId().getCourseIdCourse());
+        lessonId.setTeachingProfessorIdProfessor(teaching.getId().getProfessorIdProfessor());
+        lessonId.setTeachingProfessorUserIdUser(teaching.getId().getProfessorUserIdUser());
+
+        updateLesson.setId(lessonId);
+        updateLesson.setRoom(room);
+        updateLesson.setTeaching(teaching);
+        updateLesson.setDate(lessonDTO.getDate());
+        updateLesson.setStart(lessonDTO.getStart());
+        updateLesson.setEnd(lessonDTO.getEnd());
+
+        return dto.create(lessonRepository.save(updateLesson));
+    }
+
+    @Transactional
     public LessonDTO save(LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
 
         Domain<TeachingDTO, Teaching> domainTeaching = domainFactory.getDomain("Teaching");

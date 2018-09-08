@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.132s</div>
+<div class="counter">0.068s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,22 +79,22 @@
 </thead>
 <tr>
 <td class="success">getAllTest</td>
-<td class="success">0.043s</td>
+<td class="success">0.016s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByCapacity</td>
-<td class="success">0.032s</td>
+<td class="success">0.016s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByIdTest</td>
-<td class="success">0.026s</td>
+<td class="success">0.018s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">saveTest</td>
-<td class="success">0.031s</td>
+<td class="success">0.018s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -102,38 +102,38 @@
 <div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>3168 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.save(it.unisalento.se.saw.dto.RoomDTO)
-3168 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getAll()
-3168 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.getById(int) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
-3169 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getByCapacity/{capacity}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getByCapacity(int)
-3182 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@2c5e6138
-3185 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-3185 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-3185 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-3198 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.save(it.unisalento.se.saw.dto.RoomDTO)
-3199 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getAll()
-3199 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.getById(int) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
-3199 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getByCapacity/{capacity}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getByCapacity(int)
-3208 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@228084be
-3212 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-3212 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-3213 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-3232 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.save(it.unisalento.se.saw.dto.RoomDTO)
-3233 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getAll()
-3235 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.getById(int) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
-3236 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getByCapacity/{capacity}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getByCapacity(int)
-3245 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@eaa856e
-3249 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-3249 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-3249 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-3259 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.save(it.unisalento.se.saw.dto.RoomDTO)
-3263 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getAll()
-3264 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.getById(int) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
-3266 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getByCapacity/{capacity}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getByCapacity(int)
-3277 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@4d62bd10
-3282 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-3283 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-3284 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+<pre>2241 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.save(it.unisalento.se.saw.dto.RoomDTO)
+2242 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getAll()
+2242 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.getById(int) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
+2242 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getByCapacity/{capacity}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getByCapacity(int)
+2247 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@a15a23d
+2250 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2250 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2250 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2260 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.save(it.unisalento.se.saw.dto.RoomDTO)
+2260 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getAll()
+2260 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.getById(int) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
+2260 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getByCapacity/{capacity}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getByCapacity(int)
+2266 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@423111c6
+2268 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2268 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2269 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+2277 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.save(it.unisalento.se.saw.dto.RoomDTO)
+2277 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getAll()
+2278 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.getById(int) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
+2278 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getByCapacity/{capacity}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getByCapacity(int)
+2284 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7a68f0c4
+2286 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2286 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2287 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+2296 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.save(it.unisalento.se.saw.dto.RoomDTO)
+2297 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getAll()
+2297 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.RoomDTO it.unisalento.se.saw.restapi.RoomRestController.getById(int) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
+2297 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/room/getByCapacity/{capacity}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.RoomDTO&gt; it.unisalento.se.saw.restapi.RoomRestController.getByCapacity(int)
+2303 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@42b52682
+2305 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2305 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2306 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
 </pre>
 </span>
 </div>
@@ -145,7 +145,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.8</a> at 4-set-2018 15.19.35</p>
+<a href="http://www.gradle.org">Gradle 4.8</a> at 8-set-2018 15.45.09</p>
 </div>
 </div>
 </body>

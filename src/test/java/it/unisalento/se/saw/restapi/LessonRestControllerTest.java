@@ -149,5 +149,31 @@ public class LessonRestControllerTest {
         verifyNoMoreInteractions(lessonServicesMock);
     }
 
+    @Test
+    public void updateTest() throws Exception {
+        LessonDTO lessonDTO = new LessonDTO();
+        lessonDTO.setStart(null);
+        lessonDTO.setTeachingDTO(null);
+        lessonDTO.setIdTeaching(1);
+        lessonDTO.setIdRoom(2);
+        lessonDTO.setId(3);
+
+        String json = Tools.getJson(lessonDTO);
+
+        when(lessonServicesMock.update(any(LessonDTO.class))).thenReturn(lessonDTO);
+
+        mockMvc.perform(post("/lesson/update")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content(json))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(APPLICATION_JSON_UTF8))
+                .andExpect(jsonPath("$.start", is(nullValue())))
+                .andExpect(jsonPath("$.teachingDTO", is(nullValue())))
+                .andExpect(jsonPath("$.idTeaching", is(1)))
+                .andExpect(jsonPath("$.idRoom", is(2)));
+
+        verify(lessonServicesMock, times(1)).update(refEq(lessonDTO));
+        verifyNoMoreInteractions(lessonServicesMock);
+    }
 
 }

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.unisalento.se.saw.services.ProfessorServiceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-09-04T13:19:34" hostname="DESKTOP-TUGA85P" time="0.017">
+<testsuite name="it.unisalento.se.saw.services.ProfessorServiceTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-09-08T13:45:07" hostname="DESKTOP-5IEPLHD" time="0.009">
   <properties/>
   <testcase name="saveTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.002"/>
   <testcase name="getByIdCourseTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.001"/>
-  <testcase name="getByUidErrorTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.001"/>
-  <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.001"/>
-  <testcase name="getAllTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.0"/>
-  <testcase name="getByIdErrorTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.001"/>
-  <testcase name="getByUidTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.001"/>
-  <testcase name="getDomainByIdTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.001"/>
+  <testcase name="getByUidErrorTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.0"/>
+  <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.0"/>
+  <testcase name="getAllTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.001"/>
+  <testcase name="getByIdErrorTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.0"/>
+  <testcase name="getByUidTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.0"/>
+  <testcase name="getDomainByIdTest" classname="it.unisalento.se.saw.services.ProfessorServiceTest" time="0.0"/>
   <system-out><![CDATA[class it.unisalento.se.saw.dto.ProfessorDTO
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
