@@ -6,6 +6,7 @@ import it.unisalento.se.saw.dto.ReviewDTO;
 public class ReviewDTOModel implements DTO<Review, ReviewDTO> {
     @Override
     public ReviewDTO create(Review review) {
+        if(review == null) return null;
         ReviewDTO reviewDTO = new ReviewDTO();
         reviewDTO.setId(review.getId().getIdReview());
         if (review.getLesson() != null) {
