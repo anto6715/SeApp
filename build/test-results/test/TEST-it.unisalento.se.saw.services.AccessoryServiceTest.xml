@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.unisalento.se.saw.services.AccessoryServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-09-08T13:45:07" hostname="DESKTOP-5IEPLHD" time="0.006">
+<testsuite name="it.unisalento.se.saw.services.AccessoryServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-09-09T08:46:48" hostname="antonio-pc" time="0.035">
   <properties/>
-  <testcase name="saveTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.002"/>
+  <testcase name="saveTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.027"/>
   <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.0"/>
   <testcase name="getAllTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.001"/>
   <testcase name="getByIdErrorTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.0"/>
-  <testcase name="getByIdRoomTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.0"/>
+  <testcase name="getByIdRoomTest" classname="it.unisalento.se.saw.services.AccessoryServiceTest" time="0.001"/>
   <system-out><![CDATA[name
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

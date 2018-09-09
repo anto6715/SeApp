@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.unisalento.se.saw.services.MaterialServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2018-09-08T13:45:07" hostname="DESKTOP-5IEPLHD" time="0.011">
+<testsuite name="it.unisalento.se.saw.services.MaterialServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2018-09-09T08:46:48" hostname="antonio-pc" time="0.028">
   <properties/>
-  <testcase name="saveTest" classname="it.unisalento.se.saw.services.MaterialServiceTest" time="0.005"/>
+  <testcase name="saveTest" classname="it.unisalento.se.saw.services.MaterialServiceTest" time="0.014"/>
   <testcase name="getByIdLessonTest" classname="it.unisalento.se.saw.services.MaterialServiceTest" time="0.001"/>
   <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.MaterialServiceTest" time="0.001"/>
-  <testcase name="getByIdTeachingTest" classname="it.unisalento.se.saw.services.MaterialServiceTest" time="0.001"/>
-  <testcase name="getAllTest" classname="it.unisalento.se.saw.services.MaterialServiceTest" time="0.0"/>
-  <testcase name="getByIdErrorTest" classname="it.unisalento.se.saw.services.MaterialServiceTest" time="0.0"/>
-  <testcase name="getDomainByIdTest" classname="it.unisalento.se.saw.services.MaterialServiceTest" time="0.0"/>
+  <testcase name="getByIdTeachingTest" classname="it.unisalento.se.saw.services.MaterialServiceTest" time="0.0"/>
+  <testcase name="getAllTest" classname="it.unisalento.se.saw.services.MaterialServiceTest" time="0.001"/>
+  <testcase name="getByIdErrorTest" classname="it.unisalento.se.saw.services.MaterialServiceTest" time="0.001"/>
+  <testcase name="getDomainByIdTest" classname="it.unisalento.se.saw.services.MaterialServiceTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

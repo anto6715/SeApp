@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.unisalento.se.saw.services.TeachingServicesTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2018-09-08T13:45:07" hostname="DESKTOP-5IEPLHD" time="0.009">
+<testsuite name="it.unisalento.se.saw.services.TeachingServicesTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2018-09-09T08:46:48" hostname="antonio-pc" time="0.019">
   <properties/>
-  <testcase name="getByIdCourseTest" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.001"/>
+  <testcase name="getByIdCourseTest" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.002"/>
   <testcase name="getDomainById" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.0"/>
-  <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.001"/>
+  <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.0"/>
   <testcase name="getByNameAndIdProfTest" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.0"/>
-  <testcase name="save" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.0"/>
+  <testcase name="save" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.001"/>
   <testcase name="getAllTest" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.0"/>
   <testcase name="getByIdErrorTest" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.001"/>
-  <testcase name="getByNameAndIdProfErrorTest" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.001"/>
-  <testcase name="getByNameAndIdCourseTest" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.001"/>
+  <testcase name="getByNameAndIdProfErrorTest" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.0"/>
+  <testcase name="getByNameAndIdCourseTest" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.0"/>
   <testcase name="getByProfTest" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.0"/>
   <testcase name="getByNameAndIdCourseErrorTest" classname="it.unisalento.se.saw.services.TeachingServicesTest" time="0.0"/>
   <system-out><![CDATA[Teaching not found
