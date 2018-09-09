@@ -32,6 +32,11 @@ public class SegnalationStateRestController {
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public SegnalationStateDTO getById(@PathVariable int id) throws SegnalationStateNotFoundException {
-        return segnalationStateServices.getById(id);
+        try {
+            return segnalationStateServices.getById(id);
+        } catch (SegnalationStateNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 }

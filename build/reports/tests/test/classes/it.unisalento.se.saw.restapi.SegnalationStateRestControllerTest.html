@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">3</div>
+<div class="counter">4</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.054s</div>
+<div class="counter">0.102s</div>
 <p>duration</p>
 </div>
 </td>
@@ -64,7 +64,10 @@
 <a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Standard error</a>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
@@ -79,45 +82,64 @@
 </thead>
 <tr>
 <td class="success">getAllTest</td>
-<td class="success">0.014s</td>
+<td class="success">0.023s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getByIdErrorTest</td>
+<td class="success">0.019s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByIdTest</td>
-<td class="success">0.013s</td>
+<td class="success">0.042s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">saveTest</td>
-<td class="success">0.027s</td>
+<td class="success">0.018s</td>
 <td class="success">passed</td>
 </tr>
 </table>
 </div>
 <div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>SegnalationState not found
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>2192 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationStateNotFoundException
-2192 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationStateDTO&gt; it.unisalento.se.saw.restapi.SegnalationStateRestController.getAll()
-2192 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.save(it.unisalento.se.saw.dto.SegnalationStateDTO)
-2198 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@69421032
-2200 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-2200 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-2200 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-2211 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationStateNotFoundException
-2211 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationStateDTO&gt; it.unisalento.se.saw.restapi.SegnalationStateRestController.getAll()
-2211 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.save(it.unisalento.se.saw.dto.SegnalationStateDTO)
-2216 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@56dbdb36
-2218 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-2218 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-2218 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-2223 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationStateNotFoundException
-2223 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationStateDTO&gt; it.unisalento.se.saw.restapi.SegnalationStateRestController.getAll()
-2224 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.save(it.unisalento.se.saw.dto.SegnalationStateDTO)
-2231 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@14a352f1
-2233 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-2233 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-2233 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+<pre>2793 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationStateNotFoundException
+2793 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.save(it.unisalento.se.saw.dto.SegnalationStateDTO)
+2794 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationStateDTO&gt; it.unisalento.se.saw.restapi.SegnalationStateRestController.getAll()
+2799 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@1071223a
+2802 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2802 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2802 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2812 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationStateNotFoundException
+2832 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.save(it.unisalento.se.saw.dto.SegnalationStateDTO)
+2832 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationStateDTO&gt; it.unisalento.se.saw.restapi.SegnalationStateRestController.getAll()
+2838 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@1f5c42c5
+2845 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2845 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2845 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2857 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationStateNotFoundException
+2857 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.save(it.unisalento.se.saw.dto.SegnalationStateDTO)
+2859 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationStateDTO&gt; it.unisalento.se.saw.restapi.SegnalationStateRestController.getAll()
+2866 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@77dd2d49
+2870 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2870 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2871 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+2880 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.getById(int) throws it.unisalento.se.saw.exceptions.SegnalationStateNotFoundException
+2881 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.SegnalationStateDTO it.unisalento.se.saw.restapi.SegnalationStateRestController.save(it.unisalento.se.saw.dto.SegnalationStateDTO)
+2881 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/segnalationState/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.SegnalationStateDTO&gt; it.unisalento.se.saw.restapi.SegnalationStateRestController.getAll()
+2887 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@3d7ba8ff
+2889 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2889 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2889 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
 </pre>
 </span>
 </div>
@@ -129,7 +151,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.8</a> at 9-set-2018 10.46.51</p>
+<a href="http://www.gradle.org">Gradle 4.8</a> at 9-set-2018 13.32.30</p>
 </div>
 </div>
 </body>

@@ -38,31 +38,35 @@ public class TeachingService implements ITeachingServices {
     IProfessorServices professorServices;
 
     AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
-    AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DOMAIN");
 
     @Transactional(readOnly = true)
     public Set<TeachingDTO> getAll() {
-        DTO<List<Teaching>, Set<TeachingDTO>> dto = this.abstractDTOFactory.getDTO("SETTEACHING");
-        return dto.create(teachingRepository.findAll());
+        DTO<List<Teaching>, Set<TeachingDTO>> setTeachingDto = this.abstractDTOFactory.getDTO("SETTEACHING");
+        return setTeachingDto.create(teachingRepository.findAll());
     }
 
     public TeachingDTO getById(int id) throws TeachingNotFoundException {
         try {
-            DTO<Teaching, TeachingDTO> dto = this.abstractDTOFactory.getDTO("Teaching");
-            return dto.create(teachingRepository.findTeachingById_IdTeaching(id));
+            DTO<Teaching, TeachingDTO> teachingDto = this.abstractDTOFactory.getDTO("Teaching");
+            return teachingDto.create(teachingRepository.findTeachingById_IdTeaching(id));
         } catch (Exception e) {
             throw new TeachingNotFoundException();
         }
     }
 
     public Teaching getDomainById(int id) throws TeachingNotFoundException {
-        return teachingRepository.findTeachingById_IdTeaching(id);
+        Teaching teaching = teachingRepository.findTeachingById_IdTeaching(id);
+            if (teaching != null)
+                return teaching;
+            else
+                throw new TeachingNotFoundException();
+
     }
 
     public TeachingDTO getByNameAndIdCourse(String name, int idCourse) throws TeachingNotFoundException {
         try {
-            DTO<Teaching, TeachingDTO> dto = this.abstractDTOFactory.getDTO("Teaching");
-            return dto.create(teachingRepository.findTeachingByNameAndAndCourse_IdCourse(name, idCourse));
+            DTO<Teaching, TeachingDTO> teachingDto = this.abstractDTOFactory.getDTO("Teaching");
+            return teachingDto.create(teachingRepository.findTeachingByNameAndAndCourse_IdCourse(name, idCourse));
         } catch (Exception e) {
             throw new TeachingNotFoundException();
         }
@@ -70,28 +74,27 @@ public class TeachingService implements ITeachingServices {
     @Transactional
     public TeachingDTO getByNameAndIdProf(String name, int idProf) throws TeachingNotFoundException {
         try {
-            DTO<Teaching, TeachingDTO> dto = this.abstractDTOFactory.getDTO("Teaching");
-            return dto.create(teachingRepository.findTeachingByNameAndProfessor_Id_IdProfessor(name, idProf));
+            DTO<Teaching, TeachingDTO> teachingDto = this.abstractDTOFactory.getDTO("Teaching");
+            return teachingDto.create(teachingRepository.findTeachingByNameAndProfessor_Id_IdProfessor(name, idProf));
         } catch (Exception e) {
             throw new TeachingNotFoundException();
         }
     }
 
     public Set<TeachingDTO> getByIdCourse(int id) {
-        DTO<List<Teaching>, Set<TeachingDTO>> dto = this.abstractDTOFactory.getDTO("SETTEACHING");
-        return dto.create(teachingRepository.findTeachingsById_CourseIdCourse(id));
+        DTO<List<Teaching>, Set<TeachingDTO>> setTeachingDto = this.abstractDTOFactory.getDTO("SETTEACHING");
+        return setTeachingDto.create(teachingRepository.findTeachingsById_CourseIdCourse(id));
     }
 
     public Set<TeachingDTO> getByProf(int id) {
-        DTO<List<Teaching>, Set<TeachingDTO>> dto = this.abstractDTOFactory.getDTO("SETTEACHING");
-        return dto.create(teachingRepository.findTeachingsById_ProfessorIdProfessor(id));
+        DTO<List<Teaching>, Set<TeachingDTO>> setTeachingDto = this.abstractDTOFactory.getDTO("SETTEACHING");
+        return setTeachingDto.create(teachingRepository.findTeachingsById_ProfessorIdProfessor(id));
     }
 
 
     @Transactional
     public TeachingDTO save(TeachingDTO teachingDTO) {
-        DTO<Teaching, TeachingDTO> dtoTeaching = abstractDTOFactory.getDTO("Teaching");
-        Domain<CourseDTO, Course> courseDomain = abstractDomainFactory.getDomain("COURSE");
+        DTO<Teaching, TeachingDTO> teachingDto = abstractDTOFactory.getDTO("Teaching");
         Course course = null;
         try {
             course = courseServices.getDomainById(teachingDTO.getIdCourse());
@@ -120,6 +123,6 @@ public class TeachingService implements ITeachingServices {
         teaching.setProfessor(professor);
 
         teaching.setId(teachingId);
-        return dtoTeaching.create(teachingRepository.save(teaching));
+        return teachingDto.create(teachingRepository.save(teaching));
     }
 }

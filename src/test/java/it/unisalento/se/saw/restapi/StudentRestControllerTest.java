@@ -3,6 +3,7 @@ package it.unisalento.se.saw.restapi;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.unisalento.se.saw.Iservices.IStudentServices;
 import it.unisalento.se.saw.dto.StudentDTO;
+import it.unisalento.se.saw.exceptions.StudentNotFoundException;
 import it.unisalento.se.saw.tools.Tools;
 import org.junit.Before;
 import org.junit.Test;
@@ -142,6 +143,26 @@ public class StudentRestControllerTest {
     }
 
     @Test
+    public void getByIdErrorTest() throws Exception {
+        StudentDTO studentDTO = new StudentDTO();
+        studentDTO.setCourseDTO(null);
+        studentDTO.setIdCourse(1);
+        studentDTO.setYearStart(2);
+        studentDTO.setId(3);
+        studentDTO.setMatricola("matricola");
+        studentDTO.setYear(4);
+        studentDTO.setUid("uid");
+
+        when(studentServicesMock.getById(3)).thenThrow(new StudentNotFoundException());
+
+        mockMvc.perform(get("/student/getById/{id}",3))
+                .andExpect(status().isOk());
+
+        verify(studentServicesMock, times(1)).getById(3);
+        verifyNoMoreInteractions(studentServicesMock);
+    }
+
+    @Test
     public void getByUidTest() throws Exception {
         StudentDTO studentDTO = new StudentDTO();
         studentDTO.setCourseDTO(null);
@@ -164,6 +185,26 @@ public class StudentRestControllerTest {
                 .andExpect(jsonPath("$.matricola", is("matricola")))
                 .andExpect(jsonPath("$.year", is(4)))
                 .andExpect(jsonPath("$.uid", is("uid")));
+
+        verify(studentServicesMock, times(1)).getByUid("uid");
+        verifyNoMoreInteractions(studentServicesMock);
+    }
+
+    @Test
+    public void getByUidErrorTest() throws Exception {
+        StudentDTO studentDTO = new StudentDTO();
+        studentDTO.setCourseDTO(null);
+        studentDTO.setIdCourse(1);
+        studentDTO.setYearStart(2);
+        studentDTO.setId(3);
+        studentDTO.setMatricola("matricola");
+        studentDTO.setYear(4);
+        studentDTO.setUid("uid");
+
+        when(studentServicesMock.getByUid("uid")).thenThrow(new StudentNotFoundException());
+
+        mockMvc.perform(get("/student/getByUid/{uid}","uid"))
+                .andExpect(status().isOk());
 
         verify(studentServicesMock, times(1)).getByUid("uid");
         verifyNoMoreInteractions(studentServicesMock);

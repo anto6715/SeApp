@@ -3,6 +3,7 @@ package it.unisalento.se.saw.restapi;
 import it.unisalento.se.saw.Iservices.IReviewServices;
 import it.unisalento.se.saw.Iservices.IRoomServices;
 import it.unisalento.se.saw.dto.ReviewDTO;
+import it.unisalento.se.saw.exceptions.ReviewNotFoundException;
 import it.unisalento.se.saw.tools.Tools;
 import org.junit.Before;
 import org.junit.Test;
@@ -78,6 +79,26 @@ public class ReviewRestControllerTest {
     }
 
     @Test
+    public void getByIdErrorTest() throws Exception {
+        ReviewDTO reviewDTO = new ReviewDTO();
+        reviewDTO.setNote("note");
+        reviewDTO.setRate(1);
+        reviewDTO.setIdReviewType(2);
+        reviewDTO.setId(3);
+        reviewDTO.setIdStudent(4);
+        reviewDTO.setIdMaterial(5);
+        reviewDTO.setIdLesson(6);
+
+        when(reviewServicesMock.getById(1)).thenThrow(new ReviewNotFoundException());
+
+        mockMvc.perform(get("/review/getById/{id}",1))
+                .andExpect(status().isOk());
+
+        verify(reviewServicesMock, times(1)).getById(1);
+        verifyNoMoreInteractions(reviewServicesMock);
+    }
+
+    @Test
     public void getByIdStudentAndIdMaterialTest() throws Exception {
         ReviewDTO reviewDTO = new ReviewDTO();
         reviewDTO.setNote("note");
@@ -106,6 +127,26 @@ public class ReviewRestControllerTest {
     }
 
     @Test
+    public void getByIdStudentAndIdMaterialErrorTest() throws Exception {
+        ReviewDTO reviewDTO = new ReviewDTO();
+        reviewDTO.setNote("note");
+        reviewDTO.setRate(1);
+        reviewDTO.setIdReviewType(2);
+        reviewDTO.setId(3);
+        reviewDTO.setIdStudent(4);
+        reviewDTO.setIdMaterial(5);
+        reviewDTO.setIdLesson(6);
+
+        when(reviewServicesMock.getByIdStudentAndIdMaterial(4,5)).thenThrow(new ReviewNotFoundException());
+
+        mockMvc.perform(get("/review/getByIdStudentAndIdMaterial/{idStudent}_{idMaterial}",4,5))
+                .andExpect(status().isOk());
+
+        verify(reviewServicesMock, times(1)).getByIdStudentAndIdMaterial(4,5);
+        verifyNoMoreInteractions(reviewServicesMock);
+    }
+
+    @Test
     public void getByIdStudentAndIdLessonTest() throws Exception {
         ReviewDTO reviewDTO = new ReviewDTO();
         reviewDTO.setNote("note");
@@ -128,6 +169,26 @@ public class ReviewRestControllerTest {
                 .andExpect(jsonPath("$.idStudent", is(4)))
                 .andExpect(jsonPath("$.idMaterial", is(5)))
                 .andExpect(jsonPath("$.idLesson", is(6)));
+
+        verify(reviewServicesMock, times(1)).getByIdStudentAndIdLesson(4,6);
+        verifyNoMoreInteractions(reviewServicesMock);
+    }
+
+    @Test
+    public void getByIdStudentAndIdLessonErrorTest() throws Exception {
+        ReviewDTO reviewDTO = new ReviewDTO();
+        reviewDTO.setNote("note");
+        reviewDTO.setRate(1);
+        reviewDTO.setIdReviewType(2);
+        reviewDTO.setId(3);
+        reviewDTO.setIdStudent(4);
+        reviewDTO.setIdMaterial(5);
+        reviewDTO.setIdLesson(6);
+
+        when(reviewServicesMock.getByIdStudentAndIdLesson(4,6)).thenThrow(new ReviewNotFoundException());
+
+        mockMvc.perform(get("/review/getByIdStudentAndIdLesson/{idStudent}_{idLesson}",4,6))
+                .andExpect(status().isOk());
 
         verify(reviewServicesMock, times(1)).getByIdStudentAndIdLesson(4,6);
         verifyNoMoreInteractions(reviewServicesMock);

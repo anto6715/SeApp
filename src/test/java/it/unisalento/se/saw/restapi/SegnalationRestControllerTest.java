@@ -1,6 +1,7 @@
 package it.unisalento.se.saw.restapi;
 import it.unisalento.se.saw.Iservices.ISegnalationServices;
 import it.unisalento.se.saw.dto.SegnalationDTO;
+import it.unisalento.se.saw.exceptions.SegnalationNotFoundException;
 import it.unisalento.se.saw.tools.Tools;
 import org.junit.Before;
 import org.junit.Test;
@@ -158,6 +159,25 @@ public class SegnalationRestControllerTest {
                 .andExpect(jsonPath("$.professorDTO", is(nullValue())))
                 .andExpect(jsonPath("$.idState", is(1)))
                 .andExpect(jsonPath("$.description", is("description")));
+
+        verify(segnalationServicesMock, times(1)).getById(1);
+        verifyNoMoreInteractions(segnalationServicesMock);
+    }
+
+    @Test
+    public void getByIdErrorTest() throws Exception {
+        SegnalationDTO segnalationDTO = new SegnalationDTO();
+        segnalationDTO.setNote("note");
+        segnalationDTO.setRoomDTO(null);
+        segnalationDTO.setProfessorDTO(null);
+        segnalationDTO.setIdState(1);
+        segnalationDTO.setDescription("description");
+        segnalationDTO.setId(2);
+
+        when(segnalationServicesMock.getById(1)).thenThrow(new SegnalationNotFoundException());
+
+        mockMvc.perform(get("/segnalation/getById/{id}",1))
+                .andExpect(status().isOk());
 
         verify(segnalationServicesMock, times(1)).getById(1);
         verifyNoMoreInteractions(segnalationServicesMock);

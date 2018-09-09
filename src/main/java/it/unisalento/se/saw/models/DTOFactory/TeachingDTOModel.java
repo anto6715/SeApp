@@ -6,6 +6,7 @@ import it.unisalento.se.saw.domain.Teaching;
 import it.unisalento.se.saw.dto.CourseDTO;
 import it.unisalento.se.saw.dto.ProfessorDTO;
 import it.unisalento.se.saw.dto.TeachingDTO;
+import it.unisalento.se.saw.exceptions.TeachingNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.FactoryProducer;
 

@@ -32,13 +32,23 @@ public class StudentRestController {
 
     @RequestMapping(value = "getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public StudentDTO getById(@PathVariable("id") int id) throws StudentNotFoundException {
+        try {
             return studentServices.getById(id);
+        } catch (StudentNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
 
     @RequestMapping(value = "getByUid/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public StudentDTO getByUid(@PathVariable("uid") String uid) throws StudentNotFoundException {
-        return studentServices.getByUid(uid);
+        try {
+            return studentServices.getByUid(uid);
+        } catch (StudentNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     @RequestMapping(value = "getByCourse/{idCourse}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

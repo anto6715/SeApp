@@ -17,6 +17,10 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
@@ -40,7 +44,28 @@ public class UserServiceTest {
     @InjectMocks
     UserService userService;
 
+    @Test
+    public void getAllTest()   {
 
+
+        User user = new User();
+        user.setIdUser(1);
+        user.setUserType(1);
+        user.setToken("token");
+        user.setUid("uid");
+        user.setAge(2);
+        user.setEmail("email");
+
+        List<User> users = new ArrayList<>();
+        users.add(user);
+
+
+        when(userRepository.findAll()).thenReturn(users);
+
+        Set<UserDTO> userDTOS = userService.getAll();
+
+        assertEquals(user.getIdUser(), (Integer) userDTOS.iterator().next().getIdUser());
+    }
 
     @Test
     public void getByIdTest() throws UserNotFoundException {
@@ -60,6 +85,31 @@ public class UserServiceTest {
         UserDTO userDTO = userService.getById(1);
 
         assertEquals(user.getIdUser(), (Integer)userDTO.getIdUser());
+    }
+
+    @Test
+    public void getByIdErrorTest()   {
+
+
+        User user = new User();
+        user.setIdUser(1);
+        user.setUserType(1);
+        user.setToken("token");
+        user.setUid("uid");
+        user.setAge(2);
+        user.setEmail("email");
+
+
+        when(userRepository.getOne(1)).thenReturn(user);
+
+        try {
+            UserDTO userDTO = userService.getById(2);
+            assertEquals(user.getIdUser(), (Integer)userDTO.getIdUser());
+        } catch (UserNotFoundException e) {
+            assertEquals("User not found", e.getMessage());
+        }
+
+
     }
 
 

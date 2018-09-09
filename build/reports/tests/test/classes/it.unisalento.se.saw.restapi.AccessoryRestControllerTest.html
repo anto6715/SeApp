@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.149s</div>
+<div class="counter">0.106s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,22 +79,22 @@
 </thead>
 <tr>
 <td class="success">getAllTest</td>
-<td class="success">0.040s</td>
+<td class="success">0.029s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByIdRoomTest</td>
-<td class="success">0.038s</td>
+<td class="success">0.030s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByIdTest</td>
-<td class="success">0.035s</td>
+<td class="success">0.023s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">saveTest</td>
-<td class="success">0.036s</td>
+<td class="success">0.024s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -102,38 +102,38 @@
 <div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>1417 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getByIdRoom(int)
-1417 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.getById(int) throws it.unisalento.se.saw.exceptions.AccessoryNotFoundException
-1417 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getAll()
-1418 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.save(it.unisalento.se.saw.dto.AccessoryDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
-1428 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@71e3c8d8
-1431 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-1432 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-1432 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-1449 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getByIdRoom(int)
-1450 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.getById(int) throws it.unisalento.se.saw.exceptions.AccessoryNotFoundException
-1450 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getAll()
-1450 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.save(it.unisalento.se.saw.dto.AccessoryDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
-1459 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7cbf000f
-1462 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-1462 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-1475 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 13 ms
-1484 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getByIdRoom(int)
-1484 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.getById(int) throws it.unisalento.se.saw.exceptions.AccessoryNotFoundException
-1492 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getAll()
-1492 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.save(it.unisalento.se.saw.dto.AccessoryDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
-1508 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5778bd29
-1510 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-1510 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-1511 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
-1529 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getByIdRoom(int)
-1530 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.getById(int) throws it.unisalento.se.saw.exceptions.AccessoryNotFoundException
-1530 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getAll()
-1530 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.save(it.unisalento.se.saw.dto.AccessoryDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
-1546 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5a0d8385
-1552 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-1552 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
-1554 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
+<pre>1959 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getByIdRoom(int)
+1960 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.getById(int) throws it.unisalento.se.saw.exceptions.AccessoryNotFoundException
+1961 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.save(it.unisalento.se.saw.dto.AccessoryDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
+1961 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getAll()
+1968 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@2d55cb72
+1971 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+1971 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+1972 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+1983 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getByIdRoom(int)
+1984 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.getById(int) throws it.unisalento.se.saw.exceptions.AccessoryNotFoundException
+1984 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.save(it.unisalento.se.saw.dto.AccessoryDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
+1985 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getAll()
+1991 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@733b9ebf
+1994 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+1994 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+1994 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2011 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getByIdRoom(int)
+2012 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.getById(int) throws it.unisalento.se.saw.exceptions.AccessoryNotFoundException
+2012 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.save(it.unisalento.se.saw.dto.AccessoryDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
+2013 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getAll()
+2022 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@49ca4ed9
+2025 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2025 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2025 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
+2051 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getByIdRoom/{id}],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getByIdRoom(int)
+2053 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getById/{id}],methods=[GET],produces=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.getById(int) throws it.unisalento.se.saw.exceptions.AccessoryNotFoundException
+2054 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/save],methods=[POST],consumes=[application/json]}&quot; onto public it.unisalento.se.saw.dto.AccessoryDTO it.unisalento.se.saw.restapi.AccessoryRestController.save(it.unisalento.se.saw.dto.AccessoryDTO) throws it.unisalento.se.saw.exceptions.RoomNotFoundException
+2056 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped &quot;{[/accessory/getAll],methods=[GET],produces=[application/json]}&quot; onto public java.util.Set&lt;it.unisalento.se.saw.dto.AccessoryDTO&gt; it.unisalento.se.saw.restapi.AccessoryRestController.getAll()
+2063 [Test worker] INFO org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@62125fc5
+2067 [Test worker] INFO org.springframework.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
+2067 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization started
+2068 [Test worker] INFO org.springframework.test.web.servlet.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
 </pre>
 </span>
 </div>
@@ -145,7 +145,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.8</a> at 9-set-2018 10.46.51</p>
+<a href="http://www.gradle.org">Gradle 4.8</a> at 9-set-2018 13.32.30</p>
 </div>
 </div>
 </body>

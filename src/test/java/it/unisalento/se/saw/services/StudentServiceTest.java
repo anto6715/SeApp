@@ -215,7 +215,52 @@ public class StudentServiceTest {
     }
 
     @Test
-    public void getByIdErrorTest() throws StudentNotFoundException {
+    public void getByUidErrorTest()  {
+
+        /***************************Course***************************/
+        Course course = new Course();
+        course.setCredits(1);
+        course.setLanguage("language");
+        course.setLenght(2);
+        course.setLocation("location");
+        course.setName("name");
+        course.setType("type");
+        course.setIdCourse(3);
+        /******************************************************/
+
+        /*****************User*************************************/
+        User user = new User();
+        user.setIdUser(1);
+        user.setUserType(1);
+        user.setToken("token");
+        user.setUid("uid");
+        user.setAge(2);
+        user.setEmail("email");
+        /******************************************************/
+
+        /************************Student******************************/
+        StudentId studentId = new StudentId();
+        studentId.setIdStudent(1);
+        studentId.setUserIdUser(1);
+        studentId.setCourseIdCourse(3);
+
+        Student student = new Student(studentId,course,user,"matricola",1,1,null);
+        /******************************************************/
+
+        when(studentRepository.findStudentByUserUid("uid")).thenReturn(student);
+        try {
+            StudentDTO studentDTO = studentService.getByUid("uidfasa");
+            assertEquals(student.getId().getIdStudent(), studentDTO.getId());
+        } catch (StudentNotFoundException e) {
+            assertEquals("Student not found", e.getMessage());
+        }
+
+
+
+    }
+
+    @Test
+    public void getByIdErrorTest() {
 
         /***************************Course***************************/
         Course course = new Course();
@@ -314,7 +359,58 @@ public class StudentServiceTest {
     }
 
     @Test
-    public void saveTest() throws StudentNotFoundException, CourseNotFoundException {
+    public void getDomainByIdErrorTest() {
+
+        /***************************Course***************************/
+        Course course = new Course();
+        course.setCredits(1);
+        course.setLanguage("language");
+        course.setLenght(2);
+        course.setLocation("location");
+        course.setName("name");
+        course.setType("type");
+        course.setIdCourse(3);
+        /******************************************************/
+
+        /*****************User*************************************/
+        User user = new User();
+        user.setIdUser(1);
+        user.setUserType(1);
+        user.setToken("token");
+        user.setUid("uid");
+        user.setAge(2);
+        user.setEmail("email");
+        /******************************************************/
+
+        /************************Student******************************/
+        StudentId studentId = new StudentId();
+        studentId.setIdStudent(1);
+        studentId.setUserIdUser(1);
+        studentId.setCourseIdCourse(3);
+
+        Student student = new Student();
+        student.setId(studentId);
+        student.setUser(user);
+        student.setCourse(course);
+        student.setMatricola("matricola");
+        student.setYear(1);
+        student.setYearStart(1);
+        /******************************************************/
+
+        when(studentRepository.findStudentById_IdStudent(1)).thenReturn(student);
+        try {
+            Student s = studentService.getDomainById(3);
+            assertEquals(student,s);
+        } catch (StudentNotFoundException e) {
+            assertEquals("Student not found", e.getMessage());
+        }
+
+
+
+    }
+
+    @Test
+    public void saveTest() throws  CourseNotFoundException {
 
         /***************************Course***************************/
         Course course = new Course();

@@ -80,6 +80,24 @@ public class SegnalationStateServiceTest {
     }
 
     @Test
+    public void getDomainByIdErrorTest() throws SegnalationStateNotFoundException {
+        SegnalationState segnalationState = new SegnalationState();
+        segnalationState.setIdSegnalationState(1);
+        segnalationState.setState("state");
+
+        when(segnalationStateRepository.getOne(1)).thenReturn(segnalationState);
+
+        try {
+            SegnalationState s = segnalationStateService.getDomainById(3);
+            assertEquals(segnalationState.getIdSegnalationState(), segnalationState.getIdSegnalationState());
+        } catch (SegnalationStateNotFoundException e) {
+            assertEquals("SegnalationState not found", e.getMessage());
+        }
+
+
+    }
+
+    @Test
     public void saveTest() throws SegnalationStateNotFoundException {
         SegnalationState segnalationState = new SegnalationState();
         segnalationState.setIdSegnalationState(1);

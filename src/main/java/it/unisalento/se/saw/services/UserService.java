@@ -45,27 +45,25 @@ public class UserService implements IUserServices {
     AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DOMAIN");
 
     @Transactional(readOnly=true)
-    public List<User> getAll(){
-        DTO<List<User>, Set<UserDTO>> dto = dtoFactory.getDTO("SETUSER");
-        return userRepository.findAll();
+    public Set<UserDTO> getAll(){
+        DTO<List<User>, Set<UserDTO>> userDto = dtoFactory.getDTO("SETUSER");
+        return userDto.create(userRepository.findAll());
     }
 
     @Transactional
     public UserDTO save(UserDTO userDTO) {
-        DTO<User,UserDTO> dto = dtoFactory.getDTO("User");
+        DTO<User,UserDTO> userDto = dtoFactory.getDTO("User");
         Domain<UserDTO, User> domain = abstractDomainFactory.getDomain("User");
-        return dto.create(userRepository.save(domain.create(userDTO)));
+        return userDto.create(userRepository.save(domain.create(userDTO)));
     }
 
 
     @Transactional
     public UserDTO getById(int id) throws UserNotFoundException {
         try {
-            DTO<User, UserDTO> dto = dtoFactory.getDTO("User");
-            User user = userRepository.getOne(id);
-            return dto.create(user);
+            DTO<User, UserDTO> userDto = dtoFactory.getDTO("User");
+            return userDto.create(userRepository.getOne(id));
         } catch (Exception e) {
-            e.printStackTrace();
             throw new UserNotFoundException();
         }
 
@@ -74,31 +72,29 @@ public class UserService implements IUserServices {
     @Transactional
     public Object getByUid(String uid) throws UserNotFoundException, StudentNotFoundException, SecretaryNotFoundException, ProfessorNotFoundException {
         User user = userRepository.findUserByUid(uid);
-        AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
-        if(user.getUserType() ==1){
-            try{
-                DTO<Student, StudentDTO> dto = abstractFactory.getDTO("Student");
-                return studentServices.getByUid(uid);
-            } catch (Exception e) {
-                throw new StudentNotFoundException();
+        if (user != null) {
+            if(user.getUserType() ==1){
+                try{
+                    return studentServices.getByUid(uid);
+                } catch (Exception e) {
+                    throw new StudentNotFoundException();
+                }
+            } else
+            if (user.getUserType() == 2) {
+                try {
+                    return secretaryServices.getByUid(uid);
+                } catch (Exception e) {
+                    throw new SecretaryNotFoundException();
+                }
+            }else  {
+                try {
+                    return professorServices.getByUid(uid);
+                } catch (Exception e) {
+                    throw new ProfessorNotFoundException();
+                }
             }
         } else
-        if (user.getUserType() == 2) {
-            try {
-                DTO<Secretary, SecretaryDTO> dto = abstractFactory.getDTO("Secretary");
-                return secretaryServices.getByUid(uid);
-            } catch (Exception e) {
-                throw new SecretaryNotFoundException();
-            }
-        }else  {
-            try {
-                DTO<Professor, ProfessorDTO> dto = abstractFactory.getDTO("Professor");
-                return professorServices.getByUid(uid);
-            } catch (Exception e) {
-                throw new ProfessorNotFoundException();
-            }
-        }
-
+            throw new UserNotFoundException();
 
     }
 

@@ -31,7 +31,12 @@ public class ReviewRestController {
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ReviewDTO getById(@PathVariable int id) throws ReviewNotFoundException {
-      return reviewServices.getById(id);
+      try {
+          return reviewServices.getById(id);
+      } catch (ReviewNotFoundException e) {
+          System.out.println(e.getMessage());
+          return null;
+      }
 
     }
 
@@ -47,12 +52,22 @@ public class ReviewRestController {
 
     @RequestMapping(value = "/getByIdStudentAndIdMaterial/{idStudent}_{idMaterial}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ReviewDTO getByIdStudentAndIdMaterial(@PathVariable("idStudent") int idStudent, @PathVariable("idMaterial") int idMaterial) throws ReviewNotFoundException {
-        return reviewServices.getByIdStudentAndIdMaterial(idStudent,idMaterial);
+        try {
+            return reviewServices.getByIdStudentAndIdMaterial(idStudent,idMaterial);
+        } catch (ReviewNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     @RequestMapping(value = "/getByIdStudentAndIdLesson/{idStudent}_{idLesson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ReviewDTO getByIdStudentAndIdLesson(@PathVariable("idStudent") int idStudent, @PathVariable("idLesson") int idLesson) throws ReviewNotFoundException {
-        return reviewServices.getByIdStudentAndIdLesson(idStudent,idLesson);
+        try {
+            return reviewServices.getByIdStudentAndIdLesson(idStudent,idLesson);
+        } catch (ReviewNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
 

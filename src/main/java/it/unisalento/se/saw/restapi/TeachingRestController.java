@@ -32,7 +32,12 @@ public class TeachingRestController {
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public TeachingDTO getById(@PathVariable int id) throws TeachingNotFoundException {
-        return teachingServices.getById(id);
+        try {
+            return teachingServices.getById(id);
+        } catch (TeachingNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     @RequestMapping(value = "/getByIdCourse/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -48,11 +53,21 @@ public class TeachingRestController {
 
     @RequestMapping(value = "/getByNameAndIdCourse/{name}_{idCourse}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public TeachingDTO getByNameAndIdCourse(@PathVariable("name") String name, @PathVariable("idCourse") int idCourse) throws TeachingNotFoundException {
-        return teachingServices.getByNameAndIdCourse(name, idCourse);
+        try {
+            return teachingServices.getByNameAndIdCourse(name, idCourse);
+        } catch (TeachingNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     @RequestMapping(value = "/getByNameAndIdProf/{name}_{idProf}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public TeachingDTO getByNameAndIdProf(@PathVariable("name") String name, @PathVariable("idProf") int idProf) throws TeachingNotFoundException {
-        return teachingServices.getByNameAndIdProf(name, idProf);
+        try {
+            return teachingServices.getByNameAndIdProf(name, idProf);
+        } catch (TeachingNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 }

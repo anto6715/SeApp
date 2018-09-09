@@ -47,19 +47,29 @@ public class UserRestController {
     @ManyToOne
     public Set<UserDTO> getAll() {
         DTO<List<User>, Set<UserDTO>> dto = this.abstractDTOFactory.getDTO("SetUser");
-        return dto.create(userServices.getAll());
+        return userServices.getAll();
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserDTO getById(@PathVariable("id") int id) throws UserNotFoundException{
-        return userServices.getById(id);
+    public UserDTO getById(@PathVariable("id") int id) throws UserNotFoundException {
+        try {
+            return userServices.getById(id);
+        } catch (UserNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
 
     }
 
 
     @RequestMapping(value = "/getByUid/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Object getByUid(@PathVariable("uid") String uid) throws UserNotFoundException, StudentNotFoundException, ProfessorNotFoundException, SecretaryNotFoundException {
-        return userServices.getByUid(uid);
+    public Object getByUid(@PathVariable("uid") String uid)  {
+        try {
+            return userServices.getByUid(uid);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
 
     }
 

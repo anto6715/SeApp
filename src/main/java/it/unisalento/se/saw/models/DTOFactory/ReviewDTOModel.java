@@ -7,10 +7,6 @@ import it.unisalento.se.saw.exceptions.ReviewNotFoundException;
 public class ReviewDTOModel implements DTO<Review, ReviewDTO> {
     @Override
     public ReviewDTO create(Review review) {
-        if(review == null) try {
-            throw new ReviewNotFoundException();
-        } catch (ReviewNotFoundException e) {
-        }
         ReviewDTO reviewDTO = new ReviewDTO();
         reviewDTO.setId(review.getId().getIdReview());
         if (review.getLesson() != null) {

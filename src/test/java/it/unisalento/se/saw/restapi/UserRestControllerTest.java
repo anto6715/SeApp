@@ -5,22 +5,27 @@ import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.dto.TokenDTO;
 import it.unisalento.se.saw.dto.UserDTO;
+import it.unisalento.se.saw.exceptions.UserNotFoundException;
 import it.unisalento.se.saw.tools.Tools;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.internal.matchers.Null;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -86,7 +91,33 @@ public class UserRestControllerTest {
     }
 
     @Test
-    public void addToken() throws Exception {
+    public void findUserByIdErrorTest() throws Exception {
+
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserType(1);
+        userDTO.setToken(null);
+        userDTO.setUid("MQqa7A80zxQPvY5VV6oeFSBM33o1");
+        userDTO.setAge(25);
+        userDTO.setEmail("prova@email.it");
+        userDTO.setSurname("Mariani");
+        userDTO.setName("Antonio");
+        userDTO.setIdUser(1);
+
+
+
+        when(userServicesMock.getById(30)).thenThrow(new UserNotFoundException());
+
+
+        mockMvc.perform(get("/user/getById/{id}",30))
+                .andExpect(status().isOk());
+
+
+        verify(userServicesMock,times(1)).getById(30);
+        verifyNoMoreInteractions(userServicesMock);
+    }
+
+    @Test
+    public void addTokenTest() throws Exception {
         TokenDTO tokenDTO = new TokenDTO();
         tokenDTO.setToken("123");
         tokenDTO.setIdUser(32);
@@ -105,7 +136,7 @@ public class UserRestControllerTest {
     }
 
     @Test
-    public void getAllUser() throws Exception {
+    public void getAllUserTest() throws Exception {
         User user = new User();
         user.setIdUser(1);
         user.setName("Antonio");
@@ -119,7 +150,20 @@ public class UserRestControllerTest {
         List<User> users = new ArrayList<>();
         users.add(user);
 
-        when(userServicesMock.getAll()).thenReturn(users);
+
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserType(1);
+        userDTO.setToken(null);
+        userDTO.setUid("MQqa7A80zxQPvY5VV6oeFSBM33o1");
+        userDTO.setAge(25);
+        userDTO.setEmail("prova@email.it");
+        userDTO.setSurname("Mariani");
+        userDTO.setName("Antonio");
+        userDTO.setIdUser(1);
+        Set<UserDTO> userDTOS = new HashSet<>(0);
+        userDTOS.add(userDTO);
+
+        when(userServicesMock.getAll()).thenReturn(userDTOS);
 
         mockMvc.perform(get("/user/getAll"))
                 .andExpect(status().isOk())
@@ -139,7 +183,7 @@ public class UserRestControllerTest {
     }
 
     @Test
-    public void getUserByUid() throws Exception {
+    public void getUserByUidTest() throws Exception {
         StudentDTO studentDTO = new StudentDTO();
         studentDTO.setIdUser(32);
         studentDTO.setName("Antonio");
@@ -178,6 +222,35 @@ public class UserRestControllerTest {
                 .andExpect(jsonPath("$.yearStart", is(1)))
                 .andExpect(jsonPath("$.idCourse", is(1)))
                 .andExpect(jsonPath("$.courseDTO", is(nullValue())));
+
+        verify(userServicesMock, times(1)).getByUid("prova");
+        verifyNoMoreInteractions(userServicesMock);
+    }
+
+    @Test
+    public void getUserByUidErrorTest() throws Exception {
+        StudentDTO studentDTO = new StudentDTO();
+        studentDTO.setIdUser(32);
+        studentDTO.setName("Antonio");
+        studentDTO.setSurname("Mariani");
+        studentDTO.setEmail("prova@email.it");
+        studentDTO.setAge(25);
+        studentDTO.setUid("prova");
+        studentDTO.setUserType(1);
+        studentDTO.setToken(null);
+        studentDTO.setId(1);
+        studentDTO.setMatricola("2002");
+        studentDTO.setYear(1);
+        studentDTO.setYearStart(1);
+        studentDTO.setIdCourse(1);
+        studentDTO.setCourseDTO(null);
+
+
+
+        when(userServicesMock.getByUid("prova")).thenThrow(new UserNotFoundException());
+
+
+        mockMvc.perform(get("/user/getByUid/{uid}","prova"));
 
         verify(userServicesMock, times(1)).getByUid("prova");
         verifyNoMoreInteractions(userServicesMock);

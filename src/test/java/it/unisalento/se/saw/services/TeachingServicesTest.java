@@ -280,6 +280,69 @@ public class TeachingServicesTest {
     }
 
     @Test
+    public void getDomainByErrorId() throws TeachingNotFoundException {
+
+        /*****************User*************************************/
+        User user = new User();
+        user.setIdUser(1);
+        user.setUserType(1);
+        user.setToken("token");
+        user.setUid("uid");
+        user.setAge(2);
+        user.setEmail("email");
+        /******************************************************/
+
+        /*************************Professor*****************************/
+
+        ProfessorId professorId = new ProfessorId();
+        professorId.setUserIdUser(1);
+        professorId.setIdProfessor(1);
+
+        Professor professor = new Professor();
+        professor.setUser(user);
+        professor.setId(professorId);
+
+        /******************************************************/
+
+        /***************************Course***************************/
+        Course course = new Course();
+        course.setCredits(1);
+        course.setLanguage("language");
+        course.setLenght(2);
+        course.setLocation("location");
+        course.setName("name");
+        course.setType("type");
+        course.setIdCourse(3);
+        /******************************************************/
+
+        /*****************Teaching*************************************/
+        TeachingId teachingId = new TeachingId();
+        teachingId.setIdTeaching(1);
+        teachingId.setCourseIdCourse(3);
+        teachingId.setProfessorIdProfessor(1);
+        teachingId.setProfessorUserIdUser(1);
+
+        Teaching teaching = new Teaching();
+        teaching.setName("Analisi");
+        teaching.setProfessor(professor);
+        teaching.setCourse(course);
+        teaching.setId(teachingId);
+        teaching.setCredits(10);
+        teaching.setYear(1);
+        /******************************************************/
+
+        when(teachingRepository.findTeachingById_IdTeaching(1)).thenReturn(teaching);
+        try{
+            Teaching t = teachingService.getDomainById(2);
+            assertEquals(teaching,t);
+        } catch (TeachingNotFoundException e) {
+            assertEquals("Teaching not found", e.getMessage());
+        }
+
+
+    }
+
+    @Test
     public void getByNameAndIdCourseTest() throws TeachingNotFoundException {
         /*****************User*************************************/
         User user = new User();

@@ -6,13 +6,14 @@ import it.unisalento.se.saw.dto.ProfessorDTO;
 import it.unisalento.se.saw.dto.SecretaryDTO;
 import it.unisalento.se.saw.dto.StudentDTO;
 import it.unisalento.se.saw.dto.UserDTO;
+import it.unisalento.se.saw.exceptions.UserNotFoundException;
 
-public class UserDTOModel implements DTO<Object,UserDTO> {
+public class UserDTOModel implements DTO<User,UserDTO> {
 
 
-    public UserDTO create(Object object) {
-        if (object == null) {return new UserDTO();}
-        if (object.getClass() == ProfessorDTO.class) {
+    public UserDTO create(User user) {
+
+        /*if (object.getClass() == ProfessorDTO.class) {
             ProfessorDTO professorDTO = (ProfessorDTO) object;
             UserDTO userDTO = new UserDTO();
             userDTO.setAge(professorDTO.getAge());
@@ -70,7 +71,27 @@ public class UserDTOModel implements DTO<Object,UserDTO> {
 
             return userDTO;
 
+        }*/
+
+        UserDTO userDTO = new UserDTO();
+        userDTO.setSurname(user.getSurname());
+        userDTO.setName(user.getName());
+        if (user.getIdUser() != null) {
+            userDTO.setIdUser(user.getIdUser());
         }
+
+        userDTO.setToken(user.getToken());
+        if (user.getAge() != null) {
+            userDTO.setAge(user.getAge());
+        }
+
+        userDTO.setEmail(user.getEmail());
+        userDTO.setUid(user.getUid());
+        if (user.getUserType() != null) {
+            userDTO.setUserType(user.getUserType());
+        }
+
+        return userDTO;
 
     }
 }

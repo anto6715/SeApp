@@ -3,6 +3,7 @@ package it.unisalento.se.saw.restapi;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import it.unisalento.se.saw.Iservices.ITeachingServices;
 import it.unisalento.se.saw.dto.TeachingDTO;
+import it.unisalento.se.saw.exceptions.TeachingNotFoundException;
 import it.unisalento.se.saw.tools.Tools;
 import org.junit.Before;
 import org.junit.Test;
@@ -49,7 +50,7 @@ public class TeachingRestControllerTest {
     }
 
     @Test
-    public void getById() throws Exception {
+    public void getByIdTest() throws Exception {
 
         TeachingDTO teachingDTO = new TeachingDTO();
         teachingDTO.setCourseDTO(null);
@@ -79,7 +80,28 @@ public class TeachingRestControllerTest {
     }
 
     @Test
-    public void getByNameAndIdCourse() throws Exception {
+    public void getByIdErrorTest() throws Exception {
+
+        TeachingDTO teachingDTO = new TeachingDTO();
+        teachingDTO.setCourseDTO(null);
+        teachingDTO.setProfessorDTO(null);
+        teachingDTO.setYear(1);
+        teachingDTO.setName("name");
+        teachingDTO.setIdProfessor(1);
+        teachingDTO.setIdCourse(3);
+        teachingDTO.setCredits(2);
+        teachingDTO.setId(10);
+
+        when(teachingServicesMock.getById(10)).thenThrow(new TeachingNotFoundException());
+        mockMvc.perform(get("/teaching/getById/{id}",10))
+                .andExpect(status().isOk());
+
+        verify(teachingServicesMock, times(1)).getById(10);
+        verifyNoMoreInteractions(teachingServicesMock);
+    }
+
+    @Test
+    public void getByNameAndIdCourseTest() throws Exception {
 
         TeachingDTO teachingDTO = new TeachingDTO();
         teachingDTO.setCourseDTO(null);
@@ -109,7 +131,28 @@ public class TeachingRestControllerTest {
     }
 
     @Test
-    public void getByNameAndIdProf() throws Exception {
+    public void getByNameAndIdCourseErrorTest() throws Exception {
+
+        TeachingDTO teachingDTO = new TeachingDTO();
+        teachingDTO.setCourseDTO(null);
+        teachingDTO.setProfessorDTO(null);
+        teachingDTO.setYear(1);
+        teachingDTO.setName("name");
+        teachingDTO.setIdProfessor(1);
+        teachingDTO.setIdCourse(3);
+        teachingDTO.setCredits(2);
+        teachingDTO.setId(10);
+
+        when(teachingServicesMock.getByNameAndIdCourse("name",3)).thenThrow(new TeachingNotFoundException());
+        mockMvc.perform(get("/teaching/getByNameAndIdCourse/{name}_{idCourse}","name",3))
+                .andExpect(status().isOk());
+
+        verify(teachingServicesMock, times(1)).getByNameAndIdCourse("name",3);
+        verifyNoMoreInteractions(teachingServicesMock);
+    }
+
+    @Test
+    public void getByNameAndIdProfTest() throws Exception {
 
         TeachingDTO teachingDTO = new TeachingDTO();
         teachingDTO.setCourseDTO(null);
@@ -133,6 +176,27 @@ public class TeachingRestControllerTest {
                 .andExpect(jsonPath("$.year", is(1)))
                 .andExpect(jsonPath("$.professorDTO", is(nullValue())))
                 .andExpect(jsonPath("$.courseDTO", is(nullValue())));
+
+        verify(teachingServicesMock, times(1)).getByNameAndIdProf("name",1);
+        verifyNoMoreInteractions(teachingServicesMock);
+    }
+
+    @Test
+    public void getByNameAndIdProfErrorTest() throws Exception {
+
+        TeachingDTO teachingDTO = new TeachingDTO();
+        teachingDTO.setCourseDTO(null);
+        teachingDTO.setProfessorDTO(null);
+        teachingDTO.setYear(1);
+        teachingDTO.setName("name");
+        teachingDTO.setIdProfessor(1);
+        teachingDTO.setIdCourse(3);
+        teachingDTO.setCredits(2);
+        teachingDTO.setId(10);
+
+        when(teachingServicesMock.getByNameAndIdProf("name",1)).thenThrow(new TeachingNotFoundException());
+        mockMvc.perform(get("/teaching/getByNameAndIdProf/{name}_{idProf}","name",1))
+                .andExpect(status().isOk());
 
         verify(teachingServicesMock, times(1)).getByNameAndIdProf("name",1);
         verifyNoMoreInteractions(teachingServicesMock);

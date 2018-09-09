@@ -43,7 +43,11 @@ public class SegnalationStateService implements ISegnalationStateServices {
     }
 
     public SegnalationState getDomainById(int id) throws SegnalationStateNotFoundException {
-        return segnalationStateRepository.getOne(id);
+        SegnalationState segnalationState = segnalationStateRepository.getOne(id);
+        if (segnalationState != null)
+            return segnalationState;
+        else
+            throw new SegnalationStateNotFoundException();
     }
 
     @Transactional

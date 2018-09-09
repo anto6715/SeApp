@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="it.unisalento.se.saw.services.StudentServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2018-09-09T08:46:48" hostname="antonio-pc" time="0.012">
+<testsuite name="it.unisalento.se.saw.services.StudentServiceTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2018-09-09T11:32:25" hostname="antonio-pc" time="0.025">
   <properties/>
-  <testcase name="saveTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.002"/>
-  <testcase name="getByCourseTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.001"/>
-  <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.0"/>
-  <testcase name="getAllTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.001"/>
+  <testcase name="saveTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.004"/>
+  <testcase name="getByUidErrorTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.001"/>
+  <testcase name="getByCourseTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.002"/>
+  <testcase name="getByIdTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.001"/>
+  <testcase name="getAllTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.002"/>
   <testcase name="getByIdErrorTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.001"/>
-  <testcase name="getByUidTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.0"/>
-  <testcase name="getDomainByIdTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.001"/>
+  <testcase name="getByUidTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.001"/>
+  <testcase name="getDomainByIdErrorTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.0"/>
+  <testcase name="getDomainByIdTest" classname="it.unisalento.se.saw.services.StudentServiceTest" time="0.0"/>
   <system-out><![CDATA[class it.unisalento.se.saw.dto.StudentDTO
 Student not found
 ]]></system-out>
