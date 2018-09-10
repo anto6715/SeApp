@@ -13,6 +13,25 @@ public class ExamDTO {
     private int idTeaching;
     private int id;
 
+    public RoomDTO getRoomDTO() {
+        return roomDTO;
+    }
+
+    public void setRoomDTO(RoomDTO roomDTO) {
+        this.roomDTO = roomDTO;
+    }
+
+    public TeachingDTO getTeachingDTO() {
+        return teachingDTO;
+    }
+
+    public void setTeachingDTO(TeachingDTO teachingDTO) {
+        this.teachingDTO = teachingDTO;
+    }
+
+    private RoomDTO roomDTO;
+    private TeachingDTO teachingDTO;
+
     public int getId() {
         return id;
     }
