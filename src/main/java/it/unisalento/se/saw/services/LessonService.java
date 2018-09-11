@@ -87,6 +87,11 @@ public class LessonService implements ILessonServices {
         return dto.create(lessonRepository.findLessonById_TeachingIdTeaching(id));
     }
 
+    public Set<LessonDTO> getByProfessor(int id) {
+        DTO<List<Lesson>, Set<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
+        return dto.create(lessonRepository.findLessonById_TeachingProfessorIdProfessor(id));
+    }
+
     @Transactional
     public LessonDTO update(LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
 

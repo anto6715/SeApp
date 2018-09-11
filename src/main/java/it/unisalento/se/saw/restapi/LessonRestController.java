@@ -61,6 +61,11 @@ public class LessonRestController {
         return lessonServices.getByTeaching(id);
     }
 
+    @RequestMapping(value = "/getByIdProfessor/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Set<LessonDTO> getByIdProfessor(@PathVariable int id) {
+        return lessonServices.getByProfessor(id);
+    }
+
     @RequestMapping(value = "/getByDate/{date}_{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
     public Set<LessonDTO> getByDateAndIdCourse(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
