@@ -26,6 +26,8 @@ public class SegnalationDTOModel implements DTO<Segnalation, SegnalationDTO> {
         segnalationDTO.setRoomDTO(dtoRoom.create(segnalation.getRoom()));
         segnalationDTO.setSegnalationStateDTO(dtoSegnalationState.create(segnalation.getSegnalationState()));
         segnalationDTO.setNote(segnalation.getNote());
+        segnalationDTO.setIdRoom(segnalation.getRoom().getIdRoom());
+        segnalationDTO.setIdProfessor(segnalation.getId().getProfessorIdProfessor());
 
         return segnalationDTO;
     }

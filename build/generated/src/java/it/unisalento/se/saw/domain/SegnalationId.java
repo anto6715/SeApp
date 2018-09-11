@@ -16,17 +16,15 @@ public class SegnalationId  implements java.io.Serializable {
      private int roomIdRoom;
      private int professorIdProfessor;
      private int professorUserIdUser;
-     private int segnalationStateIdSegnalationState;
 
     public SegnalationId() {
     }
 
-    public SegnalationId(int idSegnalation, int roomIdRoom, int professorIdProfessor, int professorUserIdUser, int segnalationStateIdSegnalationState) {
+    public SegnalationId(int idSegnalation, int roomIdRoom, int professorIdProfessor, int professorUserIdUser) {
        this.idSegnalation = idSegnalation;
        this.roomIdRoom = roomIdRoom;
        this.professorIdProfessor = professorIdProfessor;
        this.professorUserIdUser = professorUserIdUser;
-       this.segnalationStateIdSegnalationState = segnalationStateIdSegnalationState;
     }
    
 
@@ -68,16 +66,6 @@ public class SegnalationId  implements java.io.Serializable {
     
     public void setProfessorUserIdUser(int professorUserIdUser) {
         this.professorUserIdUser = professorUserIdUser;
-    }
-
-
-    @Column(name="SegnalationState_idSegnalationState", nullable=false)
-    public int getSegnalationStateIdSegnalationState() {
-        return this.segnalationStateIdSegnalationState;
-    }
-    
-    public void setSegnalationStateIdSegnalationState(int segnalationStateIdSegnalationState) {
-        this.segnalationStateIdSegnalationState = segnalationStateIdSegnalationState;
     }
 
 

@@ -17,5 +17,5 @@ public interface ISegnalationServices {
     public Set<SegnalationDTO> getByProfessor(int id);
     public SegnalationDTO getById(int id) throws SegnalationNotFoundException;
     public SegnalationDTO save(SegnalationDTO segnalationDTO) throws ProfessorNotFoundException, RoomNotFoundException, SegnalationStateNotFoundException;
-
+    public SegnalationDTO update(SegnalationDTO segnalationDTO) throws SegnalationStateNotFoundException;
 }

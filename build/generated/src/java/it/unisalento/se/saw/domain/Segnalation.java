@@ -59,8 +59,7 @@ public class Segnalation  implements java.io.Serializable {
         @AttributeOverride(name="idSegnalation", column=@Column(name="idSegnalation", nullable=false) ), 
         @AttributeOverride(name="roomIdRoom", column=@Column(name="Room_idRoom", nullable=false) ), 
         @AttributeOverride(name="professorIdProfessor", column=@Column(name="Professor_idProfessor", nullable=false) ), 
-        @AttributeOverride(name="professorUserIdUser", column=@Column(name="Professor_User_idUser", nullable=false) ), 
-        @AttributeOverride(name="segnalationStateIdSegnalationState", column=@Column(name="SegnalationState_idSegnalationState", nullable=false) ) } )
+        @AttributeOverride(name="professorUserIdUser", column=@Column(name="Professor_User_idUser", nullable=false) )} )
     public SegnalationId getId() {
         return this.id;
     }
@@ -92,7 +91,7 @@ public class Segnalation  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="SegnalationState_idSegnalationState", nullable=false, insertable=false, updatable=false)
+    @JoinColumn(name="SegnalationState_idSegnalationState", referencedColumnName = "idSegnalationState")
     public SegnalationState getSegnalationState() {
         return this.segnalationState;
     }

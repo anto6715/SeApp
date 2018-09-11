@@ -36,6 +36,11 @@ public class SegnalationRestController {
         return segnalationServices.save(segnalationDTO);
     }
 
+    @PostMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public SegnalationDTO update(@RequestBody SegnalationDTO segnalationDTO) throws SegnalationStateNotFoundException, ProfessorNotFoundException, RoomNotFoundException {
+        return segnalationServices.update(segnalationDTO);
+    }
+
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public SegnalationDTO getById(@PathVariable int id) throws SegnalationNotFoundException {
         try {

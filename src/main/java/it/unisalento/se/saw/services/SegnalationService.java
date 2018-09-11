@@ -80,7 +80,6 @@ public class SegnalationService implements ISegnalationServices {
         segnalationId.setProfessorIdProfessor(professor.getId().getIdProfessor());
         segnalationId.setProfessorUserIdUser(professor.getId().getUserIdUser());
         segnalationId.setRoomIdRoom(room.getIdRoom());
-        segnalationId.setSegnalationStateIdSegnalationState(segnalationDTO.getIdState());
 
         Segnalation segnalation = new Segnalation();
         segnalation.setId(segnalationId);
@@ -89,6 +88,19 @@ public class SegnalationService implements ISegnalationServices {
         segnalation.setRoom(room);
         segnalation.setProfessor(professor);
         segnalation.setSegnalationState(segnalationState);
+        return dto.create(segnalationRepository.save(segnalation));
+    }
+
+    @Transactional
+    public SegnalationDTO update(SegnalationDTO segnalationDTO) throws SegnalationStateNotFoundException{
+        DTO<Segnalation, SegnalationDTO> dto = abstractDTOFactory.getDTO("Segnalation");
+
+        Segnalation segnalation = segnalationRepository.findSegnalationById_IdSegnalation(segnalationDTO.getId());
+        SegnalationState segnalationState = segnalationStateServices.getDomainById(segnalationDTO.getIdState());
+
+        segnalation.setNote(segnalationDTO.getNote());
+        segnalation.setSegnalationState(segnalationState);
+        
         return dto.create(segnalationRepository.save(segnalation));
     }
 }
