@@ -69,39 +69,24 @@ public class SegnalationService implements ISegnalationServices {
     }
 
     @Transactional
-    public SegnalationDTO save(SegnalationDTO segnalationDTO){
+    public SegnalationDTO save(SegnalationDTO segnalationDTO) throws RoomNotFoundException, ProfessorNotFoundException, SegnalationStateNotFoundException{
         DTO<Segnalation, SegnalationDTO> dto = abstractDTOFactory.getDTO("Segnalation");
 
-        Professor professor = null;
-        try {
-            professor = professorServices.getDomainById(segnalationDTO.getProfessorDTO().getId());
-        } catch (ProfessorNotFoundException e) {
-            e.printStackTrace();
-        }
+        Professor professor = professorServices.getDomainById(segnalationDTO.getIdProfessor());
+        Room room = roomServices.getDomainById(segnalationDTO.getIdRoom());
+        SegnalationState segnalationState = segnalationStateServices.getDomainById(segnalationDTO.getIdState());
 
-        Room room = null;
-        try {
-            room = roomServices.getDomainById(segnalationDTO.getRoomDTO().getId());
-        } catch (RoomNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        SegnalationState segnalationState = null;
-        try {
-            segnalationState = segnalationStateServices.getDomainById(segnalationDTO.getIdState());
-        } catch (SegnalationStateNotFoundException e) {
-            e.printStackTrace();
-        }
         SegnalationId segnalationId = new SegnalationId();
         segnalationId.setProfessorIdProfessor(professor.getId().getIdProfessor());
         segnalationId.setProfessorUserIdUser(professor.getId().getUserIdUser());
         segnalationId.setRoomIdRoom(room.getIdRoom());
-        segnalationId.setSegnalationStateIdSegnalationState(segnalationState.getIdSegnalationState());
+        segnalationId.setSegnalationStateIdSegnalationState(segnalationDTO.getIdState());
 
         Segnalation segnalation = new Segnalation();
-        segnalation.setNote(segnalationDTO.getNote());
-        segnalation.setRoom(room);
         segnalation.setId(segnalationId);
+        segnalation.setNote(segnalationDTO.getNote());
+        segnalation.setDescription(segnalationDTO.getDescription());
+        segnalation.setRoom(room);
         segnalation.setProfessor(professor);
         segnalation.setSegnalationState(segnalationState);
         return dto.create(segnalationRepository.save(segnalation));

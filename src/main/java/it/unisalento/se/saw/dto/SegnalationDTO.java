@@ -6,9 +6,19 @@ public class SegnalationDTO {
     private String note;
     private String description;
     private int idState;
+    private int idProfessor;
+    private int idRoom;
     private ProfessorDTO professorDTO;
     private RoomDTO roomDTO;
+    private SegnalationStateDTO segnalationStateDTO;
 
+    public SegnalationStateDTO getSegnalationStateDTO() {
+        return segnalationStateDTO;
+    }
+
+    public void setSegnalationStateDTO(SegnalationStateDTO segnalationStateDTO) {
+        this.segnalationStateDTO = segnalationStateDTO;
+    }
 
     public int getId() {
         return id;
@@ -42,6 +52,22 @@ public class SegnalationDTO {
         this.idState = idState;
     }
 
+    public int getIdProfessor() {
+        return idProfessor;
+    }
+
+    public void setIdProfessor(int idProfessor) {
+        this.idProfessor = idProfessor;
+    }
+
+    public int getIdRoom() {
+        return idRoom;
+    }
+
+    public void setIdRoom(int idRoom) {
+        this.idRoom = idRoom;
+    }
+
     public ProfessorDTO getProfessorDTO() {
         return professorDTO;
     }
@@ -57,4 +83,6 @@ public class SegnalationDTO {
     public void setRoomDTO(RoomDTO roomDTO) {
         this.roomDTO = roomDTO;
     }
+
+
 }
