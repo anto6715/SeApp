@@ -25,18 +25,18 @@ public class SegnalationStateService implements ISegnalationStateServices {
 
     AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
     AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DOMAIN");
+    DTO<List<SegnalationState>, List<SegnalationStateDTO>> listSegnalationState = abstractDTOFactory.getDTO("LISTSEGNALATIONSTATE");
+    DTO<SegnalationState, SegnalationStateDTO> segnalationDto = abstractDTOFactory.getDTO("SegnalationState");
 
     @Transactional
     public List<SegnalationStateDTO> getAll() {
-        DTO<List<SegnalationState>, List<SegnalationStateDTO>> dto = abstractDTOFactory.getDTO("SetSegnalationState");
-        return dto.create(segnalationStateRepository.findAll());
+        return listSegnalationState.create(segnalationStateRepository.findAll());
     }
 
     @Transactional
     public SegnalationStateDTO getById(int id) throws SegnalationStateNotFoundException {
         try {
-            DTO<SegnalationState, SegnalationStateDTO> dto = abstractDTOFactory.getDTO("SegnalationState");
-            return dto.create(segnalationStateRepository.getOne(id));
+            return segnalationDto.create(segnalationStateRepository.getOne(id));
         } catch (Exception e) {
             throw new SegnalationStateNotFoundException();
         }
@@ -52,8 +52,7 @@ public class SegnalationStateService implements ISegnalationStateServices {
 
     @Transactional
     public SegnalationStateDTO save(SegnalationStateDTO segnalationStateDTO) {
-        DTO<SegnalationState, SegnalationStateDTO> dto = abstractDTOFactory.getDTO("SegnalationState");
         Domain<SegnalationStateDTO, SegnalationState> domain = abstractDomainFactory.getDomain("SegnalationState");
-        return dto.create(segnalationStateRepository.save(domain.create(segnalationStateDTO)));
+        return segnalationDto.create(segnalationStateRepository.save(domain.create(segnalationStateDTO)));
     }
 }

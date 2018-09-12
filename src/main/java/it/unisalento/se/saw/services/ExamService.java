@@ -35,18 +35,18 @@ public class ExamService implements IExamServices {
     ITeachingServices teachingServices;
 
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+    DTO<List<Exam>, List<ExamDTO>> listExamDto = dtoFactory.getDTO("LISTEXAM");
+    DTO<Exam, ExamDTO> examDto = dtoFactory.getDTO("Exam");
 
     @Transactional(readOnly = true)
     public List<ExamDTO> getAll() {
-        DTO<List<Exam>, List<ExamDTO>> dto = dtoFactory.getDTO("SetExam");
-        return dto.create(examRepository.findAll());
+        return listExamDto.create(examRepository.findAll());
     }
 
     @Transactional
     public ExamDTO getById(int id) throws ExamNotFoundException {
         try {
-            DTO<Exam, ExamDTO> dto = dtoFactory.getDTO("Exam");
-            return dto.create(examRepository.findExamById_IdExam(id));
+            return examDto.create(examRepository.findExamById_IdExam(id));
         } catch (Exception e) {
             throw new ExamNotFoundException();
         }
@@ -54,7 +54,6 @@ public class ExamService implements IExamServices {
 
     @Transactional
     public ExamDTO save(ExamDTO examDTO) {
-        DTO<Exam, ExamDTO> dto = dtoFactory.getDTO("Exam");
         Room room = null;
         try {
             room = roomServices.getDomainById(examDTO.getIdRoom());
@@ -84,7 +83,7 @@ public class ExamService implements IExamServices {
         exam.setId(examId);
         exam.setData(examDTO.getDate());
         exam.setTime(examDTO.getTime());
-        return dto.create(examRepository.save(exam));
+        return examDto.create(examRepository.save(exam));
 
     }
 

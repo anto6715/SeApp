@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class SetUserDTOModel implements DTO<List<User>, List<UserDTO>> {
+public class ListUserDTOModel implements DTO<List<User>, List<UserDTO>> {
     @Override
     public List<UserDTO> create(List<User> users) {
         AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");

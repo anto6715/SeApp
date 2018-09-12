@@ -30,17 +30,18 @@ public class MaterialService implements IMaterialServices {
     ILessonServices lessonServices;
 
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+    DTO<List<Material>, List<MaterialDTO>> listMaterialDto = dtoFactory.getDTO("LISTMATERIAL");
+    DTO<Material, MaterialDTO> materialDto = dtoFactory.getDTO("MATERIAL");
 
     @Transactional(readOnly = true)
     public List<MaterialDTO> getAll() {
-        DTO<List<Material>, List<MaterialDTO>> dto = dtoFactory.getDTO("SETMATERIAL");
-        return dto.create(materialRepository.findAll());
+
+        return listMaterialDto.create(materialRepository.findAll());
     }
     @Transactional
     public MaterialDTO getById(int id) throws MaterialNotFoundException {
         try {
-            DTO<Material, MaterialDTO> dto = dtoFactory.getDTO("MATERIAL");
-            return dto.create(materialRepository.findMaterialById_IdMaterial(id));
+            return materialDto.create(materialRepository.findMaterialById_IdMaterial(id));
         } catch (Exception e) {
             throw new MaterialNotFoundException();
         }
@@ -53,19 +54,16 @@ public class MaterialService implements IMaterialServices {
 
     @Transactional
     public List<MaterialDTO> getByIdLesson(int id){
-        DTO<List<Material>, List<MaterialDTO>> dto = dtoFactory.getDTO("SETMATERIAL");
-        return dto.create(materialRepository.findMaterialsById_LessonIdLesson(id));
+        return listMaterialDto.create(materialRepository.findMaterialsById_LessonIdLesson(id));
     }
 
     @Transactional
     public List<MaterialDTO> getByIdTeaching(int id) {
-        DTO<List<Material>, List<MaterialDTO>> dto = dtoFactory.getDTO("SETMATERIAL");
-        return dto.create(materialRepository.findMaterialsById_LessonTeachingIdTeaching(id));
+        return listMaterialDto.create(materialRepository.findMaterialsById_LessonTeachingIdTeaching(id));
     }
 
     @Transactional
     public MaterialDTO save(MaterialDTO materialDTO) {
-        DTO<Material, MaterialDTO> dto = dtoFactory.getDTO("MATERIAL");
         Lesson lesson = null;
         try {
             lesson = lessonServices.getDomainById(materialDTO.getIdLesson());
@@ -87,7 +85,7 @@ public class MaterialService implements IMaterialServices {
         material.setName(materialDTO.getName());
         material.setId(materialId);
         material.setLesson(lesson);
-        return dto.create(materialRepository.save(material));
+        return materialDto.create(materialRepository.save(material));
 
     }
 }

@@ -33,17 +33,16 @@ public class ProfessorService implements IProfessorServices {
 
     AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
-
+    DTO<List<Professor>, List<ProfessorDTO>> listProfessorDto = dtoFactory.getDTO("LISTPROFESSOR");
+    DTO<Professor,ProfessorDTO> professorDto = dtoFactory.getDTO("Professor");
 
     @Transactional(readOnly = true)
     public List<ProfessorDTO> getAll() {
-        DTO<List<Professor>, List<ProfessorDTO>> dto = dtoFactory.getDTO("SetProfessor");
-        return dto.create(professorRepository.findAll());
+        return listProfessorDto.create(professorRepository.findAll());
     }
 
     @Transactional
     public ProfessorDTO save(ProfessorDTO professorDTO) throws CourseNotFoundException {
-        DTO<Professor,ProfessorDTO> dtoProf = dtoFactory.getDTO("Professor");
         Domain<ProfessorDTO,User> domainProfDTOUser = domainFactory.getDomain("USER");
 
         User saveUser = userRepository.save(domainProfDTOUser.create(professorDTO));
@@ -60,14 +59,13 @@ public class ProfessorService implements IProfessorServices {
         Professor professorTemp = professorRepository.save(professor);
         Professor professorHasCourse = professorRepository.findProfessorById_UserIdUser(professorTemp.getId().getUserIdUser());
         professorHasCourse.getCourses().add(course);
-        return dtoProf.create(professorRepository.saveAndFlush(professorHasCourse));
+        return professorDto.create(professorRepository.saveAndFlush(professorHasCourse));
     }
 
     @Transactional
     public ProfessorDTO getById(int id) throws ProfessorNotFoundException {
        try {
-           DTO<Professor,ProfessorDTO> dto = dtoFactory.getDTO("Professor");
-           return dto.create(professorRepository.findProfessorById_IdProfessor(id));
+           return professorDto.create(professorRepository.findProfessorById_IdProfessor(id));
        } catch (Exception e) {
            throw new ProfessorNotFoundException();
        }
@@ -81,8 +79,7 @@ public class ProfessorService implements IProfessorServices {
     @Transactional
     public ProfessorDTO getByUid(String uid) throws ProfessorNotFoundException {
         try {
-            DTO<Professor,ProfessorDTO> dto = dtoFactory.getDTO("Professor");
-            return dto.create(professorRepository.findProfessorByUserUid(uid));
+            return professorDto.create(professorRepository.findProfessorByUserUid(uid));
         } catch (Exception e) {
             throw new ProfessorNotFoundException();
         }
@@ -90,10 +87,9 @@ public class ProfessorService implements IProfessorServices {
 
     public List<ProfessorDTO> getByIdCourse(int id) throws ProfessorNotFoundException {
         try {
-            DTO<List<Professor>, List<ProfessorDTO>> dto = dtoFactory.getDTO("SetProfessor");
             Course course = courseServices.getDomainById(id);
-            List<Professor> professors = new ArrayList<>( course.getProfessors());
-            return dto.create(professors);
+            List<Professor> professors = new ArrayList<>(course.getProfessors());
+            return listProfessorDto.create(professors);
         } catch (Exception e) {
             throw new ProfessorNotFoundException();
         }

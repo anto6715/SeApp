@@ -43,16 +43,16 @@ public class UserService implements IUserServices {
 
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
     AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DOMAIN");
+    DTO<List<User>, List<UserDTO>> listUserDto = dtoFactory.getDTO("LISTUSER");
+    DTO<User,UserDTO> userDto = dtoFactory.getDTO("User");
 
     @Transactional(readOnly=true)
     public List<UserDTO> getAll(){
-        DTO<List<User>, List<UserDTO>> userDto = dtoFactory.getDTO("SETUSER");
-        return userDto.create(userRepository.findAll());
+        return listUserDto.create(userRepository.findAll());
     }
 
     @Transactional
     public UserDTO save(UserDTO userDTO) {
-        DTO<User,UserDTO> userDto = dtoFactory.getDTO("User");
         Domain<UserDTO, User> domain = abstractDomainFactory.getDomain("User");
         return userDto.create(userRepository.save(domain.create(userDTO)));
     }

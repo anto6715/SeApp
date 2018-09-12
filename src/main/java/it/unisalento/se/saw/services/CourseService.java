@@ -28,18 +28,19 @@ public class CourseService implements ICourseServices {
 
     AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
     AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DOMAIN");
+    DTO<List<Course>, List<CourseDTO>> listCourseDto = abstractDTOFactory.getDTO("LISTCOURSE");
+    DTO<Course, CourseDTO> courseDto = abstractDTOFactory.getDTO("COURSE");
+
 
     @Transactional(readOnly = true)
     public List<CourseDTO> getAll() {
-        DTO<List<Course>, List<CourseDTO>> dto = abstractDTOFactory.getDTO("SETCOURSE");
-        return dto.create(courseRepository.findAll());
+        return listCourseDto.create(courseRepository.findAll());
     }
 
     @Override
     public CourseDTO getByName(String name) throws CourseNotFoundException {
         try {
-            DTO<Course, CourseDTO> dto = abstractDTOFactory.getDTO("COURSE");
-            return dto.create(courseRepository.getCourseByName(name));
+            return courseDto.create(courseRepository.getCourseByName(name));
         } catch (Exception e) {
             throw  new CourseNotFoundException();
         }
@@ -47,16 +48,14 @@ public class CourseService implements ICourseServices {
 
     @Transactional
     public CourseDTO save(CourseDTO courseDTO) {
-        Domain<CourseDTO, Course> domain = abstractDomainFactory.getDomain("Course");
-        DTO<Course, CourseDTO> dto = abstractDTOFactory.getDTO("COURSE");
-        return dto.create(courseRepository.save(domain.create(courseDTO)));
+        Domain<CourseDTO, Course> courseDomain = abstractDomainFactory.getDomain("Course");
+        return courseDto.create(courseRepository.save(courseDomain.create(courseDTO)));
     }
 
     @Override
     public CourseDTO getById(int id) throws CourseNotFoundException {
         try {
-            DTO<Course, CourseDTO> dto = abstractDTOFactory.getDTO("COURSE");
-            return dto.create(courseRepository.getOne(id));
+            return courseDto.create(courseRepository.getOne(id));
         } catch (Exception e) {
             throw new CourseNotFoundException();
         }

@@ -29,29 +29,27 @@ public class AccessoryService implements IAccessoryServices {
     IRoomServices roomServices;
 
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+    DTO<List<Accessory>, List<AccessoryDTO>> listAccessoryDto = dtoFactory.getDTO("LISTACCESSORY");
+    DTO<Accessory, AccessoryDTO> accessoryDto = dtoFactory.getDTO("Accessory");
 
     @Transactional(readOnly = true)
     public List<AccessoryDTO> getAll() {
-        DTO<List<Accessory>, List<AccessoryDTO>> dto = dtoFactory.getDTO("SETAccessory");
-        return dto.create(accessoryRepository.findAll());
+        return listAccessoryDto.create(accessoryRepository.findAll());
     }
 
     public AccessoryDTO getById(int id) throws AccessoryNotFoundException {
         try {
-            DTO<Accessory, AccessoryDTO> dto = dtoFactory.getDTO("Accessory");
-            return dto.create(accessoryRepository.findAccessoryById_IdAccessory(id));
+            return accessoryDto.create(accessoryRepository.findAccessoryById_IdAccessory(id));
         } catch (Exception e) {
             throw new AccessoryNotFoundException();
         }
     }
 
     public List<AccessoryDTO> getByIdRoom(int id) {
-        DTO<List<Accessory>, List<AccessoryDTO>> dto = dtoFactory.getDTO("SETAccessory");
-        return dto.create(accessoryRepository.findAccessoriesById_RoomIdRoom(id));
+        return listAccessoryDto.create(accessoryRepository.findAccessoriesById_RoomIdRoom(id));
     }
 
     public AccessoryDTO save(AccessoryDTO accessoryDTO) {
-        DTO<Accessory, AccessoryDTO> dto = dtoFactory.getDTO("Accessory");
         Room room = null;
         try {
             room = roomServices.getDomainById(accessoryDTO.getIdRoom());
@@ -67,6 +65,6 @@ public class AccessoryService implements IAccessoryServices {
         accessory.setRoom(room);
         accessory.setType(accessoryDTO.getType());
         accessory.setId(accessoryId);
-        return dto.create(accessoryRepository.save(accessory));
+        return accessoryDto.create(accessoryRepository.save(accessory));
     }
 }

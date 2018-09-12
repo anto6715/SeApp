@@ -24,23 +24,23 @@ public class RoomService implements IRoomServices {
 
     AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+    DTO<List<Room>, List<RoomDTO>> listRoomDto = dtoFactory.getDTO("LISTROOM");
+    DTO<Room, RoomDTO> roomDto = dtoFactory.getDTO("Room");
+
 
     @Transactional(readOnly = true)
     public List<RoomDTO> getAll() {
-        DTO<List<Room>, List<RoomDTO>> dto = dtoFactory.getDTO("SETROOM");
-        return dto.create(roomRepository.findAll());
+        return listRoomDto.create(roomRepository.findAll());
     }
 
     @Transactional(readOnly = true)
     public List<RoomDTO> getByCapacity(int capacity) {
-        DTO<List<Room>, List<RoomDTO>> dto = dtoFactory.getDTO("SETROOM");
-        return dto.create(roomRepository.findRoomsByCapacity(capacity));
+        return listRoomDto.create(roomRepository.findRoomsByCapacity(capacity));
     }
     @Transactional
     public RoomDTO getById(int id) throws RoomNotFoundException {
         try {
-            DTO<Room, RoomDTO> dto = dtoFactory.getDTO("Room");
-            return dto.create(roomRepository.getOne(id));
+            return roomDto.create(roomRepository.getOne(id));
         } catch (Exception e) {
             throw new RoomNotFoundException();
         }
@@ -53,8 +53,7 @@ public class RoomService implements IRoomServices {
 
     @Transactional
     public RoomDTO save(RoomDTO roomDTO) {
-        DTO<Room, RoomDTO> dto = dtoFactory.getDTO("Room");
         Domain<RoomDTO, Room> domain = domainFactory.getDomain("Room");
-        return dto.create(roomRepository.save(domain.create(roomDTO)));
+        return roomDto.create(roomRepository.save(domain.create(roomDTO)));
     }
 }

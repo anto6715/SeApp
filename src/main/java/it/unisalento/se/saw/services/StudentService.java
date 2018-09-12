@@ -42,19 +42,19 @@ public class StudentService implements IStudentServices {
 
     AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+    DTO<List<Student>, List<StudentDTO>> listStudentDto = dtoFactory.getDTO("LISTSTUDENT");
+    DTO<Student, StudentDTO> studentDto = dtoFactory.getDTO("Student");
 
 
     @Transactional(readOnly = true)
     public List<StudentDTO> getAll() {
-        DTO<List<Student>, List<StudentDTO>> dto = dtoFactory.getDTO("SetStudent");
-        return dto.create(studentRepository.findAll());
+        return listStudentDto.create(studentRepository.findAll());
     }
 
     @Transactional(readOnly = true)
     public StudentDTO getById(int id) throws StudentNotFoundException {
         try{
-            DTO<Student, StudentDTO> dto = dtoFactory.getDTO("Student");
-            return dto.create(studentRepository.findStudentById_IdStudent(id));
+            return studentDto.create(studentRepository.findStudentById_IdStudent(id));
         } catch (Exception e) {
             throw new StudentNotFoundException();
         }
@@ -70,16 +70,14 @@ public class StudentService implements IStudentServices {
     }
 
     public List<StudentDTO> getByCourse(int course){
-        DTO<List<Student>, List<StudentDTO>> dto = dtoFactory.getDTO("SetStudent");
-        return dto.create(studentRepository.findStudentsByCourse_IdCourse(course));
+        return listStudentDto.create(studentRepository.findStudentsByCourse_IdCourse(course));
     }
 
     @Transactional
     public StudentDTO getByUid(String uid) throws StudentNotFoundException{
-        DTO<Student, StudentDTO> dto = dtoFactory.getDTO("Student");
         Student student = studentRepository.findStudentByUserUid(uid);
         if (student != null)
-            return dto.create(student);
+            return studentDto.create(student);
         else
             throw new StudentNotFoundException();
     }
@@ -87,7 +85,6 @@ public class StudentService implements IStudentServices {
     @Transactional
     public StudentDTO save(StudentDTO studentDTO) {
         Domain<StudentDTO, User> domain = domainFactory.getDomain("USER");
-        DTO<Student,StudentDTO> dtoStudent = dtoFactory.getDTO("Student");
 
         User user = domain.create(studentDTO);
 
@@ -110,7 +107,7 @@ public class StudentService implements IStudentServices {
         student.setUser(saveUser);
         student.setId(new StudentId(0,studentDTO.getIdCourse(),saveUser.getIdUser()));
         student.setCourse(course);
-        return dtoStudent.create(studentRepository.save(student));
+        return studentDto.create(studentRepository.save(student));
     }
 
 }

@@ -19,8 +19,8 @@ public class DtoFactory extends AbstractFactory {
             return new AccessoryDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETACCESSORY")){
-            return new SetAccessoryDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTACCESSORY")){
+            return new ListAccessoryDTOModel();
         }
 
         if (dtoType.equalsIgnoreCase("EXAM")){
@@ -31,28 +31,28 @@ public class DtoFactory extends AbstractFactory {
             return new ReviewTypeDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETREVIEWTYPE")){
-            return new SetReviewTypeDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTREVIEWTYPE")){
+            return new ListReviewTypeDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETEXAM")){
-            return new SetExamDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTEXAM")){
+            return new ListExamDTOModel();
         }
 
         if (dtoType.equalsIgnoreCase("SEGNALATIONSTATE")){
             return new SegnalationStateDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETLESSON")){
-            return new SetLessonDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTLESSON")){
+            return new ListLessonDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETSTUDENT")){
-            return new SetStudentDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTSTUDENT")){
+            return new ListStudentDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETSEGNALATIONSTATE")){
-            return new SetSegnalationStateDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTSEGNALATIONSTATE")){
+            return new ListSegnalationStateDTOModel();
         }
 
         if (dtoType.equalsIgnoreCase("MATERIAL")){
@@ -63,40 +63,40 @@ public class DtoFactory extends AbstractFactory {
             return new SegnalationDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETSEGNALATION")){
-            return new SetSegnalationDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTSEGNALATION")){
+            return new ListSegnalationDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETTEACHING")){
-            return new SetTeachingDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTTEACHING")){
+            return new ListTeachingDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETCOURSE")){
-            return new SetCourseDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTCOURSE")){
+            return new ListCourseDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETREVIEW")){
-            return new SetReviewDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTREVIEW")){
+            return new ListReviewDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETMATERIAL")){
-            return new SetMaterialDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTMATERIAL")){
+            return new ListMaterialDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETSECRETARY")){
-            return new SetSecretaryDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTSECRETARY")){
+            return new ListSecretaryDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETROOM")){
-            return new SetRoomDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTROOM")){
+            return new ListRoomDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETPROFESSOR")){
-            return new SetProfessorDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTPROFESSOR")){
+            return new ListProfessorDTOModel();
         }
 
-        if (dtoType.equalsIgnoreCase("SETUSER")){
-            return new SetUserDTOModel();
+        if (dtoType.equalsIgnoreCase("LISTUSER")){
+            return new ListUserDTOModel();
         }
 
         if (dtoType.equalsIgnoreCase("Course")){

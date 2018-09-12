@@ -40,27 +40,26 @@ public class SegnalationService implements ISegnalationServices {
 
 
     AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
+    DTO<List<Segnalation>, List<SegnalationDTO>> listSegnalationDto = abstractDTOFactory.getDTO("LISTSEGNALATION");
+    DTO<Segnalation, SegnalationDTO> segnalationDto = abstractDTOFactory.getDTO("Segnalation");
+
 
     @Transactional
     public List<SegnalationDTO> getAll() {
-        DTO<List<Segnalation>, List<SegnalationDTO>> dto = abstractDTOFactory.getDTO("SetSegnalation");
-        return dto.create(segnalationRepository.findAll());
+        return listSegnalationDto.create(segnalationRepository.findAll());
     }
     @Transactional
     public List<SegnalationDTO> getByRoom(int id) {
-        DTO<List<Segnalation>, List<SegnalationDTO>> dto = abstractDTOFactory.getDTO("SetSegnalation");
-        return dto.create(segnalationRepository.findSegnalationsById_RoomIdRoom(id));
+        return listSegnalationDto.create(segnalationRepository.findSegnalationsById_RoomIdRoom(id));
     }
     @Transactional
     public List<SegnalationDTO> getByProfessor(int id){
-        DTO<List<Segnalation>, List<SegnalationDTO>> dto = abstractDTOFactory.getDTO("SetSegnalation");
-        return dto.create(segnalationRepository.findSegnalationsById_ProfessorIdProfessor(id));
+        return listSegnalationDto.create(segnalationRepository.findSegnalationsById_ProfessorIdProfessor(id));
     }
     @Transactional
     public SegnalationDTO getById(int id) throws SegnalationNotFoundException {
         try {
-            DTO<Segnalation, SegnalationDTO> dto = abstractDTOFactory.getDTO("Segnalation");
-            return dto.create(segnalationRepository.findSegnalationById_IdSegnalation(id));
+            return segnalationDto.create(segnalationRepository.findSegnalationById_IdSegnalation(id));
         } catch (Exception e) {
             throw new SegnalationNotFoundException();
         }
@@ -68,12 +67,11 @@ public class SegnalationService implements ISegnalationServices {
 
     @Transactional
     public SegnalationDTO save(SegnalationDTO segnalationDTO) throws RoomNotFoundException, ProfessorNotFoundException, SegnalationStateNotFoundException{
-        DTO<Segnalation, SegnalationDTO> dto = abstractDTOFactory.getDTO("Segnalation");
-        System.out.println(segnalationDTO.getIdProfessor());
+
+
         Professor professor = professorServices.getDomainById(segnalationDTO.getIdProfessor());
         Room room = roomServices.getDomainById(segnalationDTO.getIdRoom());
         SegnalationState segnalationState = segnalationStateServices.getDomainById(segnalationDTO.getIdState());
-        System.out.println(professor.getUser().getName());
 
         SegnalationId segnalationId = new SegnalationId();
         segnalationId.setProfessorIdProfessor(professor.getId().getIdProfessor());
@@ -87,19 +85,17 @@ public class SegnalationService implements ISegnalationServices {
         segnalation.setRoom(room);
         segnalation.setProfessor(professor);
         segnalation.setSegnalationState(segnalationState);
-        return dto.create(segnalationRepository.save(segnalation));
+        return segnalationDto.create(segnalationRepository.save(segnalation));
     }
 
     @Transactional
     public SegnalationDTO update(SegnalationDTO segnalationDTO) throws SegnalationStateNotFoundException{
-        DTO<Segnalation, SegnalationDTO> dto = abstractDTOFactory.getDTO("Segnalation");
-
         Segnalation segnalation = segnalationRepository.findSegnalationById_IdSegnalation(segnalationDTO.getId());
         SegnalationState segnalationState = segnalationStateServices.getDomainById(segnalationDTO.getIdState());
 
         segnalation.setNote(segnalationDTO.getNote());
         segnalation.setSegnalationState(segnalationState);
 
-        return dto.create(segnalationRepository.save(segnalation));
+        return segnalationDto.create(segnalationRepository.save(segnalation));
     }
 }

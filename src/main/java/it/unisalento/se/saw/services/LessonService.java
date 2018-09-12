@@ -8,13 +8,11 @@ import it.unisalento.se.saw.domain.LessonId;
 import it.unisalento.se.saw.domain.Room;
 import it.unisalento.se.saw.domain.Teaching;
 import it.unisalento.se.saw.dto.LessonDTO;
-import it.unisalento.se.saw.dto.TeachingDTO;
 import it.unisalento.se.saw.exceptions.LessonNotFoundException;
 import it.unisalento.se.saw.exceptions.RoomNotFoundException;
 import it.unisalento.se.saw.exceptions.TeachingNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.DTOFactory.DTO;
-import it.unisalento.se.saw.models.DomainFactory.Domain;
 import it.unisalento.se.saw.models.FactoryProducer;
 import it.unisalento.se.saw.repositories.LessonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,30 +35,28 @@ public class LessonService implements ILessonServices {
 
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
     AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
+    DTO<List<Lesson>, List<LessonDTO>> listLessonDto = dtoFactory.getDTO("LISTLESSON");
+    DTO<Lesson,LessonDTO> lessonDto = dtoFactory.getDTO("LESSON");
 
     @Transactional(readOnly = true)
     public List<LessonDTO> getAll() {
-        DTO<List<Lesson>, List<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
-        return dto.create(lessonRepository.findAll());
+        return listLessonDto.create(lessonRepository.findAll());
     }
 
     @Transactional
     public List<LessonDTO> getByDate(Date date, int id) {
-        DTO<List<Lesson>, List<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
-        return dto.create(lessonRepository.findLessonsByDateAndId_TeachingCourseIdCourse(date, id));
+        return listLessonDto.create(lessonRepository.findLessonsByDateAndId_TeachingCourseIdCourse(date, id));
     }
 
     @Transactional
     public List<LessonDTO> getByDateAndIdProfessor(Date date, int id) {
-        DTO<List<Lesson>, List<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
-        return dto.create(lessonRepository.findLessonsByDateAndId_TeachingProfessorIdProfessor(date,id));
+        return listLessonDto.create(lessonRepository.findLessonsByDateAndId_TeachingProfessorIdProfessor(date,id));
     }
 
     @Transactional
     public LessonDTO getById(int id) throws LessonNotFoundException {
         try {
-            DTO<Lesson,LessonDTO> dto = dtoFactory.getDTO("LESSON");
-            return dto.create(lessonRepository.findLessonById_IdLesson(id));
+            return lessonDto.create(lessonRepository.findLessonById_IdLesson(id));
         } catch (Exception e) {
             throw new LessonNotFoundException();
         }
@@ -76,24 +72,19 @@ public class LessonService implements ILessonServices {
     }
 
     public List<LessonDTO> getByRoom(int id) {
-        DTO<List<Lesson>, List<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
-        return dto.create(lessonRepository.findLessonsById_RoomIdRoom(id));
+        return listLessonDto.create(lessonRepository.findLessonsById_RoomIdRoom(id));
     }
 
     public List<LessonDTO> getByTeaching(int id) {
-        DTO<List<Lesson>, List<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
-        return dto.create(lessonRepository.findLessonById_TeachingIdTeaching(id));
+        return listLessonDto.create(lessonRepository.findLessonById_TeachingIdTeaching(id));
     }
 
     public List<LessonDTO> getByProfessor(int id) {
-        DTO<List<Lesson>, List<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
-        return dto.create(lessonRepository.findLessonById_TeachingProfessorIdProfessorOrderByDateAsc(id));
+        return listLessonDto.create(lessonRepository.findLessonById_TeachingProfessorIdProfessorOrderByDateAsc(id));
     }
 
     @Transactional
     public LessonDTO update(LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
-
-        DTO<Lesson, LessonDTO> dto = dtoFactory.getDTO("Lesson");
 
         Lesson lesson = lessonRepository.findLessonById_IdLesson(lessonDTO.getId());
         lessonRepository.delete(lesson);
@@ -116,14 +107,11 @@ public class LessonService implements ILessonServices {
         updateLesson.setStart(lessonDTO.getStart());
         updateLesson.setEnd(lessonDTO.getEnd());
 
-        return dto.create(lessonRepository.save(updateLesson));
+        return lessonDto.create(lessonRepository.save(updateLesson));
     }
 
     @Transactional
     public LessonDTO save(LessonDTO lessonDTO) throws RoomNotFoundException, TeachingNotFoundException {
-
-        Domain<TeachingDTO, Teaching> domainTeaching = domainFactory.getDomain("Teaching");
-        DTO<Lesson, LessonDTO> dto = dtoFactory.getDTO("Lesson");
 
 
         Teaching teaching =teachingServices.getDomainById(lessonDTO.getIdTeaching());
@@ -146,8 +134,6 @@ public class LessonService implements ILessonServices {
         lesson.setDate(lessonDTO.getDate());
         lesson.setStart(lessonDTO.getStart());
         lesson.setEnd(lessonDTO.getEnd());
-        return dto.create(lessonRepository.save(lesson));
-
-
+        return lessonDto.create(lessonRepository.save(lesson));
     }
 }

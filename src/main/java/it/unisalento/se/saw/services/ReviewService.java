@@ -35,19 +35,18 @@ public class ReviewService implements IReviewServices {
     @Autowired
     IStudentServices studentServices;
 
-    AbstractFactory domainFactory = FactoryProducer.getFactory("Domain");
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+    DTO<List<Review>, List<ReviewDTO> > listReviewDto = dtoFactory.getDTO("LISTREVIEW");
+    DTO<Review, ReviewDTO> reviewDto = dtoFactory.getDTO("Review");
 
     @Transactional
     public List<ReviewDTO> getAll() {
-        DTO<List<Review>, List<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
-        return dto.create(reviewRepository.findAll());
+        return listReviewDto.create(reviewRepository.findAll());
     }
     @Transactional
     public ReviewDTO getById(int id) throws ReviewNotFoundException {
         try{
-            DTO<Review, ReviewDTO> dto = dtoFactory.getDTO("Review");
-            return dto.create(reviewRepository.findReviewById_IdReview(id));
+            return reviewDto.create(reviewRepository.findReviewById_IdReview(id));
         } catch (Exception e) {
             throw new ReviewNotFoundException();
         }
@@ -55,13 +54,11 @@ public class ReviewService implements IReviewServices {
 
     @Transactional
     public List<ReviewDTO> getByType(int idType){
-        DTO<List<Review>, List<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
-        return dto.create(reviewRepository.findReviewsById_ReviewTypeIdReviewType(idType));
+        return listReviewDto.create(reviewRepository.findReviewsById_ReviewTypeIdReviewType(idType));
     }
 
     @Transactional
     public ReviewDTO save(ReviewDTO reviewDTO) throws ReviewTypeNotFoundException , StudentNotFoundException{
-        DTO<Review, ReviewDTO> dto = dtoFactory.getDTO("Review");
         Lesson lesson;
         Material material;
         ReviewType reviewType;
@@ -106,12 +103,11 @@ public class ReviewService implements IReviewServices {
         review.setMaterial(material);
         review.setReviewType(reviewType);
 
-        return dto.create(reviewRepository.save(review));
+        return reviewDto.create(reviewRepository.save(review));
     }
 
     @Transactional
     public ReviewDTO getByIdStudentAndIdMaterial(int idStudent, int idMaterial) throws ReviewNotFoundException {
-        DTO<Review, ReviewDTO> reviewDto = dtoFactory.getDTO("Review");
         Review review = reviewRepository.findReviewById_StudentIdStudentAndMaterial_Id_IdMaterial(idStudent,idMaterial);
         if (review != null)
             return reviewDto.create(review);
@@ -120,7 +116,6 @@ public class ReviewService implements IReviewServices {
 
     @Transactional
     public ReviewDTO getByIdStudentAndIdLesson(int idStudent, int idLesson) throws ReviewNotFoundException {
-        DTO<Review, ReviewDTO> reviewDto = dtoFactory.getDTO("Review");
         Review review = reviewRepository.findReviewById_StudentIdStudentAndLesson_Id_IdLesson(idStudent,idLesson);
         if (review != null)
             return reviewDto.create(review);
@@ -129,13 +124,11 @@ public class ReviewService implements IReviewServices {
 
     @Transactional
     public List<ReviewDTO> getByIdLesson(int id) {
-        DTO<List<Review>, List<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
-        return dto.create(reviewRepository.findReviewsByLesson_Id_IdLesson(id));
+        return listReviewDto.create(reviewRepository.findReviewsByLesson_Id_IdLesson(id));
     }
 
     @Transactional
     public List<ReviewDTO> getByIdMaterial(int id) {
-        DTO<List<Review>, List<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
-        return dto.create(reviewRepository.findReviewsByMaterial_Id_IdMaterial(id));
+        return listReviewDto.create(reviewRepository.findReviewsByMaterial_Id_IdMaterial(id));
     }
 }

@@ -23,16 +23,17 @@ public class ReviewTypeService implements IReviewTypeServices {
     ReviewTypeRepository reviewTypeRepository;
 
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+    DTO<List<ReviewType>, List<ReviewTypeDTO>> listReviewTypeDto = dtoFactory.getDTO("LISTREVIEWTYPE");
+    DTO<ReviewType, ReviewTypeDTO> reviewTypeDto = dtoFactory.getDTO("ReviewType");
+
 
     public List<ReviewTypeDTO> getAll() {
-        DTO<List<ReviewType>, List<ReviewTypeDTO>> dto = dtoFactory.getDTO("SetReviewType");
-        return dto.create(reviewTypeRepository.findAll());
+        return listReviewTypeDto.create(reviewTypeRepository.findAll());
     }
     @Transactional
     public ReviewTypeDTO getById(int id) throws ReviewTypeNotFoundException {
         try {
-            DTO<ReviewType, ReviewTypeDTO> dto = dtoFactory.getDTO("ReviewType");
-            return dto.create(reviewTypeRepository.getOne(id));
+            return reviewTypeDto.create(reviewTypeRepository.getOne(id));
         } catch (Exception e) {
             throw new ReviewTypeNotFoundException();
         }
@@ -45,9 +46,8 @@ public class ReviewTypeService implements IReviewTypeServices {
 
     @Transactional
     public ReviewTypeDTO save(ReviewTypeDTO reviewTypeDTO) {
-        DTO<ReviewType, ReviewTypeDTO> dto = dtoFactory.getDTO("ReviewType");
         ReviewType reviewType = new ReviewType();
         reviewType.setType(reviewTypeDTO.getType());
-        return dto.create(reviewTypeRepository.save(reviewType));
+        return reviewTypeDto.create(reviewTypeRepository.save(reviewType));
     }
 }
