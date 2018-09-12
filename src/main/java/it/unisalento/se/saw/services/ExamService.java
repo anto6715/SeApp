@@ -37,8 +37,8 @@ public class ExamService implements IExamServices {
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
 
     @Transactional(readOnly = true)
-    public Set<ExamDTO> getAll() {
-        DTO<List<Exam>, Set<ExamDTO>> dto = dtoFactory.getDTO("SetExam");
+    public List<ExamDTO> getAll() {
+        DTO<List<Exam>, List<ExamDTO>> dto = dtoFactory.getDTO("SetExam");
         return dto.create(examRepository.findAll());
     }
 

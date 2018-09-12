@@ -21,7 +21,7 @@ public class ReviewTypeRestController {
 
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<ReviewTypeDTO> getAll() {
+    public List<ReviewTypeDTO> getAll() {
         return reviewTypeServices.getAll();
     }
 

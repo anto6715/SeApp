@@ -40,8 +40,8 @@ public class TeachingService implements ITeachingServices {
     AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
 
     @Transactional(readOnly = true)
-    public Set<TeachingDTO> getAll() {
-        DTO<List<Teaching>, Set<TeachingDTO>> setTeachingDto = this.abstractDTOFactory.getDTO("SETTEACHING");
+    public List<TeachingDTO> getAll() {
+        DTO<List<Teaching>, List<TeachingDTO>> setTeachingDto = this.abstractDTOFactory.getDTO("SETTEACHING");
         return setTeachingDto.create(teachingRepository.findAll());
     }
 
@@ -81,13 +81,13 @@ public class TeachingService implements ITeachingServices {
         }
     }
 
-    public Set<TeachingDTO> getByIdCourse(int id) {
-        DTO<List<Teaching>, Set<TeachingDTO>> setTeachingDto = this.abstractDTOFactory.getDTO("SETTEACHING");
+    public List<TeachingDTO> getByIdCourse(int id) {
+        DTO<List<Teaching>, List<TeachingDTO>> setTeachingDto = this.abstractDTOFactory.getDTO("SETTEACHING");
         return setTeachingDto.create(teachingRepository.findTeachingsById_CourseIdCourse(id));
     }
 
-    public Set<TeachingDTO> getByProf(int id) {
-        DTO<List<Teaching>, Set<TeachingDTO>> setTeachingDto = this.abstractDTOFactory.getDTO("SETTEACHING");
+    public List<TeachingDTO> getByProf(int id) {
+        DTO<List<Teaching>, List<TeachingDTO>> setTeachingDto = this.abstractDTOFactory.getDTO("SETTEACHING");
         return setTeachingDto.create(teachingRepository.findTeachingsById_ProfessorIdProfessor(id));
     }
 

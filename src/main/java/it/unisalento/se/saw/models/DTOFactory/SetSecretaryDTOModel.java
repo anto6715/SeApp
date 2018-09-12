@@ -5,16 +5,17 @@ import it.unisalento.se.saw.dto.SecretaryDTO;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.FactoryProducer;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class SetSecretaryDTOModel implements DTO<List<Secretary>, Set<SecretaryDTO>> {
+public class SetSecretaryDTOModel implements DTO<List<Secretary>, List<SecretaryDTO>> {
     @Override
-    public Set<SecretaryDTO> create(List<Secretary> secretaries) {
+    public List<SecretaryDTO> create(List<Secretary> secretaries) {
         AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
         DTO<Secretary, SecretaryDTO> dto = abstractFactory.getDTO("Secretary");
-        Set<SecretaryDTO> secretaryDTOS = new HashSet<>(0);
+        List<SecretaryDTO> secretaryDTOS = new ArrayList<>();
         for (Secretary secretary: secretaries) {
             secretaryDTOS.add(dto.create(secretary));
         }

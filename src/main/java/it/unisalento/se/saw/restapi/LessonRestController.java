@@ -32,7 +32,7 @@ public class LessonRestController {
     }
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<LessonDTO> getAll() {
+    public List<LessonDTO> getAll() {
         return lessonServices.getAll();
     }
 
@@ -52,29 +52,29 @@ public class LessonRestController {
     }
 
     @RequestMapping(value = "/getByIdRoom/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<LessonDTO> getByIdRoom(@PathVariable int id) {
+    public List<LessonDTO> getByIdRoom(@PathVariable int id) {
         return lessonServices.getByRoom(id);
     }
 
     @RequestMapping(value = "/getByIdTeaching/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<LessonDTO> getByIdTeaching(@PathVariable int id) {
+    public List<LessonDTO> getByIdTeaching(@PathVariable int id) {
         return lessonServices.getByTeaching(id);
     }
 
     @RequestMapping(value = "/getByIdProfessor/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<LessonDTO> getByIdProfessor(@PathVariable int id) {
+    public List<LessonDTO> getByIdProfessor(@PathVariable int id) {
         return lessonServices.getByProfessor(id);
     }
 
     @RequestMapping(value = "/getByDate/{date}_{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
-    public Set<LessonDTO> getByDateAndIdCourse(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
+    public List<LessonDTO> getByDateAndIdCourse(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date dateObj = sdf.parse(date);
         return lessonServices.getByDate(dateObj,id);
     }
 
     @RequestMapping(value = "/getByDateAndIdProf/{date}_{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
-    public Set<LessonDTO> getByDateAndIdProfessor(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
+    public List<LessonDTO> getByDateAndIdProfessor(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date dateObj = sdf.parse(date);
         return lessonServices.getByDateAndIdProfessor(dateObj,id);

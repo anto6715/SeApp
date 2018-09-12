@@ -15,7 +15,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
@@ -56,7 +58,7 @@ public class AccessoryRestControllerTest {
         accessoryDTO.setId(1);
         accessoryDTO.setType("type");
         accessoryDTO.setIdRoom(2);
-        Set<AccessoryDTO> accessoryDTOS = new HashSet<>(0);
+        List<AccessoryDTO> accessoryDTOS = new ArrayList<>();
         accessoryDTOS.add(accessoryDTO);
 
         when(accessoryServicesMock.getAll()).thenReturn(accessoryDTOS);
@@ -78,7 +80,7 @@ public class AccessoryRestControllerTest {
         accessoryDTO.setId(1);
         accessoryDTO.setType("type");
         accessoryDTO.setIdRoom(2);
-        Set<AccessoryDTO> accessoryDTOS = new HashSet<>(0);
+        List<AccessoryDTO> accessoryDTOS = new ArrayList<>();
         accessoryDTOS.add(accessoryDTO);
 
         when(accessoryServicesMock.getByIdRoom(2)).thenReturn(accessoryDTOS);

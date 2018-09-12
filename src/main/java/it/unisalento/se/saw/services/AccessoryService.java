@@ -31,8 +31,8 @@ public class AccessoryService implements IAccessoryServices {
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
 
     @Transactional(readOnly = true)
-    public Set<AccessoryDTO> getAll() {
-        DTO<List<Accessory>, Set<AccessoryDTO>> dto = dtoFactory.getDTO("SETAccessory");
+    public List<AccessoryDTO> getAll() {
+        DTO<List<Accessory>, List<AccessoryDTO>> dto = dtoFactory.getDTO("SETAccessory");
         return dto.create(accessoryRepository.findAll());
     }
 
@@ -45,8 +45,8 @@ public class AccessoryService implements IAccessoryServices {
         }
     }
 
-    public Set<AccessoryDTO> getByIdRoom(int id) {
-        DTO<List<Accessory>, Set<AccessoryDTO>> dto = dtoFactory.getDTO("SETAccessory");
+    public List<AccessoryDTO> getByIdRoom(int id) {
+        DTO<List<Accessory>, List<AccessoryDTO>> dto = dtoFactory.getDTO("SETAccessory");
         return dto.create(accessoryRepository.findAccessoriesById_RoomIdRoom(id));
     }
 

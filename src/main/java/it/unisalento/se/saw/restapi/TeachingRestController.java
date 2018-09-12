@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -21,7 +22,7 @@ public class TeachingRestController {
 
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<TeachingDTO> getAll() {
+    public List<TeachingDTO> getAll() {
         return teachingServices.getAll();
     }
 
@@ -41,12 +42,12 @@ public class TeachingRestController {
     }
 
     @RequestMapping(value = "/getByIdCourse/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<TeachingDTO> getByIdCourse(@PathVariable int id) throws TeachingNotFoundException {
+    public List<TeachingDTO> getByIdCourse(@PathVariable int id) throws TeachingNotFoundException {
         return teachingServices.getByIdCourse(id);
     }
 
     @RequestMapping(value = "/getByIdProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<TeachingDTO> getByProf(@PathVariable int id) throws TeachingNotFoundException {
+    public List<TeachingDTO> getByProf(@PathVariable int id) throws TeachingNotFoundException {
         return teachingServices.getByProf(id);
 
     }

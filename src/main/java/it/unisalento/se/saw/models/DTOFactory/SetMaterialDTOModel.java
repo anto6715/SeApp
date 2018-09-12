@@ -5,16 +5,17 @@ import it.unisalento.se.saw.dto.MaterialDTO;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.FactoryProducer;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class SetMaterialDTOModel implements DTO<List<Material>, Set<MaterialDTO>> {
+public class SetMaterialDTOModel implements DTO<List<Material>, List<MaterialDTO>> {
     @Override
-    public Set<MaterialDTO> create(List<Material> materials) {
+    public List<MaterialDTO> create(List<Material> materials) {
         AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
         DTO<Material, MaterialDTO> dto = abstractFactory.getDTO("Material");
-        Set<MaterialDTO> materialDTOS = new HashSet<>(0);
+        List<MaterialDTO> materialDTOS = new ArrayList<>(0);
         for (Material material: materials){
             materialDTOS.add(dto.create(material));
         }

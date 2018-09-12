@@ -62,7 +62,7 @@ public class UserServiceTest {
 
         when(userRepository.findAll()).thenReturn(users);
 
-        Set<UserDTO> userDTOS = userService.getAll();
+        List<UserDTO> userDTOS = userService.getAll();
 
         assertEquals(user.getIdUser(), (Integer) userDTOS.iterator().next().getIdUser());
     }

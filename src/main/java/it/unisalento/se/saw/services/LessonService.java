@@ -21,9 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class LessonService implements ILessonServices {
@@ -41,20 +39,20 @@ public class LessonService implements ILessonServices {
     AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
 
     @Transactional(readOnly = true)
-    public Set<LessonDTO> getAll() {
-        DTO<List<Lesson>, Set<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
+    public List<LessonDTO> getAll() {
+        DTO<List<Lesson>, List<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
         return dto.create(lessonRepository.findAll());
     }
 
     @Transactional
-    public Set<LessonDTO> getByDate(Date date, int id) {
-        DTO<List<Lesson>, Set<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
+    public List<LessonDTO> getByDate(Date date, int id) {
+        DTO<List<Lesson>, List<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
         return dto.create(lessonRepository.findLessonsByDateAndId_TeachingCourseIdCourse(date, id));
     }
 
     @Transactional
-    public Set<LessonDTO> getByDateAndIdProfessor(Date date, int id) {
-        DTO<List<Lesson>, Set<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
+    public List<LessonDTO> getByDateAndIdProfessor(Date date, int id) {
+        DTO<List<Lesson>, List<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
         return dto.create(lessonRepository.findLessonsByDateAndId_TeachingProfessorIdProfessor(date,id));
     }
 
@@ -77,19 +75,19 @@ public class LessonService implements ILessonServices {
         }
     }
 
-    public Set<LessonDTO> getByRoom(int id) {
-        DTO<List<Lesson>, Set<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
+    public List<LessonDTO> getByRoom(int id) {
+        DTO<List<Lesson>, List<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
         return dto.create(lessonRepository.findLessonsById_RoomIdRoom(id));
     }
 
-    public Set<LessonDTO> getByTeaching(int id) {
-        DTO<List<Lesson>, Set<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
+    public List<LessonDTO> getByTeaching(int id) {
+        DTO<List<Lesson>, List<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
         return dto.create(lessonRepository.findLessonById_TeachingIdTeaching(id));
     }
 
-    public Set<LessonDTO> getByProfessor(int id) {
-        DTO<List<Lesson>, Set<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
-        return dto.create(lessonRepository.findLessonById_TeachingProfessorIdProfessor(id));
+    public List<LessonDTO> getByProfessor(int id) {
+        DTO<List<Lesson>, List<LessonDTO>> dto = dtoFactory.getDTO("SETLESSON");
+        return dto.create(lessonRepository.findLessonById_TeachingProfessorIdProfessorOrderByDateAsc(id));
     }
 
     @Transactional

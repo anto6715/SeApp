@@ -26,14 +26,14 @@ public class RoomService implements IRoomServices {
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
 
     @Transactional(readOnly = true)
-    public Set<RoomDTO> getAll() {
-        DTO<List<Room>, Set<RoomDTO>> dto = dtoFactory.getDTO("SETROOM");
+    public List<RoomDTO> getAll() {
+        DTO<List<Room>, List<RoomDTO>> dto = dtoFactory.getDTO("SETROOM");
         return dto.create(roomRepository.findAll());
     }
 
     @Transactional(readOnly = true)
-    public Set<RoomDTO> getByCapacity(int capacity) {
-        DTO<List<Room>, Set<RoomDTO>> dto = dtoFactory.getDTO("SETROOM");
+    public List<RoomDTO> getByCapacity(int capacity) {
+        DTO<List<Room>, List<RoomDTO>> dto = dtoFactory.getDTO("SETROOM");
         return dto.create(roomRepository.findRoomsByCapacity(capacity));
     }
     @Transactional

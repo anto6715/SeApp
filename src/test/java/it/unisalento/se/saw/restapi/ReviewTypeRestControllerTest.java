@@ -13,7 +13,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
@@ -54,7 +56,7 @@ public class ReviewTypeRestControllerTest {
         ReviewTypeDTO reviewTypeDTO = new ReviewTypeDTO();
         reviewTypeDTO.setType("type");
         reviewTypeDTO.setId(1);
-        Set<ReviewTypeDTO> reviewTypeDTOS = new HashSet<>(0);
+        List<ReviewTypeDTO> reviewTypeDTOS = new ArrayList<>();
         reviewTypeDTOS.add(reviewTypeDTO);
 
         when(reviewTypeServicesMock.getAll()).thenReturn(reviewTypeDTOS);

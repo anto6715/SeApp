@@ -39,23 +39,21 @@ public class SegnalationService implements ISegnalationServices {
     ISegnalationStateServices segnalationStateServices;
 
 
-
-    AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DOMAIN");
     AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
 
     @Transactional
-    public Set<SegnalationDTO> getAll() {
-        DTO<List<Segnalation>, Set<SegnalationDTO>> dto = abstractDTOFactory.getDTO("SetSegnalation");
+    public List<SegnalationDTO> getAll() {
+        DTO<List<Segnalation>, List<SegnalationDTO>> dto = abstractDTOFactory.getDTO("SetSegnalation");
         return dto.create(segnalationRepository.findAll());
     }
     @Transactional
-    public Set<SegnalationDTO> getByRoom(int id) {
-        DTO<List<Segnalation>, Set<SegnalationDTO>> dto = abstractDTOFactory.getDTO("SetSegnalation");
+    public List<SegnalationDTO> getByRoom(int id) {
+        DTO<List<Segnalation>, List<SegnalationDTO>> dto = abstractDTOFactory.getDTO("SetSegnalation");
         return dto.create(segnalationRepository.findSegnalationsById_RoomIdRoom(id));
     }
     @Transactional
-    public Set<SegnalationDTO> getByProfessor(int id){
-        DTO<List<Segnalation>, Set<SegnalationDTO>> dto = abstractDTOFactory.getDTO("SetSegnalation");
+    public List<SegnalationDTO> getByProfessor(int id){
+        DTO<List<Segnalation>, List<SegnalationDTO>> dto = abstractDTOFactory.getDTO("SetSegnalation");
         return dto.create(segnalationRepository.findSegnalationsById_ProfessorIdProfessor(id));
     }
     @Transactional
@@ -71,10 +69,11 @@ public class SegnalationService implements ISegnalationServices {
     @Transactional
     public SegnalationDTO save(SegnalationDTO segnalationDTO) throws RoomNotFoundException, ProfessorNotFoundException, SegnalationStateNotFoundException{
         DTO<Segnalation, SegnalationDTO> dto = abstractDTOFactory.getDTO("Segnalation");
-
+        System.out.println(segnalationDTO.getIdProfessor());
         Professor professor = professorServices.getDomainById(segnalationDTO.getIdProfessor());
         Room room = roomServices.getDomainById(segnalationDTO.getIdRoom());
         SegnalationState segnalationState = segnalationStateServices.getDomainById(segnalationDTO.getIdState());
+        System.out.println(professor.getUser().getName());
 
         SegnalationId segnalationId = new SegnalationId();
         segnalationId.setProfessorIdProfessor(professor.getId().getIdProfessor());
@@ -100,7 +99,7 @@ public class SegnalationService implements ISegnalationServices {
 
         segnalation.setNote(segnalationDTO.getNote());
         segnalation.setSegnalationState(segnalationState);
-        
+
         return dto.create(segnalationRepository.save(segnalation));
     }
 }

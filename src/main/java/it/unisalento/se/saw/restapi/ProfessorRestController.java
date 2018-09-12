@@ -25,7 +25,7 @@ public class ProfessorRestController {
     IProfessorServices professorServices;
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<ProfessorDTO> getAll() {
+    public List<ProfessorDTO> getAll() {
         return professorServices.getAll();
     }
 
@@ -40,7 +40,7 @@ public class ProfessorRestController {
     }
 
     @RequestMapping(value = "/getByCourse/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<ProfessorDTO> getByIdCourse(@PathVariable("id") int id) throws ProfessorNotFoundException {
+    public List<ProfessorDTO> getByIdCourse(@PathVariable("id") int id) throws ProfessorNotFoundException {
         return professorServices.getByIdCourse(id);
     }
 

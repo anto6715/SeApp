@@ -13,7 +13,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
@@ -60,7 +62,7 @@ public class SegnalationRestControllerTest {
         segnalationDTO.setDescription("description");
         segnalationDTO.setId(2);
 
-        Set<SegnalationDTO> segnalationDTOS = new HashSet<>(0);
+        List<SegnalationDTO> segnalationDTOS = new ArrayList<>();
         segnalationDTOS.add(segnalationDTO);
 
         when(segnalationServicesMock.getAll()).thenReturn(segnalationDTOS);
@@ -89,7 +91,7 @@ public class SegnalationRestControllerTest {
         segnalationDTO.setDescription("description");
         segnalationDTO.setId(2);
 
-        Set<SegnalationDTO> segnalationDTOS = new HashSet<>(0);
+        List<SegnalationDTO> segnalationDTOS = new ArrayList<>();
         segnalationDTOS.add(segnalationDTO);
 
         when(segnalationServicesMock.getByRoom(10)).thenReturn(segnalationDTOS);
@@ -118,7 +120,7 @@ public class SegnalationRestControllerTest {
         segnalationDTO.setDescription("description");
         segnalationDTO.setId(2);
 
-        Set<SegnalationDTO> segnalationDTOS = new HashSet<>(0);
+        List<SegnalationDTO> segnalationDTOS = new ArrayList<>();
         segnalationDTOS.add(segnalationDTO);
 
         when(segnalationServicesMock.getByProfessor(1)).thenReturn(segnalationDTOS);
@@ -210,6 +212,36 @@ public class SegnalationRestControllerTest {
                 .andExpect(jsonPath("$.description", is("description")));
 
         verify(segnalationServicesMock, times(1)).save(refEq(segnalationDTO));
+        verifyNoMoreInteractions(segnalationServicesMock);
+    }
+
+    @Test
+    public void updateTest() throws Exception {
+        SegnalationDTO segnalationDTO = new SegnalationDTO();
+        segnalationDTO.setNote("note");
+        segnalationDTO.setRoomDTO(null);
+        segnalationDTO.setProfessorDTO(null);
+        segnalationDTO.setIdState(1);
+        segnalationDTO.setDescription("description");
+        segnalationDTO.setId(2);
+
+        String json = Tools.getJson(segnalationDTO);
+
+        when(segnalationServicesMock.update(any(SegnalationDTO.class))).thenReturn(segnalationDTO);
+
+        mockMvc.perform(post("/segnalation/update")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content(json))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(APPLICATION_JSON_UTF8))
+                .andExpect(jsonPath("$.id", is(2)))
+                .andExpect(jsonPath("$.note", is("note")))
+                .andExpect(jsonPath("$.roomDTO", is(nullValue())))
+                .andExpect(jsonPath("$.professorDTO", is(nullValue())))
+                .andExpect(jsonPath("$.idState", is(1)))
+                .andExpect(jsonPath("$.description", is("description")));
+
+        verify(segnalationServicesMock, times(1)).update(refEq(segnalationDTO));
         verifyNoMoreInteractions(segnalationServicesMock);
     }
 }

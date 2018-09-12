@@ -45,10 +45,12 @@ public class UserRestController {
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ManyToOne
-    public Set<UserDTO> getAll() {
-        DTO<List<User>, Set<UserDTO>> dto = this.abstractDTOFactory.getDTO("SetUser");
+    public List<UserDTO> getAll() {
+        DTO<List<User>, List<UserDTO>> dto = this.abstractDTOFactory.getDTO("SetUser");
         return userServices.getAll();
     }
+
+
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public UserDTO getById(@PathVariable("id") int id) throws UserNotFoundException {

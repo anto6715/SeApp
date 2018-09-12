@@ -15,7 +15,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
@@ -60,7 +62,7 @@ public class ExamRestControllerTest {
         examDTO.setIdRoom(2);
         examDTO.setId(3);
         examDTO.setDate(null);
-        Set<ExamDTO> examDTOS = new HashSet<>(0);
+        List<ExamDTO> examDTOS = new ArrayList<>();
         examDTOS.add(examDTO);
 
         when(examServicesMock.getAll()).thenReturn(examDTOS);

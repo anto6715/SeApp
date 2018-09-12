@@ -38,7 +38,7 @@ public class ReviewTypeServiceTest {
 
         when(reviewTypeRepository.findAll()).thenReturn(reviewTypes);
 
-        Set<ReviewTypeDTO> reviewTypeDTOS = reviewTypeService.getAll();
+        List<ReviewTypeDTO> reviewTypeDTOS = reviewTypeService.getAll();
         assertEquals(reviewType.getIdReviewType(), reviewTypeDTOS.iterator().next().getId());
     }
 

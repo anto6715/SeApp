@@ -27,8 +27,8 @@ public class SegnalationStateService implements ISegnalationStateServices {
     AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DOMAIN");
 
     @Transactional
-    public Set<SegnalationStateDTO> getAll() {
-        DTO<List<SegnalationState>, Set<SegnalationStateDTO>> dto = abstractDTOFactory.getDTO("SetSegnalationState");
+    public List<SegnalationStateDTO> getAll() {
+        DTO<List<SegnalationState>, List<SegnalationStateDTO>> dto = abstractDTOFactory.getDTO("SetSegnalationState");
         return dto.create(segnalationStateRepository.findAll());
     }
 

@@ -45,8 +45,8 @@ public class StudentService implements IStudentServices {
 
 
     @Transactional(readOnly = true)
-    public Set<StudentDTO> getAll() {
-        DTO<List<Student>, Set<StudentDTO>> dto = dtoFactory.getDTO("SetStudent");
+    public List<StudentDTO> getAll() {
+        DTO<List<Student>, List<StudentDTO>> dto = dtoFactory.getDTO("SetStudent");
         return dto.create(studentRepository.findAll());
     }
 
@@ -69,8 +69,8 @@ public class StudentService implements IStudentServices {
         else throw new StudentNotFoundException();
     }
 
-    public Set<StudentDTO> getByCourse(int course){
-        DTO<List<Student>, Set<StudentDTO>> dto = dtoFactory.getDTO("SetStudent");
+    public List<StudentDTO> getByCourse(int course){
+        DTO<List<Student>, List<StudentDTO>> dto = dtoFactory.getDTO("SetStudent");
         return dto.create(studentRepository.findStudentsByCourse_IdCourse(course));
     }
 

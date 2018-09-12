@@ -14,7 +14,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
@@ -248,7 +250,7 @@ public class TeachingRestControllerTest {
         teachingDTO.setCredits(2);
         teachingDTO.setId(10);
 
-        Set<TeachingDTO> teachingDTOS = new HashSet<>(0);
+        List<TeachingDTO> teachingDTOS = new ArrayList<>();
         teachingDTOS.add(teachingDTO);
 
         String json = new ObjectMapper().writeValueAsString(teachingDTO);
@@ -282,7 +284,7 @@ public class TeachingRestControllerTest {
         teachingDTO.setCredits(2);
         teachingDTO.setId(10);
 
-        Set<TeachingDTO> teachingDTOS = new HashSet<>(0);
+        List<TeachingDTO> teachingDTOS = new ArrayList<>();
         teachingDTOS.add(teachingDTO);
 
         String json = new ObjectMapper().writeValueAsString(teachingDTO);
@@ -316,7 +318,7 @@ public class TeachingRestControllerTest {
         teachingDTO.setCredits(2);
         teachingDTO.setId(10);
 
-        Set<TeachingDTO> teachingDTOS = new HashSet<>(0);
+        List<TeachingDTO> teachingDTOS = new ArrayList<>();
         teachingDTOS.add(teachingDTO);
 
         String json = new ObjectMapper().writeValueAsString(teachingDTO);

@@ -62,7 +62,7 @@ public class ProfessorServiceTest {
 
         when(professorRepository.findAll()).thenReturn(professors);
 
-        Set<ProfessorDTO> professorDTOS = professorService.getAll();
+        List<ProfessorDTO> professorDTOS = professorService.getAll();
         assertEquals(professor.getId().getUserIdUser(), professorDTOS.iterator().next().getId());
     }
 
@@ -101,7 +101,7 @@ public class ProfessorServiceTest {
 
         when(courseService.getDomainById(3)).thenReturn(course);
 
-        Set<ProfessorDTO> professorDTOS = professorService.getByIdCourse(3);
+        List<ProfessorDTO> professorDTOS = professorService.getByIdCourse(3);
         assertEquals(professor.getId().getUserIdUser(), professorDTOS.iterator().next().getId());
     }
 

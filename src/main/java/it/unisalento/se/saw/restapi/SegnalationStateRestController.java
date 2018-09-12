@@ -21,7 +21,7 @@ public class SegnalationStateRestController {
     ISegnalationStateServices segnalationStateServices;
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<SegnalationStateDTO> getAll() {
+    public List<SegnalationStateDTO> getAll() {
         return segnalationStateServices.getAll();
     }
 

@@ -24,8 +24,8 @@ public class ReviewTypeService implements IReviewTypeServices {
 
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
 
-    public Set<ReviewTypeDTO> getAll() {
-        DTO<List<ReviewType>, Set<ReviewTypeDTO>> dto = dtoFactory.getDTO("SetReviewType");
+    public List<ReviewTypeDTO> getAll() {
+        DTO<List<ReviewType>, List<ReviewTypeDTO>> dto = dtoFactory.getDTO("SetReviewType");
         return dto.create(reviewTypeRepository.findAll());
     }
     @Transactional

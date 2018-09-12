@@ -5,16 +5,17 @@ import it.unisalento.se.saw.dto.ProfessorDTO;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.FactoryProducer;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class SetProfessorDTOModel implements DTO<List<Professor>, Set<ProfessorDTO>> {
+public class SetProfessorDTOModel implements DTO<List<Professor>, List<ProfessorDTO>> {
     @Override
-    public Set<ProfessorDTO> create(List<Professor> professors) {
+    public List<ProfessorDTO> create(List<Professor> professors) {
         AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
         DTO<Professor, ProfessorDTO> dto = abstractFactory.getDTO("Professor");
-        Set<ProfessorDTO> professorDTOS = new HashSet<>(0);
+        List<ProfessorDTO> professorDTOS = new ArrayList<>();
         for (Professor professor: professors) {
             professorDTOS.add(dto.create(professor));
         }

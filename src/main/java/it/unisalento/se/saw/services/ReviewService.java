@@ -39,8 +39,8 @@ public class ReviewService implements IReviewServices {
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
 
     @Transactional
-    public Set<ReviewDTO> getAll() {
-        DTO<List<Review>, Set<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
+    public List<ReviewDTO> getAll() {
+        DTO<List<Review>, List<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
         return dto.create(reviewRepository.findAll());
     }
     @Transactional
@@ -54,8 +54,8 @@ public class ReviewService implements IReviewServices {
     }
 
     @Transactional
-    public Set<ReviewDTO> getByType(int idType){
-        DTO<List<Review>, Set<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
+    public List<ReviewDTO> getByType(int idType){
+        DTO<List<Review>, List<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
         return dto.create(reviewRepository.findReviewsById_ReviewTypeIdReviewType(idType));
     }
 
@@ -128,14 +128,14 @@ public class ReviewService implements IReviewServices {
     }
 
     @Transactional
-    public Set<ReviewDTO> getByIdLesson(int id) {
-        DTO<List<Review>, Set<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
+    public List<ReviewDTO> getByIdLesson(int id) {
+        DTO<List<Review>, List<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
         return dto.create(reviewRepository.findReviewsByLesson_Id_IdLesson(id));
     }
 
     @Transactional
-    public Set<ReviewDTO> getByIdMaterial(int id) {
-        DTO<List<Review>, Set<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
+    public List<ReviewDTO> getByIdMaterial(int id) {
+        DTO<List<Review>, List<ReviewDTO> > dto = dtoFactory.getDTO("SETREVIEW");
         return dto.create(reviewRepository.findReviewsByMaterial_Id_IdMaterial(id));
     }
 }

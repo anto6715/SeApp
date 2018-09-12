@@ -105,7 +105,157 @@ public class LessonServiceTest {
 
         when(lessonRepository.findAll()).thenReturn(lessons);
 
-        Set<LessonDTO> lessonDTOS = lessonService.getAll();
+        List<LessonDTO> lessonDTOS = lessonService.getAll();
+
+        assertEquals(lesson.getId().getIdLesson(), lessonDTOS.iterator().next().getId());
+    }
+
+    @Test
+    public void getByTeachingTest() {
+
+        /***************************Course***************************/
+        Course course = new Course();
+        course.setCredits(1);
+        course.setLanguage("language");
+        course.setLenght(2);
+        course.setLocation("location");
+        course.setName("name");
+        course.setType("type");
+        course.setIdCourse(3);
+        /******************************************************/
+
+        /*****************User*************************************/
+        User user = new User();
+        user.setIdUser(1);
+        user.setUserType(1);
+        user.setToken("token");
+        user.setUid("uid");
+        user.setAge(2);
+        user.setEmail("email");
+        /******************************************************/
+
+        /****************************Room**************************/
+        Room room = new Room();
+        room.setIdRoom(1);
+        room.setCapacity(1);
+        room.setLatitude(1.0);
+        room.setLongitude(0.1);
+        room.setLocation("location");
+        room.setName("name");
+        /******************************************************/
+
+        /*************************Professor*****************************/
+
+        ProfessorId professorId = new ProfessorId();
+        professorId.setUserIdUser(1);
+        professorId.setIdProfessor(1);
+
+        Professor professor = new Professor();
+        professor.setUser(user);
+        professor.setId(professorId);
+
+        /******************************************************/
+
+        /*****************Teaching*************************************/
+        TeachingId teachingId = new TeachingId(1,3,1,1);
+
+        Teaching teaching = new Teaching();
+        teaching.setName("Analisi");
+        teaching.setProfessor(professor);
+        teaching.setCourse(course);
+        teaching.setId(teachingId);
+        teaching.setCredits(10);
+        teaching.setYear(1);
+        /******************************************************/
+
+        /**************************Lesson****************************/
+        LessonId lessonId = new LessonId(1,1,3,1,1,1);
+
+        Lesson lesson = new Lesson(lessonId, room, teaching);
+        /******************************************************/
+
+        List<Lesson> lessons = new ArrayList<>();
+        lessons.add(lesson);
+
+        when(lessonRepository.findLessonById_TeachingIdTeaching(1)).thenReturn(lessons);
+
+        List<LessonDTO> lessonDTOS = lessonService.getByTeaching(1);
+        System.out.println(lessonDTOS.iterator().next().getId());
+
+        assertEquals(lesson.getId().getIdLesson(), lessonDTOS.iterator().next().getId());
+    }
+
+    @Test
+    public void getByProfessorTest() {
+
+        /***************************Course***************************/
+        Course course = new Course();
+        course.setCredits(1);
+        course.setLanguage("language");
+        course.setLenght(2);
+        course.setLocation("location");
+        course.setName("name");
+        course.setType("type");
+        course.setIdCourse(3);
+        /******************************************************/
+
+        /*****************User*************************************/
+        User user = new User();
+        user.setIdUser(1);
+        user.setUserType(1);
+        user.setToken("token");
+        user.setUid("uid");
+        user.setAge(2);
+        user.setEmail("email");
+        /******************************************************/
+
+        /****************************Room**************************/
+        Room room = new Room();
+        room.setIdRoom(1);
+        room.setCapacity(1);
+        room.setLatitude(1.0);
+        room.setLongitude(0.1);
+        room.setLocation("location");
+        room.setName("name");
+        /******************************************************/
+
+        /*************************Professor*****************************/
+
+        ProfessorId professorId = new ProfessorId();
+        professorId.setUserIdUser(1);
+        professorId.setIdProfessor(1);
+
+        Professor professor = new Professor();
+        professor.setUser(user);
+        professor.setId(professorId);
+
+        /******************************************************/
+
+        /*****************Teaching*************************************/
+        TeachingId teachingId = new TeachingId(1,3,1,1);
+
+        Teaching teaching = new Teaching();
+        teaching.setName("Analisi");
+        teaching.setProfessor(professor);
+        teaching.setCourse(course);
+        teaching.setId(teachingId);
+        teaching.setCredits(10);
+        teaching.setYear(1);
+        /******************************************************/
+
+        /**************************Lesson****************************/
+        LessonId lessonId = new LessonId(1,1,3,1,1,1);
+
+        Lesson lesson = new Lesson(lessonId, room, teaching);
+        /******************************************************/
+
+        List<Lesson> lessons = new ArrayList<>();
+        lessons.add(lesson);
+
+        when(lessonRepository.findLessonById_TeachingProfessorIdProfessorOrderByDateAsc(1)).thenReturn(lessons);
+
+        List<LessonDTO> lessonDTOS = lessonService.getByProfessor(1);
+        System.out.println(lessonDTOS.iterator().next().getId());
 
         assertEquals(lesson.getId().getIdLesson(), lessonDTOS.iterator().next().getId());
     }
@@ -179,7 +329,7 @@ public class LessonServiceTest {
         Date date = new Date();
         when(lessonRepository.findLessonsByDateAndId_TeachingCourseIdCourse(date,3)).thenReturn(lessons);
 
-        Set<LessonDTO> lessonDTOS = lessonService.getByDate(date,3);
+        List<LessonDTO> lessonDTOS = lessonService.getByDate(date,3);
 
         assertEquals(lesson.getId().getRoomIdRoom(), lessonDTOS.iterator().next().getIdRoom());
     }
@@ -253,7 +403,7 @@ public class LessonServiceTest {
         Date date = new Date();
         when(lessonRepository.findLessonsByDateAndId_TeachingProfessorIdProfessor(date,1)).thenReturn(lessons);
 
-        Set<LessonDTO> lessonDTOS = lessonService.getByDateAndIdProfessor(date,1);
+        List<LessonDTO> lessonDTOS = lessonService.getByDateAndIdProfessor(date,1);
 
         assertEquals(lesson.getId().getTeachingIdTeaching(), lessonDTOS.iterator().next().getIdTeaching());
     }
@@ -327,7 +477,7 @@ public class LessonServiceTest {
 
         when(lessonRepository.findLessonsById_RoomIdRoom(1)).thenReturn(lessons);
 
-        Set<LessonDTO> lessonDTOS = lessonService.getByRoom(1);
+        List<LessonDTO> lessonDTOS = lessonService.getByRoom(1);
 
         assertEquals(lesson.getDate(), lessonDTOS.iterator().next().getDate());
     }
@@ -477,6 +627,77 @@ public class LessonServiceTest {
         }
 
 
+    }
+
+    @Test
+    public void getDomainByIdTest() throws LessonNotFoundException {
+
+        /***************************Course***************************/
+        Course course = new Course();
+        course.setCredits(1);
+        course.setLanguage("language");
+        course.setLenght(2);
+        course.setLocation("location");
+        course.setName("name");
+        course.setType("type");
+        course.setIdCourse(3);
+        /******************************************************/
+
+        /*****************User*************************************/
+        User user = new User();
+        user.setIdUser(1);
+        user.setUserType(1);
+        user.setToken("token");
+        user.setUid("uid");
+        user.setAge(2);
+        user.setEmail("email");
+        /******************************************************/
+
+        /****************************Room**************************/
+        Room room = new Room();
+        room.setIdRoom(1);
+        room.setCapacity(1);
+        room.setLatitude(1.0);
+        room.setLongitude(0.1);
+        room.setLocation("location");
+        room.setName("name");
+        /******************************************************/
+
+        /*************************Professor*****************************/
+
+        ProfessorId professorId = new ProfessorId();
+        professorId.setUserIdUser(1);
+        professorId.setIdProfessor(1);
+
+        Professor professor = new Professor();
+        professor.setUser(user);
+        professor.setId(professorId);
+
+        /******************************************************/
+
+        /*****************Teaching*************************************/
+        TeachingId teachingId = new TeachingId(1,3,1,1);
+
+        Teaching teaching = new Teaching();
+        teaching.setName("Analisi");
+        teaching.setProfessor(professor);
+        teaching.setCourse(course);
+        teaching.setId(teachingId);
+        teaching.setCredits(10);
+        teaching.setYear(1);
+        /******************************************************/
+
+        /**************************Lesson****************************/
+        LessonId lessonId = new LessonId(1,1,3,1,1,1);
+
+        Lesson lesson = new Lesson(lessonId, room, teaching);
+        /******************************************************/
+
+        when(lessonRepository.findLessonById_IdLesson(1)).thenReturn(lesson);
+
+        Lesson l = lessonService.getDomainById(1);
+
+        assertEquals(lesson, l);
     }
 
     @Test

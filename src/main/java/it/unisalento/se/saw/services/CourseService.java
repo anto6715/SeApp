@@ -30,10 +30,9 @@ public class CourseService implements ICourseServices {
     AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DOMAIN");
 
     @Transactional(readOnly = true)
-    public Set<CourseDTO> getAll() {
-        DTO<Set<Course>, Set<CourseDTO>> dto = abstractDTOFactory.getDTO("SETCOURSE");
-        Set<Course> courses = new HashSet<>(courseRepository.findAll());
-        return dto.create(courses);
+    public List<CourseDTO> getAll() {
+        DTO<List<Course>, List<CourseDTO>> dto = abstractDTOFactory.getDTO("SETCOURSE");
+        return dto.create(courseRepository.findAll());
     }
 
     @Override

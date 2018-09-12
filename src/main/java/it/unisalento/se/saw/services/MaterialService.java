@@ -32,8 +32,8 @@ public class MaterialService implements IMaterialServices {
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
 
     @Transactional(readOnly = true)
-    public Set<MaterialDTO> getAll() {
-        DTO<List<Material>, Set<MaterialDTO>> dto = dtoFactory.getDTO("SETMATERIAL");
+    public List<MaterialDTO> getAll() {
+        DTO<List<Material>, List<MaterialDTO>> dto = dtoFactory.getDTO("SETMATERIAL");
         return dto.create(materialRepository.findAll());
     }
     @Transactional
@@ -52,14 +52,14 @@ public class MaterialService implements IMaterialServices {
     }
 
     @Transactional
-    public Set<MaterialDTO> getByIdLesson(int id){
-        DTO<List<Material>, Set<MaterialDTO>> dto = dtoFactory.getDTO("SETMATERIAL");
+    public List<MaterialDTO> getByIdLesson(int id){
+        DTO<List<Material>, List<MaterialDTO>> dto = dtoFactory.getDTO("SETMATERIAL");
         return dto.create(materialRepository.findMaterialsById_LessonIdLesson(id));
     }
 
     @Transactional
-    public Set<MaterialDTO> getByIdTeaching(int id) {
-        DTO<List<Material>, Set<MaterialDTO>> dto = dtoFactory.getDTO("SETMATERIAL");
+    public List<MaterialDTO> getByIdTeaching(int id) {
+        DTO<List<Material>, List<MaterialDTO>> dto = dtoFactory.getDTO("SETMATERIAL");
         return dto.create(materialRepository.findMaterialsById_LessonTeachingIdTeaching(id));
     }
 

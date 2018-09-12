@@ -45,8 +45,8 @@ public class UserService implements IUserServices {
     AbstractFactory abstractDomainFactory = FactoryProducer.getFactory("DOMAIN");
 
     @Transactional(readOnly=true)
-    public Set<UserDTO> getAll(){
-        DTO<List<User>, Set<UserDTO>> userDto = dtoFactory.getDTO("SETUSER");
+    public List<UserDTO> getAll(){
+        DTO<List<User>, List<UserDTO>> userDto = dtoFactory.getDTO("SETUSER");
         return userDto.create(userRepository.findAll());
     }
 

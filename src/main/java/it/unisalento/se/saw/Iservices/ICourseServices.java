@@ -9,7 +9,7 @@ import java.util.Set;
 
 public interface ICourseServices {
 
-    public Set<CourseDTO> getAll();
+    public List<CourseDTO> getAll();
     public CourseDTO getByName(String name) throws CourseNotFoundException;
     public CourseDTO save(CourseDTO courseDTO);
     public CourseDTO getById(int id) throws CourseNotFoundException;

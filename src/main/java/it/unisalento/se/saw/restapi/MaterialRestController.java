@@ -25,7 +25,7 @@ public class MaterialRestController {
 
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<MaterialDTO> getAll() {
+    public List<MaterialDTO> getAll() {
         return materialServices.getAll();
     }
 
@@ -40,12 +40,12 @@ public class MaterialRestController {
     }
 
     @RequestMapping(value = "/getByIdLesson/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<MaterialDTO> getByIdLesson(@PathVariable int id){
+    public List<MaterialDTO> getByIdLesson(@PathVariable int id){
         return materialServices.getByIdLesson(id);
     }
 
     @RequestMapping(value = "/getByIdTeaching/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<MaterialDTO> getByIdTeaching(@PathVariable int id){
+    public List<MaterialDTO> getByIdTeaching(@PathVariable int id){
         return materialServices.getByIdTeaching(id);
     }
 }

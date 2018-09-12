@@ -36,7 +36,7 @@ public class SegnalationStateServiceTest {
         segnalationStates.add(segnalationState);
 
         when(segnalationStateRepository.findAll()).thenReturn(segnalationStates);
-        Set<SegnalationStateDTO> segnalationStateDTOS = segnalationStateService.getAll();
+        List<SegnalationStateDTO> segnalationStateDTOS = segnalationStateService.getAll();
         assertEquals(segnalationState.getIdSegnalationState(), (Integer)segnalationStateDTOS.iterator().next().getId());
     }
 

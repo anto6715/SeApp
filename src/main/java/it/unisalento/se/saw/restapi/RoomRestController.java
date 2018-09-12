@@ -23,7 +23,7 @@ public class RoomRestController {
 
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<RoomDTO> getAll() {
+    public List<RoomDTO> getAll() {
         return roomServices.getAll();
     }
 
@@ -38,7 +38,7 @@ public class RoomRestController {
     }
 
     @RequestMapping(value = "/getByCapacity/{capacity}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<RoomDTO> getByCapacity(@PathVariable int capacity) {
+    public List<RoomDTO> getByCapacity(@PathVariable int capacity) {
         return roomServices.getByCapacity(capacity);
 
     }

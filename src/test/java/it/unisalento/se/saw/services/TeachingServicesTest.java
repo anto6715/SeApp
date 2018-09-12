@@ -91,7 +91,7 @@ public class TeachingServicesTest {
 
         when(teachingRepository.findAll()).thenReturn(teachings);
 
-        Set<TeachingDTO> teachingDTOS = teachingService.getAll();
+        List<TeachingDTO> teachingDTOS = teachingService.getAll();
         assertEquals("Analisi",teachingDTOS.iterator().next().getName());
     }
 
@@ -645,7 +645,7 @@ public class TeachingServicesTest {
 
         when(teachingRepository.findTeachingsById_CourseIdCourse(3)).thenReturn(teachings);
 
-        Set<TeachingDTO> teachingDTOS = teachingService.getByIdCourse(3);
+        List<TeachingDTO> teachingDTOS = teachingService.getByIdCourse(3);
         assertEquals("Analisi",teachingDTOS.iterator().next().getName());
     }
 
@@ -705,7 +705,7 @@ public class TeachingServicesTest {
 
         when(teachingRepository.findTeachingsById_ProfessorIdProfessor(1)).thenReturn(teachings);
 
-        Set<TeachingDTO> teachingDTOS = teachingService.getByProf(1);
+        List<TeachingDTO> teachingDTOS = teachingService.getByProf(1);
         assertEquals("Analisi",teachingDTOS.iterator().next().getName());
     }
 

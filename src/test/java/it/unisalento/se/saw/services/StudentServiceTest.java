@@ -81,7 +81,7 @@ public class StudentServiceTest {
         students.add(student);
 
         when(studentRepository.findAll()).thenReturn(students);
-        Set<StudentDTO> studentDTOS = studentService.getAll();
+        List<StudentDTO> studentDTOS = studentService.getAll();
         assertEquals(student.getId().getIdStudent(), studentDTOS.iterator().next().getId());
     }
 
@@ -127,7 +127,7 @@ public class StudentServiceTest {
         students.add(student);
 
         when(studentRepository.findStudentsByCourse_IdCourse(3)).thenReturn(students);
-        Set<StudentDTO> studentDTOS = studentService.getByCourse(3);
+        List<StudentDTO> studentDTOS = studentService.getByCourse(3);
         assertEquals(student.getId().getIdStudent(), studentDTOS.iterator().next().getId());
     }
 

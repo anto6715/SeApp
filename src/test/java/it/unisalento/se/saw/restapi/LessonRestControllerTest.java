@@ -14,9 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -58,7 +56,7 @@ public class LessonRestControllerTest {
         lessonDTO.setTeachingDTO(null);
         lessonDTO.setIdTeaching(1);
         lessonDTO.setIdRoom(2);
-        Set<LessonDTO> lessonDTOS = new HashSet<>(0);
+        List<LessonDTO> lessonDTOS = new ArrayList<>();
         lessonDTOS.add(lessonDTO);
 
         when(lessonServicesMock.getAll()).thenReturn(lessonDTOS);
@@ -82,7 +80,7 @@ public class LessonRestControllerTest {
         lessonDTO.setTeachingDTO(null);
         lessonDTO.setIdTeaching(1);
         lessonDTO.setIdRoom(2);
-        Set<LessonDTO> lessonDTOS = new HashSet<>(0);
+        List<LessonDTO> lessonDTOS = new ArrayList<>();
         lessonDTOS.add(lessonDTO);
 
         when(lessonServicesMock.getByRoom(2)).thenReturn(lessonDTOS);
@@ -96,6 +94,54 @@ public class LessonRestControllerTest {
                 .andExpect(jsonPath("$[0].idRoom", is(2)));
 
         verify(lessonServicesMock, times(1)).getByRoom(2);
+        verifyNoMoreInteractions(lessonServicesMock);
+    }
+
+    @Test
+    public void getByTeachingTest() throws Exception {
+        LessonDTO lessonDTO = new LessonDTO();
+        lessonDTO.setStart(null);
+        lessonDTO.setTeachingDTO(null);
+        lessonDTO.setIdTeaching(1);
+        lessonDTO.setIdRoom(2);
+        List<LessonDTO> lessonDTOS = new ArrayList<>();
+        lessonDTOS.add(lessonDTO);
+
+        when(lessonServicesMock.getByTeaching(1)).thenReturn(lessonDTOS);
+
+        mockMvc.perform(get("/lesson/getByIdTeaching/{id}",1))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(APPLICATION_JSON_UTF8))
+                .andExpect(jsonPath("$[0].start", is(nullValue())))
+                .andExpect(jsonPath("$[0].teachingDTO", is(nullValue())))
+                .andExpect(jsonPath("$[0].idTeaching", is(1)))
+                .andExpect(jsonPath("$[0].idRoom", is(2)));
+
+        verify(lessonServicesMock, times(1)).getByTeaching(1);
+        verifyNoMoreInteractions(lessonServicesMock);
+    }
+
+    @Test
+    public void getByProfessorTest() throws Exception {
+        LessonDTO lessonDTO = new LessonDTO();
+        lessonDTO.setStart(null);
+        lessonDTO.setTeachingDTO(null);
+        lessonDTO.setIdTeaching(1);
+        lessonDTO.setIdRoom(2);
+        List<LessonDTO> lessonDTOS = new ArrayList<>();
+        lessonDTOS.add(lessonDTO);
+
+        when(lessonServicesMock.getByProfessor(1)).thenReturn(lessonDTOS);
+
+        mockMvc.perform(get("/lesson/getByIdProfessor/{id}",1))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(APPLICATION_JSON_UTF8))
+                .andExpect(jsonPath("$[0].start", is(nullValue())))
+                .andExpect(jsonPath("$[0].teachingDTO", is(nullValue())))
+                .andExpect(jsonPath("$[0].idTeaching", is(1)))
+                .andExpect(jsonPath("$[0].idRoom", is(2)));
+
+        verify(lessonServicesMock, times(1)).getByProfessor(1);
         verifyNoMoreInteractions(lessonServicesMock);
     }
 

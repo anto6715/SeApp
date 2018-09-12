@@ -12,9 +12,9 @@ import java.util.Set;
 
 public interface ISegnalationServices {
 
-    public Set<SegnalationDTO> getAll();
-    public Set<SegnalationDTO> getByRoom(int id);
-    public Set<SegnalationDTO> getByProfessor(int id);
+    public List<SegnalationDTO> getAll();
+    public List<SegnalationDTO> getByRoom(int id);
+    public List<SegnalationDTO> getByProfessor(int id);
     public SegnalationDTO getById(int id) throws SegnalationNotFoundException;
     public SegnalationDTO save(SegnalationDTO segnalationDTO) throws ProfessorNotFoundException, RoomNotFoundException, SegnalationStateNotFoundException;
     public SegnalationDTO update(SegnalationDTO segnalationDTO) throws SegnalationStateNotFoundException;

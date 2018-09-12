@@ -41,12 +41,12 @@ public class ReviewRestController {
     }
 
     @RequestMapping(value = "/getByIdLesson/{idLesson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<ReviewDTO> getByIdLesson(@PathVariable int idLesson) throws ReviewNotFoundException {
+    public List<ReviewDTO> getByIdLesson(@PathVariable int idLesson) throws ReviewNotFoundException {
         return reviewServices.getByIdLesson(idLesson);
     }
 
     @RequestMapping(value = "/getByIdMaterial/{idMaterial}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<ReviewDTO> getByIdMaterial(@PathVariable int idMaterial) throws ReviewNotFoundException {
+    public List<ReviewDTO> getByIdMaterial(@PathVariable int idMaterial) throws ReviewNotFoundException {
         return reviewServices.getByIdMaterial(idMaterial);
     }
 

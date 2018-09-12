@@ -160,7 +160,7 @@ public class UserRestControllerTest {
         userDTO.setSurname("Mariani");
         userDTO.setName("Antonio");
         userDTO.setIdUser(1);
-        Set<UserDTO> userDTOS = new HashSet<>(0);
+        List<UserDTO> userDTOS = new ArrayList<>();
         userDTOS.add(userDTO);
 
         when(userServicesMock.getAll()).thenReturn(userDTOS);

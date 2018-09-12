@@ -125,7 +125,7 @@ public class MaterialServiceTest {
 
         when(materialRepository.findAll()).thenReturn(materials);
 
-        Set<MaterialDTO> materialDTOS = materialService.getAll();
+        List<MaterialDTO> materialDTOS = materialService.getAll();
         assertEquals(material.getLink(), materialDTOS.iterator().next().getLink());
     }
 
@@ -214,7 +214,7 @@ public class MaterialServiceTest {
 
         when(materialRepository.findMaterialsById_LessonIdLesson(1)).thenReturn(materials);
 
-        Set<MaterialDTO> materialDTOS = materialService.getByIdLesson(1);
+        List<MaterialDTO> materialDTOS = materialService.getByIdLesson(1);
         assertEquals(material.getName(), materialDTOS.iterator().next().getName());
     }
 
@@ -301,7 +301,7 @@ public class MaterialServiceTest {
 
         when(materialRepository.findMaterialsById_LessonTeachingIdTeaching(1)).thenReturn(materials);
 
-        Set<MaterialDTO> materialDTOS = materialService.getByIdTeaching(1);
+        List<MaterialDTO> materialDTOS = materialService.getByIdTeaching(1);
         assertEquals(material.getId().getLessonIdLesson(), materialDTOS.iterator().next().getIdLesson());
     }
 

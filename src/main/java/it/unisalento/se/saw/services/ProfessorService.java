@@ -36,8 +36,8 @@ public class ProfessorService implements IProfessorServices {
 
 
     @Transactional(readOnly = true)
-    public Set<ProfessorDTO> getAll() {
-        DTO<List<Professor>, Set<ProfessorDTO>> dto = dtoFactory.getDTO("SetProfessor");
+    public List<ProfessorDTO> getAll() {
+        DTO<List<Professor>, List<ProfessorDTO>> dto = dtoFactory.getDTO("SetProfessor");
         return dto.create(professorRepository.findAll());
     }
 
@@ -88,9 +88,9 @@ public class ProfessorService implements IProfessorServices {
         }
     }
 
-    public Set<ProfessorDTO> getByIdCourse(int id) throws ProfessorNotFoundException {
+    public List<ProfessorDTO> getByIdCourse(int id) throws ProfessorNotFoundException {
         try {
-            DTO<List<Professor>, Set<ProfessorDTO>> dto = dtoFactory.getDTO("SetProfessor");
+            DTO<List<Professor>, List<ProfessorDTO>> dto = dtoFactory.getDTO("SetProfessor");
             Course course = courseServices.getDomainById(id);
             List<Professor> professors = new ArrayList<>( course.getProfessors());
             return dto.create(professors);

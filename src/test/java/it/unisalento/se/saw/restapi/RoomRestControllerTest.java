@@ -13,7 +13,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
@@ -57,7 +59,7 @@ public class RoomRestControllerTest {
         roomDTO.setLatitude(0.568);
         roomDTO.setCapacity(100);
         roomDTO.setId(1);
-        Set<RoomDTO> roomDTOS = new HashSet<>(0);
+        List<RoomDTO> roomDTOS = new ArrayList<>();
         roomDTOS.add(roomDTO);
 
         when(roomServicesMock.getAll()).thenReturn(roomDTOS);
@@ -140,7 +142,7 @@ public class RoomRestControllerTest {
         roomDTO.setLatitude(0.568);
         roomDTO.setCapacity(100);
         roomDTO.setId(1);
-        Set<RoomDTO> roomDTOS = new HashSet<>(0);
+        List<RoomDTO> roomDTOS = new ArrayList<>();
         roomDTOS.add(roomDTO);
 
         when(roomServicesMock.getByCapacity(100)).thenReturn(roomDTOS);

@@ -5,16 +5,17 @@ import it.unisalento.se.saw.dto.CourseDTO;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.FactoryProducer;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class SetCourseDTOModel implements DTO<Set<Course>, Set<CourseDTO>> {
+public class SetCourseDTOModel implements DTO<List<Course>, List<CourseDTO>> {
     @Override
-    public Set<CourseDTO> create(Set<Course> courses) {
+    public List<CourseDTO> create(List<Course> courses) {
         AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
         DTO<Course, CourseDTO> dto = abstractFactory.getDTO("course");
-        Set<CourseDTO> courseDTOS = new HashSet<>(0);
+        List<CourseDTO> courseDTOS = new ArrayList<>(0);
         for (Course course: courses){
             courseDTOS.add(dto.create(course));
         }

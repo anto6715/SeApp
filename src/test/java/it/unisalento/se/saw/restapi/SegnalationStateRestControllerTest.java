@@ -20,7 +20,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
@@ -60,7 +62,7 @@ public class SegnalationStateRestControllerTest {
         SegnalationStateDTO segnalationStateDTO = new SegnalationStateDTO();
         segnalationStateDTO.setId(1);
         segnalationStateDTO.setState("inviata");
-        Set<SegnalationStateDTO> segnalationStateDTOS = new HashSet<>(0);
+        List<SegnalationStateDTO> segnalationStateDTOS = new ArrayList<>();
         segnalationStateDTOS.add(segnalationStateDTO);
 
         when(segnalationStateServicesMock.getAll()).thenReturn(segnalationStateDTOS);

@@ -170,7 +170,7 @@ public class ReviewServiceTest {
 
         when(reviewRepository.findAll()).thenReturn(reviews);
 
-        Set<ReviewDTO> reviewDTOS = reviewService.getAll();
+        List<ReviewDTO> reviewDTOS = reviewService.getAll();
         assertEquals(review.getId().getIdReview(), reviewDTOS.iterator().next().getId());
     }
 
@@ -299,7 +299,7 @@ public class ReviewServiceTest {
 
         when(reviewRepository.findReviewsByLesson_Id_IdLesson(1)).thenReturn(reviews);
 
-        Set<ReviewDTO> reviewDTOS = reviewService.getByIdLesson(1);
+        List<ReviewDTO> reviewDTOS = reviewService.getByIdLesson(1);
         assertEquals(review.getId().getIdReview(), reviewDTOS.iterator().next().getId());
     }
 
@@ -434,7 +434,7 @@ public class ReviewServiceTest {
 
         when(reviewRepository.findReviewsByMaterial_Id_IdMaterial(1)).thenReturn(reviews);
 
-        Set<ReviewDTO> reviewDTOS = reviewService.getByIdMaterial(1);
+        List<ReviewDTO> reviewDTOS = reviewService.getByIdMaterial(1);
         assertEquals(review.getId().getIdReview(), reviewDTOS.iterator().next().getId());
     }
 
@@ -569,7 +569,7 @@ public class ReviewServiceTest {
 
         when(reviewRepository.findReviewsById_ReviewTypeIdReviewType(1)).thenReturn(reviews);
 
-        Set<ReviewDTO> reviewDTOS = reviewService.getByType(1);
+        List<ReviewDTO> reviewDTOS = reviewService.getByType(1);
         assertEquals(review.getId().getIdReview(), reviewDTOS.iterator().next().getId());
     }
 

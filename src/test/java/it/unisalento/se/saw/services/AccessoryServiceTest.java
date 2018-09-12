@@ -60,7 +60,7 @@ public class AccessoryServiceTest {
         accessories.add(accessory);
         when(accessoryRepository.findAll()).thenReturn(accessories);
 
-        Set<AccessoryDTO> accessoryDTOS = accessoryService.getAll();
+        List<AccessoryDTO> accessoryDTOS = accessoryService.getAll();
 
         assertEquals(accessory.getId().getIdAccessory(), accessoryDTOS.iterator().next().getId());
 
@@ -93,7 +93,7 @@ public class AccessoryServiceTest {
         accessories.add(accessory);
         when(accessoryRepository.findAccessoriesById_RoomIdRoom(1)).thenReturn(accessories);
 
-        Set<AccessoryDTO> accessoryDTOS = accessoryService.getByIdRoom(1);
+        List<AccessoryDTO> accessoryDTOS = accessoryService.getByIdRoom(1);
 
         assertEquals(accessory.getId().getRoomIdRoom(), accessoryDTOS.iterator().next().getIdRoom());
 

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -21,7 +22,7 @@ public class AccessoryRestController {
 
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<AccessoryDTO> getAll() {
+    public List<AccessoryDTO> getAll() {
         return accessoryServices.getAll();
     }
 
@@ -31,7 +32,7 @@ public class AccessoryRestController {
     }
 
     @RequestMapping(value = "/getByIdRoom/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<AccessoryDTO> getByIdRoom(@PathVariable int id) {
+    public List<AccessoryDTO> getByIdRoom(@PathVariable int id) {
         return accessoryServices.getByIdRoom(id);
     }
 

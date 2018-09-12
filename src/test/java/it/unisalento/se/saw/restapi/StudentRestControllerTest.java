@@ -19,7 +19,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
@@ -64,7 +66,7 @@ public class StudentRestControllerTest {
         studentDTO.setMatricola("matricola");
         studentDTO.setYear(4);
         studentDTO.setUid("uid");
-        Set<StudentDTO> studentDTOS = new HashSet<>(0);
+        List<StudentDTO> studentDTOS = new ArrayList<>(0);
         studentDTOS.add(studentDTO);
 
         when(studentServicesMock.getAll()).thenReturn(studentDTOS);
@@ -94,7 +96,7 @@ public class StudentRestControllerTest {
         studentDTO.setMatricola("matricola");
         studentDTO.setYear(4);
         studentDTO.setUid("uid");
-        Set<StudentDTO> studentDTOS = new HashSet<>(0);
+        List<StudentDTO> studentDTOS = new ArrayList<>(0);
         studentDTOS.add(studentDTO);
 
         when(studentServicesMock.getByCourse(1)).thenReturn(studentDTOS);

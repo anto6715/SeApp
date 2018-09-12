@@ -82,7 +82,7 @@ public class SegnalationServiceTest {
         /******************************************************/
 
         /**************************Segnalation****************************/
-        SegnalationId segnalationId = new SegnalationId(1,1,1,1,1);
+        SegnalationId segnalationId = new SegnalationId(1,1,1,1);
         Segnalation segnalation = new Segnalation(segnalationId, professor,room,segnalationState);
         /******************************************************/
 
@@ -92,7 +92,7 @@ public class SegnalationServiceTest {
         when(segnalationRepository.findAll()).thenReturn(segnalations);
 
 
-        Set<SegnalationDTO> segnalationDTOS = segnalationService.getAll();
+        List<SegnalationDTO> segnalationDTOS = segnalationService.getAll();
         assertEquals(segnalation.getDescription(), segnalationDTOS.iterator().next().getDescription());
     }
 
@@ -134,7 +134,7 @@ public class SegnalationServiceTest {
         /******************************************************/
 
         /**************************Segnalation****************************/
-        SegnalationId segnalationId = new SegnalationId(1,1,1,1,1);
+        SegnalationId segnalationId = new SegnalationId(1,1,1,1);
         Segnalation segnalation = new Segnalation(segnalationId, professor,room,segnalationState);
         /******************************************************/
         List<Segnalation> segnalations = new ArrayList<>();
@@ -142,7 +142,7 @@ public class SegnalationServiceTest {
 
         when(segnalationRepository.findSegnalationsById_RoomIdRoom(1)).thenReturn(segnalations);
 
-        Set<SegnalationDTO> segnalationDTOS = segnalationService.getByRoom(1);
+        List<SegnalationDTO> segnalationDTOS = segnalationService.getByRoom(1);
         assertEquals(segnalation.getNote(), segnalationDTOS.iterator().next().getNote());
     }
 
@@ -184,7 +184,7 @@ public class SegnalationServiceTest {
         /******************************************************/
 
         /**************************Segnalation****************************/
-        SegnalationId segnalationId = new SegnalationId(1,1,1,1,1);
+        SegnalationId segnalationId = new SegnalationId(1,1,1,1);
         Segnalation segnalation = new Segnalation(segnalationId, professor,room,segnalationState,"note","description");
         /******************************************************/
         List<Segnalation> segnalations = new ArrayList<>();
@@ -192,7 +192,7 @@ public class SegnalationServiceTest {
 
         when(segnalationRepository.findSegnalationsById_ProfessorIdProfessor(1)).thenReturn(segnalations);
 
-        Set<SegnalationDTO> segnalationDTOS = segnalationService.getByProfessor(1);
+        List<SegnalationDTO> segnalationDTOS = segnalationService.getByProfessor(1);
         assertEquals(segnalation.getId().getIdSegnalation(), segnalationDTOS.iterator().next().getId());
     }
 
@@ -234,7 +234,7 @@ public class SegnalationServiceTest {
         /******************************************************/
 
         /**************************Segnalation****************************/
-        SegnalationId segnalationId = new SegnalationId(1,1,1,1,1);
+        SegnalationId segnalationId = new SegnalationId(1,1,1,1);
         Segnalation segnalation = new Segnalation();
         segnalation.setSegnalationState(segnalationState);
         segnalation.setId(segnalationId);
@@ -287,7 +287,7 @@ public class SegnalationServiceTest {
         /******************************************************/
 
         /**************************Segnalation****************************/
-        SegnalationId segnalationId = new SegnalationId(1,1,1,1,1);
+        SegnalationId segnalationId = new SegnalationId(1,1,1,1);
         Segnalation segnalation = new Segnalation();
         segnalation.setSegnalationState(segnalationState);
         segnalation.setId(segnalationId);
@@ -318,6 +318,7 @@ public class SegnalationServiceTest {
         user.setUid("uid");
         user.setAge(2);
         user.setEmail("email");
+        user.setName("Cosimo");
         /******************************************************/
 
         /*************************Professor*****************************/
@@ -329,6 +330,7 @@ public class SegnalationServiceTest {
         Professor professor = new Professor();
         professor.setUser(user);
         professor.setId(professorId);
+
 
         /******************************************************/
 
@@ -345,7 +347,7 @@ public class SegnalationServiceTest {
         /******************************************************/
 
         /**************************Segnalation****************************/
-        SegnalationId segnalationId = new SegnalationId(1,1,1,1,1);
+        SegnalationId segnalationId = new SegnalationId(1,1,1,1);
         Segnalation segnalation = new Segnalation();
         segnalation.setSegnalationState(segnalationState);
         segnalation.setId(segnalationId);
@@ -374,6 +376,8 @@ public class SegnalationServiceTest {
         segnalationDTO.setIdState(1);
         segnalationDTO.setProfessorDTO(professorDTO);
         segnalationDTO.setRoomDTO(roomDTO);
+        segnalationDTO.setIdProfessor(professorId.getIdProfessor());
+        segnalationDTO.setIdRoom(room.getIdRoom());
 
         /******************************************************/
 
@@ -391,4 +395,94 @@ public class SegnalationServiceTest {
 
 
     }
+
+    @Test
+    public void updateTest() throws ProfessorNotFoundException, RoomNotFoundException, SegnalationStateNotFoundException {
+
+        /*****************User*************************************/
+        User user = new User();
+        user.setIdUser(1);
+        user.setUserType(1);
+        user.setToken("token");
+        user.setUid("uid");
+        user.setAge(2);
+        user.setEmail("email");
+        user.setName("Cosimo");
+        /******************************************************/
+
+        /*************************Professor*****************************/
+
+        ProfessorId professorId = new ProfessorId();
+        professorId.setUserIdUser(1);
+        professorId.setIdProfessor(1);
+
+        Professor professor = new Professor();
+        professor.setUser(user);
+        professor.setId(professorId);
+
+
+        /******************************************************/
+
+        /**************************Room****************************/
+        Room room = new Room(1,"location","name",1,1,
+                null,null,null,null);
+        room.setIdRoom(1);
+        /******************************************************/
+
+        /***************************SegnalationState***************************/
+        SegnalationState segnalationState = new SegnalationState();
+        segnalationState.setIdSegnalationState(1);
+        segnalationState.setState("state");
+        /******************************************************/
+
+        /**************************Segnalation****************************/
+        SegnalationId segnalationId = new SegnalationId(1,1,1,1);
+        Segnalation segnalation = new Segnalation();
+        segnalation.setSegnalationState(segnalationState);
+        segnalation.setId(segnalationId);
+        segnalation.setNote("note");
+        segnalation.setRoom(room);
+        segnalation.setDescription("description");
+        segnalation.setProfessor(professor);
+        /******************************************************/
+
+        /*************************ProfessorDTO*****************************/
+        ProfessorDTO professorDTO = new ProfessorDTO();
+        professorDTO.setId(1);
+
+        /******************************************************/
+
+        /****************************RoomDTO**************************/
+        RoomDTO roomDTO = new RoomDTO();
+        roomDTO.setId(1);
+
+        /******************************************************/
+
+        /**************************SegnalationDTO****************************/
+        SegnalationDTO segnalationDTO = new SegnalationDTO();
+        segnalationDTO.setId(1);
+        segnalationDTO.setDescription("description");
+        segnalationDTO.setIdState(1);
+        segnalationDTO.setProfessorDTO(professorDTO);
+        segnalationDTO.setRoomDTO(roomDTO);
+        segnalationDTO.setIdProfessor(professorId.getIdProfessor());
+        segnalationDTO.setIdRoom(room.getIdRoom());
+
+        /******************************************************/
+
+        when(segnalationRepository.findSegnalationById_IdSegnalation(1)).thenReturn(segnalation);
+        when(segnalationStateService.getDomainById(1)).thenReturn(segnalationState);
+        when(segnalationRepository.save(any(Segnalation.class))).thenReturn(segnalation);
+
+
+
+        SegnalationDTO s = segnalationService.update(segnalationDTO);
+        assertEquals(segnalationDTO.getId(), s.getId());
+
+
+
+
+    }
+
+
 }

@@ -14,7 +14,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
@@ -60,7 +62,7 @@ public class CourseRestControllerTest {
         courseDTO.setLocation("Lecce");
         courseDTO.setLanguage("English");
         courseDTO.setName("name");
-        Set<CourseDTO> courseDTOS = new HashSet<>(0);
+        List<CourseDTO> courseDTOS = new ArrayList<>();
         courseDTOS.add(courseDTO);
 
         when(courseServicesMock.getAll()).thenReturn(courseDTOS);

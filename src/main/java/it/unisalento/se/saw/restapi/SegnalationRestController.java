@@ -27,7 +27,7 @@ public class SegnalationRestController {
 
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<SegnalationDTO> getAll() {
+    public List<SegnalationDTO> getAll() {
         return segnalationServices.getAll();
     }
 
@@ -52,12 +52,12 @@ public class SegnalationRestController {
     }
 
     @RequestMapping(value = "/getByRoom/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<SegnalationDTO> getByRoom(@PathVariable int id) {
+    public List<SegnalationDTO> getByRoom(@PathVariable int id) {
         return segnalationServices.getByRoom(id);
     }
 
     @RequestMapping(value = "/getByIdProfessor/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<SegnalationDTO> getByProfessor(@PathVariable int id) {
+    public List<SegnalationDTO> getByProfessor(@PathVariable int id) {
         return segnalationServices.getByProfessor(id);
     }
 }

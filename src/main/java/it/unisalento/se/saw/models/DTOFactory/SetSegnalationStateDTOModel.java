@@ -5,16 +5,17 @@ import it.unisalento.se.saw.dto.SegnalationStateDTO;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.FactoryProducer;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class SetSegnalationStateDTOModel implements DTO<List<SegnalationState>, Set<SegnalationStateDTO>> {
+public class SetSegnalationStateDTOModel implements DTO<List<SegnalationState>, List<SegnalationStateDTO>> {
     @Override
-    public Set<SegnalationStateDTO> create(List<SegnalationState> segnalationStates) {
+    public List<SegnalationStateDTO> create(List<SegnalationState> segnalationStates) {
         AbstractFactory abstractDTOFactory = FactoryProducer.getFactory("DTO");
         DTO<SegnalationState, SegnalationStateDTO> dto = abstractDTOFactory.getDTO("SegnalationState");
-        Set<SegnalationStateDTO> segnalationStateDTOS = new HashSet<>(0);
+        List<SegnalationStateDTO> segnalationStateDTOS = new ArrayList<>();
         for (SegnalationState segnalationState: segnalationStates) {
             segnalationStateDTOS.add(dto.create(segnalationState));
         }

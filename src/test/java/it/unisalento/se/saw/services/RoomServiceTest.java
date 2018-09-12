@@ -43,7 +43,7 @@ public class RoomServiceTest {
 
         when(roomRepository.findAll()).thenReturn(rooms);
 
-        Set<RoomDTO> roomDTOS = roomService.getAll();
+        List<RoomDTO> roomDTOS = roomService.getAll();
 
         assertEquals(room.getIdRoom(),(Integer) roomDTOS.iterator().next().getId());
 
@@ -65,7 +65,7 @@ public class RoomServiceTest {
 
         when(roomRepository.findRoomsByCapacity(1)).thenReturn(rooms);
 
-        Set<RoomDTO> roomDTOS = roomService.getByCapacity(1);
+        List<RoomDTO> roomDTOS = roomService.getByCapacity(1);
 
         assertEquals(room.getIdRoom(),(Integer) roomDTOS.iterator().next().getId());
 

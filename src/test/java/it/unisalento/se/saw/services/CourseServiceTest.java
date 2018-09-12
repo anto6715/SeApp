@@ -46,7 +46,7 @@ public class CourseServiceTest {
 
         when(courseRepository.findAll()).thenReturn(courses);
 
-        Set<CourseDTO> courseDTOS = courseService.getAll();
+        List<CourseDTO> courseDTOS = courseService.getAll();
         assertEquals(course.getIdCourse(), (Integer) courseDTOS.iterator().next().getId());
     }
 

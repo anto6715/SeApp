@@ -5,16 +5,17 @@ import it.unisalento.se.saw.dto.ReviewDTO;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.FactoryProducer;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class SetReviewDTOModel implements DTO<List<Review>, Set<ReviewDTO>> {
+public class SetReviewDTOModel implements DTO<List<Review>, List<ReviewDTO>> {
     @Override
-    public Set<ReviewDTO> create(List<Review> reviews) {
+    public List<ReviewDTO> create(List<Review> reviews) {
         AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
         DTO<Review, ReviewDTO> dto = abstractFactory.getDTO("review");
-        Set<ReviewDTO> reviewDTOS = new HashSet<>(0);
+        List<ReviewDTO> reviewDTOS = new ArrayList<>(0);
         for (Review review: reviews) {
             reviewDTOS.add(dto.create(review));
         }

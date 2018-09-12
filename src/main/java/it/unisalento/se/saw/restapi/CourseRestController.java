@@ -39,7 +39,7 @@ public class CourseRestController {
 
     @RequestMapping(value = "/getAll", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ManyToOne
-    public Set<CourseDTO> getAll() {
+    public List<CourseDTO> getAll() {
         return courseServices.getAll();
     }
 
@@ -49,8 +49,8 @@ public class CourseRestController {
     }
 
     @RequestMapping(value = "/getByIdProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Set<CourseDTO> getByIdProf(@PathVariable("id") int id) throws CourseNotFoundException, ProfessorNotFoundException {
-        DTO<Set<Course>, Set<CourseDTO>> dto = dtoFactory.getDTO("SETCOURSE");
+    public List<CourseDTO> getByIdProf(@PathVariable("id") int id) throws CourseNotFoundException, ProfessorNotFoundException {
+        DTO<Set<Course>, List<CourseDTO>> dto = dtoFactory.getDTO("SETCOURSE");
         return dto.create(professorServices.getDomainById(id).getCourses());
     }
 

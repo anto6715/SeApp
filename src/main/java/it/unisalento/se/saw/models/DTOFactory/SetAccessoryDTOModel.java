@@ -5,16 +5,17 @@ import it.unisalento.se.saw.dto.AccessoryDTO;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.FactoryProducer;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class SetAccessoryDTOModel implements DTO<List<Accessory>, Set<AccessoryDTO>> {
+public class SetAccessoryDTOModel implements DTO<List<Accessory>, List<AccessoryDTO>> {
     @Override
-    public Set<AccessoryDTO> create(List<Accessory> accessories) {
+    public List<AccessoryDTO> create(List<Accessory> accessories) {
         AbstractFactory abstractFactory = FactoryProducer.getFactory("DTO");
         DTO<Accessory, AccessoryDTO> dto = abstractFactory.getDTO("Accessory");
-        Set<AccessoryDTO> accessoryDTOS = new HashSet<>(0);
+        List<AccessoryDTO> accessoryDTOS = new ArrayList<>();
         for (Accessory accessory: accessories) {
             accessoryDTOS.add(dto.create(accessory));
         }

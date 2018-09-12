@@ -14,7 +14,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.hamcrest.Matchers.is;
@@ -59,7 +61,7 @@ public class MaterialRestControllerTest {
         materialDTO.setIdLesson(1);
         materialDTO.setIdUserProf(2);
         materialDTO.setId(3);
-        Set<MaterialDTO> materialDTOS = new HashSet<>(0);
+        List<MaterialDTO> materialDTOS = new ArrayList<>();
         materialDTOS.add(materialDTO);
 
         when(materialServicesMock.getAll()).thenReturn(materialDTOS);
@@ -87,7 +89,7 @@ public class MaterialRestControllerTest {
         materialDTO.setIdLesson(1);
         materialDTO.setIdUserProf(2);
         materialDTO.setId(3);
-        Set<MaterialDTO> materialDTOS = new HashSet<>(0);
+        List<MaterialDTO> materialDTOS = new ArrayList<>();
         materialDTOS.add(materialDTO);
 
         when(materialServicesMock.getByIdLesson(3)).thenReturn(materialDTOS);
@@ -115,7 +117,7 @@ public class MaterialRestControllerTest {
         materialDTO.setIdLesson(1);
         materialDTO.setIdUserProf(2);
         materialDTO.setId(3);
-        Set<MaterialDTO> materialDTOS = new HashSet<>(0);
+        List<MaterialDTO> materialDTOS = new ArrayList<>();
         materialDTOS.add(materialDTO);
 
         when(materialServicesMock.getByIdTeaching(3)).thenReturn(materialDTOS);

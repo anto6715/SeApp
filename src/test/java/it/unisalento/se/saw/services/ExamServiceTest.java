@@ -118,7 +118,7 @@ public class ExamServiceTest {
         System.out.println(exams.size());
         when(examRepository.findAll()).thenReturn(exams);
 
-        Set<ExamDTO> examDTOS = examService.getAll();
+        List<ExamDTO> examDTOS = examService.getAll();
 
         assertEquals(exam.getId().getIdExam(), examDTOS.iterator().next().getId());
     }

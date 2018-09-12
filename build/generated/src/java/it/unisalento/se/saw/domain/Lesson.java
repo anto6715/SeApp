@@ -100,9 +100,9 @@ public class Lesson  implements java.io.Serializable {
 
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumns( { 
-        @JoinColumn(name="Teaching_idTeaching", referencedColumnName="idTeaching", nullable=false, insertable=false, updatable=false), 
-        @JoinColumn(name="Teaching_Course_idCourse", referencedColumnName="Course_idCourse", nullable=false, insertable=false, updatable=false), 
-        @JoinColumn(name="Teaching_Professor_idProfessor", referencedColumnName="Professor_idProfessor", nullable=false, insertable=false, updatable=false), 
+        @JoinColumn(name="Teaching_idTeaching", referencedColumnName="idTeaching", nullable=false, insertable=false, updatable=false),
+        @JoinColumn(name="Teaching_Course_idCourse", referencedColumnName="Course_idCourse", nullable=false, insertable=false, updatable=false),
+        @JoinColumn(name="Teaching_Professor_idProfessor", referencedColumnName="Professor_idProfessor", nullable=false, insertable=false, updatable=false),
         @JoinColumn(name="Teaching_Professor_User_idUser", referencedColumnName="Professor_User_idUser", nullable=false, insertable=false, updatable=false) } )
     public Teaching getTeaching() {
         return this.teaching;
