@@ -9,11 +9,11 @@ public class LessonDTO {
     private int id;
     private int idTeaching;
     private int idRoom;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy",timezone = "Europe/Rome")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd",timezone = "Europe/Rome")
     private Date date;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss",timezone = "Europe/Rome")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm",timezone = "Europe/Rome")
     private Date start;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss",timezone = "Europe/Rome")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm",timezone = "Europe/Rome")
     private Date end;
     private RoomDTO roomDTO;
     private TeachingDTO teachingDTO;
