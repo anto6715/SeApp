@@ -95,6 +95,7 @@ public class ReviewService implements IReviewServices {
         reviewId.setStudentCourseIdCourse(student.getId().getCourseIdCourse());
         reviewId.setStudentUserIdUser(student.getId().getUserIdUser());
 
+
         Review review = new Review();
         review.setNote(reviewDTO.getNote());
         review.setRate(reviewDTO.getRate());
@@ -102,6 +103,9 @@ public class ReviewService implements IReviewServices {
         review.setLesson(lesson);
         review.setMaterial(material);
         review.setReviewType(reviewType);
+
+        System.out.println(review.getId().getReviewTypeIdReviewType());
+
 
         return reviewDto.create(reviewRepository.save(review));
     }

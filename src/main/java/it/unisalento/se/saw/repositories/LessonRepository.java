@@ -20,4 +20,5 @@ public interface LessonRepository extends JpaRepository<Lesson, LessonId> {
     public List<Lesson> findLessonsById_RoomIdRoom(int id);
     public List<Lesson> findLessonById_TeachingIdTeaching(int id);
     public List<Lesson> findLessonById_TeachingProfessorIdProfessorOrderByDateAsc(int id);
+    public Lesson findLessonByDateAndId_RoomIdRoomAndEndGreaterThan(Date date, int idRoom, Date end);
 }

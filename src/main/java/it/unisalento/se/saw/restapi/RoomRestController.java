@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -35,6 +38,15 @@ public class RoomRestController {
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public RoomDTO getById(@PathVariable int id) throws RoomNotFoundException {
         return roomServices.getById(id);
+    }
+
+    @RequestMapping(value = "/checkDisponibility/{date}_{id}_{end}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
+    public boolean checkDisponibility(@PathVariable("date") String date, @PathVariable("id") int id, @PathVariable("end") String end) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date dateObj = sdf.parse(date);
+        SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
+        Date endObj = sdf2.parse(end);
+        return roomServices.checkDisponibility(dateObj,id,endObj);
     }
 
     @RequestMapping(value = "/getByCapacity/{capacity}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

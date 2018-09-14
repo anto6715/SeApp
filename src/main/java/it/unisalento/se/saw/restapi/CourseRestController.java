@@ -17,6 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.ManyToOne;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -50,8 +51,9 @@ public class CourseRestController {
 
     @RequestMapping(value = "/getByIdProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CourseDTO> getByIdProf(@PathVariable("id") int id) throws CourseNotFoundException, ProfessorNotFoundException {
-        DTO<Set<Course>, List<CourseDTO>> dto = dtoFactory.getDTO("LISTCOURSE");
-        return dto.create(professorServices.getDomainById(id).getCourses());
+        DTO<List<Course>, List<CourseDTO>> dto = dtoFactory.getDTO("LISTCOURSE");
+        List<Course> courses = new ArrayList<>(professorServices.getDomainById(id).getCourses());
+        return dto.create(courses);
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)

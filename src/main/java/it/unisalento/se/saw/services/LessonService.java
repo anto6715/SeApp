@@ -34,7 +34,6 @@ public class LessonService implements ILessonServices {
     IRoomServices roomServices;
 
     AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
-    AbstractFactory domainFactory = FactoryProducer.getFactory("DOMAIN");
     DTO<List<Lesson>, List<LessonDTO>> listLessonDto = dtoFactory.getDTO("LISTLESSON");
     DTO<Lesson,LessonDTO> lessonDto = dtoFactory.getDTO("LESSON");
 
@@ -99,6 +98,7 @@ public class LessonService implements ILessonServices {
         lessonId.setTeachingCourseIdCourse(teaching.getId().getCourseIdCourse());
         lessonId.setTeachingProfessorIdProfessor(teaching.getId().getProfessorIdProfessor());
         lessonId.setTeachingProfessorUserIdUser(teaching.getId().getProfessorUserIdUser());
+        lessonId.setIdLesson(lessonDTO.getId());
 
         updateLesson.setId(lessonId);
         updateLesson.setRoom(room);

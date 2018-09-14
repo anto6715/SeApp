@@ -9,7 +9,6 @@ import it.unisalento.se.saw.dto.UserDTO;
 public class UserDomainModel implements Domain<Object, User> {
     @Override
     public User create(Object object) {
-        System.out.println(object.getClass());
         if (object.getClass() == ProfessorDTO.class){
             ProfessorDTO professorDTO = (ProfessorDTO) object;
             User user = new User();
@@ -60,7 +59,6 @@ public class UserDomainModel implements Domain<Object, User> {
             user.setUserType(userDTO.getUserType());
             user.setToken(userDTO.getToken());
             user.setIdUser(userDTO.getIdUser());
-            System.out.println("domain fine");
             return user;
         }
 
