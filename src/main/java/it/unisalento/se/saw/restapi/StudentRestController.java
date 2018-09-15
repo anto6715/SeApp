@@ -31,7 +31,7 @@ public class StudentRestController {
     }
 
     @RequestMapping(value = "getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public StudentDTO getById(@PathVariable("id") int id) throws StudentNotFoundException {
+    public StudentDTO getById(@PathVariable("id") int id) {
         try {
             return studentServices.getById(id);
         } catch (StudentNotFoundException e) {
@@ -42,7 +42,7 @@ public class StudentRestController {
 
 
     @RequestMapping(value = "getByUid/{uid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public StudentDTO getByUid(@PathVariable("uid") String uid) throws StudentNotFoundException {
+    public StudentDTO getByUid(@PathVariable("uid") String uid) {
         try {
             return studentServices.getByUid(uid);
         } catch (StudentNotFoundException e) {
@@ -58,7 +58,7 @@ public class StudentRestController {
 
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public StudentDTO post(@RequestBody StudentDTO studentDTO) throws CourseNotFoundException {
+    public StudentDTO post(@RequestBody StudentDTO studentDTO) {
         return studentServices.save(studentDTO);
     }
 }

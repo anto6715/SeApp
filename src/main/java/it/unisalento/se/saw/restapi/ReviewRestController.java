@@ -30,7 +30,7 @@ public class ReviewRestController {
     }
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ReviewDTO getById(@PathVariable int id) throws ReviewNotFoundException {
+    public ReviewDTO getById(@PathVariable int id) {
       try {
           return reviewServices.getById(id);
       } catch (ReviewNotFoundException e) {
@@ -41,17 +41,17 @@ public class ReviewRestController {
     }
 
     @RequestMapping(value = "/getByIdLesson/{idLesson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ReviewDTO> getByIdLesson(@PathVariable int idLesson) throws ReviewNotFoundException {
+    public List<ReviewDTO> getByIdLesson(@PathVariable int idLesson) {
         return reviewServices.getByIdLesson(idLesson);
     }
 
     @RequestMapping(value = "/getByIdMaterial/{idMaterial}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ReviewDTO> getByIdMaterial(@PathVariable int idMaterial) throws ReviewNotFoundException {
+    public List<ReviewDTO> getByIdMaterial(@PathVariable int idMaterial) {
         return reviewServices.getByIdMaterial(idMaterial);
     }
 
     @RequestMapping(value = "/getByIdStudentAndIdMaterial/{idStudent}_{idMaterial}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ReviewDTO getByIdStudentAndIdMaterial(@PathVariable("idStudent") int idStudent, @PathVariable("idMaterial") int idMaterial) throws ReviewNotFoundException {
+    public ReviewDTO getByIdStudentAndIdMaterial(@PathVariable("idStudent") int idStudent, @PathVariable("idMaterial") int idMaterial) {
         try {
             return reviewServices.getByIdStudentAndIdMaterial(idStudent,idMaterial);
         } catch (ReviewNotFoundException e) {
@@ -61,7 +61,7 @@ public class ReviewRestController {
     }
 
     @RequestMapping(value = "/getByIdStudentAndIdLesson/{idStudent}_{idLesson}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ReviewDTO getByIdStudentAndIdLesson(@PathVariable("idStudent") int idStudent, @PathVariable("idLesson") int idLesson) throws ReviewNotFoundException {
+    public ReviewDTO getByIdStudentAndIdLesson(@PathVariable("idStudent") int idStudent, @PathVariable("idLesson") int idLesson) {
         try {
             return reviewServices.getByIdStudentAndIdLesson(idStudent,idLesson);
         } catch (ReviewNotFoundException e) {

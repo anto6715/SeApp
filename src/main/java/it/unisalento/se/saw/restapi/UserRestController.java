@@ -53,7 +53,7 @@ public class UserRestController {
 
 
     @RequestMapping(value = "/getById/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserDTO getById(@PathVariable("id") int id) throws UserNotFoundException {
+    public UserDTO getById(@PathVariable("id") int id) {
         try {
             return userServices.getById(id);
         } catch (UserNotFoundException e) {
@@ -75,7 +75,7 @@ public class UserRestController {
 
     }
 
-    @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)      // va usata la domain factory
+    @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
     public UserDTO save(@RequestBody UserDTO userDTO) {
         return userServices.save(userDTO);
     }

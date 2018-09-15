@@ -5,9 +5,6 @@ import it.unisalento.se.saw.Iservices.IProfessorServices;
 import it.unisalento.se.saw.Iservices.ISecretaryServices;
 import it.unisalento.se.saw.Iservices.IStudentServices;
 import it.unisalento.se.saw.Iservices.IUserServices;
-import it.unisalento.se.saw.domain.Professor;
-import it.unisalento.se.saw.domain.Secretary;
-import it.unisalento.se.saw.domain.Student;
 import it.unisalento.se.saw.domain.User;
 import it.unisalento.se.saw.dto.*;
 import it.unisalento.se.saw.exceptions.ProfessorNotFoundException;
@@ -24,7 +21,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class UserService implements IUserServices {

@@ -9,6 +9,8 @@ import it.unisalento.se.saw.exceptions.TeachingNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.DTOFactory.DTO;
 import it.unisalento.se.saw.models.FactoryProducer;
+import it.unisalento.se.saw.models.Strategy.Context;
+import it.unisalento.se.saw.models.Strategy.DateParseStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -67,16 +69,16 @@ public class LessonRestController {
     }
 
     @RequestMapping(value = "/getByDate/{date}_{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
-    public List<LessonDTO> getByDateAndIdCourse(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date dateObj = sdf.parse(date);
+    public List<LessonDTO> getByDateAndIdCourse(@PathVariable("date") String date, @PathVariable("id") int id)  {
+        Context context = new Context((new DateParseStrategy()));
+        Date dateObj= context.executeDateStrategy(date);
         return lessonServices.getByDate(dateObj,id);
     }
 
     @RequestMapping(value = "/getByDateAndIdProf/{date}_{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
-    public List<LessonDTO> getByDateAndIdProfessor(@PathVariable("date") String date, @PathVariable("id") int id) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date dateObj = sdf.parse(date);
+    public List<LessonDTO> getByDateAndIdProfessor(@PathVariable("date") String date, @PathVariable("id") int id)  {
+        Context context = new Context((new DateParseStrategy()));
+        Date dateObj= context.executeDateStrategy(date);
         return lessonServices.getByDateAndIdProfessor(dateObj,id);
     }
 }

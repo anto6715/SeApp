@@ -15,17 +15,17 @@ public class FactoryProducer {
         if (abstractFactory == null) {
             if(choice.equalsIgnoreCase("DTO")) {
                 AbstractFactory dtoFactory = new DtoFactory();
-                factoryMap.put(dtoFactory, choice);
+                factoryMap.put(choice, dtoFactory);
                 return new DtoFactory();
             }
 
             if(choice.equalsIgnoreCase("DOMAIN")) {
                 AbstractFactory domainFactory = new DomainFactory();
-                factoryMap.put(domainFactory, choice);
+                factoryMap.put(choice, domainFactory);
                 return domainFactory;
             }
         }
 
-        return null;
+        return abstractFactory;
     }
 }

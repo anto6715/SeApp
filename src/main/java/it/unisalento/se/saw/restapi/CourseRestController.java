@@ -32,7 +32,8 @@ public class CourseRestController {
     IProfessorServices professorServices;
 
 
-    AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");;
+    AbstractFactory dtoFactory = FactoryProducer.getFactory("DTO");
+    DTO<List<Course>, List<CourseDTO>> listCourseDto = dtoFactory.getDTO("LISTCOURSE");
 
     public CourseRestController(ICourseServices courseServices) {
         this.courseServices = courseServices;
@@ -51,9 +52,8 @@ public class CourseRestController {
 
     @RequestMapping(value = "/getByIdProf/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CourseDTO> getByIdProf(@PathVariable("id") int id) throws CourseNotFoundException, ProfessorNotFoundException {
-        DTO<List<Course>, List<CourseDTO>> dto = dtoFactory.getDTO("LISTCOURSE");
         List<Course> courses = new ArrayList<>(professorServices.getDomainById(id).getCourses());
-        return dto.create(courses);
+        return listCourseDto.create(courses);
     }
 
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)

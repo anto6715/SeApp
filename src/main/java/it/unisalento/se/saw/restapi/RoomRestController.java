@@ -7,6 +7,9 @@ import it.unisalento.se.saw.exceptions.RoomNotFoundException;
 import it.unisalento.se.saw.models.AbstractFactory;
 import it.unisalento.se.saw.models.DTOFactory.DTO;
 import it.unisalento.se.saw.models.FactoryProducer;
+import it.unisalento.se.saw.models.Strategy.Context;
+import it.unisalento.se.saw.models.Strategy.DateParseStrategy;
+import it.unisalento.se.saw.models.Strategy.TimeParseStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -42,10 +45,11 @@ public class RoomRestController {
 
     @RequestMapping(value = "/checkDisponibility/{date}_{id}_{end}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
     public boolean checkDisponibility(@PathVariable("date") String date, @PathVariable("id") int id, @PathVariable("end") String end) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date dateObj = sdf.parse(date);
-        SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
-        Date endObj = sdf2.parse(end);
+        Context context = new Context((new TimeParseStrategy()));
+        Date endObj= context.executeDateStrategy(end);
+
+        context.changeStrategy(new DateParseStrategy());
+        Date dateObj = context.executeDateStrategy(date);
         return roomServices.checkDisponibility(dateObj,id,endObj);
     }
 
