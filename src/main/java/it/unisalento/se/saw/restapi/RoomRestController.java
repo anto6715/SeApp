@@ -43,14 +43,18 @@ public class RoomRestController {
         return roomServices.getById(id);
     }
 
-    @RequestMapping(value = "/checkDisponibility/{date}_{id}_{end}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
-    public boolean checkDisponibility(@PathVariable("date") String date, @PathVariable("id") int id, @PathVariable("end") String end) throws ParseException {
+    @RequestMapping(value = "/checkDisponibility/{date}_{id}_{start}_{end}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, headers = "Accept=application/json")
+    public boolean checkDisponibility(@PathVariable("date") String date, @PathVariable("id") int id, @PathVariable("start") String start,@PathVariable("end") String end) throws ParseException {
         Context context = new Context((new TimeParseStrategy()));
         Date endObj= context.executeDateStrategy(end);
+        Date startObj = context.executeDateStrategy(start);
+        startObj.setMinutes(startObj.getMinutes()+1);
+        endObj.setMinutes(endObj.getMinutes()-1);
+        System.out.println(endObj);
 
         context.changeStrategy(new DateParseStrategy());
         Date dateObj = context.executeDateStrategy(date);
-        return roomServices.checkDisponibility(dateObj,id,endObj);
+        return roomServices.checkDisponibility(dateObj,id,startObj,endObj);
     }
 
     @RequestMapping(value = "/getByCapacity/{capacity}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

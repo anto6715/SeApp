@@ -64,9 +64,11 @@ public class RoomService implements IRoomServices {
     }
 
     @Transactional
-    public boolean checkDisponibility(Date date, int id, Date end) {
-        List<Lesson> lessons = lessonRepository.findLessonsByDateAndId_RoomIdRoomAndEndGreaterThan(date, id, end);
-        if (lessons.size() == 0) return true;
+    public boolean checkDisponibility(Date date, int id, Date start, Date end) {
+        List<Lesson> lessonsStart = lessonRepository.findLessonsByDateAndId_RoomIdRoomAndStartBetween(date, id, start,end);
+        List<Lesson> lessonsEnd = lessonRepository.findLessonsByDateAndId_RoomIdRoomAndEndBetween(date, id, start,end);
+
+        if (lessonsStart.size() == 0 && lessonsEnd.size()== 0) return true;
         else  return false;
     }
 }

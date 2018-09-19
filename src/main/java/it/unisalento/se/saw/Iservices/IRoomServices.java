@@ -15,5 +15,5 @@ public interface IRoomServices {
     public Room getDomainById(int id) throws RoomNotFoundException;
     public List<RoomDTO> getByCapacity(int capacity);
     public RoomDTO save(RoomDTO roomDTO);
-    public boolean checkDisponibility(Date date, int id, Date end);
+    public boolean checkDisponibility(Date date, int id, Date start,Date end);
 }
